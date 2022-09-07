@@ -1,6 +1,6 @@
 ################################################################################
 # Filename: lda_classifier.py
-# Description: This file is a template for easy creation of new experiments.
+# Description: This file classifies flares using LDA.
 ################################################################################
 
 # Custom Imports
@@ -23,15 +23,15 @@ def main() -> None:
     # ------------------------------------------------------------------------
     # Pre-process the data for the experiment.
     # Afterwards, place this data in `cleaned_data_directory`.
-    needed_where = 12
-    average_over = 6
+    needed_where = 8
+    average_over = 12
 
     needed_flare_classes = FLARE_CLASSES[1:]
     print(needed_flare_classes)
-    flare_dataframes = [
-        get_ar_properties(flare_class, needed_where, average_over)
-        for flare_class in needed_flare_classes
-    ]
+    # flare_dataframes = [
+    #     get_ar_properties(flare_class, needed_where, average_over)
+    #     for flare_class in needed_flare_classes
+    # ]
 
     # Get the time window of the experiment for metadata.
     lo_time = int(24 - (needed_where + average_over // 2))
@@ -39,44 +39,51 @@ def main() -> None:
     time_window = f"{lo_time}h_{hi_time}h"
     time_window_caption = time_window.replace("_", "-")
 
-    # Save our original data.
-    for flare_class, df in zip(needed_flare_classes, flare_dataframes):
-        df.to_csv(f"{cleaned_data_directory}{flare_class.lower()}_"
-                  f"{time_window}_mean_dataset_{now_string}.csv")
+    # # Save our original data.
+    # for flare_class, df in zip(needed_flare_classes, flare_dataframes):
+    #     df.to_csv(f"{cleaned_data_directory}{flare_class.lower()}_"
+    #               f"{time_window}_mean_dataset_{now_string}.csv")
 
     # Perform LDA with two classes: B and MX.
-    b_df, mx_df = tuple(flare_dataframes)
+    b_df, mx_df = \
+        pd.read_csv(f"{cleaned_data_directory}b_10h_22h_mean_dataset_07_09_2022_13_42_35.csv"), \
+        pd.read_csv(f"{cleaned_data_directory}mx_10h_22h_mean_dataset_07_09_2022_13_42_35.csv")
     b_df = b_df.loc[b_df["xray_class"] == "B"]
     mx_df["xray_class"] = "MX"
     bmx_df = pd.concat([b_df, mx_df]).dropna()
 
-    target = bmx_df["xray_class"]
-
-    train, test = train_test_split(bmx_df, test_size=0.3)
+    # target = bmx_df["xray_class"]
+    #
+    # train, test = train_test_split(bmx_df, test_size=0.0)
 
     lda = LinearDiscriminantAnalysis()
-    components = lda.fit_transform(train[FLARE_PROPERTIES], train["xray_class"])
+    components = lda.fit_transform(bmx_df[FLARE_PROPERTIES], bmx_df["xray_class"])
 
     ld_labels = [f"LD{i + 1}" for i in range(1)]
     lda_df = pd.DataFrame(components, columns=ld_labels)
-    lda_df["xray_class"] = list(train["xray_class"])
+    lda_df["xray_class"] = list(bmx_df["xray_class"])
 
     b_df = lda_df.loc[lda_df["xray_class"] == "B"]
+    b_count = b_df.shape[0]
     mx_df = lda_df.loc[lda_df["xray_class"] == "MX"]
+    mx_count = mx_df.shape[0]
 
     b_centroid = b_df["LD1"].mean()
     mx_centroid = mx_df["LD1"].mean()
     midpoint = (b_centroid + mx_centroid) / 2
 
-    test_lda = LinearDiscriminantAnalysis()
-    test_components = test_lda.fit_transform(test[FLARE_PROPERTIES], test["xray_class"])
+    # test_lda = LinearDiscriminantAnalysis()
+    # test_components = test_lda.fit_transform(test[FLARE_PROPERTIES], test["xray_class"])
+    #
+    # ld_labels = [f"LD{i + 1}" for i in range(1)]
+    # test_lda_df = pd.DataFrame(test_components, columns=ld_labels)
+    # test_lda_df["xray_class"] = list(test["xray_class"])
 
-    ld_labels = [f"LD{i + 1}" for i in range(1)]
-    test_lda_df = pd.DataFrame(test_components, columns=ld_labels)
-    test_lda_df["xray_class"] = list(test["xray_class"])
+    # b_df = test_lda_df.loc[test_lda_df["xray_class"] == "B"]
+    # mx_df = test_lda_df.loc[test_lda_df["xray_class"] == "MX"]
 
-    b_df = test_lda_df.loc[test_lda_df["xray_class"] == "B"]
-    mx_df = test_lda_df.loc[test_lda_df["xray_class"] == "MX"]
+    b_df = lda_df.loc[lda_df["xray_class"] == "B"]
+    mx_df = lda_df.loc[lda_df["xray_class"] == "MX"]
 
     # sns.set_palette(sns.color_palette(["#FF0B04", "#4374B3"]))
     fig, ax = plt.subplots()
@@ -100,7 +107,8 @@ def main() -> None:
     plt.show()
 
     y_pred = []
-    for index, row in test_lda_df.iterrows():
+    df = pd.concat([b_df, mx_df])
+    for index, row in df.iterrows():
         x = row["LD1"]
         if x <= midpoint:
             y_pred.append("B")
@@ -108,7 +116,7 @@ def main() -> None:
             y_pred.append("MX")
 
     from sklearn.metrics import confusion_matrix
-    tp, fn, fp, tn = confusion_matrix(test["xray_class"], y_pred).ravel()
+    tp, fn, fp, tn = confusion_matrix(bmx_df["xray_class"], y_pred).ravel()
 
     # calculate accuracy
     conf_accuracy = (float(tp + tn) / float(tp + tn + fp + fn))
@@ -128,6 +136,9 @@ def main() -> None:
 
     with open(f"{other_directory}b_mx_{time_window}_mean_classification_metrics_{now_string}.txt", "w", newline="\n") as f:
         f.write("Classification Metrics\n")
+        f.write('-' * 50 + "\n")
+        f.write(f"Total # of B Flares: {b_count}\n")
+        f.write(f"Total # of MX Flares: {mx_count}\n")
         f.write("Training Size: 0.7\n")
         f.write("Testing Size: 0.3\n")
         f.write('-' * 50 + "\n")
