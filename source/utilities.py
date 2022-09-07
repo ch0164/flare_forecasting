@@ -96,6 +96,7 @@ def get_ar_properties(flare_class: str,
     """
     flare_list_df = get_dataframe(
         f"{FLARE_LIST_DIRECTORY}{flare_class.lower()}_list.txt")
+    flare_list_df["xray_class"] = flare_list_df["xray_class"].apply(classify_flare)
     flare_data_df = get_dataframe(
         f"{FLARE_DATA_DIRECTORY}{flare_class.lower()}_data.txt")
 
