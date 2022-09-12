@@ -8,6 +8,7 @@ import datetime as dt
 import os
 import random
 import string
+import sys
 import warnings
 
 from datetime import datetime
@@ -23,7 +24,9 @@ import seaborn as sns
 from pandas.core.common import SettingWithCopyWarning
 
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.metrics import confusion_matrix, classification_report
 from sklearn.model_selection import train_test_split
+from sklearn.pipeline import make_pipeline
 
 # Custom Imports
 from source.constants import *

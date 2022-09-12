@@ -126,7 +126,8 @@ def get_ar_properties(flare_class: str,
                       hi_time: int = 22,
                       cleaned_data_directory: str = "",
                       now_string: str = "",
-                      wipe_old_data: bool = False) -> pd.DataFrame():
+                      wipe_old_data: bool = False,
+                      use_time_window: bool = True) -> pd.DataFrame():
     """
     Args:
         flare_class: The flare class used to partition the dataset.
@@ -143,13 +144,15 @@ def get_ar_properties(flare_class: str,
         class, with AR properties appended as columns to each "good" flare.
     """
     #
+    time_window = get_time_window(lo_time, hi_time)
+
     if wipe_old_data:
         for file in os.listdir(cleaned_data_directory):
             if now_string not in file:
-                os.remove(f"{cleaned_data_directory}{file}")
+                if use_time_window and time_window not in file:
+                    os.remove(f"{cleaned_data_directory}{file}")
 
     # Determine if data already exists for this flare class and time window.
-    time_window = get_time_window(lo_time, hi_time)
     flare_dataset_file = get_cleaned_data_filename(flare_class,
                                                    time_window,
                                                    cleaned_data_directory)
@@ -158,8 +161,12 @@ def get_ar_properties(flare_class: str,
         flare_list_df = pd.read_csv(flare_dataset_file)
         return flare_list_df
 
-    flare_list_df = get_dataframe(
-        f"{FLARE_LIST_DIRECTORY}{flare_class.lower()}_list.txt")
+    if flare_class != "NULL" and use_time_window:
+        filename = f"{FLARE_LIST_DIRECTORY}{time_window}/" \
+                   f"{flare_class.lower()}_list.txt"
+    else:
+        filename = f"{FLARE_LIST_DIRECTORY}{flare_class.lower()}_list.txt"
+    flare_list_df = get_dataframe(filename)
     flare_list_df["xray_class"] = flare_list_df["xray_class"].apply(classify_flare)
     flare_data_df = get_dataframe(
         f"{FLARE_DATA_DIRECTORY}{flare_class.lower()}_data.txt")
