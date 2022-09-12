@@ -9,7 +9,7 @@ from source.common_imports import *
 # ---------------------------------------------------------------------------
 # --- Flare Functions
 
-def classify_flare(magnitude: str) -> str:
+def classify_flare(magnitude: str, combine: bool = False) -> str:
     """
     Args:
         magnitude: The magnitude of a flare (e.g., X6.1).
@@ -23,8 +23,12 @@ def classify_flare(magnitude: str) -> str:
     elif "C" in magnitude:
         return "C"
     elif "M" in magnitude:
+        if combine:
+            return "MX"
         return "M"
     else:
+        if combine:
+            return "MX"
         return "X"
 
 
@@ -43,6 +47,7 @@ def get_dataframe(filename: str) -> pd.DataFrame():
         df = pd.read_csv(filename, header=0, index_col="index")
         df['time_start'] = pd.to_datetime(df['time_start'],
                                           format='%Y-%m-%d %H:%M:%S')
+        df["xray_class"] = df["xray_class"].apply(classify_flare)
     elif "data" in filename:
         df = pd.read_csv(filename, header=0, delimiter=r"\s+")
         df['T_REC'] = pd.to_datetime(df['T_REC'],
