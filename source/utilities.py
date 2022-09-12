@@ -2,6 +2,7 @@
 # Filename: utilities.py
 # Description: This file contains utility functions common to each experiment.
 ################################################################################
+import os.path
 
 from source.common_imports import *
 
@@ -26,10 +27,45 @@ def classify_flare(magnitude: str, combine: bool = False) -> str:
         if combine:
             return "MX"
         return "M"
-    else:
+    elif "X" in magnitude:
         if combine:
             return "MX"
         return "X"
+    else:
+        return "N"
+
+
+def get_time_window(lo_time: int = 10, hi_time: int = 22):
+    """
+    Args:
+        lo_time:
+        hi_time:
+
+    Returns:
+
+    """
+    return f"{lo_time}h_{hi_time}h"
+
+
+def get_cleaned_data_filename(flare_class: str,
+                              time_window: str,
+                              cleaned_data_directory: str,):
+    """
+    Args:
+        flare_class:
+        time_window:
+        cleaned_data_directory:
+
+    Returns: If there is data at the cleaned_data_directory for the experiment,
+             this function returns the first dataset that
+
+    """
+    if os.path.exists(cleaned_data_directory):
+        for file in os.listdir(cleaned_data_directory):
+            if f"{flare_class.lower()}_{time_window}_mean_dataset" in file:
+                return f"{cleaned_data_directory}{file}"
+    else:
+        return ""
 
 
 def get_dataframe(filename: str) -> pd.DataFrame():
@@ -60,8 +96,8 @@ def get_dataframe(filename: str) -> pd.DataFrame():
 
 def filter_data(df: pd.DataFrame(),
                 nar: int,
-                time_range_lo: datetime,
-                time_range_hi: datetime) -> pd.DataFrame():
+                time_range_lo: pd.Timestamp,
+                time_range_hi: pd.Timestamp) -> pd.DataFrame():
     """
     Args:
         df: The dataframe to apply a custom filter.
@@ -86,31 +122,53 @@ def filter_data(df: pd.DataFrame(),
 
 
 def get_ar_properties(flare_class: str,
-                      needed_where: int,
-                      average_over: int) -> pd.DataFrame():
+                      lo_time: int = 10,
+                      hi_time: int = 22,
+                      cleaned_data_directory: str = "",
+                      now_string: str = "",
+                      wipe_old_data: bool = False) -> pd.DataFrame():
     """
     Args:
         flare_class: The flare class used to partition the dataset.
-        needed_where: How much ahead AR properties are needed (in hours).
-        average_over: What should be the averaging window centered on this time
-                      (in hours).
+        lo_time: The beginning of the time window for the time series
+                 before flare onset.
+                 Valid values are in range 0-24.
+        hi_time: The end of the time window for the time series
+                 before flare onset.
+                 Valid values are in range 0-24.
+        cleaned_data_directory: The directory which contains
 
     Returns:
         A filtered dataframe with corresponding to the flare list of the same
         class, with AR properties appended as columns to each "good" flare.
     """
+    #
+    if wipe_old_data:
+        for file in os.listdir(cleaned_data_directory):
+            if now_string not in file:
+                os.remove(f"{cleaned_data_directory}{file}")
+
+    # Determine if data already exists for this flare class and time window.
+    time_window = get_time_window(lo_time, hi_time)
+    flare_dataset_file = get_cleaned_data_filename(flare_class,
+                                                   time_window,
+                                                   cleaned_data_directory)
+    # If so, then don't compute anything and return this data instead.
+    if flare_dataset_file:
+        flare_list_df = pd.read_csv(flare_dataset_file)
+        return flare_list_df
+
     flare_list_df = get_dataframe(
         f"{FLARE_LIST_DIRECTORY}{flare_class.lower()}_list.txt")
+    flare_list_df["xray_class"] = flare_list_df["xray_class"].apply(classify_flare)
     flare_data_df = get_dataframe(
         f"{FLARE_DATA_DIRECTORY}{flare_class.lower()}_data.txt")
 
     for index, row in flare_list_df.iterrows():
         print(f"Computing {flare_class} Flare {index}/{flare_list_df.shape[0]}")
         nar = row['nar']
-        time_range_lo = row['time_start'] - \
-            timedelta(hours=(needed_where + average_over / 2))
-        time_range_hi = row['time_start'] - \
-            timedelta(hours=(needed_where - average_over / 2))
+        time_range_lo = row['time_start'] - timedelta(hours=hi_time)
+        time_range_hi = row['time_start'] - timedelta(hours=lo_time)
 
         needed_slice = filter_data(flare_data_df,
                                    nar,
@@ -122,6 +180,12 @@ def get_ar_properties(flare_class: str,
             if column not in ["T_REC", "NOAA_AR", "QUALITY"] + LLA_HEADERS:
                 flare_list_df.loc[index, column] = needed_slice_avg.loc[
                     0, column]
+
+    # Save the dataset before exiting this function.
+    filename = f"{cleaned_data_directory}" + \
+               f"{flare_class.lower()}_{time_window}_mean_dataset_" + \
+               f"{now_string}.csv"
+    flare_list_df.to_csv(filename)
 
     return flare_list_df
 

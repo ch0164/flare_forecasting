@@ -1,0 +1,12 @@
+Classification Metrics
+--------------------------------------------------
+Total # of B Flares: 529
+Total # of MX Flares: 509
+--------------------------------------------------
+Accuracy: 0.95
+B Recall/Sensitivity: 0.98
+MX Recall/Specificity: 0.93
+Precision: 0.93
+False Alarm Rate: 0.07
+f_1 Score: 0.95
+TSS: 0.91
