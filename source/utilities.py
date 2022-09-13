@@ -127,7 +127,8 @@ def get_ar_properties(flare_class: str,
                       cleaned_data_directory: str = "",
                       now_string: str = "",
                       wipe_old_data: bool = False,
-                      use_time_window: bool = True) -> pd.DataFrame():
+                      use_time_window: bool = True,
+                      coincidence_time_window: str = "") -> pd.DataFrame():
     """
     Args:
         flare_class: The flare class used to partition the dataset.
@@ -162,8 +163,12 @@ def get_ar_properties(flare_class: str,
         return flare_list_df
 
     if flare_class != "NULL" and use_time_window:
-        filename = f"{FLARE_LIST_DIRECTORY}{time_window}/" \
-                   f"{flare_class.lower()}_list.txt"
+        if coincidence_time_window:
+            filename = f"{FLARE_LIST_DIRECTORY}{coincidence_time_window}/" \
+                       f"{flare_class.lower()}_list.txt"
+        else:
+            filename = f"{FLARE_LIST_DIRECTORY}{time_window}/" \
+                       f"{flare_class.lower()}_list.txt"
     else:
         filename = f"{FLARE_LIST_DIRECTORY}{flare_class.lower()}_list.txt"
     flare_list_df = get_dataframe(filename)

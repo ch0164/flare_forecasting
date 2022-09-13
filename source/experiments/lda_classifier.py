@@ -44,7 +44,8 @@ def main() -> None:
                           cleaned_data_directory,
                           now_string,
                           wipe_old_data=True,
-                          use_time_window=True
+                          use_time_window=True,
+                          coincidence_time_window="0h_24h"
         )
         for flare_class in FLARE_CLASSES
     ]

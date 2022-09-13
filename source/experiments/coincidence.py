@@ -17,8 +17,8 @@ def main() -> None:
 
     # ------------------------------------------------------------------------
     # Determine the time window on which to calculate flare coincidence.
-    time_interval = 18
-    lo_time = 5
+    time_interval = 24
+    lo_time = 0
     hi_time = lo_time + time_interval
     lo_time_complement = 24 - lo_time
     hi_time_complement = 24 - hi_time
