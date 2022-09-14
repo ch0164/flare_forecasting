@@ -22,6 +22,7 @@ import pandas as pd
 import seaborn as sns
 
 from pandas.core.common import SettingWithCopyWarning
+from pandas.plotting import parallel_coordinates
 
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.metrics import confusion_matrix, classification_report

@@ -52,10 +52,15 @@ def main() -> None:
     null_df["xray_class"] = "N"
     print(null_df.dropna())
 
-    train_b_df, test_b_df = train_test_split(train_b_df, test_size=0.5)
+    b_test_size = 0.3
+    train_b_df, test_b_df = train_test_split(train_b_df, test_size=b_test_size)
     train = pd.concat([train_b_df, train_mx_df]).dropna()
     train_target = train["xray_class"]
     test = pd.concat([null_df, test_b_df]).dropna()
+
+    print(test.iloc[[55, 145, 194]].to_string())
+    exit(1)
+
     test_target = test["xray_class"]
 
     train_lda = LinearDiscriminantAnalysis()
@@ -81,70 +86,67 @@ def main() -> None:
 
     ld_labels = [f"LD{i + 1}" for i in range(1)]
     test_lda_df = pd.DataFrame(test_components, columns=ld_labels)
-    test_target = test_lda_df["xray_class"] = "NB"
+    test_lda_df["xray_class"] = list(test["xray_class"])
 
     # sns.set_palette(sns.color_palette(["#FF0B04", "#4374B3"]))
     fig, ax = plt.subplots()
     train_b_df["jitter"] = [random.uniform(0, 1) for _ in range(train_b_df.shape[0])]
     train_mx_df["jitter"] = [random.uniform(0, 1) for _ in range(train_mx_df.shape[0])]
     test_lda_df["jitter"] = [random.uniform(0, 1) for _ in range(test_lda_df.shape[0])]
-    print(test_lda_df)
+
+    test_b_df = test_lda_df.loc[test_lda_df["xray_class"] == "B"]
+    test_null_df = test_lda_df.loc[test_lda_df["xray_class"] == "N"]
 
     train_b_df.plot(x="LD1", y="jitter", label="Train B", kind="scatter", c="dodgerblue", ax=ax)
-    train_mx_df.plot(x="LD1", y="jitter", label="MX", kind="scatter", c="orangered", ax=ax)
-    test_lda_df.plot(x="LD1", y="jitter", label="NB", kind="scatter", c="grey", ax=ax)
+    train_mx_df.plot(x="LD1", y="jitter", label="Train MX", kind="scatter", c="orangered", ax=ax)
+    test_b_df.plot(x="LD1", y="jitter", label="Test B", kind="scatter", c="darkblue", ax=ax)
+    test_null_df.plot(x="LD1", y="jitter", label="Test Null", kind="scatter", c="grey", ax=ax)
 
     ax.scatter([b_centroid], [0.5], color="k", marker='X')
     ax.scatter([mx_centroid], [0.5], color="k", marker='X')
     ax.scatter([midpoint], [0.5], color="k", marker='X')
     ax.axvline(x=midpoint, color="k")
 
-    plt.title(f"{experiment_caption} on Null Flares {time_window_caption} Mean,"
-              f"Trained by B/MX Flares")
-    plt.tight_layout()
-    plt.savefig(
-        f"{figure_directory}null_b_mx_scatterplot_{time_window}_mean_{now_string}.png")
-    plt.show()
-
     y_pred = []
+    special = []
     for index, row in test_lda_df.iterrows():
         x = row["LD1"]
+        if x >= 3:
+            special.append(index)
         if x <= midpoint:
             # y_pred.append("B")
             y_pred.append("NB")
         else:
             y_pred.append("MX")
 
-    from sklearn.metrics import confusion_matrix
-    tp, fn, fp, tn = confusion_matrix(test_target, y_pred).ravel()
+    exit(1)
 
-    # calculate accuracy
-    conf_accuracy = (float(tp + tn) / float(tp + tn + fp + fn))
+    target = ["NB" for _ in range(len(y_pred))]
 
-    # calculate the sensitivity
-    conf_sensitivity = (tp / float(tp + fn))
-    # calculate the specificity
-    conf_specificity = (tn / float(tn + fp))
+    correct = len([y_pred[i] for i in range(len(y_pred)) if y_pred[i] == target[i]])
+    accuracy = correct / len(y_pred)
 
-    conf_false_alarm_rate = (fp / float(fp + tn))
+    plt.title(f"{experiment_caption} on Null/B Flares {time_window_caption} Mean\n"
+              f"Trained by {b_test_size * 100}% B and 100% MX Flares with {accuracy * 100 :.2f}% NB Accuracy")
+    plt.tight_layout()
+    plt.savefig(
+        f"{figure_directory}null_b_mx_scatterplot_{time_window}_mean_{now_string}.png")
+    plt.show()
 
-    # calculate precision
-    conf_precision = (tn / float(tn + fp))
-    # calculate f_1 score
-    conf_f1 = 2 * ((conf_precision * conf_sensitivity) / (conf_precision + conf_sensitivity))
-    conf_tss = conf_sensitivity - conf_false_alarm_rate
 
-    with open(f"{other_directory}nb_mx_{time_window}_mean_classification_metrics_{now_string}.txt", "w", newline="\n") as f:
-        f.write("Classification Metrics\n")
-        f.write(f"Trained on {train_b_df} B Flares and {train_mx_count} MX Flares\n")
-        f.write('-' * 50 + "\n")
-        f.write(f'Accuracy: {round(conf_accuracy, 2)}\n')
-        f.write(f'NB Recall/Sensitivity: {round(conf_sensitivity, 2)}\n')
-        f.write(f'MX Recall/Specificity: {round(conf_specificity, 2)}\n')
-        f.write(f'Precision: {round(conf_precision, 2)}\n')
-        f.write(f'False Alarm Rate: {round(conf_false_alarm_rate, 2)}\n')
-        f.write(f'f_1 Score: {round(conf_f1, 2)}\n')
-        f.write(f"TSS: {round(conf_tss, 2)}\n")
+
+
+    # with open(f"{other_directory}nb_mx_{time_window}_mean_classification_metrics_{now_string}.txt", "w", newline="\n") as f:
+    #     f.write("Classification Metrics\n")
+    #     f.write(f"Trained on {train_b_df} B Flares and {train_mx_count} MX Flares\n")
+    #     f.write('-' * 50 + "\n")
+    #     f.write(f'Accuracy: {round(conf_accuracy, 2)}\n')
+    #     f.write(f'NB Recall/Sensitivity: {round(conf_sensitivity, 2)}\n')
+    #     f.write(f'MX Recall/Specificity: {round(conf_specificity, 2)}\n')
+    #     f.write(f'Precision: {round(conf_precision, 2)}\n')
+    #     f.write(f'False Alarm Rate: {round(conf_false_alarm_rate, 2)}\n')
+    #     f.write(f'f_1 Score: {round(conf_f1, 2)}\n')
+    #     f.write(f"TSS: {round(conf_tss, 2)}\n")
 
 
 
