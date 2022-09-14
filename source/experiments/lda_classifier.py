@@ -39,7 +39,7 @@ def main() -> None:
                           hi_time,
                           cleaned_data_directory,
                           now_string,
-                          wipe_old_data=True
+                          wipe_old_data=False
         )
         for flare_class in FLARE_CLASSES
     ]
@@ -52,7 +52,7 @@ def main() -> None:
     null_df["xray_class"] = "N"
     print(null_df.dropna())
 
-    train_b_df, test_b_df = train_test_split(train_b_df, test_size=0.3)
+    train_b_df, test_b_df = train_test_split(train_b_df, test_size=0.5)
     train = pd.concat([train_b_df, train_mx_df]).dropna()
     train_target = train["xray_class"]
     test = pd.concat([null_df, test_b_df]).dropna()
@@ -82,7 +82,6 @@ def main() -> None:
     ld_labels = [f"LD{i + 1}" for i in range(1)]
     test_lda_df = pd.DataFrame(test_components, columns=ld_labels)
     test_target = test_lda_df["xray_class"] = "NB"
-    test_lda_centroid = test_lda_df["LD1"].mean()
 
     # sns.set_palette(sns.color_palette(["#FF0B04", "#4374B3"]))
     fig, ax = plt.subplots()
@@ -97,7 +96,6 @@ def main() -> None:
 
     ax.scatter([b_centroid], [0.5], color="k", marker='X')
     ax.scatter([mx_centroid], [0.5], color="k", marker='X')
-    ax.scatter([test_lda_centroid], [0.5], color="k", marker='X')
     ax.scatter([midpoint], [0.5], color="k", marker='X')
     ax.axvline(x=midpoint, color="k")
 
@@ -136,15 +134,12 @@ def main() -> None:
     conf_f1 = 2 * ((conf_precision * conf_sensitivity) / (conf_precision + conf_sensitivity))
     conf_tss = conf_sensitivity - conf_false_alarm_rate
 
-    with open(f"{other_directory}b_mx_{time_window}_mean_classification_metrics_{now_string}.txt", "w", newline="\n") as f:
+    with open(f"{other_directory}nb_mx_{time_window}_mean_classification_metrics_{now_string}.txt", "w", newline="\n") as f:
         f.write("Classification Metrics\n")
-        f.write('-' * 50 + "\n")
-        f.write(f"Total # of B Flares: {train_b_count}\n")
-        f.write(f"Total # of MX Flares: {train_mx_count}\n")
-        f.write(f"Total # of NULL Flares: {test_null_count}\n")
+        f.write(f"Trained on {train_b_df} B Flares and {train_mx_count} MX Flares\n")
         f.write('-' * 50 + "\n")
         f.write(f'Accuracy: {round(conf_accuracy, 2)}\n')
-        f.write(f'B Recall/Sensitivity: {round(conf_sensitivity, 2)}\n')
+        f.write(f'NB Recall/Sensitivity: {round(conf_sensitivity, 2)}\n')
         f.write(f'MX Recall/Specificity: {round(conf_specificity, 2)}\n')
         f.write(f'Precision: {round(conf_precision, 2)}\n')
         f.write(f'False Alarm Rate: {round(conf_false_alarm_rate, 2)}\n')
