@@ -26,6 +26,7 @@ OTHER = "other"
 # FLARE_COLORS = ["grey"]   # Used to test experiment faster
 FLARE_CLASSES = ["NULL", "B", "MX"]
 FLARE_COLORS = ["grey", "dodgerblue", "orangered"]
+COINCIDENCES = ["all", "coincident", "noncoincident"]
 
 # ------------------------------------------------------------------------------
 # --- Dataframe Headers ---
