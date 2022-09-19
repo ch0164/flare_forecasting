@@ -24,10 +24,12 @@ import seaborn as sns
 from pandas.core.common import SettingWithCopyWarning
 from pandas.plotting import parallel_coordinates
 
+
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.metrics import confusion_matrix, classification_report
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, LeaveOneOut, LeavePOut
 from sklearn.pipeline import make_pipeline
+from sklearn.utils import shuffle
 
 # Custom Imports
 from source.constants import *

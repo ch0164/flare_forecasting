@@ -117,8 +117,7 @@ def filter_data(df: pd.DataFrame(),
                    (abs(0.5 * (df["LONMIN"] + df["LONMAX"])) <= 60) & \
                    (abs(0.5 * (df["LATMIN"] + df["LATMAX"])) <= 60)
 
-    temp_df = df.where(is_good_data).dropna()
-    return temp_df.replace(0, np.NaN)
+    return df.where(is_good_data).dropna()
 
 
 def get_ar_properties(flare_class: str,
@@ -202,6 +201,131 @@ def get_ar_properties(flare_class: str,
     return flare_list_df
 
 
+def get_idealized_flare(flare_class: str,
+                        coincidence: str,
+                        lo_time: int = 10,
+                        hi_time: int = 22,
+                        cleaned_data_directory: str = "",
+                        now_string: str = "",
+                        wipe_old_data: bool = False,
+                        use_time_window: bool = True,
+                        coincidence_time_window: str = "") -> pd.DataFrame():
+    """Todo: The description
+    Args:
+        flare_class: The flare class used to partition the dataset.
+        lo_time: The beginning of the time window for the time series
+                 before flare onset.
+                 Valid values are in range 0-24.
+        hi_time: The end of the time window for the time series
+                 before flare onset.
+                 Valid values are in range 0-24.
+        cleaned_data_directory: The directory which contains
+
+    Returns:
+        A filtered dataframe with corresponding to the flare list of the same
+        class, with AR properties appended as columns to each "good" flare.
+    """
+    #
+    time_window = get_time_window(lo_time, hi_time)
+    time_interval = hi_time - lo_time
+
+    # if wipe_old_data:
+    #     for file in os.listdir(cleaned_data_directory):
+    #         if now_string not in file:
+    #             if use_time_window and time_window not in file:
+    #                 os.remove(f"{cleaned_data_directory}{file}")
+    #
+    # # Determine if data already exists for this flare class and time window.
+    # flare_dataset_file = get_cleaned_data_filename(flare_class,
+    #                                                time_window,
+    #                                                cleaned_data_directory)
+    # # If so, then don't compute anything and return this data instead.
+    # if flare_dataset_file:
+    #     flare_list_df = pd.read_csv(flare_dataset_file)
+    #     return flare_list_df
+
+    if flare_class != "NULL" and use_time_window:
+        if coincidence_time_window:
+            filename = f"{FLARE_LIST_DIRECTORY}{coincidence_time_window}/" \
+                       f"{flare_class.lower()}_list.txt"
+        else:
+            filename = f"{FLARE_LIST_DIRECTORY}{time_window}/" \
+                       f"{flare_class.lower()}_list.txt"
+    else:
+        filename = f"{FLARE_LIST_DIRECTORY}{flare_class.lower()}_list.txt"
+
+    flare_list_df = get_dataframe(filename)
+    if coincidence == "coincident":
+        flare_list_df = flare_list_df.loc[flare_list_df["COINCIDENCE"] == True]
+    elif coincidence == "noncoincident":
+        flare_list_df = flare_list_df.loc[flare_list_df["COINCIDENCE"] == False]
+    flare_list_df["xray_class"] = flare_list_df["xray_class"].apply(classify_flare)
+    flare_data_df = get_dataframe(
+        f"{FLARE_DATA_DIRECTORY}{flare_class.lower()}_data.txt")
+
+    df_1_sum = pd.DataFrame(columns=FLARE_PROPERTIES)
+    df_2_sum = pd.DataFrame(columns=FLARE_PROPERTIES)
+    for flare_property in FLARE_PROPERTIES:
+        df_1_sum[flare_property] = np.zeros(time_interval * 5)
+        df_2_sum[flare_property] = np.zeros(time_interval * 5)
+
+    progress_index = 0
+    for index, row in flare_list_df.iterrows():
+        progress_index += 1
+        print(f"Computing {coincidence} {flare_class} Flare {progress_index}/{flare_list_df.shape[0]}")
+        nar = row['nar']
+        time_range_lo = row['time_start'] - timedelta(hours=hi_time)
+        time_range_hi = row['time_start'] - timedelta(hours=lo_time)
+
+        needed_slice = filter_data(flare_data_df,
+                                   nar,
+                                   time_range_lo,
+                                   time_range_hi)
+
+        if needed_slice.empty:
+            continue
+        start_index, end_index = needed_slice.index[0], needed_slice.index[-1]
+        df_1 = pd.DataFrame(columns=FLARE_PROPERTIES)
+        df_2 = pd.DataFrame(columns=FLARE_PROPERTIES)
+        for flare_property in FLARE_PROPERTIES:
+            df_1[flare_property] = np.zeros(time_interval * 5)
+            df_2[flare_property] = np.zeros(time_interval * 5)
+            for i in range(time_interval * 5 - 1, -1, -1):
+                local_df_ind = end_index - (time_interval * 5 - 1 - i)
+                if local_df_ind not in needed_slice.index:
+                    continue
+                if local_df_ind >= 0 and local_df_ind >= start_index:
+                    df_1.at[i, flare_property] = needed_slice.at[
+                        local_df_ind, flare_property]
+                if df_1.at[i, flare_property] != 0:
+                    df_2.at[i, flare_property] = 1
+
+        # needed_slice.loc[:, 'xray_class'] = flare_class
+        # needed_slice.loc[:, 'time_start'] = time_range_lo
+        # local_properties_df.loc[:, 'flare_index'] = flare_index
+        # df_needed = pd.concat([df_needed, local_properties_df])
+
+        df_1_sum = df_1_sum.add(df_1)
+        df_2_sum = df_2_sum.add(df_2)
+
+    df_ave = df_1_sum.div(df_2_sum)
+
+    # needed_slice_avg = pd.DataFrame([needed_slice.mean(axis=0)])
+    #
+    # for column in flare_data_df.columns:
+    #     if column not in ["T_REC", "NOAA_AR", "QUALITY"] + LLA_HEADERS:
+    #         flare_list_df.loc[index, column] = needed_slice_avg.loc[
+    #             0, column]
+
+    # Save the dataset before exiting this function.
+    filename = f"{cleaned_data_directory}" + \
+               f"{coincidence}_{flare_class.lower()}_{time_window}_idealized_flare_" + \
+               f"{now_string}.csv"
+    df_ave.to_csv(filename)
+
+    return df_ave
+
+
 # ---------------------------------------------------------------------------
 # --- Directory functions
 
@@ -240,8 +364,5 @@ def build_experiment_directories(experiment) -> (str, str, str, str):
 
     return now_string, cleaned_data_directory, figure_directory, other_directory
 
-
 # ---------------------------------------------------------------------------
 # --- General Functions
-
-
