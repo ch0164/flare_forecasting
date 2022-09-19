@@ -26,8 +26,8 @@ def main() -> None:
     center_time = 16
     time_interval = 12
 
-    time_interval = 12
-    lo_time = 10
+    time_interval = 24
+    lo_time = 0
     hi_time = lo_time + time_interval
 
     # Get the time window of the experiment for metadata.
@@ -61,7 +61,7 @@ def main() -> None:
 
     all_flares_df = pd.concat([null_df, b_df, mx_df]).\
         reset_index().\
-        drop(["level_0", "index"], axis=1).\
+        drop(["index"], axis=1).\
         rename_axis("index").dropna()
     all_flares_df["xray_class"].replace("N", "NB", inplace=True)
     all_flares_df["xray_class"].replace("B", "NB", inplace=True)
