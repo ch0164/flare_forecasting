@@ -26,9 +26,11 @@ from pandas.plotting import parallel_coordinates
 
 
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.feature_selection import chi2, f_classif
 from sklearn.metrics import confusion_matrix, classification_report
 from sklearn.model_selection import train_test_split, LeaveOneOut, LeavePOut
 from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import MinMaxScaler
 from sklearn.utils import shuffle
 
 # Custom Imports

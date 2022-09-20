@@ -1,6 +1,6 @@
 ################################################################################
 # Filename: experiment_template.py
-# Description: This file is a template for easy creation of new experiments.
+# Description: This file is a correlation for easy creation of new experiments.
 ################################################################################
 
 # Custom Imports
@@ -12,7 +12,7 @@ def main() -> None:
     warnings.simplefilter(action='ignore', category=FutureWarning)
 
     # Experiment Name (No Acronyms)
-    experiment = "template"
+    experiment = "correlation"
     experiment_caption = experiment.title().replace("_", " ")
 
     # ------------------------------------------------------------------------

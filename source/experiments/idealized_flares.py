@@ -72,25 +72,31 @@ def main() -> None:
     # Generate the figures of this experiment.
     # Afterwards, place these figures in `figure_directory`.
     for coincidence in COINCIDENCES:
-        fig, ax = plt.subplots(7, 3, figsize=(20, 22))
+        fig, ax = plt.subplots(5, 3, figsize=(20, 22))
         for flare_class, color in zip(FLARE_CLASSES, FLARE_COLORS):
             if flare_class == "NULL" and coincidence == "coincident":
                 continue
-            df_ave = get_idealized_flare(flare_class, coincidence,
-                                         lo_time,
-                                         hi_time,
-                                         cleaned_data_directory,
-                                         now_string,
-                                         wipe_old_data=False,
-                                         use_time_window=True,
-                                         coincidence_time_window="0h_24h"
-                                         )
+            # df_ave = get_idealized_flare(flare_class, coincidence,
+            #                              lo_time,
+            #                              hi_time,
+            #                              cleaned_data_directory,
+            #                              now_string,
+            #                              wipe_old_data=False,
+            #                              use_time_window=True,
+            #                              coincidence_time_window="0h_24h"
+            #                              )
+
+            df_ave = pd.read_csv(f"{cleaned_data_directory}{coincidence.lower()}_{flare_class.lower()}_{time_window}_idealized_flare_19_09_2022_10_04_58.csv")
 
             # Plot specified flare properties over the specified time.
             row, col = 0, 0
             # df_ave.dropna(inplace=True)
+            to_drop = ["MEANGBH", "MEANGBT", "MEANGBZ", "MEANJZD", "slf"]
+            new_flare_properties = FLARE_PROPERTIES[:]
+            for prop in to_drop:
+                new_flare_properties.remove(prop)
 
-            for flare_property in FLARE_PROPERTIES:
+            for flare_property in new_flare_properties:
                 property_df = df_ave[[flare_property]]
                 property_np = property_df.to_numpy().ravel()
                 std_error = np.std(property_np, ddof=0) / np.sqrt(len(property_np))
