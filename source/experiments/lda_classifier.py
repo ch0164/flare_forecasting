@@ -37,17 +37,27 @@ def main() -> None:
     time_window_caption = time_window.replace("_", "-")
 
     # Obtain the properties for flares.
-    flare_dataframes = [
-        get_ar_properties(flare_class,
-                          lo_time,
-                          hi_time,
-                          cleaned_data_directory,
-                          now_string,
-                          wipe_old_data=False,
-                          coincidence_time_window="0h_24h"
-        )
-        for flare_class in FLARE_CLASSES
-    ]
+    # flare_dataframes = [
+    #     get_ar_properties(flare_class,
+    #                       lo_time,
+    #                       hi_time,
+    #                       cleaned_data_directory,
+    #                       now_string,
+    #                       wipe_old_data=False,
+    #                       coincidence_time_window="0h_24h"
+    #     )
+    #     for flare_class in FLARE_CLASSES
+    # ]
+    flare_dataframes = []
+    for flare_class in FLARE_CLASSES:
+        df = pd.read_csv(f"{cleaned_data_directory}{flare_class.lower()}_{time_window}_mean_dataset_20_09_2022_12_07_59.csv")
+        flare_dataframes.append(df)
+
+    # Plot specified flare properties over the specified time.
+    to_drop = ["MEANGBH", "MEANGBT", "MEANGBZ", "MEANJZD", "slf"]
+    new_flare_properties = FLARE_PROPERTIES[:]
+    for prop in to_drop:
+        new_flare_properties.remove(prop)
 
     # Train LDA classifier with two classes: B and MX.
     # Then, test LDA classifier with NULL flares.
@@ -74,14 +84,12 @@ def main() -> None:
     i = 0
     midpoints = []
     for train_index, test_index in loo.split(X):
-
-
         print("TRAIN:", train_index, "TEST:", test_index)
         X_train, X_test = X.iloc[train_index], X.iloc[test_index]
         y_train, y_test = y[train_index], y[test_index]
 
         train_lda = LinearDiscriminantAnalysis()
-        train_components = train_lda.fit_transform(X_train[FLARE_PROPERTIES], y_train)
+        train_components = train_lda.fit_transform(X_train[new_flare_properties], y_train)
         train_lda_df = pd.DataFrame(train_components, columns=["LD1"])
         train_lda_df["xray_class"] = pd.Series(y_train)
 
@@ -90,7 +98,7 @@ def main() -> None:
         midpoint = (nb_centroid + mx_centroid) / 2
         # midpoints.append(midpoint)
 
-        pred = train_lda.predict(X_test[FLARE_PROPERTIES])
+        pred = train_lda.predict(X_test[new_flare_properties])
         y_true.append(y_test)
         y_pred.append(pred)
         if 0 in test_index:
