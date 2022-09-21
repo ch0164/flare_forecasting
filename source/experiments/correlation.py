@@ -43,12 +43,14 @@ def main() -> None:
                           cleaned_data_directory,
                           now_string,
                           wipe_old_data=False,
-                          coincidence_time_window="0h_24h"
+                          # coincidence_time_window="0h_24h"
                           )
-        for flare_class in FLARE_CLASSES
+        for flare_class in ["NULL", "BC", "MX"]
     ]
-
     flare_df = pd.concat(flare_dataframes).dropna()
+    flare_df["xray_class"].replace("N", "NBC", inplace=True)
+    flare_df["xray_class"].replace("B", "NBC", inplace=True)
+    flare_df["xray_class"].replace("C", "NBC", inplace=True)
     X = flare_df[FLARE_PROPERTIES]
     y = flare_df["xray_class"]
 
@@ -59,37 +61,20 @@ def main() -> None:
     f_n = pd.Series(f_n, index=FLARE_PROPERTIES).sort_values(ascending=False)
     f = pd.Series(f.ravel(), index=FLARE_PROPERTIES).sort_values(ascending=False)
     f_df = pd.DataFrame({"f_score": f, "f_score_norm": f_n}).rename_axis("parameter")
-    f_df.to_csv(f"{other_directory}nbmx_anova_f_scores_{time_window}.csv")
+    f_df.to_csv(f"{other_directory}nbc_mx_anova_f_scores_{time_window}.csv")
 
-    X[X < 0] = 0
-    chi = pd.DataFrame(chi2(X, y), columns=FLARE_PROPERTIES).iloc[0]
-    chi = chi.values.reshape(-1, 1)
-
-    chi_n = MinMaxScaler().fit_transform(chi).ravel()
-    chi_n = pd.Series(chi_n, index=FLARE_PROPERTIES).sort_values(ascending=False)
-    chi = pd.Series(chi.ravel(), index=FLARE_PROPERTIES).sort_values(
-        ascending=False)
-    chi_df = pd.DataFrame({"chi2_score": chi, "chi2_score_norm": chi_n}).\
-        rename_axis("parameter")
-    chi_df.to_csv(
-        f"{other_directory}nbmx_chi2_scores_{time_window}.csv")
-
+    # X[X < 0] = 0
+    # chi = pd.DataFrame(chi2(X, y), columns=FLARE_PROPERTIES).iloc[0]
+    # chi = chi.values.reshape(-1, 1)
+    #
     # chi_n = MinMaxScaler().fit_transform(chi).ravel()
     # chi_n = pd.Series(chi_n, index=FLARE_PROPERTIES).sort_values(ascending=False)
-    # chi_n = pd.DataFrame(chi_n, columns=["chi2_statistic"]).rename_axis("parameter")
-    # chi_n.to_csv(
-    #     f"{other_directory}nbmx_normalized_anova_f_scores_{time_window}.csv")
-
-
-    # ------------------------------------------------------------------------
-    # Generate the figures of this experiment.
-    # Afterwards, place these figures in `figure_directory`.
-    # --- [ENTER CODE HERE]
-
-    # ------------------------------------------------------------------------
-    # Generate other kinds of output for the experiment.
-    # Afterwards, place the output in `other_directory`.
-    # --- [ENTER CODE HERE]
+    # chi = pd.Series(chi.ravel(), index=FLARE_PROPERTIES).sort_values(
+    #     ascending=False)
+    # chi_df = pd.DataFrame({"chi2_score": chi, "chi2_score_norm": chi_n}).\
+    #     rename_axis("parameter")
+    # chi_df.to_csv(
+    #     f"{other_directory}nbmx_chi2_scores_{time_window}.csv")
 
 
 if __name__ == "__main__":

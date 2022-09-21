@@ -29,7 +29,7 @@ def main() -> None:
 
     # Combine all classes of flares (except NULL flares) into one dataframe.
     flare_list_df = pd.DataFrame()
-    for flare_class in FLARE_CLASSES:
+    for flare_class in ["BC", "MX"]:
         if flare_class != "NULL":
             flare_list_df = pd.concat(
                 [flare_list_df,
@@ -70,11 +70,18 @@ def main() -> None:
     if time_window not in os.listdir(FLARE_LIST_DIRECTORY):
         os.mkdir(FLARE_LIST_DIRECTORY + time_window)
 
-    b_list_df = flare_list_df.loc[flare_list_df["xray_class"] == "B"]
-    b_list_df.reset_index(inplace=True)
-    b_list_df.drop("index", axis=1, inplace=True)
-    b_list_df.rename_axis("index", inplace=True)
-    b_list_df.to_csv(f"{FLARE_LIST_DIRECTORY}{time_window}/b_list.txt")
+    # b_list_df = flare_list_df.loc[flare_list_df["xray_class"] == "B"]
+    # b_list_df.reset_index(inplace=True)
+    # b_list_df.drop("index", axis=1, inplace=True)
+    # b_list_df.rename_axis("index", inplace=True)
+    # b_list_df.to_csv(f"{FLARE_LIST_DIRECTORY}{time_window}/b_list.txt")
+
+    bc_list_df = flare_list_df.loc[(flare_list_df["xray_class"] == "B") |
+                                   (flare_list_df["xray_class"] == "C")]
+    bc_list_df.reset_index(inplace=True)
+    bc_list_df.drop("index", axis=1, inplace=True)
+    bc_list_df.rename_axis("index", inplace=True)
+    bc_list_df.to_csv(f"{FLARE_LIST_DIRECTORY}{time_window}/bc_list.txt")
 
     mx_list_df = flare_list_df.loc[(flare_list_df["xray_class"] == "M") |
                                   (flare_list_df["xray_class"] == "X")]
