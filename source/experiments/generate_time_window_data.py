@@ -12,7 +12,7 @@ def main() -> None:
     warnings.simplefilter(action='ignore', category=FutureWarning)
 
     # Experiment Name (No Acronyms)
-    experiment = "template"
+    experiment = "generate_time_window_data"
     experiment_caption = experiment.title().replace("_", " ")
 
     # ------------------------------------------------------------------------
