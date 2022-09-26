@@ -16,8 +16,8 @@ def main() -> None:
     experiment_caption = experiment.title().replace("_", " ")
 
     # ------------------------------------------------------------------------
-    # Place any results in the directory for today for the current experiment.
-    now_string, cleaned_data_directory, figure_directory, other_directory = \
+    # Place any results in the directory for the current experiment.
+    now_string, figure_directory, metrics_directory, other_directory = \
         build_experiment_directories(experiment)
 
     # ------------------------------------------------------------------------

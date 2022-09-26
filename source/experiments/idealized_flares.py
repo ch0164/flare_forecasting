@@ -55,11 +55,11 @@ def main() -> None:
     # # Null flares are assumed to already be non-coincident. Todo: Check this is really the case.
     # all_flares_df["COINCIDENCE"] = all_flares_df["COINCIDENCE"].fillna(False)
     #
-    # # Split the observations by coincidence, and then by flare class.
-    # for coincidence in COINCIDENCES:
-    #     if coincidence == "coincident":
+    # # Split the observations by coincident, and then by flare class.
+    # for coincident in COINCIDENCES:
+    #     if coincident == "coincident":
     #         coincidence_df = all_flares_df.loc[all_flares_df["COINCIDENCE"] == True]
-    #     elif coincidence == "noncoincident":
+    #     elif coincident == "noncoincident":
     #         coincidence_df = all_flares_df.loc[all_flares_df["COINCIDENCE"] == False]
     #     else:
     #         coincidence_df = all_flares_df
@@ -76,7 +76,7 @@ def main() -> None:
         for flare_class, color in zip(FLARE_CLASSES, FLARE_COLORS):
             if flare_class == "NULL" and coincidence == "coincident":
                 continue
-            # df_ave = get_idealized_flare(flare_class, coincidence,
+            # df_ave = get_idealized_flare(flare_class, coincident,
             #                              lo_time,
             #                              hi_time,
             #                              cleaned_data_directory,

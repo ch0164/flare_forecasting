@@ -47,23 +47,23 @@ def get_time_window(lo_time: int = 10, hi_time: int = 22):
     return f"{lo_time}h_{hi_time}h"
 
 
-def get_cleaned_data_filename(flare_class: str,
-                              time_window: str,
-                              cleaned_data_directory: str,):
+def get_time_series_means_filename(flare_class: str, time_window: str,
+                                   coincidence_definition: str) -> str:
     """
     Args:
         flare_class:
         time_window:
-        cleaned_data_directory:
+        coincidence_definition:
 
     Returns: If there is data at the cleaned_data_directory for the experiment,
              this function returns the first dataset that
 
     """
-    if os.path.exists(cleaned_data_directory):
-        for file in os.listdir(cleaned_data_directory):
+    dir = f"{FLARE_MEANS_DIRECTORY}{coincidence_definition}/{time_window}/"
+    if os.path.exists(dir):
+        for file in os.listdir(dir):
             if f"{flare_class.lower()}_{time_window}_mean_dataset" in file:
-                return f"{cleaned_data_directory}{file}"
+                return f"{dir}{file}"
     else:
         return ""
 
@@ -123,11 +123,7 @@ def filter_data(df: pd.DataFrame(),
 def get_ar_properties(flare_class: str,
                       lo_time: int = 10,
                       hi_time: int = 22,
-                      cleaned_data_directory: str = "",
-                      now_string: str = "",
-                      wipe_old_data: bool = False,
-                      use_time_window: bool = True,
-                      coincidence_time_window: str = "") -> pd.DataFrame():
+                      coincidence_time_window: str = "0h_24h") -> pd.DataFrame():
     """
     Args:
         flare_class: The flare class used to partition the dataset.
@@ -143,38 +139,42 @@ def get_ar_properties(flare_class: str,
         A filtered dataframe with corresponding to the flare list of the same
         class, with AR properties appended as columns to each "good" flare.
     """
-    #
+    # Determine if data already exists for this flare class and time window.
     time_window = get_time_window(lo_time, hi_time)
 
-    if wipe_old_data:
-        for file in os.listdir(cleaned_data_directory):
-            if now_string not in file:
-                if use_time_window and time_window not in file:
-                    os.remove(f"{cleaned_data_directory}{file}")
+    if coincidence_time_window == "0h_24h":
+        coincidence_definition = "original_coincidence_definition"
+    else:
+        coincidence_definition = "modified_coincidence_definition"
 
-    # Determine if data already exists for this flare class and time window.
-    flare_dataset_file = get_cleaned_data_filename(flare_class,
-                                                   time_window,
-                                                   cleaned_data_directory)
+    flare_dataset_file = get_time_series_means_filename(flare_class, time_window,
+                                                        coincidence_definition)
+
     # If so, then don't compute anything and return this data instead.
     if flare_dataset_file:
         flare_list_df = pd.read_csv(flare_dataset_file)
         return flare_list_df
 
-    if flare_class != "NULL" and use_time_window:
+    # Get the flare info list file.
+    if flare_class != "NULL":
         if coincidence_time_window:
-            filename = f"{FLARE_LIST_DIRECTORY}{coincidence_time_window}/" \
+            filename = f"{COINCIDENCE_LIST_DIRECTORY}{coincidence_time_window}/" \
                        f"{flare_class.lower()}_list.txt"
         else:
-            filename = f"{FLARE_LIST_DIRECTORY}{time_window}/" \
+            filename = f"{COINCIDENCE_LIST_DIRECTORY}{time_window}/" \
                        f"{flare_class.lower()}_list.txt"
     else:
         filename = f"{FLARE_LIST_DIRECTORY}{flare_class.lower()}_list.txt"
+
+    # Read the flare list into a dataframe and clean it.
     flare_list_df = get_dataframe(filename)
     flare_list_df["xray_class"] = flare_list_df["xray_class"].apply(classify_flare)
+
+    # Get the corresponding data for this flare class.
     flare_data_df = get_dataframe(
         f"{FLARE_DATA_DIRECTORY}{flare_class.lower()}_data.txt")
 
+    # Get the AR params.
     for index, row in flare_list_df.iterrows():
         print(f"Computing {flare_class} Flare {index}/{flare_list_df.shape[0]}")
         nar = row['nar']
@@ -193,9 +193,10 @@ def get_ar_properties(flare_class: str,
                     0, column]
 
     # Save the dataset before exiting this function.
-    filename = f"{cleaned_data_directory}" + \
-               f"{flare_class.lower()}_{time_window}_mean_dataset_" + \
-               f"{now_string}.csv"
+    dir = f"{FLARE_MEANS_DIRECTORY}{coincidence_definition}/"
+    if time_window not in os.listdir(dir):
+        os.mkdir(dir)
+    filename = f"{dir}{flare_class.lower()}_{time_window}_mean_dataset.csv"
     flare_list_df.to_csv(filename)
 
     return flare_list_df
@@ -327,9 +328,45 @@ def get_idealized_flare(flare_class: str,
 
 
 # ---------------------------------------------------------------------------
+def write_classification_metrics(y_true: List[Any], y_pred: List[Any],
+                                 filename: str,
+                                 clf_name: str,
+                                 flare_classes: List[str],
+                                 print_output: bool = False):
+    stdout = None
+
+    cm = confusion_matrix(y_true, y_pred, labels=flare_classes)
+    tn, fp, fn, tp = cm.ravel()
+    detection_rate = tp / float(tp + fn)
+    false_alarm_rate = fp / float(fp + tn)
+    tss = detection_rate - false_alarm_rate
+    cr = classification_report(y_true, y_pred, labels=flare_classes)
+
+    if not print_output:
+        stdout = sys.stdout
+        sys.stdout = open(filename, "w")
+
+    print(f"{clf_name} Classification Metrics")
+    print("-" * 50)
+    print("Confusion Matrix")
+    print(" ", flare_classes[0], " ", flare_classes[1])
+    print(flare_classes[0], cm[0])
+    print(flare_classes[1], cm[1])
+    print("-" * 50)
+    print("Classification Report")
+    print(cr)
+    print(f"True Skill Score: {tss:.4f}")
+
+    if not print_output:
+        sys.stdout.close()
+        sys.stdout = stdout
+
+
+
+
 # --- Directory functions
 
-def build_experiment_directories(experiment) -> (str, str, str, str):
+def build_experiment_directories(experiment: str) -> (str, str, str):
     """
     Args:
         experiment: The name of the experiment being tested.
@@ -337,32 +374,28 @@ def build_experiment_directories(experiment) -> (str, str, str, str):
     Returns:
         A tuple of strings being:
         1. The current date and time in string format.
-        2. The "cleaned_data" directory for the experiment.
-        3. The "figures" directory for the experiment.
+        2. The "figures" directory for the experiment.
+        3. The "metrics" directory for the experiment.
         4. The "other" directory for the experiment.
     """
     now_time = datetime.now()
     now_string = now_time.strftime("%d_%m_%Y_%H_%M_%S")
-    today_string = now_time.strftime("%d_%m_%Y")
 
-    today_directory = f"{RESULTS_DIRECTORY}{today_string}/"
-    experiment_directory = f"{today_directory}{experiment}/"
-    cleaned_data_directory = f"{experiment_directory}{CLEANED_DATA}/"
+    experiment_directory = f"{RESULTS_DIRECTORY}{experiment}/"
     figure_directory = f"{experiment_directory}{FIGURES}/"
+    metrics_directory = f"{experiment_directory}{METRICS}/"
     other_directory = f"{experiment_directory}{OTHER}/"
 
-    if today_string not in os.listdir(RESULTS_DIRECTORY):
-        os.mkdir(today_directory)
-    if experiment not in os.listdir(today_directory):
+    if experiment not in os.listdir(RESULTS_DIRECTORY):
         os.mkdir(experiment_directory)
-    if CLEANED_DATA not in os.listdir(experiment_directory):
-        os.mkdir(cleaned_data_directory)
     if FIGURES not in os.listdir(experiment_directory):
         os.mkdir(figure_directory)
+    if METRICS not in os.listdir(experiment_directory):
+        os.mkdir(metrics_directory)
     if OTHER not in os.listdir(experiment_directory):
         os.mkdir(other_directory)
 
-    return now_string, cleaned_data_directory, figure_directory, other_directory
+    return now_string, figure_directory, metrics_directory, other_directory
 
 # ---------------------------------------------------------------------------
 # --- General Functions

@@ -59,7 +59,7 @@ def main() -> None:
             parallel_coordinates(normalized_df, "xray_class", FLARE_PROPERTIES, ax, color=color, axvlines=True)
 
         # fig.legend()
-        # fig.title(f"{coincidence.capitalize()} {experiment_caption} for NULL/B/MX Flares")
+        # fig.title(f"{coincident.capitalize()} {experiment_caption} for NULL/B/MX Flares")
         fig.show()
 
 
