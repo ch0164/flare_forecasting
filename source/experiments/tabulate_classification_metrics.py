@@ -28,7 +28,7 @@ def main():
         clf_names = []
         for coincidence in COINCIDENCES:
             for file in os.listdir(dir + coincidence):
-                if "bc_mx" not in file:
+                if "b_mx_lda" not in file:
                     continue
                 if time_window not in file:
                     continue
@@ -47,7 +47,7 @@ def main():
                             break
         df = pd.DataFrame(d, columns=COINCIDENCES).rename_axis("classifier")
         df.index = names
-        df.to_csv(dir + f"{time_window}_bc_mx_true_skill_score_summary.csv")
+        df.to_csv(dir + f"{time_window}_b_mx_lda_true_skill_score_summary.csv")
 
 
 if __name__ == "__main__":
