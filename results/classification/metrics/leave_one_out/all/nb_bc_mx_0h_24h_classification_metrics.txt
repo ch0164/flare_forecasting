@@ -1,0 +1,18 @@
+NB Classification Metrics
+--------------------------------------------------
+Confusion Matrix
+  BC   MX
+BC [332  36]
+MX [160 386]
+--------------------------------------------------
+Classification Report
+              precision    recall  f1-score   support
+
+          BC       0.67      0.90      0.77       368
+          MX       0.91      0.71      0.80       546
+
+    accuracy                           0.79       914
+   macro avg       0.79      0.80      0.78       914
+weighted avg       0.82      0.79      0.79       914
+
+True Skill Score: 0.6091

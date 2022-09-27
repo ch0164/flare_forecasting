@@ -1,0 +1,18 @@
+Linear SVM Classification Metrics
+--------------------------------------------------
+Confusion Matrix
+  BC   MX
+BC [8 8]
+MX [ 2 89]
+--------------------------------------------------
+Classification Report
+              precision    recall  f1-score   support
+
+          BC       0.80      0.50      0.62        16
+          MX       0.92      0.98      0.95        91
+
+    accuracy                           0.91       107
+   macro avg       0.86      0.74      0.78       107
+weighted avg       0.90      0.91      0.90       107
+
+True Skill Score: 0.4780

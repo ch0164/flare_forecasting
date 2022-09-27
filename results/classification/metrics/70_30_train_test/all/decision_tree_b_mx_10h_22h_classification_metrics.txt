@@ -2,17 +2,17 @@ Decision Tree Classification Metrics
 --------------------------------------------------
 Confusion Matrix
   B   MX
-B [241   4]
+B [244   1]
 MX [ 15 132]
 --------------------------------------------------
 Classification Report
               precision    recall  f1-score   support
 
-           B       0.94      0.98      0.96       245
-          MX       0.97      0.90      0.93       147
+           B       0.94      1.00      0.97       245
+          MX       0.99      0.90      0.94       147
 
-    accuracy                           0.95       392
-   macro avg       0.96      0.94      0.95       392
-weighted avg       0.95      0.95      0.95       392
+    accuracy                           0.96       392
+   macro avg       0.97      0.95      0.96       392
+weighted avg       0.96      0.96      0.96       392
 
-True Skill Score: 0.8816
+True Skill Score: 0.8939

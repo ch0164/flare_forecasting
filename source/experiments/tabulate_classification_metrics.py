@@ -21,13 +21,15 @@ def main():
         "AdaBoost",
     ]
 
-    time_window = "10h_22h"
+    time_window = "0h_24h"
 
     for cv, d in zip(["70_30_train_test", "leave_one_out"], [holdout_dict, loo_dict]):
         dir = RESULTS_DIRECTORY + "classification/metrics/" + cv + "/"
         clf_names = []
         for coincidence in COINCIDENCES:
             for file in os.listdir(dir + coincidence):
+                if "bc_mx" not in file:
+                    continue
                 if time_window not in file:
                     continue
                 if "neural_net" in file:
@@ -45,7 +47,7 @@ def main():
                             break
         df = pd.DataFrame(d, columns=COINCIDENCES).rename_axis("classifier")
         df.index = names
-        df.to_csv(dir + f"{time_window}_true_skill_score_summary.csv")
+        df.to_csv(dir + f"{time_window}_bc_mx_true_skill_score_summary.csv")
 
 
 if __name__ == "__main__":

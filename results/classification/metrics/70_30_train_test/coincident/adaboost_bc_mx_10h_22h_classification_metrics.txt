@@ -1,0 +1,18 @@
+AdaBoost Classification Metrics
+--------------------------------------------------
+Confusion Matrix
+  BC   MX
+BC [9 7]
+MX [ 3 88]
+--------------------------------------------------
+Classification Report
+              precision    recall  f1-score   support
+
+          BC       0.75      0.56      0.64        16
+          MX       0.93      0.97      0.95        91
+
+    accuracy                           0.91       107
+   macro avg       0.84      0.76      0.79       107
+weighted avg       0.90      0.91      0.90       107
+
+True Skill Score: 0.5295

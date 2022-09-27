@@ -1,0 +1,18 @@
+KNN 4 Classification Metrics
+--------------------------------------------------
+Confusion Matrix
+  BC   MX
+BC [94  9]
+MX [29 31]
+--------------------------------------------------
+Classification Report
+              precision    recall  f1-score   support
+
+          BC       0.76      0.91      0.83       103
+          MX       0.78      0.52      0.62        60
+
+    accuracy                           0.77       163
+   macro avg       0.77      0.71      0.73       163
+weighted avg       0.77      0.77      0.75       163
+
+True Skill Score: 0.4293

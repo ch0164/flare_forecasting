@@ -4,8 +4,6 @@
 ################################################################################
 
 # Custom Imports
-import pandas as pd
-
 from source.utilities import *
 
 
@@ -15,9 +13,9 @@ def main() -> None:
     warnings.simplefilter(action='ignore', category=SettingWithCopyWarning)
 
     # Experiment Name (No Acronyms)
-    experiment = "coincident"
+    experiment = "coincidence"
 
-    flare_classes = ["B", "MX"]
+    flare_classes = ["BC", "MX"]
 
     # ------------------------------------------------------------------------
     # Generate all possible time windows.
@@ -77,6 +75,8 @@ def main() -> None:
             os.mkdir(COINCIDENCE_LIST_DIRECTORY + time_window)
 
         for flare_class in flare_classes:
+            if flare_class == "MX":
+                break
             flare_class_df = pd.DataFrame()
             for individual_flare_class in list(flare_class):
                 flare_class_df = pd.concat([

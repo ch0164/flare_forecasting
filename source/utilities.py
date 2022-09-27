@@ -195,8 +195,9 @@ def get_ar_properties(flare_class: str,
     # Save the dataset before exiting this function.
     dir = f"{FLARE_MEANS_DIRECTORY}{coincidence_definition}/"
     if time_window not in os.listdir(dir):
-        os.mkdir(dir)
-    filename = f"{dir}{flare_class.lower()}_{time_window}_mean_dataset.csv"
+        os.mkdir(dir + time_window)
+    filename = f"{dir + time_window}/" \
+               f"{flare_class.lower()}_{time_window}_mean_dataset.csv"
     flare_list_df.to_csv(filename)
 
     return flare_list_df

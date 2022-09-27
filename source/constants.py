@@ -13,7 +13,7 @@ SOURCE_DIRECTORY = os.path.abspath(os.path.join(RESULTS_DIRECTORY,
 ROOT_DIRECTORY = os.path.abspath(os.path.join(SOURCE_DIRECTORY,
                                               os.pardir)) + "/"
 FLARE_LIST_DIRECTORY = ROOT_DIRECTORY + "flare_list/"
-COINCIDENCE_LIST_DIRECTORY = FLARE_LIST_DIRECTORY + "coincident/"
+COINCIDENCE_LIST_DIRECTORY = FLARE_LIST_DIRECTORY + "coincidence/"
 
 FLARE_DATA_DIRECTORY = ROOT_DIRECTORY + "flare_data/"
 FLARE_MEANS_DIRECTORY = FLARE_DATA_DIRECTORY + "time_series_means/"

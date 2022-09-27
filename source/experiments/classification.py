@@ -24,10 +24,10 @@ def main() -> None:
 
     lo_time = 10
     hi_time = 22
-    flare_classes = ["B", "MX"]
+    flare_classes = ["BC", "MX"]
     flare_class_caption = "_".join(flare_classes)
     random_state = 7
-    cross_validation = "70_30_train_test"
+    cross_validation = "leave_one_out"
 
     # ------------------------------------------------------------------------
     # Place any results in the directory for the current experiment.
@@ -94,34 +94,36 @@ def main() -> None:
 
         all_flares_df["xray_class"].replace("M", "MX", inplace=True)
         all_flares_df["xray_class"].replace("X", "MX", inplace=True)
+        all_flares_df["xray_class"].replace("B", "BC", inplace=True)
+        all_flares_df["xray_class"].replace("C", "BC", inplace=True)
 
         all_flares_df = shuffle(all_flares_df, random_state=random_state)
         X = all_flares_df[FLARE_PROPERTIES].to_numpy()
         X = StandardScaler().fit_transform(X)
         y = all_flares_df["xray_class"].to_numpy()
 
-        # loo = LeaveOneOut()
-        # loo.get_n_splits(X)
-        X_train, X_test, y_train, y_test = train_test_split(
-            X, y, test_size=0.3, random_state=random_state
-        )
+        loo = LeaveOneOut()
+        loo.get_n_splits(X)
+        # X_train, X_test, y_train, y_test = train_test_split(
+        #     X, y, test_size=0.3, random_state=random_state
+        # )
 
         for name, clf in zip(names, classifiers):
-            # y_true = []
-            # y_pred = []
-            # for train_index, test_index in loo.split(X):
-                # X_train, X_test = X[train_index], X[test_index]
-                # y_train, y_test = y[train_index], y[test_index]
+            y_true = []
+            y_pred = []
+            for train_index, test_index in loo.split(X):
+                X_train, X_test = X[train_index], X[test_index]
+                y_train, y_test = y[train_index], y[test_index]
                 clf.fit(X_train, y_train)
-                y_pred = clf.predict(X_test)
-                # y_pred.append(clf.predict(X_test))
-                # y_true.append(y_test)
-                filename = f"{metrics_directory}{cross_validation}/{coincidence}/" \
-                           f"{name.lower().replace(' ', '_')}_" \
-                           f"b_mx_{time_window}_classification_metrics.txt"
-                write_classification_metrics(y_test, y_pred, filename, name,
-                                             flare_classes=flare_classes,
-                                             print_output=False)
+                # y_pred = clf.predict(X_test)
+                y_pred.append(clf.predict(X_test))
+                y_true.append(y_test)
+            filename = f"{metrics_directory}{cross_validation}/{coincidence}/" \
+                       f"{name.lower().replace(' ', '_')}_" \
+                       f"bc_mx_{time_window}_classification_metrics.txt"
+            write_classification_metrics(y_true, y_pred, filename, name,
+                                         flare_classes=flare_classes,
+                                         print_output=False)
 
 
 if __name__ == "__main__":
