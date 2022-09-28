@@ -1,0 +1,18 @@
+QDA Classification Metrics
+--------------------------------------------------
+Confusion Matrix
+  B   MX
+B [149   9]
+MX [ 8 61]
+--------------------------------------------------
+Classification Report
+              precision    recall  f1-score   support
+
+           B       0.95      0.94      0.95       158
+          MX       0.87      0.88      0.88        69
+
+    accuracy                           0.93       227
+   macro avg       0.91      0.91      0.91       227
+weighted avg       0.93      0.93      0.93       227
+
+True Skill Score: 0.8271

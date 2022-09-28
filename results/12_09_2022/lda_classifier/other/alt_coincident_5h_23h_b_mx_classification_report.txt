@@ -1,0 +1,9 @@
+Coincident Flares
+Trained on 141 B Flares and 197 MX Flares
+--------------------------------------------------
+    precision    recall  f1-score  count
+B    0.984127  1.000000  0.992000   62.0
+MX   1.000000  0.988095  0.994012   84.0
+
+Accuracy: 0.9931506849315068
+TSS: 0.9880952380952381

@@ -1,0 +1,65 @@
+root
+|   .gitignore
+|   LICENSE
+|   README.md
+|   project_tree.txt
+|           
++---flare_data
+|       b_data.txt
+|       mx_data.txt
+|       null_data.txt
+|       
++---flare_list
+|       b_list.txt
+|       mx_list.txt
+|       null_list.txt
+|       
++---notebooks
+|       <Notebook 1>.ipynb
+|       ...
+|       <Notebook N>.ipynb
+|       
++---results
+|   |
+|   +---<Date 1>
+|   |    |
+|   |    +---<Experiment 1>
+|   |    |   |
+|   |    |   +---cleaned_data
+|   |    |   |   |
+|   |    |   |   <Experiment 1>.csv
+|   |    |   | 
+|   |    |   |
+|   |    |   \---figures
+|   |    |       |
+|   |    |       <Experiment 1>.png
+|   |    \---<Experiment N>
+|   |
+|   \---<Date 2>
+|        |
+|        +---<Experiment 1>
+|        |   |
+|        |   +---cleaned_data
+|        |   |   |
+|        |   |   <Experiment 1>.csv
+|        |   | 
+|        |   |
+|        |   \---figures
+|        |       |
+|        |       <Experiment 1>.png
+|        \---<Experiment N>
+|   
+\---source
+    |   common_imports.py
+    |   constants.py
+    |   style_conventions.md
+    |   utilities.py
+    |   __init__.py
+    |   
+    \---experiments
+            <Experiment 1>.py
+            ...
+            <Experiment N>.py
+            experiment_template.py
+            __init__.py
+

@@ -1,0 +1,18 @@
+RBF SVM Classification Metrics
+--------------------------------------------------
+Confusion Matrix
+  BC   MX
+BC [275  93]
+MX [ 59 487]
+--------------------------------------------------
+Classification Report
+              precision    recall  f1-score   support
+
+          BC       0.82      0.75      0.78       368
+          MX       0.84      0.89      0.87       546
+
+    accuracy                           0.83       914
+   macro avg       0.83      0.82      0.82       914
+weighted avg       0.83      0.83      0.83       914
+
+True Skill Score: 0.6392
