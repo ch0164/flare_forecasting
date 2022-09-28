@@ -26,7 +26,7 @@ def main() -> None:
 
     lo_time = 10
     hi_time = 22
-    flare_classes = ["B", "MX"]
+    flare_classes = ["BC", "MX"]
     flare_class_caption = "_".join(flare_classes)
     random_state = 7
     cross_validation = "leave_one_out"
@@ -38,34 +38,34 @@ def main() -> None:
 
     names = [
         "LDA",
-        "QDA",
-        "KNN 2",
+        # "QDA",
+        # "KNN 2",
         "KNN 3",
-        "KNN 4",
-        "NB",
+        # "KNN 4",
+        # "NB",
         "Logistic Regression",
         "Linear SVM",
-        "RBF SVM",
-        "Decision Tree",
+        # "RBF SVM",
+        # "Decision Tree",
         "Random Forest",
-        "Neural Net",
-        "AdaBoost",
+        # "Neural Net",
+        # "AdaBoost",
     ]
 
     classifiers = [
         LinearDiscriminantAnalysis(),
-        QuadraticDiscriminantAnalysis(),
-        KNeighborsClassifier(2),
+        # QuadraticDiscriminantAnalysis(),
+        # KNeighborsClassifier(2),
         KNeighborsClassifier(3),
-        KNeighborsClassifier(4),
-        GaussianNB(),
+        # KNeighborsClassifier(4),
+        # GaussianNB(),
         LogisticRegression(),
         SVC(kernel="linear", C=0.025),
-        SVC(gamma=2, C=1),
-        DecisionTreeClassifier(max_depth=5),
+        # SVC(gamma=2, C=1),
+        # DecisionTreeClassifier(max_depth=5),
         RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1),
-        MLPClassifier(alpha=1, max_iter=1000),
-        AdaBoostClassifier(),
+        # MLPClassifier(alpha=1, max_iter=1000),
+        # AdaBoostClassifier(),
     ]
 
     time_window = f"{lo_time}h_{hi_time}h"
@@ -96,57 +96,79 @@ def main() -> None:
 
         all_flares_df["xray_class"].replace("M", "MX", inplace=True)
         all_flares_df["xray_class"].replace("X", "MX", inplace=True)
-        # all_flares_df["xray_class"].replace("B", "BC", inplace=True)
-        # all_flares_df["xray_class"].replace("C", "BC", inplace=True)
+        all_flares_df["xray_class"].replace("B", "BC", inplace=True)
+        all_flares_df["xray_class"].replace("C", "BC", inplace=True)
 
         all_flares_df = shuffle(all_flares_df, random_state=random_state)
         y = all_flares_df["xray_class"].to_numpy()
+        y_encoding = [1 if item == "MX" else 0 for item in y]
         X = all_flares_df[FLARE_PROPERTIES]
         X = StandardScaler().fit_transform(X)
         X = LinearDiscriminantAnalysis().fit_transform(X, y)
         jitter = np.array([random.uniform(0, 1) for _ in range(len(X))])
         X_jitter = np.insert(X, 1, jitter, axis=1)
 
-        # loo = LeaveOneOut()
-        # loo.get_n_splits(X)
-        X_train, X_test, y_train, y_test = train_test_split(
-            X, y, test_size=0.3, random_state=random_state
-        )
+        loo = LeaveOneOut()
+        loo.get_n_splits(X)
+        # X_train, X_test, y_train, y_test = train_test_split(
+        #     X_jitter, y, test_size=0.3, random_state=random_state
+        # )
 
         # Plot LDA reduced data points.
-        fig, ax = plt.subplots(2, 7, figsize=(20, 15))
+        cm = plt.cm.RdBu
+        cm_bright = ListedColormap(["#FF0000", "#0000FF"])
+        fig, ax = plt.subplots(2, 3, figsize=(19, 11))
         i, j = 0, 0
 
         x_min, x_max = X_jitter[:, 0].min() - 0.5, X_jitter[:, 0].max() + 0.5
         y_min, y_max = X_jitter[:, 1].min() - 0.1, X_jitter[:, 1].max() + 0.1
 
-        # Plot the training points
-        train_df = pd.DataFrame(X_jitter, columns=["LD1", "jitter"])
-        train_df["xray_class"] = y
-        train_mx_df = train_df.loc[train_df["xray_class"] == "MX"]
-        train_b_df = train_df.loc[train_df["xray_class"] != "MX"]
-        train_mx_df.plot(x="LD1", y="jitter", label="MX", kind="scatter", c="orangered", ax=ax[i, j])
-        train_b_df.plot(x="LD1", y="jitter", label="B", kind="scatter", c="dodgerblue", ax=ax[i, j])
+        ax[i, j].scatter(X_jitter[:, 0], X_jitter[:, 1], c=y_encoding, cmap=cm_bright, edgecolors="k")
         ax[i, j].set_xlim(x_min, x_max)
         ax[i, j].set_ylim(y_min, y_max)
         ax[i, j].set_title("LDA Reduced Data")
+        j += 1
 
         for name, clf in zip(names, classifiers):
-            # y_true = []
-            # y_pred = []
-            # for train_index, test_index in loo.split(X):
-            #     X_train, X_test = X[train_index], X[test_index]
-            #     y_train, y_test = y[train_index], y[test_index]
-            clf.fit(X_train, y_train)
-            y_pred = clf.predict(X_test)
-            DecisionBoundaryDisplay.from_estimator(
-                clf, X, cmap=cm, alpha=0.8, ax=ax, eps=0.5
-            )
+            not_plotted = True
+            y_true = []
+            y_pred = []
+            for train_index, test_index in loo.split(X_jitter):
+                X_train, X_test = X_jitter[train_index], X_jitter[test_index]
+                y_train, y_test = y[train_index], y[test_index]
+                clf.fit(X_train, y_train)
+            # y_pred = clf.predict(X_test)
+                if not_plotted:
+                    not_plotted = False
+                    DecisionBoundaryDisplay.from_estimator(
+                        clf, X_train, cmap=cm, alpha=0.8, ax=ax[i, j], eps=0.5
+                    )
+                    y_encoding = [1 if item == "MX" else 0 for item in y_train]
+                    df = pd.DataFrame(X_train, columns=["LD 1", "jitter"])
+                    df["xray_class"] = y_train
+                    mx_df = df.loc[df["xray_class"] == "MX"]
+                    b_df = df.loc[df["xray_class"] != "MX"]
+                    mx_df.plot(x="LD 1", y="jitter", label="MX", kind="scatter", c="#FF0000", ax=ax[i, j])
+                    b_df.plot(x="LD 1", y="jitter", label="B", kind="scatter", c="#0000FF", ax=ax[i, j])
+                    ax[i, j].scatter(X_train[:, 0], X_train[:, 1], c=y_encoding, label=y_train, cmap=cm_bright, edgecolors="k")
+                    ax[i, j].set_xlim(x_min, x_max)
+                    ax[i, j].set_ylim(y_min, y_max)
+                    ax[i, j].set_title(name)
+                    j += 1
+                    if j == 3:
+                        i += 1
+                        j = 0
+            fig.suptitle(f"LDA Reduced Classification on {coincidence.capitalize()} {flare_class_caption.replace('_', '/').upper()} "
+                         f"Over {time_window_caption}")
+            fig.tight_layout()
+            fig.savefig(f"{figure_directory}{coincidence}_{flare_class_caption.lower()}_lda_"
+                        f"{time_window}_decision_boundaries.png")
+            # fig.show()
             #     y_pred.append(clf.predict(X_test))
             #     y_true.append(y_test)
-            filename = f"{metrics_directory}{cross_validation}/{coincidence}/" \
-                       f"{name.lower().replace(' ', '_')}_" \
-                       f"b_mx_lda_{time_window}_classification_metrics.txt"
+            # filename = f"{metrics_directory}{cross_validation}/{coincidence}/" \
+            #            f"{name.lower().replace(' ', '_')}_" \
+            #            f"b_mx_lda_{time_window}_classification_metrics.txt"
             # y_true = y_test
             # write_classification_metrics(y_true, y_pred, filename, name,
             #                              flare_classes=flare_classes,
