@@ -5,10 +5,12 @@
 
 # Custom Imports
 import pandas as pd
+from matplotlib.colors import ListedColormap
 from sklearn.dummy import DummyClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import RocCurveDisplay, plot_roc_curve
 from sklearn.preprocessing import StandardScaler
+from sklearn.inspection import DecisionBoundaryDisplay
 from copy import copy
 
 from source.utilities import *
@@ -98,34 +100,57 @@ def main() -> None:
         # all_flares_df["xray_class"].replace("C", "BC", inplace=True)
 
         all_flares_df = shuffle(all_flares_df, random_state=random_state)
-        X = all_flares_df[FLARE_PROPERTIES].to_numpy()
-        X = StandardScaler().fit_transform(X)
         y = all_flares_df["xray_class"].to_numpy()
+        X = all_flares_df[FLARE_PROPERTIES]
+        X = StandardScaler().fit_transform(X)
         X = LinearDiscriminantAnalysis().fit_transform(X, y)
+        jitter = np.array([random.uniform(0, 1) for _ in range(len(X))])
+        X_jitter = np.insert(X, 1, jitter, axis=1)
 
-        loo = LeaveOneOut()
-        loo.get_n_splits(X)
-        # X_train, X_test, y_train, y_test = train_test_split(
-        #     X, y, test_size=0.3, random_state=random_state
-        # )
+        # loo = LeaveOneOut()
+        # loo.get_n_splits(X)
+        X_train, X_test, y_train, y_test = train_test_split(
+            X, y, test_size=0.3, random_state=random_state
+        )
+
+        # Plot LDA reduced data points.
+        fig, ax = plt.subplots(2, 7, figsize=(20, 15))
+        i, j = 0, 0
+
+        x_min, x_max = X_jitter[:, 0].min() - 0.5, X_jitter[:, 0].max() + 0.5
+        y_min, y_max = X_jitter[:, 1].min() - 0.1, X_jitter[:, 1].max() + 0.1
+
+        # Plot the training points
+        train_df = pd.DataFrame(X_jitter, columns=["LD1", "jitter"])
+        train_df["xray_class"] = y
+        train_mx_df = train_df.loc[train_df["xray_class"] == "MX"]
+        train_b_df = train_df.loc[train_df["xray_class"] != "MX"]
+        train_mx_df.plot(x="LD1", y="jitter", label="MX", kind="scatter", c="orangered", ax=ax[i, j])
+        train_b_df.plot(x="LD1", y="jitter", label="B", kind="scatter", c="dodgerblue", ax=ax[i, j])
+        ax[i, j].set_xlim(x_min, x_max)
+        ax[i, j].set_ylim(y_min, y_max)
+        ax[i, j].set_title("LDA Reduced Data")
 
         for name, clf in zip(names, classifiers):
-            y_true = []
-            y_pred = []
-            for train_index, test_index in loo.split(X):
-                X_train, X_test = X[train_index], X[test_index]
-                y_train, y_test = y[train_index], y[test_index]
-                clf.fit(X_train, y_train)
-            # y_pred = clf.predict(X_test)
-                y_pred.append(clf.predict(X_test))
-                y_true.append(y_test)
+            # y_true = []
+            # y_pred = []
+            # for train_index, test_index in loo.split(X):
+            #     X_train, X_test = X[train_index], X[test_index]
+            #     y_train, y_test = y[train_index], y[test_index]
+            clf.fit(X_train, y_train)
+            y_pred = clf.predict(X_test)
+            DecisionBoundaryDisplay.from_estimator(
+                clf, X, cmap=cm, alpha=0.8, ax=ax, eps=0.5
+            )
+            #     y_pred.append(clf.predict(X_test))
+            #     y_true.append(y_test)
             filename = f"{metrics_directory}{cross_validation}/{coincidence}/" \
                        f"{name.lower().replace(' ', '_')}_" \
                        f"b_mx_lda_{time_window}_classification_metrics.txt"
             # y_true = y_test
-            write_classification_metrics(y_true, y_pred, filename, name,
-                                         flare_classes=flare_classes,
-                                         print_output=False)
+            # write_classification_metrics(y_true, y_pred, filename, name,
+            #                              flare_classes=flare_classes,
+            #                              print_output=False)
 
 
 if __name__ == "__main__":
