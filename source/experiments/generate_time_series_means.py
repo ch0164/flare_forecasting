@@ -21,20 +21,31 @@ def main() -> None:
         build_experiment_directories(experiment)
 
     # ------------------------------------------------------------------------
-    times = [(0, 24), (6, 18), (6, 22), (6, 24), (10, 22), (12, 24)]
-    flare_classes = ["BC"]
-    orig_dfs = []
-    modi_dfs = []
-    for flare_class in flare_classes:
-        for lo_time, hi_time in times:
-            time_window = get_time_window(lo_time, hi_time)
-            # orig_dfs.append(get_ar_properties(flare_class,
-            #                                   lo_time,
-            #                                   hi_time))
-            modi_dfs.append(get_ar_properties(flare_class,
-                                              lo_time,
-                                              hi_time,
-                                              coincidence_time_window=time_window))
+    time_intervals = [1, 2, 4, 8, 12, 24]
+    flare_classes = ["B", "MX"]
+    for time_interval in time_intervals:
+        possible_time_windows = [
+            (start_time, end_time) for start_time in range(0, 24)
+            for end_time in range(1, 25)
+            if start_time < end_time and
+               abs(end_time - start_time) == time_interval
+        ]
+        for index, (lo_time, hi_time) in enumerate(possible_time_windows):
+            orig_dfs = []
+            modi_dfs = []
+            for flare_class in flare_classes:
+                for lo_time, hi_time in possible_time_windows:
+                    time_window = get_time_window(lo_time, hi_time)
+                    print(f"Time window {time_window},"
+                          f" time interval {time_interval}, "
+                          f"{index}/{len(possible_time_windows)}")
+                    get_ar_properties(flare_class,
+                                                      lo_time,
+                                                      hi_time)
+                    # get_ar_properties(flare_class,
+                    #                                   lo_time,
+                    #                                   hi_time,
+                    #                                   coincidence_time_window=time_window)
 
     # ------------------------------------------------------------------------
     # Generate the figures of this experiment.

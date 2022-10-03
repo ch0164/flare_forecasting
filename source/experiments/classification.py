@@ -130,6 +130,7 @@ def main() -> None:
         ax[i, j].set_xlim(x_min, x_max)
         ax[i, j].set_ylim(y_min, y_max)
         ax[i, j].set_title("LDA Reduced Data")
+        j += 1
 
         for name, clf in zip(names, classifiers):
             # y_true = []
@@ -140,8 +141,12 @@ def main() -> None:
             clf.fit(X_train, y_train)
             y_pred = clf.predict(X_test)
             DecisionBoundaryDisplay.from_estimator(
-                clf, X, cmap=cm, alpha=0.8, ax=ax, eps=0.5
+                clf, X_jitter, cmap=cm, alpha=0.8, ax=ax[i, j], eps=0.5
             )
+            j += 1
+            if j == 7:
+                j = 0
+                i += 1
             #     y_pred.append(clf.predict(X_test))
             #     y_true.append(y_test)
             filename = f"{metrics_directory}{cross_validation}/{coincidence}/" \

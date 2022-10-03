@@ -176,7 +176,7 @@ def get_ar_properties(flare_class: str,
 
     # Get the AR params.
     for index, row in flare_list_df.iterrows():
-        print(f"Computing {flare_class} Flare {index}/{flare_list_df.shape[0]}")
+        # print(f"Computing {flare_class} Flare {index}/{flare_list_df.shape[0]}")
         nar = row['nar']
         time_range_lo = row['time_start'] - timedelta(hours=hi_time)
         time_range_hi = row['time_start'] - timedelta(hours=lo_time)
