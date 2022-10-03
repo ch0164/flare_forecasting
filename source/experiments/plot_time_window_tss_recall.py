@@ -15,17 +15,28 @@ if __name__ == "__main__":
     tss_df = pd.DataFrame()
     recall_df = pd.DataFrame()
     shapes = []
+    averages = {coin: {"tss": [], "recall": []} for coin in COINCIDENCES}
     for time_interval in time_intervals:
         tss_file = f"{dir}{time_interval}h_b_mx_lda_tss.csv"
-        tss_df = pd.concat([tss_df, pd.read_csv(tss_file)])
+        tss_time_df = pd.read_csv(tss_file)
+        tss_df = pd.concat([tss_df, tss_time_df])
         recall_file = f"{dir}{time_interval}h_b_mx_lda_recall.csv"
-        recall_df = pd.concat([recall_df, pd.read_csv(recall_file)])
+        recall_time_df = pd.read_csv(recall_file)
+        recall_df = pd.concat([recall_df, recall_time_df])
         shapes.append(recall_df.shape[0])
+        for coincidence in COINCIDENCES:
+            averages[coincidence]["tss"].append(tss_time_df[coincidence].mean())
+            averages[coincidence]["recall"].append(recall_time_df[coincidence].mean())
+
+    import json
+    averages = json.dumps(averages, indent=4)
+    print(averages)
+    exit(1)
 
     colors = ["grey", "blue", "red"]
 
     def get_title(metric):
-        return f"Time Window Mean Analysis, {metric}, for B/MX Flares"
+        return f"Time Window Mean Analysis, {metric} from LDA Classifier Using LOO CV, for B/MX Flares"
 
     for coincidence, color in zip(COINCIDENCES, colors):
         plt.plot(range(tss_df.shape[0]), tss_df[coincidence],
