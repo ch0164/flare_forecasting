@@ -85,8 +85,8 @@ def main() -> None:
                 os.mkdir(COINCIDENCE_LIST_DIRECTORY + time_window)
 
             for flare_class in flare_classes:
-                if flare_class == "MX":
-                    break
+                # if flare_class == "MX":
+                #     break
                 flare_class_df = pd.DataFrame()
                 for individual_flare_class in list(flare_class):
                     flare_class_df = pd.concat([

@@ -22,7 +22,7 @@ def main() -> None:
 
     # ------------------------------------------------------------------------
     time_intervals = [1, 2, 4, 8, 12, 24]
-    flare_classes = ["B", "MX"]
+    flare_classes = ["BC", "MX"]
     for time_interval in time_intervals:
         possible_time_windows = [
             (start_time, end_time) for start_time in range(0, 24)
