@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b96d273d-abd9-45da-9424-fb1b6c4cc8cf" name="Changes" comment="Can't import this">
-      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/12h_b_mx_lda_recall.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/12h_b_mx_lda_tss.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/1h_b_mx_lda_recall.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/1h_b_mx_lda_tss.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/24h_b_mx_lda_recall.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/24h_b_mx_lda_tss.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/2h_b_mx_lda_recall.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/2h_b_mx_lda_tss.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/4h_b_mx_lda_recall.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/4h_b_mx_lda_tss.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/8h_b_mx_lda_recall.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/8h_b_mx_lda_tss.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/experiments/time_window_classification.py" afterDir="false" />
+    <list default="true" id="b96d273d-abd9-45da-9424-fb1b6c4cc8cf" name="Changes" comment="Classifier names were incorrect...">
+      <change beforePath="$PROJECT_DIR$/.idea/flare_forecasting.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/flare_forecasting.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/0h_24h_b_mx_lda_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/0h_24h_b_mx_lda_true_skill_score_summary.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/0h_24h_b_mx_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/0h_24h_b_mx_true_skill_score_summary.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/0h_24h_bc_mx_lda_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/0h_24h_bc_mx_lda_true_skill_score_summary.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/0h_24h_bc_mx_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/0h_24h_bc_mx_true_skill_score_summary.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/10h_22h_b_mx_lda_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/10h_22h_b_mx_lda_true_skill_score_summary.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/10h_22h_b_mx_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/10h_22h_b_mx_true_skill_score_summary.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/10h_22h_bc_mx_lda_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/10h_22h_bc_mx_lda_true_skill_score_summary.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/10h_22h_bc_mx_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/10h_22h_bc_mx_true_skill_score_summary.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/0h_24h_b_mx_lda_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/0h_24h_b_mx_lda_true_skill_score_summary.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/0h_24h_b_mx_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/0h_24h_b_mx_true_skill_score_summary.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/0h_24h_bc_mx_lda_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/0h_24h_bc_mx_lda_true_skill_score_summary.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/0h_24h_bc_mx_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/0h_24h_bc_mx_true_skill_score_summary.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/10h_22h_b_mx_lda_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/10h_22h_b_mx_lda_true_skill_score_summary.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/10h_22h_b_mx_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/10h_22h_b_mx_true_skill_score_summary.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/10h_22h_bc_mx_lda_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/10h_22h_bc_mx_lda_true_skill_score_summary.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/10h_22h_bc_mx_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/10h_22h_bc_mx_true_skill_score_summary.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/experiments/classification.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/classification.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/experiments/tabulate_classification_metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/tabulate_classification_metrics.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="coincidence2" />
+        <entry key="$PROJECT_DIR$" value="lda_shifting" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,7 +63,29 @@
       <recent name="$PROJECT_DIR$/source/experiments" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.time_window_classification">
+  <component name="RunManager" selected="Python.tabulate_classification_metrics">
+    <configuration name="classification" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="flare_forecasting" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/source/experiments" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/classification.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="idealized_flares" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -101,6 +130,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="tabulate_classification_metrics" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="flare_forecasting" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/source/experiments" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/tabulate_classification_metrics.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="time_window_classification" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -125,6 +176,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.tabulate_classification_metrics" />
+        <item itemvalue="Python.classification" />
         <item itemvalue="Python.time_window_classification" />
         <item itemvalue="Python.idealized_flares" />
         <item itemvalue="Python.lda_classifier" />
@@ -134,7 +187,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b96d273d-abd9-45da-9424-fb1b6c4cc8cf" name="Changes" comment="" />
+      <changelist id="e5c46880-d7ec-4de7-b1eb-35d05692c34c" name="Changes" comment="Classifier names were incorrect..." />
       <created>1662564130288</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -144,6 +197,7 @@
       <workItem from="1662582655667" duration="5000" />
       <workItem from="1663166739819" duration="5658000" />
       <workItem from="1664378416180" duration="634000" />
+      <workItem from="1664816531094" duration="2675000" />
     </task>
     <task id="LOCAL-00001" summary="LDA B/MX classifier">
       <created>1662575033124</created>
@@ -184,9 +238,12 @@
     <option name="LAST_COMMIT_MESSAGE" value="Dummy commit" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/flare_forecasting$lda_classifier.coverage" NAME="lda_classifier Coverage Results" MODIFIED="1662574881011" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$classification.coverage" NAME="classification Coverage Results" MODIFIED="1664383276744" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$idealized_flares.coverage" NAME="idealized_flares Coverage Results" MODIFIED="1663172491103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$time_window_classification.coverage" NAME="time_window_classification Coverage Results" MODIFIED="1664813131447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$tabulate_classification_metrics.coverage" NAME="tabulate_classification_metrics Coverage Results" MODIFIED="1664983051546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$parallel_coordinates.coverage" NAME="parallel_coordinates Coverage Results" MODIFIED="1663179893534" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$idealized_flares.coverage" NAME="idealized_flares Coverage Results" MODIFIED="1663172491103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$lda_classifier.coverage" NAME="lda_classifier Coverage Results" MODIFIED="1664393959455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$classification.coverage" NAME="classification Coverage Results" MODIFIED="1664982264276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$plot_classifier_comparison.coverage" NAME="plot_classifier_comparison Coverage Results" MODIFIED="1664383379257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
   </component>
 </project>
