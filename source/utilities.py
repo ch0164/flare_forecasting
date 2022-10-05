@@ -68,6 +68,19 @@ def get_time_series_means_filename(flare_class: str, time_window: str,
         return ""
 
 
+def get_timepoint_filename(flare_class: str, timepoint: int,
+                           coincidence_definition: str) -> str:
+    """
+    """
+    dir = f"{FLARE_MEANS_DIRECTORY}{coincidence_definition}/{timepoint}m/"
+    if os.path.exists(dir):
+        for file in os.listdir(dir):
+            if f"{flare_class.lower()}_{timepoint}m_timepoint_dataset" in file:
+                return f"{dir}{file}"
+    else:
+        return ""
+
+
 def get_dataframe(filename: str) -> pd.DataFrame():
     """
     Args:
@@ -96,8 +109,9 @@ def get_dataframe(filename: str) -> pd.DataFrame():
 
 def filter_data(df: pd.DataFrame(),
                 nar: int,
-                time_range_lo: pd.Timestamp,
-                time_range_hi: pd.Timestamp) -> pd.DataFrame():
+                time_range_lo: pd.Timestamp = None,
+                time_range_hi: pd.Timestamp = None,
+                timepoint: pd.Timestamp = None) -> pd.DataFrame():
     """
     Args:
         df: The dataframe to apply a custom filter.
@@ -110,97 +124,18 @@ def filter_data(df: pd.DataFrame(),
         replacing any zero values with NaN.
     """
 
-    is_good_data = (df["T_REC"] <= time_range_hi) & \
-                   (df["T_REC"] >= time_range_lo) & \
-                   (df["NOAA_AR"] == nar) & \
+    is_good_data = (df["NOAA_AR"] == nar) & \
                    (df["QUALITY"] == 0) & \
                    (abs(0.5 * (df["LONMIN"] + df["LONMAX"])) <= 60) & \
                    (abs(0.5 * (df["LATMIN"] + df["LATMAX"])) <= 60)
 
+    if timepoint is not None:
+        is_good_data &= (df["T_REC"] == timepoint)
+    else:
+        is_good_data &= (df["T_REC"] <= time_range_hi) & \
+                        (df["T_REC"] >= time_range_lo)
+
     return df.where(is_good_data).dropna()
-
-
-def get_ar_properties(flare_class: str,
-                      lo_time: int = 10,
-                      hi_time: int = 22,
-                      coincidence_time_window: str = "0h_24h") -> pd.DataFrame():
-    """
-    Args:
-        flare_class: The flare class used to partition the dataset.
-        lo_time: The beginning of the time window for the time series
-                 before flare onset.
-                 Valid values are in range 0-24.
-        hi_time: The end of the time window for the time series
-                 before flare onset.
-                 Valid values are in range 0-24.
-        cleaned_data_directory: The directory which contains
-
-    Returns:
-        A filtered dataframe with corresponding to the flare list of the same
-        class, with AR properties appended as columns to each "good" flare.
-    """
-    # Determine if data already exists for this flare class and time window.
-    time_window = get_time_window(lo_time, hi_time)
-
-    if coincidence_time_window == "0h_24h":
-        coincidence_definition = "original_coincidence_definition"
-    else:
-        coincidence_definition = "modified_coincidence_definition"
-
-    flare_dataset_file = get_time_series_means_filename(flare_class, time_window,
-                                                        coincidence_definition)
-
-    # If so, then don't compute anything and return this data instead.
-    if flare_dataset_file:
-        flare_list_df = pd.read_csv(flare_dataset_file)
-        return flare_list_df
-
-    # Get the flare info list file.
-    if flare_class != "NULL":
-        if coincidence_time_window:
-            filename = f"{COINCIDENCE_LIST_DIRECTORY}{coincidence_time_window}/" \
-                       f"{flare_class.lower()}_list.txt"
-        else:
-            filename = f"{COINCIDENCE_LIST_DIRECTORY}{time_window}/" \
-                       f"{flare_class.lower()}_list.txt"
-    else:
-        filename = f"{FLARE_LIST_DIRECTORY}{flare_class.lower()}_list.txt"
-
-    # Read the flare list into a dataframe and clean it.
-    flare_list_df = get_dataframe(filename)
-    flare_list_df["xray_class"] = flare_list_df["xray_class"].apply(classify_flare)
-
-    # Get the corresponding data for this flare class.
-    flare_data_df = get_dataframe(
-        f"{FLARE_DATA_DIRECTORY}{flare_class.lower()}_data.txt")
-
-    # Get the AR params.
-    for index, row in flare_list_df.iterrows():
-        # print(f"Computing {flare_class} Flare {index}/{flare_list_df.shape[0]}")
-        nar = row['nar']
-        time_range_lo = row['time_start'] - timedelta(hours=hi_time)
-        time_range_hi = row['time_start'] - timedelta(hours=lo_time)
-
-        needed_slice = filter_data(flare_data_df,
-                                   nar,
-                                   time_range_lo,
-                                   time_range_hi)
-        needed_slice_avg = pd.DataFrame([needed_slice.mean(axis=0)])
-
-        for column in flare_data_df.columns:
-            if column not in ["T_REC", "NOAA_AR", "QUALITY"] + LLA_HEADERS:
-                flare_list_df.loc[index, column] = needed_slice_avg.loc[
-                    0, column]
-
-    # Save the dataset before exiting this function.
-    dir = f"{FLARE_MEANS_DIRECTORY}{coincidence_definition}/"
-    if time_window not in os.listdir(dir):
-        os.mkdir(dir + time_window)
-    filename = f"{dir + time_window}/" \
-               f"{flare_class.lower()}_{time_window}_mean_dataset.csv"
-    flare_list_df.to_csv(filename)
-
-    return flare_list_df
 
 
 def get_idealized_flare(flare_class: str,
@@ -328,7 +263,127 @@ def get_idealized_flare(flare_class: str,
     return df_ave
 
 
-# ---------------------------------------------------------------------------
+def get_ar_properties(flare_class: str,
+                      lo_time: Any = 0,
+                      hi_time: Any = 0,
+                      timepoint: Any = None,
+                      coincidence_time_window: str = "0h_24h") -> pd.DataFrame():
+    """
+    Args:
+        flare_class: The flare class used to partition the dataset.
+        lo_time: The beginning of the time window for the time series
+                 before flare onset.
+                 Valid values are in range 0-24.
+        hi_time: The end of the time window for the time series
+                 before flare onset.
+                 Valid values are in range 0-24.
+        cleaned_data_directory: The directory which contains
+
+    Returns:
+        A filtered dataframe with corresponding to the flare list of the same
+        class, with AR properties appended as columns to each "good" flare.
+    """
+    # Determine if data already exists for this flare class and time window.
+    time_window = get_time_window(lo_time, hi_time)
+
+    if coincidence_time_window == "0h_24h":
+        coincidence_definition = "original_coincidence_definition"
+    else:
+        coincidence_definition = "modified_coincidence_definition"
+
+    if timepoint is not None:
+        flare_dataset_file = get_timepoint_filename(flare_class,
+                                                    timepoint,
+                                                    coincidence_definition)
+    else:
+        flare_dataset_file = get_time_series_means_filename(flare_class,
+                                                            time_window,
+                                                coincidence_definition)
+
+    # If so, then don't compute anything and return this data instead.
+    if flare_dataset_file:
+        flare_list_df = pd.read_csv(flare_dataset_file)
+        return flare_list_df
+
+    # Get the flare info list file.
+    if flare_class != "NULL":
+        if coincidence_time_window:
+            filename = f"{COINCIDENCE_LIST_DIRECTORY}{coincidence_time_window}/" \
+                       f"{flare_class.lower()}_list.txt"
+        else:
+            filename = f"{COINCIDENCE_LIST_DIRECTORY}{time_window}/" \
+                       f"{flare_class.lower()}_list.txt"
+    else:
+        filename = f"{FLARE_LIST_DIRECTORY}{flare_class.lower()}_list.txt"
+
+    # Read the flare list into a dataframe and clean it.
+    flare_list_df = get_dataframe(filename)
+    flare_list_df["xray_class"] = flare_list_df["xray_class"].apply(classify_flare)
+
+    # Get the corresponding data for this flare class.
+    flare_data_df = get_dataframe(
+        f"{FLARE_DATA_DIRECTORY}{flare_class.lower()}_data.txt")
+
+    # Get the AR params for a single timepoint.
+    if timepoint is not None:
+        for index, row in flare_list_df.iterrows():
+            def floor_minute(time, cadence=12):
+                return time - timedelta(minutes=time.minute % cadence)
+            nar = row["nar"]
+            timestamp = row["time_start"] - timedelta(minutes=timepoint)
+            timestamp = floor_minute(timestamp)
+            needed_slice = filter_data(flare_data_df,
+                                       nar,
+                                       timepoint=timestamp).reset_index()
+            if needed_slice.empty:
+                continue
+            for column in flare_data_df.columns:
+                if column not in ["T_REC", "NOAA_AR", "QUALITY"] + LLA_HEADERS:
+                    # print(flare_list_df.to_string())
+                    flare_list_df.loc[index, column] = needed_slice.loc[
+                        0, column]
+
+        dir = f"{FLARE_MEANS_DIRECTORY}{coincidence_definition}/"
+        timepoint_caption = f"{timepoint}m"
+        if timepoint_caption not in os.listdir(dir):
+            os.mkdir(dir + timepoint_caption)
+        filename = f"{dir + timepoint_caption}/" \
+                   f"{flare_class.lower()}_{timepoint_caption}" \
+                   f"_timepoint_dataset.csv"
+        flare_list_df.to_csv(filename)
+
+        return flare_list_df
+
+    # Get the AR params for a time series.
+    for index, row in flare_list_df.iterrows():
+        # print(f"Computing {flare_class} Flare {index}/{flare_list_df.shape[0]}")
+        nar = row['nar']
+
+        time_range_lo = row['time_start'] - timedelta(hours=hi_time)
+        time_range_hi = row['time_start'] - timedelta(hours=lo_time)
+
+        needed_slice = filter_data(flare_data_df,
+                                   nar,
+                                   time_range_lo,
+                                   time_range_hi)
+        needed_slice_avg = pd.DataFrame([needed_slice.mean(axis=0)])
+
+        for column in flare_data_df.columns:
+            if column not in ["T_REC", "NOAA_AR", "QUALITY"] + LLA_HEADERS:
+                flare_list_df.loc[index, column] = needed_slice_avg.loc[
+                    0, column]
+
+    # Save the dataset before exiting this function.
+    dir = f"{FLARE_MEANS_DIRECTORY}{coincidence_definition}/"
+    if time_window not in os.listdir(dir):
+        os.mkdir(dir + time_window)
+    filename = f"{dir + time_window}/" \
+               f"{flare_class.lower()}_{time_window}_mean_dataset.csv"
+    flare_list_df.to_csv(filename)
+
+    return flare_list_df
+
+
 def write_classification_metrics(y_true: List[Any], y_pred: List[Any],
                                  filename: str,
                                  clf_name: str,
@@ -361,6 +416,7 @@ def write_classification_metrics(y_true: List[Any], y_pred: List[Any],
     if not print_output:
         sys.stdout.close()
         sys.stdout = stdout
+# ---------------------------------------------------------------------------
 
 
 
