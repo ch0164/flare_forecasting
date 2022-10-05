@@ -24,9 +24,6 @@ if __name__ == "__main__":
         recall_time_df = pd.read_csv(recall_file).iloc[::-1].drop("Unnamed: 0", axis=1)
         recall_df = pd.concat([recall_df, recall_time_df])
         shapes.append(recall_df.shape[0])
-        for coincidence in COINCIDENCES:
-            averages[coincidence]["tss"].append(tss_time_df[coincidence].mean())
-            averages[coincidence]["recall"].append(recall_time_df[coincidence].mean())
 
     colors = ["grey", "blue", "red"]
 

@@ -10,9 +10,8 @@ metrics = ["tss", "recall"]
 if __name__ == "__main__":
     dir = RESULTS_DIRECTORY + "time_window_classification/metrics/"
     plt.subplots(figsize=(20, 13))
-    tss_df = pd.read_csv(f"{dir}timepoint_b_mx_lda_tss.csv").iloc[::-1]
-    recall_df = pd.read_csv(f"{dir}timepoint_b_mx_lda_recall.csv").iloc[::-1]
-
+    tss_df = pd.read_csv(f"{dir}timepoint_b_mx_lda_tss.csv").iloc[::-1].drop("Unnamed: 0", axis=1)
+    recall_df = pd.read_csv(f"{dir}timepoint_b_mx_lda_recall.csv").iloc[::-1].drop("Unnamed: 0", axis=1)
 
     colors = ["grey", "blue", "red"]
 
