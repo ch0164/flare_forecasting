@@ -1,0 +1,6 @@
+classifier,all,coincident,noncoincident
+KNN 3,0.8978,0.9458,0.8166
+LDA,0.8597,0.9236,0.7989
+Linear SVM,0.8835,0.949,0.7673
+Logistic Regression,0.9092,0.9682,0.8238
+Random Forest,0.7945,0.9037,0.0627
