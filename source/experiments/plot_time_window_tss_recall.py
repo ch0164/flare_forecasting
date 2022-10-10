@@ -30,12 +30,36 @@ if __name__ == "__main__":
     def get_title(metric):
         return f"Time Window Mean Analysis, {metric} from LDA Classifier Using LOO CV, for B/MX Flares"
 
-    for coincidence, color in zip(COINCIDENCES, colors):
+
+    tss_df.reset_index(inplace=True)
+    tss_df.drop("index", axis=1, inplace=True)
+    recall_df.reset_index(inplace=True)
+    recall_df.drop("index", axis=1, inplace=True)
+
+    # Get stats for later.
+    recall_mins = list(recall_df.min())
+    recall_top_quantiles = list(recall_df.quantile(0.75))
+    tss_mins = list(tss_df.min())
+    tss_top_quantiles = list(tss_df.quantile(0.75))
+
+    for coincidence, color in zip(COINCIDENCES, colors, ):
         plt.plot(range(tss_df.shape[0]), tss_df[coincidence],
                  label=coincidence, c=color)
         m = tss_df[coincidence].mean()
         plt.axhline(m, c="k", ls="dotted")
         plt.text(0.1, m, f"{coincidence} mean")
+
+    for coincidence, quantile, minimum in \
+        zip(COINCIDENCES, tss_top_quantiles, tss_mins):
+        quantile_df = tss_df.loc[tss_df[coincidence] >= quantile]
+        min_df = tss_df.loc[tss_df[coincidence] == minimum]
+        plt.scatter(list(quantile_df.index.values), quantile_df[coincidence],
+                    c="green",
+                    label="top quartile" if coincidence == "all" else "")
+        plt.scatter(list(min_df.index.values), min_df[coincidence],
+                    c="darkviolet",
+                    label="minimum" if coincidence == "all" else "")
+
     for shape, time_interval in zip(shapes, time_intervals):
         plt.axvline(shape - 1, c="k", ls="dashed")
         if time_interval == 24:
@@ -56,6 +80,18 @@ if __name__ == "__main__":
         m = tss_df[coincidence].mean()
         plt.axhline(m, c="k", ls="dotted")
         plt.text(0.1, m, f"{coincidence} mean")
+
+    for coincidence, quantile, minimum in \
+        zip(COINCIDENCES, recall_top_quantiles, recall_mins):
+        quantile_df = recall_df.loc[recall_df[coincidence] >= quantile]
+        min_df = recall_df.loc[recall_df[coincidence] == minimum]
+        plt.scatter(list(quantile_df.index.values), quantile_df[coincidence],
+                    c="green",
+                    label="top quartile" if coincidence == "all" else "")
+        plt.scatter(list(min_df.index.values), min_df[coincidence],
+                    c="darkviolet",
+                    label="minimum" if coincidence == "all" else "")
+
     for shape, time_interval in zip(shapes, time_intervals):
         plt.axvline(shape - 1, c="k", ls="dashed")
         if time_interval == 24:

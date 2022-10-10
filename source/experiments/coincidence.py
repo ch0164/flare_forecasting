@@ -15,7 +15,7 @@ def main() -> None:
     # Experiment Name (No Acronyms)
     experiment = "coincidence"
 
-    flare_classes = ["BC", "MX"]
+    flare_classes = ["NB", "MX"]
 
     # ------------------------------------------------------------------------
     # Generate all possible time windows.
@@ -47,7 +47,7 @@ def main() -> None:
             for flare_class in flare_classes:
                 flare_list_df = pd.concat(
                     [flare_list_df,
-                    get_dataframe(f"{FLARE_LIST_DIRECTORY}{flare_class}_list.txt")
+                    get_dataframe(f"{FLARE_LIST_DIRECTORY}{flare_class.lower()}_list.txt")
                     ]
                 )
             flare_list_df["COINCIDENCE"] = False
@@ -89,6 +89,9 @@ def main() -> None:
                 #     break
                 flare_class_df = pd.DataFrame()
                 for individual_flare_class in list(flare_class):
+                    # Assume null flares are noncoincident anyway.
+                    # if individual_flare_class in "N":
+                    #     continue
                     flare_class_df = pd.concat([
                         flare_class_df,
                         flare_list_df.loc[
@@ -100,7 +103,7 @@ def main() -> None:
                 flare_class_df.rename_axis("index", inplace=True)
                 flare_class_df.to_csv(
                     f"{COINCIDENCE_LIST_DIRECTORY}{time_window}/"
-                    f"{flare_class.lower()}_list.txt")
+                    f"{flare_class.lower()}_list_nbmx.txt")
 
 
 if __name__ == "__main__":

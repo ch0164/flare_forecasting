@@ -48,7 +48,8 @@ def get_time_window(lo_time: int = 10, hi_time: int = 22):
 
 
 def get_time_series_means_filename(flare_class: str, time_window: str,
-                                   coincidence_definition: str) -> str:
+                                   coincidence_definition: str,
+                                   coincidence_flare_classes: str = "") -> str:
     """
     Args:
         flare_class:
@@ -60,22 +61,33 @@ def get_time_series_means_filename(flare_class: str, time_window: str,
 
     """
     dir = f"{FLARE_MEANS_DIRECTORY}{coincidence_definition}/{time_window}/"
+    if coincidence_flare_classes:
+        substr = f"{flare_class.lower()}_{time_window}" \
+                 f"_{coincidence_flare_classes}_mean_dataset"
+    else:
+        substr = f"{flare_class.lower()}_{time_window}_mean_dataset"
     if os.path.exists(dir):
         for file in os.listdir(dir):
-            if f"{flare_class.lower()}_{time_window}_mean_dataset" in file:
+            if substr in file:
                 return f"{dir}{file}"
     else:
         return ""
 
 
 def get_timepoint_filename(flare_class: str, timepoint: int,
-                           coincidence_definition: str) -> str:
+                           coincidence_definition: str,
+                           coincidence_flare_classes: str = "") -> str:
     """
     """
     dir = f"{FLARE_MEANS_DIRECTORY}{coincidence_definition}/{timepoint}m/"
+    if coincidence_flare_classes:
+        substr = f"{flare_class.lower()}_{timepoint}m" \
+                 f"_{coincidence_flare_classes}_timepoint_dataset"
+    else:
+        substr = f"{flare_class.lower()}_{timepoint}m_timepoint_dataset"
     if os.path.exists(dir):
         for file in os.listdir(dir):
-            if f"{flare_class.lower()}_{timepoint}m_timepoint_dataset" in file:
+            if substr in file:
                 return f"{dir}{file}"
     else:
         return ""
@@ -135,6 +147,9 @@ def filter_data(df: pd.DataFrame(),
         is_good_data &= (df["T_REC"] <= time_range_hi) & \
                         (df["T_REC"] >= time_range_lo)
 
+    # If the flare has multiple ARs, ignore them.
+    is_good_data &= ~df["ARs"].str.contains(",")
+
     return df.where(is_good_data).dropna()
 
 
@@ -181,7 +196,7 @@ def get_idealized_flare(flare_class: str,
     #     flare_list_df = pd.read_csv(flare_dataset_file)
     #     return flare_list_df
 
-    if flare_class != "NULL" and use_time_window:
+    if flare_class != "N" and use_time_window:
         if coincidence_time_window:
             filename = f"{FLARE_LIST_DIRECTORY}{coincidence_time_window}/" \
                        f"{flare_class.lower()}_list.txt"
@@ -267,7 +282,8 @@ def get_ar_properties(flare_class: str,
                       lo_time: Any = 0,
                       hi_time: Any = 0,
                       timepoint: Any = None,
-                      coincidence_time_window: str = "0h_24h") -> pd.DataFrame():
+                      coincidence_time_window: str = "0h_24h",
+                      coincidence_flare_classes: str = "") -> pd.DataFrame():
     """
     Args:
         flare_class: The flare class used to partition the dataset.
@@ -294,19 +310,26 @@ def get_ar_properties(flare_class: str,
     if timepoint is not None:
         flare_dataset_file = get_timepoint_filename(flare_class,
                                                     timepoint,
-                                                    coincidence_definition)
+                                                    coincidence_definition,
+                                                    coincidence_flare_classes)
     else:
-        flare_dataset_file = get_time_series_means_filename(flare_class,
-                                                            time_window,
-                                                coincidence_definition)
+        flare_dataset_file = get_time_series_means_filename(
+            flare_class,
+            time_window,
+            coincidence_definition,
+            coincidence_flare_classes
+        )
 
     # If so, then don't compute anything and return this data instead.
     if flare_dataset_file:
+        if coincidence_flare_classes:
+            flare_dataset_file = flare_dataset_file.replace("_list.txt",
+                                       f"_list_{coincidence_flare_classes}.txt")
         flare_list_df = pd.read_csv(flare_dataset_file)
         return flare_list_df
 
     # Get the flare info list file.
-    if flare_class != "NULL":
+    if flare_class != "N":
         if coincidence_time_window:
             filename = f"{COINCIDENCE_LIST_DIRECTORY}{coincidence_time_window}/" \
                        f"{flare_class.lower()}_list.txt"
@@ -315,6 +338,10 @@ def get_ar_properties(flare_class: str,
                        f"{flare_class.lower()}_list.txt"
     else:
         filename = f"{FLARE_LIST_DIRECTORY}{flare_class.lower()}_list.txt"
+
+    if coincidence_flare_classes:
+        filename = filename.replace("_list.txt",
+                                   f"_list_{coincidence_flare_classes}.txt")
 
     # Read the flare list into a dataframe and clean it.
     flare_list_df = get_dataframe(filename)
@@ -327,6 +354,7 @@ def get_ar_properties(flare_class: str,
     # Get the AR params for a single timepoint.
     if timepoint is not None:
         for index, row in flare_list_df.iterrows():
+            print(f"{index}/{flare_list_df.shape[0]}")
             def floor_minute(time, cadence=12):
                 return time - timedelta(minutes=time.minute % cadence)
             nar = row["nar"]
@@ -349,7 +377,7 @@ def get_ar_properties(flare_class: str,
             os.mkdir(dir + timepoint_caption)
         filename = f"{dir + timepoint_caption}/" \
                    f"{flare_class.lower()}_{timepoint_caption}" \
-                   f"_timepoint_dataset.csv"
+                   f"{'_' + coincidence_flare_classes}_timepoint_dataset.csv"
         flare_list_df.to_csv(filename)
 
         return flare_list_df
@@ -378,7 +406,8 @@ def get_ar_properties(flare_class: str,
     if time_window not in os.listdir(dir):
         os.mkdir(dir + time_window)
     filename = f"{dir + time_window}/" \
-               f"{flare_class.lower()}_{time_window}_mean_dataset.csv"
+               f"{flare_class.lower()}_{time_window}" \
+               f"_{coincidence_flare_classes}_mean_dataset.csv"
     flare_list_df.to_csv(filename)
 
     return flare_list_df
