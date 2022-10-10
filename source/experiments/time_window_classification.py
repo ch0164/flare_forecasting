@@ -52,7 +52,7 @@ def main() -> None:
     ]
 
     time_intervals = [1, 2, 4, 8, 12, 24]
-    flare_classes = ["B", "MX"]
+    flare_classes = ["NB", "MX"]
     # for time_interval in time_intervals:
     #     time_interval_caption = f"{time_interval}h"
     #     mx_recall_df = pd.DataFrame(columns=COINCIDENCES)
@@ -83,11 +83,13 @@ def main() -> None:
         print(f"{index}/{len(mins)}")
         flare_dataframes = [
             get_ar_properties(flare_class, timepoint=timepoint,
-                              coincidence_time_window="0h_24h").dropna()
+                              coincidence_time_window="0h_24h",
+                              coincidence_flare_classes="nbmx").dropna()
             for flare_class in flare_classes
         ]
         for coincidence in ["all", "coincident", "noncoincident"]:
             all_flares_df = pd.concat(flare_dataframes)
+
             if coincidence == "coincident":
                 all_flares_df = all_flares_df.loc[all_flares_df["COINCIDENCE"] == True]
             elif coincidence == "noncoincident":
@@ -105,11 +107,14 @@ def main() -> None:
 
             all_flares_df["xray_class"].replace("M", "MX", inplace=True)
             all_flares_df["xray_class"].replace("X", "MX", inplace=True)
+            all_flares_df["xray_class"].replace("B", "NB", inplace=True)
+            all_flares_df["xray_class"].replace("N", "NB", inplace=True)
 
             all_flares_df = shuffle(all_flares_df, random_state=random_state)
             y = all_flares_df["xray_class"].to_numpy()
             X = all_flares_df[FLARE_PROPERTIES]
             X = StandardScaler().fit_transform(X)
+            n = len(y)
 
             loo = LeaveOneOut()
             loo.get_n_splits(X)
@@ -131,8 +136,8 @@ def main() -> None:
                 tss_df.loc[index, coincidence] = tss
                 mx_recall_df.loc[index, coincidence] = cr['MX']['recall']
 
-    tss_df.to_csv(f"{metrics_directory}_timepoint_b_mx_lda_tss.csv")
-    mx_recall_df.to_csv(f"{metrics_directory}_timepoint_b_mx_lda_recall.csv")
+    tss_df.to_csv(f"{metrics_directory}timepoint_nb_mx_lda_tss.csv")
+    mx_recall_df.to_csv(f"{metrics_directory}timepoint_nb_mx_lda_recall.csv")
 
 
 

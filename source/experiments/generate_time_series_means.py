@@ -22,7 +22,7 @@ def main() -> None:
 
     # ------------------------------------------------------------------------
     time_intervals = [1, 2, 4, 8, 12, 24]
-    flare_classes = ["B", "MX"]
+    flare_classes = ["NB", "MX"]
     # for time_interval in time_intervals:
     #     possible_time_windows = [
     #         (start_time, end_time) for start_time in range(0, 24)
@@ -43,7 +43,8 @@ def main() -> None:
             #       f" time interval {time_interval}, "
             #       f"{index}/{len(possible_time_windows)}")
             print(f"Timepoint={timepoint}, Flare Class={flare_class}")
-            get_ar_properties(flare_class, timepoint=timepoint)
+            get_ar_properties(flare_class, timepoint=timepoint,
+                               coincidence_flare_classes="nbmx")
                     # get_ar_properties(flare_class,
                     #                                   lo_time,
                     #                                   hi_time,
