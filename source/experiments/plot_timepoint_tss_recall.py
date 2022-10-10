@@ -1,5 +1,6 @@
 import pandas as pd
 from matplotlib import pyplot as plt
+import numpy as np
 
 
 from source.constants import RESULTS_DIRECTORY, COINCIDENCES
@@ -18,6 +19,12 @@ if __name__ == "__main__":
     recall_df.reset_index(inplace=True)
     recall_df.drop("index", axis=1, inplace=True)
 
+    df = tss_df.describe()
+    print(df)
+    df = recall_df.describe()
+    print(df)
+    exit(1)
+
     recall_mins = list(recall_df.min())
     recall_top_quantiles = list(recall_df.quantile(0.75))
     tss_mins = list(tss_df.min())
@@ -31,6 +38,9 @@ if __name__ == "__main__":
     for coincidence, color in zip(COINCIDENCES, colors):
         plt.plot(range(tss_df.shape[0]), tss_df[coincidence],
                  label=coincidence, c=color)
+        std_error = np.std(tss_df[coincidence].to_numpy(), ddof=1) / np.sqrt(len(tss_df[coincidence].to_numpy()))
+        plt.errorbar(range(tss_df.shape[0]), tss_df[coincidence], yerr=std_error,
+                 c=color)
         m = tss_df[coincidence].mean()
         plt.axhline(m, c="k", ls="dotted")
         plt.text(0.1, m, f"{coincidence} mean")
@@ -47,6 +57,8 @@ if __name__ == "__main__":
     plt.legend()
     plt.xlabel("Timepoint Index")
     plt.ylabel("True Skill Score")
+    plt.savefig(f"/home/ch0164/PycharmProjects/flare_forecasting/results/time_window_classification/figures/"
+                f"nb_mx_timepoint_analysis_tss.png")
     plt.show()
 
     plt.clf()
@@ -54,7 +66,10 @@ if __name__ == "__main__":
     for coincidence, color in zip(COINCIDENCES, colors):
         plt.plot(range(recall_df.shape[0]), recall_df[coincidence],
                  label=coincidence, c=color)
-        m = tss_df[coincidence].mean()
+        std_error = np.std(recall_df[coincidence].to_numpy(), ddof=1) / np.sqrt(len(recall_df[coincidence].to_numpy()))
+        plt.errorbar(range(recall_df.shape[0]), recall_df[coincidence], yerr=std_error,
+                     c=color)
+        m = recall_df[coincidence].mean()
         plt.axhline(m, c="k", ls="dotted")
         plt.text(0.1, m, f"{coincidence} mean")
     for coincidence, quantile, minimum in zip(COINCIDENCES, recall_top_quantiles, recall_mins):
@@ -70,5 +85,7 @@ if __name__ == "__main__":
     plt.legend()
     plt.xlabel("Timepoint Index")
     plt.ylabel("MX Recall")
+    plt.savefig(f"/home/ch0164/PycharmProjects/flare_forecasting/results/time_window_classification/figures/"
+                f"nb_mx_timepoint_analysis_recall.png")
     plt.show()
 
