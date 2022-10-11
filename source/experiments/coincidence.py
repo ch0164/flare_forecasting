@@ -15,7 +15,7 @@ def main() -> None:
     # Experiment Name (No Acronyms)
     experiment = "coincidence"
 
-    flare_classes = ["NB", "MX"]
+    flare_classes = ["NBC", "MX"]
 
     # ------------------------------------------------------------------------
     # Generate all possible time windows.
@@ -103,7 +103,7 @@ def main() -> None:
                 flare_class_df.rename_axis("index", inplace=True)
                 flare_class_df.to_csv(
                     f"{COINCIDENCE_LIST_DIRECTORY}{time_window}/"
-                    f"{flare_class.lower()}_list_nbmx.txt")
+                    f"{flare_class.lower()}_list_nbcmx.txt")
 
 
 if __name__ == "__main__":
