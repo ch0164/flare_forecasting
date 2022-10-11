@@ -1,28 +1,210 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b96d273d-abd9-45da-9424-fb1b6c4cc8cf" name="Changes" comment="Classifier names were incorrect...">
-      <change beforePath="$PROJECT_DIR$/.idea/flare_forecasting.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/flare_forecasting.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="b96d273d-abd9-45da-9424-fb1b6c4cc8cf" name="Changes" comment="Sinha classifiers ran on B/MX flares using ONLY R_VALUE feature">
+      <change afterPath="$PROJECT_DIR$/flare_data/nbc_data.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/0h_12h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/0h_12h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/0h_1h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/0h_1h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/0h_24h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/0h_24h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/0h_2h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/0h_2h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/0h_4h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/0h_4h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/0h_8h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/0h_8h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/10h_11h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/10h_11h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/10h_12h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/10h_12h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/10h_14h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/10h_14h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/10h_18h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/10h_18h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/10h_22h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/10h_22h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/11h_12h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/11h_12h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/11h_13h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/11h_13h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/11h_15h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/11h_15h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/11h_19h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/11h_19h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/11h_23h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/11h_23h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/12h_13h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/12h_13h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/12h_14h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/12h_14h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/12h_16h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/12h_16h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/12h_20h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/12h_20h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/12h_24h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/12h_24h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/13h_14h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/13h_14h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/13h_15h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/13h_15h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/13h_17h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/13h_17h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/13h_21h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/13h_21h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/14h_15h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/14h_15h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/14h_16h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/14h_16h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/14h_18h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/14h_18h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/14h_22h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/14h_22h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/15h_16h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/15h_16h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/15h_17h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/15h_17h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/15h_19h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/15h_19h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/15h_23h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/15h_23h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/16h_17h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/16h_17h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/16h_18h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/16h_18h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/16h_20h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/16h_20h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/16h_24h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/16h_24h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/17h_18h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/17h_18h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/17h_19h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/17h_19h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/17h_21h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/17h_21h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/18h_19h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/18h_19h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/18h_20h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/18h_20h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/18h_22h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/18h_22h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/19h_20h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/19h_20h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/19h_21h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/19h_21h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/19h_23h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/19h_23h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/1h_13h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/1h_13h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/1h_2h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/1h_2h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/1h_3h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/1h_3h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/1h_5h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/1h_5h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/1h_9h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/1h_9h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/20h_21h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/20h_21h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/20h_22h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/20h_22h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/20h_24h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/20h_24h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/21h_22h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/21h_22h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/21h_23h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/21h_23h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/22h_23h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/22h_23h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/22h_24h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/22h_24h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/23h_24h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/23h_24h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/2h_10h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/2h_10h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/2h_14h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/2h_14h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/2h_3h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/2h_3h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/2h_4h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/2h_4h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/2h_6h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/2h_6h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/3h_11h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/3h_11h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/3h_15h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/3h_15h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/3h_4h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/3h_4h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/3h_5h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/3h_5h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/3h_7h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/3h_7h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/4h_12h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/4h_12h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/4h_16h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/4h_16h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/4h_5h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/4h_5h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/4h_6h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/4h_6h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/4h_8h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/4h_8h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/5h_13h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/5h_13h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/5h_17h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/5h_17h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/5h_6h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/5h_6h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/5h_7h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/5h_7h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/5h_9h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/5h_9h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/6h_10h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/6h_10h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/6h_14h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/6h_14h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/6h_18h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/6h_18h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/6h_7h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/6h_7h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/6h_8h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/6h_8h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/7h_11h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/7h_11h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/7h_15h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/7h_15h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/7h_19h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/7h_19h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/7h_8h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/7h_8h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/7h_9h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/7h_9h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/8h_10h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/8h_10h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/8h_12h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/8h_12h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/8h_16h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/8h_16h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/8h_20h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/8h_20h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/8h_9h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/8h_9h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/9h_10h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/9h_10h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/9h_11h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/9h_11h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/9h_13h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/9h_13h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/9h_17h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/9h_17h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/9h_21h/mx_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/coincidence/9h_21h/nbc_list_nbcmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/nbc_list.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/0h_24h_b_mx_lda_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/0h_24h_b_mx_lda_true_skill_score_summary.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/0h_24h_b_mx_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/0h_24h_b_mx_true_skill_score_summary.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/0h_24h_bc_mx_lda_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/0h_24h_bc_mx_lda_true_skill_score_summary.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/0h_24h_bc_mx_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/0h_24h_bc_mx_true_skill_score_summary.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/10h_22h_b_mx_lda_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/10h_22h_b_mx_lda_true_skill_score_summary.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/10h_22h_b_mx_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/10h_22h_b_mx_true_skill_score_summary.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/10h_22h_bc_mx_lda_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/10h_22h_bc_mx_lda_true_skill_score_summary.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/10h_22h_bc_mx_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/70_30_train_test/10h_22h_bc_mx_true_skill_score_summary.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/0h_24h_b_mx_lda_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/0h_24h_b_mx_lda_true_skill_score_summary.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/0h_24h_b_mx_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/0h_24h_b_mx_true_skill_score_summary.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/0h_24h_bc_mx_lda_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/0h_24h_bc_mx_lda_true_skill_score_summary.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/0h_24h_bc_mx_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/0h_24h_bc_mx_true_skill_score_summary.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/10h_22h_b_mx_lda_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/10h_22h_b_mx_lda_true_skill_score_summary.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/10h_22h_b_mx_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/10h_22h_b_mx_true_skill_score_summary.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/10h_22h_bc_mx_lda_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/10h_22h_bc_mx_lda_true_skill_score_summary.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/10h_22h_bc_mx_true_skill_score_summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/10h_22h_bc_mx_true_skill_score_summary.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/experiments/classification.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/classification.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/experiments/tabulate_classification_metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/tabulate_classification_metrics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/experiments/coincidence.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/coincidence.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/experiments/generate_time_series_means.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/generate_time_series_means.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +214,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="lda_shifting" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -63,7 +245,7 @@
       <recent name="$PROJECT_DIR$/source/experiments" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.tabulate_classification_metrics">
+  <component name="RunManager" selected="Python.generate_time_series_means">
     <configuration name="classification" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -86,7 +268,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="idealized_flares" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="coincidence" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -99,7 +281,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/idealized_flares.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/coincidence.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -108,7 +290,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="lda_classifier" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="generate_time_series_means" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -121,7 +303,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/lda_classifier.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/generate_time_series_means.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -176,18 +358,18 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.generate_time_series_means" />
+        <item itemvalue="Python.coincidence" />
         <item itemvalue="Python.tabulate_classification_metrics" />
         <item itemvalue="Python.classification" />
         <item itemvalue="Python.time_window_classification" />
-        <item itemvalue="Python.idealized_flares" />
-        <item itemvalue="Python.lda_classifier" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e5c46880-d7ec-4de7-b1eb-35d05692c34c" name="Changes" comment="Classifier names were incorrect..." />
+      <changelist id="b96d273d-abd9-45da-9424-fb1b6c4cc8cf" name="Changes" comment="Sinha classifiers ran on B/MX flares using ONLY R_VALUE feature" />
       <created>1662564130288</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -198,6 +380,7 @@
       <workItem from="1663166739819" duration="5658000" />
       <workItem from="1664378416180" duration="634000" />
       <workItem from="1664816531094" duration="2675000" />
+      <workItem from="1665411697606" duration="4244000" />
     </task>
     <task id="LOCAL-00001" summary="LDA B/MX classifier">
       <created>1662575033124</created>
@@ -238,7 +421,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="Dummy commit" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/flare_forecasting$coincidence.coverage" NAME="coincidence Coverage Results" MODIFIED="1665412257780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$time_window_classification.coverage" NAME="time_window_classification Coverage Results" MODIFIED="1664813131447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$generate_time_series_means.coverage" NAME="generate_time_series_means Coverage Results" MODIFIED="1665412897314" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$tabulate_classification_metrics.coverage" NAME="tabulate_classification_metrics Coverage Results" MODIFIED="1664983051546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$parallel_coordinates.coverage" NAME="parallel_coordinates Coverage Results" MODIFIED="1663179893534" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$idealized_flares.coverage" NAME="idealized_flares Coverage Results" MODIFIED="1663172491103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
