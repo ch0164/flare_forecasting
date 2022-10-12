@@ -66,11 +66,11 @@ def main() -> None:
             # Obtain the properties for flares.
             flare_dataframes = [
                 get_ar_properties(flare_class, lo_time, hi_time,
-                                  coincidence_time_window="0h_24h",
+                                  coincidence_time_window=time_window,
                                   coincidence_flare_classes="nbmx").dropna()
                 for flare_class in flare_classes
             ]
-            print("test")
+            # print("test")
             for coincidence in ["all", "coincident", "noncoincident"]:
                 all_flares_df = pd.concat(flare_dataframes)
                 if coincidence == "coincident":
@@ -118,8 +118,8 @@ def main() -> None:
                     tss_df.loc[index, coincidence] = tss
                     mx_recall_df.loc[index, coincidence] = cr['MX']['recall']
 
-            tss_df.to_csv(f"{metrics_directory}{time_interval_caption}_nb_mx_lda_tss.csv")
-            mx_recall_df.to_csv(f"{metrics_directory}{time_interval_caption}_nb_mx_lda_recall.csv")
+            tss_df.to_csv(f"{metrics_directory}modified_{time_interval_caption}_nb_mx_lda_tss.csv")
+            mx_recall_df.to_csv(f"{metrics_directory}modified_{time_interval_caption}_nb_mx_lda_recall.csv")
 
 
 
