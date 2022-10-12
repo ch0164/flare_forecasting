@@ -11,8 +11,11 @@ metrics = ["tss", "recall"]
 if __name__ == "__main__":
     dir = RESULTS_DIRECTORY + "time_window_classification/metrics/"
     plt.subplots(figsize=(20, 13))
-    tss_df = pd.read_csv(f"{dir}timepoint_nbc_mx_lda_tss.csv").iloc[::-1].drop("Unnamed: 0", axis=1)
-    recall_df = pd.read_csv(f"{dir}timepoint_nbc_mx_lda_recall.csv").iloc[::-1].drop("Unnamed: 0", axis=1)
+    tss_df = pd.read_csv(f"{dir}timepoint_nb_mx_lda_tss.csv").iloc[::-1].drop("Unnamed: 0", axis=1)
+    recall_df = pd.read_csv(f"{dir}timepoint_nb_mx_lda_recall.csv").iloc[::-1].drop("Unnamed: 0", axis=1)
+
+    print(recall_df["all"].nlargest(10))
+    exit(1)
 
     tss_df.reset_index(inplace=True)
     tss_df.drop("index", axis=1, inplace=True)
