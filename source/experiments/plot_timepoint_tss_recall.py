@@ -11,8 +11,8 @@ metrics = ["tss", "recall"]
 if __name__ == "__main__":
     dir = RESULTS_DIRECTORY + "time_window_classification/metrics/"
     plt.subplots(figsize=(20, 13))
-    tss_df = pd.read_csv(f"{dir}timepoint_nb_mx_lda_tss.csv").iloc[::-1].drop("Unnamed: 0", axis=1)
-    recall_df = pd.read_csv(f"{dir}timepoint_nb_mx_lda_recall.csv").iloc[::-1].drop("Unnamed: 0", axis=1)
+    tss_df = pd.read_csv(f"{dir}timepoint_nbc_mx_lda_tss.csv").iloc[::-1].drop("Unnamed: 0", axis=1)
+    recall_df = pd.read_csv(f"{dir}timepoint_nbc_mx_lda_recall.csv").iloc[::-1].drop("Unnamed: 0", axis=1)
 
     tss_df.reset_index(inplace=True)
     tss_df.drop("index", axis=1, inplace=True)
@@ -23,7 +23,6 @@ if __name__ == "__main__":
     print(df)
     df = recall_df.describe()
     print(df)
-    exit(1)
 
     recall_mins = list(recall_df.min())
     recall_top_quantiles = list(recall_df.quantile(0.75))
@@ -33,7 +32,7 @@ if __name__ == "__main__":
     colors = ["grey", "blue", "red"]
 
     def get_title(metric):
-        return f"Timepoint Analysis, {metric} from LDA Classifier Using LOO CV, for NB/MX Flares"
+        return f"Timepoint Analysis, {metric} from LDA Classifier Using LOO CV, for NBC/MX Flares"
 
     for coincidence, color in zip(COINCIDENCES, colors):
         plt.plot(range(tss_df.shape[0]), tss_df[coincidence],
@@ -57,8 +56,8 @@ if __name__ == "__main__":
     plt.legend()
     plt.xlabel("Timepoint Index")
     plt.ylabel("True Skill Score")
-    plt.savefig(f"/home/ch0164/PycharmProjects/flare_forecasting/results/time_window_classification/figures/"
-                f"nb_mx_timepoint_analysis_tss.png")
+    plt.savefig(f"{RESULTS_DIRECTORY}time_window_classification/figures/"
+                f"nbc_mx_timepoint_analysis_tss.png")
     plt.show()
 
     plt.clf()
@@ -85,7 +84,7 @@ if __name__ == "__main__":
     plt.legend()
     plt.xlabel("Timepoint Index")
     plt.ylabel("MX Recall")
-    plt.savefig(f"/home/ch0164/PycharmProjects/flare_forecasting/results/time_window_classification/figures/"
-                f"nb_mx_timepoint_analysis_recall.png")
+    plt.savefig(f"{RESULTS_DIRECTORY}time_window_classification/figures/"
+                f"nbc_mx_timepoint_analysis_recall.png")
     plt.show()
 
