@@ -46,7 +46,6 @@ def main() -> None:
                 get_ar_properties(flare_class,
                                   lo_time,
                                   hi_time,
-                                  coincidence_time_window=time_window,
                                   coincidence_flare_classes="nbmx")
 
     # ------------------------------------------------------------------------
