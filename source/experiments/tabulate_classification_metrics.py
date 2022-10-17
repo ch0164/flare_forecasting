@@ -11,16 +11,16 @@ names = [
 ]
 
 def main():
-    for flare_classification in ["b_mx", "bc_mx", "b_mx_lda", "bc_mx_lda"]:
-        for time_window in ["0h_24h", "10h_22h"]:
+    for flare_classification in ["nb_mx"]:
+        for time_window in ["0h_24h", "5h_17h"]:
             holdout_dict = {"all": [], "coincident": [], "noncoincident": []}
             loo_dict = {"all": [], "coincident": [], "noncoincident": []}
-            for cv, d in zip(["70_30_train_test", "leave_one_out"], [holdout_dict, loo_dict]):
+            for cv, d in zip(["leave_one_out"], [loo_dict]):
                 dir = RESULTS_DIRECTORY + "classification/metrics/" + cv + "/"
                 clf_names = set()
                 for coincidence in COINCIDENCES:
                     for name in names:
-                        file = dir + coincidence + f"/{name}_{flare_classification}_{time_window}_classification_metrics.txt"
+                        file = dir + coincidence + f"/{name}_{flare_classification}_{time_window}_anova_params_classification_metrics.txt"
                         with open(file, "r") as f:
                             for line in f:
                                 if line.endswith("Classification Metrics\n"):
@@ -34,7 +34,7 @@ def main():
                 df = pd.DataFrame(d, columns=COINCIDENCES).rename_axis("classifier")
                 df.index = names
                 df.rename_axis("classifier", inplace=True)
-                df.to_csv(dir + f"{time_window}_{flare_classification}_true_skill_score_summary.csv")
+                df.to_csv(dir + f"{time_window}_{flare_classification}_anova_params_true_skill_score_summary.csv")
 
 
 if __name__ == "__main__":
