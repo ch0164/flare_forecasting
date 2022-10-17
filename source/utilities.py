@@ -123,7 +123,8 @@ def filter_data(df: pd.DataFrame(),
                 nar: int,
                 time_range_lo: pd.Timestamp = None,
                 time_range_hi: pd.Timestamp = None,
-                timepoint: pd.Timestamp = None) -> pd.DataFrame():
+                timepoint: pd.Timestamp = None,
+                filter_multiple_ars: bool = True) -> pd.DataFrame():
     """
     Args:
         df: The dataframe to apply a custom filter.
@@ -148,7 +149,8 @@ def filter_data(df: pd.DataFrame(),
                         (df["T_REC"] >= time_range_lo)
 
     # If the flare has multiple ARs, ignore them.
-    is_good_data &= ~df["ARs"].str.contains(",")
+    if filter_multiple_ars:
+        is_good_data &= ~df["ARs"].str.contains(",")
 
     return df.where(is_good_data).dropna()
 
@@ -283,7 +285,8 @@ def get_ar_properties(flare_class: str,
                       hi_time: Any = 0,
                       timepoint: Any = None,
                       coincidence_time_window: str = "0h_24h",
-                      coincidence_flare_classes: str = "") -> pd.DataFrame():
+                      coincidence_flare_classes: str = "",
+                      filter_multiple_ars: bool = True) -> pd.DataFrame():
     """
     Args:
         flare_class: The flare class used to partition the dataset.
@@ -366,7 +369,7 @@ def get_ar_properties(flare_class: str,
             if needed_slice.empty:
                 continue
             for column in flare_data_df.columns:
-                if column not in ["T_REC", "NOAA_AR", "QUALITY"] + LLA_HEADERS:
+                if column not in ["T_REC", "NOAA_AR", "QUALITY", "ARs"] + LLA_HEADERS:
                     # print(flare_list_df.to_string())
                     flare_list_df.loc[index, column] = needed_slice.loc[
                         0, column]
@@ -393,8 +396,14 @@ def get_ar_properties(flare_class: str,
         needed_slice = filter_data(flare_data_df,
                                    nar,
                                    time_range_lo,
-                                   time_range_hi)
-        needed_slice_avg = pd.DataFrame([needed_slice.mean(axis=0)])
+                                   time_range_hi,
+                                   filter_multiple_ars=filter_multiple_ars)
+        needed_slice_avg = pd.DataFrame([needed_slice[FLARE_PROPERTIES].mean(axis=0)])
+        multiple_ars = needed_slice.loc[needed_slice["ARs"].str.contains(",")]
+        if multiple_ars.empty:
+            needed_slice_avg["ARs"] = ["singular"]
+        else:
+            needed_slice_avg["ARs"] = ["multiple"]
 
         for column in flare_data_df.columns:
             if column not in ["T_REC", "NOAA_AR", "QUALITY"] + LLA_HEADERS:

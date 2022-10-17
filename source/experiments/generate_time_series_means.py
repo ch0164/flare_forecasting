@@ -41,12 +41,8 @@ def main() -> None:
                       f" time interval {time_interval}, "
                       f"{index}/{len(possible_time_windows)}")
                 # print(f"Timepoint={timepoint}, Flare Class={flare_class}")
-                # get_ar_properties(flare_class, timepoint=timepoint,
-                #                   coincidence_flare_classes="nbmx")
-                get_ar_properties(flare_class,
-                                  lo_time,
+                get_ar_properties(flare_class, lo_time,
                                   hi_time,
-                                  coincidence_time_window=time_window,
                                   coincidence_flare_classes="nbmx")
 
     # ------------------------------------------------------------------------
