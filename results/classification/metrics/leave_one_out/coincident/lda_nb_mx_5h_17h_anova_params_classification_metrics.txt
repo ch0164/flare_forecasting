@@ -1,0 +1,18 @@
+LDA Classification Metrics
+--------------------------------------------------
+Confusion Matrix
+  NB   MX
+NB [251   0]
+MX [ 13 175]
+--------------------------------------------------
+Classification Report
+              precision    recall  f1-score   support
+
+          NB       0.95      1.00      0.97       251
+          MX       1.00      0.93      0.96       188
+
+    accuracy                           0.97       439
+   macro avg       0.98      0.97      0.97       439
+weighted avg       0.97      0.97      0.97       439
+
+True Skill Score: 0.9309

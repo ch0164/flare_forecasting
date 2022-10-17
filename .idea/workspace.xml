@@ -1,74 +1,199 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b96d273d-abd9-45da-9424-fb1b6c4cc8cf" name="Changes" comment="Trimmed means">
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/0h_1h/mx_0h_1h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/0h_1h/nb_0h_1h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/0h_2h/nb_0h_2h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/10h_11h/mx_10h_11h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/10h_11h/nb_10h_11h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/11h_12h/mx_11h_12h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/11h_12h/nb_11h_12h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/12h_13h/mx_12h_13h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/12h_13h/nb_12h_13h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/13h_14h/mx_13h_14h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/13h_14h/nb_13h_14h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/14h_15h/mx_14h_15h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/14h_15h/nb_14h_15h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/15h_16h/mx_15h_16h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/15h_16h/nb_15h_16h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/16h_17h/mx_16h_17h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/16h_17h/nb_16h_17h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/17h_18h/mx_17h_18h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/17h_18h/nb_17h_18h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/18h_19h/mx_18h_19h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/18h_19h/nb_18h_19h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/19h_20h/mx_19h_20h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/19h_20h/nb_19h_20h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/1h_2h/mx_1h_2h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/1h_2h/nb_1h_2h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/1h_3h/nb_1h_3h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/20h_21h/mx_20h_21h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/20h_21h/nb_20h_21h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/21h_22h/mx_21h_22h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/21h_22h/nb_21h_22h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/22h_23h/mx_22h_23h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/22h_23h/nb_22h_23h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/23h_24h/mx_23h_24h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/23h_24h/nb_23h_24h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/2h_3h/mx_2h_3h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/2h_3h/nb_2h_3h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/2h_4h/nb_2h_4h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/3h_4h/mx_3h_4h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/3h_4h/nb_3h_4h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/4h_5h/mx_4h_5h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/4h_5h/nb_4h_5h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/5h_6h/mx_5h_6h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/5h_6h/nb_5h_6h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/6h_7h/mx_6h_7h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/6h_7h/nb_6h_7h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/7h_8h/mx_7h_8h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/7h_8h/nb_7h_8h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/8h_9h/mx_8h_9h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/8h_9h/nb_8h_9h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/9h_10h/mx_9h_10h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/modified_coincidence_definition/9h_10h/nb_9h_10h_nbmx_mean_dataset.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/figures/null_b_mx_lda_loo_0h_24h_trimmed_means.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_window_classification/figures/nb_mx_timepoint_analysis_recall.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/timepoint_nb_mx_lda_recall_statistics.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/timepoint_nb_mx_lda_tss_statistics.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/flare_forecasting.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/flare_forecasting.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="b96d273d-abd9-45da-9424-fb1b6c4cc8cf" name="Changes" comment="Dummy commit">
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/0h_1h/mx_0h_1h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/0h_1h/nbc_0h_1h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/0h_2h/mx_0h_2h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/0h_2h/nbc_0h_2h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/10h_11h/mx_10h_11h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/10h_11h/nbc_10h_11h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/10h_12h/mx_10h_12h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/10h_12h/nbc_10h_12h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/11h_12h/mx_11h_12h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/11h_12h/nbc_11h_12h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/12h_13h/mx_12h_13h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/12h_13h/nbc_12h_13h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/13h_14h/mx_13h_14h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/13h_14h/nbc_13h_14h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/14h_15h/mx_14h_15h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/14h_15h/nbc_14h_15h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/15h_16h/mx_15h_16h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/15h_16h/nbc_15h_16h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/16h_17h/mx_16h_17h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/16h_17h/nbc_16h_17h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/17h_18h/mx_17h_18h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/17h_18h/nbc_17h_18h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/18h_19h/mx_18h_19h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/18h_19h/nbc_18h_19h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/19h_20h/mx_19h_20h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/19h_20h/nbc_19h_20h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/1h_2h/mx_1h_2h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/1h_2h/nbc_1h_2h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/1h_3h/mx_1h_3h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/1h_3h/nbc_1h_3h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/20h_21h/mx_20h_21h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/20h_21h/nbc_20h_21h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/21h_22h/mx_21h_22h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/21h_22h/nbc_21h_22h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/22h_23h/mx_22h_23h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/22h_23h/nbc_22h_23h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/23h_24h/mx_23h_24h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/23h_24h/nbc_23h_24h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/2h_3h/mx_2h_3h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/2h_3h/nbc_2h_3h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/2h_4h/mx_2h_4h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/2h_4h/nbc_2h_4h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/3h_4h/mx_3h_4h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/3h_4h/nbc_3h_4h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/3h_5h/mx_3h_5h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/3h_5h/nbc_3h_5h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/4h_5h/mx_4h_5h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/4h_5h/nbc_4h_5h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/4h_6h/mx_4h_6h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/4h_6h/nbc_4h_6h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/5h_6h/mx_5h_6h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/5h_6h/nbc_5h_6h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/5h_7h/mx_5h_7h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/5h_7h/nbc_5h_7h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/6h_7h/mx_6h_7h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/6h_7h/nbc_6h_7h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/6h_8h/mx_6h_8h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/6h_8h/nbc_6h_8h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/7h_8h/mx_7h_8h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/7h_8h/nbc_7h_8h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/7h_9h/mx_7h_9h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/7h_9h/nbc_7h_9h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/8h_10h/mx_8h_10h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/8h_10h/nbc_8h_10h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/8h_9h/mx_8h_9h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/8h_9h/nbc_8h_9h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/9h_10h/mx_9h_10h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/9h_10h/nbc_9h_10h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/9h_11h/mx_9h_11h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/9h_11h/nbc_9h_11h_nbcmx_mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/0h_24h_nb_mx_anova_params_true_skill_score_summary.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/0h_24h_nb_mx_only_r_value_true_skill_score_summary.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/0h_24h_nb_mx_sinha_params_true_skill_score_summary.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/5h_17h_nb_mx_anova_params_true_skill_score_summary.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/5h_17h_nb_mx_only_r_value_true_skill_score_summary.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/5h_17h_nb_mx_sinha_params_true_skill_score_summary.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/knn_3_nb_mx_0h_24h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/knn_3_nb_mx_0h_24h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/knn_3_nb_mx_0h_24h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/knn_3_nb_mx_5h_17h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/knn_3_nb_mx_5h_17h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/knn_3_nb_mx_5h_17h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/lda_nb_mx_0h_24h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/lda_nb_mx_0h_24h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/lda_nb_mx_0h_24h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/lda_nb_mx_5h_17h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/lda_nb_mx_5h_17h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/lda_nb_mx_5h_17h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/linear_svm_nb_mx_0h_24h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/linear_svm_nb_mx_0h_24h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/linear_svm_nb_mx_0h_24h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/linear_svm_nb_mx_5h_17h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/linear_svm_nb_mx_5h_17h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/linear_svm_nb_mx_5h_17h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/logistic_regression_nb_mx_0h_24h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/logistic_regression_nb_mx_0h_24h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/logistic_regression_nb_mx_0h_24h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/logistic_regression_nb_mx_5h_17h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/logistic_regression_nb_mx_5h_17h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/logistic_regression_nb_mx_5h_17h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/random_forest_nb_mx_0h_24h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/random_forest_nb_mx_0h_24h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/random_forest_nb_mx_0h_24h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/random_forest_nb_mx_5h_17h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/random_forest_nb_mx_5h_17h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/all/random_forest_nb_mx_5h_17h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/knn_3_nb_mx_0h_24h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/knn_3_nb_mx_0h_24h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/knn_3_nb_mx_0h_24h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/knn_3_nb_mx_5h_17h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/knn_3_nb_mx_5h_17h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/knn_3_nb_mx_5h_17h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/lda_nb_mx_0h_24h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/lda_nb_mx_0h_24h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/lda_nb_mx_0h_24h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/lda_nb_mx_5h_17h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/lda_nb_mx_5h_17h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/lda_nb_mx_5h_17h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/linear_svm_nb_mx_0h_24h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/linear_svm_nb_mx_0h_24h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/linear_svm_nb_mx_0h_24h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/linear_svm_nb_mx_5h_17h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/linear_svm_nb_mx_5h_17h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/linear_svm_nb_mx_5h_17h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/logistic_regression_nb_mx_0h_24h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/logistic_regression_nb_mx_0h_24h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/logistic_regression_nb_mx_0h_24h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/logistic_regression_nb_mx_5h_17h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/logistic_regression_nb_mx_5h_17h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/logistic_regression_nb_mx_5h_17h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/random_forest_nb_mx_0h_24h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/random_forest_nb_mx_0h_24h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/random_forest_nb_mx_0h_24h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/random_forest_nb_mx_5h_17h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/random_forest_nb_mx_5h_17h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/coincident/random_forest_nb_mx_5h_17h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/knn_3_nb_mx_0h_24h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/knn_3_nb_mx_0h_24h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/knn_3_nb_mx_0h_24h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/knn_3_nb_mx_5h_17h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/knn_3_nb_mx_5h_17h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/knn_3_nb_mx_5h_17h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/lda_nb_mx_0h_24h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/lda_nb_mx_0h_24h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/lda_nb_mx_0h_24h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/lda_nb_mx_5h_17h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/lda_nb_mx_5h_17h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/lda_nb_mx_5h_17h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/linear_svm_nb_mx_0h_24h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/linear_svm_nb_mx_0h_24h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/linear_svm_nb_mx_0h_24h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/linear_svm_nb_mx_5h_17h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/linear_svm_nb_mx_5h_17h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/linear_svm_nb_mx_5h_17h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/logistic_regression_nb_mx_0h_24h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/logistic_regression_nb_mx_0h_24h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/logistic_regression_nb_mx_0h_24h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/logistic_regression_nb_mx_5h_17h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/logistic_regression_nb_mx_5h_17h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/logistic_regression_nb_mx_5h_17h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/random_forest_nb_mx_0h_24h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/random_forest_nb_mx_0h_24h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/random_forest_nb_mx_0h_24h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/random_forest_nb_mx_5h_17h_anova_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/random_forest_nb_mx_5h_17h_only_r_value_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification/metrics/leave_one_out/noncoincident/random_forest_nb_mx_5h_17h_sinha_params_classification_metrics.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/correlation/other/nb_mx_anova_f_scores_13h_24m_timepoint.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/correlation/other/nb_mx_anova_f_scores_5h_17h.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/12h_nb_mx_lda_recall.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/12h_nb_mx_lda_tss.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/1h_nb_mx_lda_recall.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/1h_nb_mx_lda_tss.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/1h_nbc_mx_lda_recall.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/1h_nbc_mx_lda_tss.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/24h_nb_mx_lda_recall.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/24h_nb_mx_lda_tss.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/2h_nb_mx_lda_recall.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/2h_nb_mx_lda_tss.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/2h_nbc_mx_lda_recall.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/2h_nbc_mx_lda_tss.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/4h_nb_mx_lda_recall.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/4h_nb_mx_lda_tss.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/8h_nb_mx_lda_recall.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/8h_nb_mx_lda_tss.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/null_b_mx_lda_loo_0h_24h_trimmed_means_-0.25.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/null_b_mx_lda_loo_0h_24h_trimmed_means_-0.25.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/null_b_mx_lda_loo_0h_24h_trimmed_means_0.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/null_b_mx_lda_loo_0h_24h_trimmed_means_0.0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_window_classification/figures/b_mx_timepoint_analysis_recall.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_window_classification/figures/b_mx_timepoint_analysis_recall.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_window_classification/figures/b_mx_timepoint_analysis_tss.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_window_classification/figures/b_mx_timepoint_analysis_tss.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_window_classification/figures/nb_mx_timepoint_analysis_tss.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_window_classification/figures/nb_mx_timepoint_analysis_tss.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/experiments/generate_time_series_means.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/generate_time_series_means.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/experiments/lda_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/lda_classifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/experiments/plot_timepoint_tss_recall.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/plot_timepoint_tss_recall.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/time_window_classification/figures/nb_mx_mean_analysis_recall.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_window_classification/figures/nb_mx_mean_analysis_recall.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/time_window_classification/figures/nb_mx_mean_analysis_tss.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_window_classification/figures/nb_mx_mean_analysis_tss.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/experiments/classification.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/classification.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/experiments/correlation.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/correlation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/experiments/plot_time_window_tss_recall.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/plot_time_window_tss_recall.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/experiments/tabulate_classification_metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/tabulate_classification_metrics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/experiments/time_window_classification.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/time_window_classification.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,8 +235,8 @@
       <recent name="$PROJECT_DIR$/source/experiments" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.generate_time_series_means">
-    <configuration name="generate_time_series_means" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.tabulate_classification_metrics">
+    <configuration name="classification" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -124,7 +249,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/generate_time_series_means.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/classification.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -133,7 +258,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="lda_classifier" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="correlation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -146,7 +271,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/lda_classifier.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/correlation.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -155,7 +280,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="plot_timepoint_tss_recall" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="plot_time_window_tss_recall" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -168,7 +293,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/plot_timepoint_tss_recall.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/plot_time_window_tss_recall.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -223,11 +348,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.generate_time_series_means" />
-        <item itemvalue="Python.lda_classifier" />
-        <item itemvalue="Python.plot_timepoint_tss_recall" />
-        <item itemvalue="Python.time_window_classification" />
         <item itemvalue="Python.tabulate_classification_metrics" />
+        <item itemvalue="Python.classification" />
+        <item itemvalue="Python.correlation" />
+        <item itemvalue="Python.time_window_classification" />
+        <item itemvalue="Python.plot_time_window_tss_recall" />
       </list>
     </recent_temporary>
   </component>
@@ -261,7 +386,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662576584854</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Dummy commit">
+      <created>1666019182337</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1666019182337</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,19 +414,21 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="LDA B/MX classifier" />
     <MESSAGE value="Data" />
+    <MESSAGE value="NB/MX time windows" />
     <MESSAGE value="Dummy commit" />
     <option name="LAST_COMMIT_MESSAGE" value="Dummy commit" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/flare_forecasting$lda_classifier.coverage" NAME="lda_classifier Coverage Results" MODIFIED="1665418541263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$lda_classifier.coverage" NAME="lda_classifier Coverage Results" MODIFIED="1665427261764" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$correlation.coverage" NAME="correlation Coverage Results" MODIFIED="1666025944573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$plot_classifier_comparison.coverage" NAME="plot_classifier_comparison Coverage Results" MODIFIED="1664383379257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$classification.coverage" NAME="classification Coverage Results" MODIFIED="1664383276744" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$generate_time_series_means.coverage" NAME="generate_time_series_means Coverage Results" MODIFIED="1665420037138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$generate_time_series_means.coverage" NAME="generate_time_series_means Coverage Results" MODIFIED="1665598534933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$classification.coverage" NAME="classification Coverage Results" MODIFIED="1666027036717" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$parallel_coordinates.coverage" NAME="parallel_coordinates Coverage Results" MODIFIED="1663179893534" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$idealized_flares.coverage" NAME="idealized_flares Coverage Results" MODIFIED="1663172491103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$time_window_classification.coverage" NAME="time_window_classification Coverage Results" MODIFIED="1664980866829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$plot_timepoint_tss_recall.coverage" NAME="plot_timepoint_tss_recall Coverage Results" MODIFIED="1665415379138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$tabulate_classification_metrics.coverage" NAME="tabulate_classification_metrics Coverage Results" MODIFIED="1664983051546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$plot_time_window_tss_recall.coverage" NAME="plot_time_window_tss_recall Coverage Results" MODIFIED="1664987239529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$time_window_classification.coverage" NAME="time_window_classification Coverage Results" MODIFIED="1666024243296" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$tabulate_classification_metrics.coverage" NAME="tabulate_classification_metrics Coverage Results" MODIFIED="1666027687282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$plot_time_window_tss_recall.coverage" NAME="plot_time_window_tss_recall Coverage Results" MODIFIED="1666022879883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
   </component>
 </project>
