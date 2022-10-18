@@ -17,10 +17,10 @@ if __name__ == "__main__":
     shapes = []
     averages = {coin: {"tss": [], "recall": []} for coin in COINCIDENCES}
     for time_interval in time_intervals:
-        tss_file = f"{dir}{time_interval}h_nb_mx_lda_tss.csv"
+        tss_file = f"{dir}{time_interval}h_nbc_mx_lda_tss.csv"
         tss_time_df = pd.read_csv(tss_file).iloc[::-1].drop("Unnamed: 0", axis=1)
         tss_df = pd.concat([tss_df, tss_time_df])
-        recall_file = f"{dir}{time_interval}h_nb_mx_lda_recall.csv"
+        recall_file = f"{dir}{time_interval}h_nbc_mx_lda_recall.csv"
         recall_time_df = pd.read_csv(recall_file).iloc[::-1].drop("Unnamed: 0", axis=1)
         recall_df = pd.concat([recall_df, recall_time_df])
         shapes.append(recall_df.shape[0])
@@ -29,7 +29,7 @@ if __name__ == "__main__":
 
     def get_title(metric):
         return f"Time Window Mean Analysis, {metric} from LDA Classifier Using LOO CV, \n" \
-               f"for NB/MX Flares"
+               f"for NBC/MX Flares"
 
     tss_df.reset_index(inplace=True)
     tss_df.drop("index", axis=1, inplace=True)
@@ -74,7 +74,7 @@ if __name__ == "__main__":
     plt.ylabel("True Skill Score")
     plt.savefig(
         f"{RESULTS_DIRECTORY}time_window_classification/figures/"
-        f"nb_mx_mean_analysis_tss.png")
+        f"nbc_mx_mean_analysis_tss.png")
     plt.show()
 
     plt.clf()
@@ -109,6 +109,6 @@ if __name__ == "__main__":
     plt.ylabel("MX Recall")
     plt.savefig(
         f"{RESULTS_DIRECTORY}time_window_classification/figures/"
-        f"nb_mx_mean_analysis_recall.png")
+        f"nbc_mx_mean_analysis_recall.png")
     plt.show()
 
