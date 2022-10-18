@@ -7,6 +7,7 @@ import pandas as pd
 # Custom Imports
 from source.utilities import *
 from scipy import stats
+from num2words import num2words
 
 
 def main() -> None:
@@ -87,29 +88,27 @@ def main() -> None:
         rename_axis("index")
 
     # Apply trimmed means.
-    train_lda = LinearDiscriminantAnalysis()
-    train_components = train_lda.fit_transform(all_flares_df[FLARE_PROPERTIES],
-                                               all_flares_df["xray_class"])
-    train_lda_df = pd.DataFrame(train_components, columns=["LD1"])
-    train_lda_df.index = all_flares_df.index
-    train_lda_df["xray_class"] = pd.Series(all_flares_df["xray_class"])
-    nb_df = train_lda_df.loc[
-        train_lda_df["xray_class"] == "NB"].sort_values(by="LD1")
-    mx_df = train_lda_df.loc[
-        train_lda_df["xray_class"] == "MX"].sort_values(by="LD1")
-    n_to_drop = int(0.05 * nb_df.shape[0])
-    nb_df = nb_df.iloc[nb_df.shape[0] - n_to_drop:]
-    n_to_drop = int(0.05 * mx_df.shape[0])
-    mx_df = mx_df.iloc[:n_to_drop]
+    # for lda_index in range(1, 6):
+    #     train_lda = LinearDiscriminantAnalysis()
+    #     train_components = train_lda.fit_transform(all_flares_df[FLARE_PROPERTIES],
+    #                                                all_flares_df["xray_class"])
+    #     train_lda_df = pd.DataFrame(train_components, columns=["LD1"])
+    #     train_lda_df.index = all_flares_df.index
+    #     train_lda_df["xray_class"] = pd.Series(all_flares_df["xray_class"])
+    #     nb_df = train_lda_df.loc[
+    #         train_lda_df["xray_class"] == "NB"].sort_values(by="LD1")
+    #     mx_df = train_lda_df.loc[
+    #         train_lda_df["xray_class"] == "MX"].sort_values(by="LD1")
+    #     n_to_drop = int(0.05 * nb_df.shape[0])
+    #     nb_df = nb_df.iloc[nb_df.shape[0] - n_to_drop:]
+    #     n_to_drop = int(0.05 * mx_df.shape[0])
+    #     mx_df = mx_df.iloc[mx_df.shape[0] - n_to_drop:]
+    #
+    #     all_flares_df.drop(nb_df.index.values, inplace=True)
+    #     all_flares_df.drop(mx_df.index.values, inplace=True)
+        # all_flares_df.drop("level_0", axis=1, inplace=True)
 
-    # print(all_flares_df.to_string())
-    # print(nb_df.index.values)
-    # print(mx_df.index.values)
-    # exit(1)
-    all_flares_df.drop(nb_df.index.values, inplace=True)
-    all_flares_df.drop(mx_df.index.values, inplace=True)
-    all_flares_df.drop("level_0", axis=1, inplace=True)
-
+    lda_index = 0
     X = all_flares_df.drop("xray_class", axis=1)
     y = all_flares_df["xray_class"].to_numpy()
     loo = LeaveOneOut()
@@ -167,10 +166,11 @@ def main() -> None:
             ax.scatter([mx_centroid], [0.5], color="k", marker='X')
             plt.title(f"{experiment_caption} LOO Testing, Training on NB and MX Flares\n"
                      f"from {time_window_caption} \n"
-                      f"Trimmed Means (5% from Each Class)"
+                      f"Trimmed Means (5% from Each Class), "
+                      f"Iteration {lda_index}"
                       )
             fig.tight_layout()
-            fig.savefig(f"{figure_directory}nb_mx_lda_loo_{time_window}_one_trimmed_means.png")
+            fig.savefig(f"{figure_directory}nb_mx_lda_loo_{time_window}_{num2words(lda_index)}_trimmed_means.png")
             fig.show()
 
     # midpoint = sum(midpoints) / len(midpoints)
@@ -188,7 +188,7 @@ def main() -> None:
     custom_cr["NB"]["count"] = custom_cr["NB"].pop("support")
     custom_cr["MX"]["count"] = custom_cr["MX"].pop("support")
     cr_df = pd.DataFrame(custom_cr).transpose()
-    with open(f"{metrics_directory}nb_mx_loo_{time_window}_one_trimmed_means.txt", "w") as f:
+    with open(f"{metrics_directory}nb_mx_loo_{time_window}_{num2words(lda_index)}_trimmed_means.txt", "w") as f:
         stdout = sys.stdout
         sys.stdout = f
         print("Confusion Matrix")
