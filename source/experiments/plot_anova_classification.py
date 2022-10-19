@@ -10,8 +10,9 @@ names = [
         "Random Forest",
     ]
 
+
 def main():
-    for time_window in ["12h_13h"]:
+    for time_window in ["12h_13h", "21h_23h", "5h_17h"]:
         file = f"{RESULTS_DIRECTORY}classification/other/{time_window}_anova.json"
         fp = open(file)
         clf_scores = json.load(fp)
@@ -27,6 +28,8 @@ def main():
         plt.xlabel("# of Top ANOVA Parameters")
         plt.ylabel("True Skill Score (TSS)")
         plt.show()
+        plt.clf()
+
 
 if __name__ == "__main__":
     main()
