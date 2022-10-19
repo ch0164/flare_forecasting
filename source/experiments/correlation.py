@@ -25,8 +25,8 @@ def main() -> None:
     # ------------------------------------------------------------------------
     # Pre-process the data for the experiment.
     # Afterwards, place this data in `cleaned_data_directory`.
-    lo_time = 5
-    hi_time = 17
+    lo_time = 21
+    hi_time = 23
 
     # Get the time window of the experiment for metadata.
     time_window = get_time_window(lo_time, hi_time)
