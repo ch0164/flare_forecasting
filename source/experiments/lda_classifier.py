@@ -15,6 +15,7 @@ from num2words import num2words
 def main() -> None:
     # Disable Warnings
     warnings.simplefilter(action='ignore', category=FutureWarning)
+    warnings.simplefilter(action='ignore', category=SettingWithCopyWarning)
 
     # Experiment Name (No Acronyms)
     experiment = "lda_classifier"
@@ -91,9 +92,10 @@ def main() -> None:
 
     # Apply trimmed means.
     saved_df = copy(all_flares_df)
-    for lda_index in range(1, 7):
+    for lda_index in range(10, 11):
         print(f"LOO LDA, Iteration {lda_index}")
         all_flares_df = saved_df
+        test_df = pd.DataFrame()
         train_lda = LinearDiscriminantAnalysis()
         train_components = train_lda.fit_transform(all_flares_df[FLARE_PROPERTIES],
                                                    all_flares_df["xray_class"])
@@ -104,13 +106,16 @@ def main() -> None:
             train_lda_df["xray_class"] == "NB"].sort_values(by="LD1")
         mx_df = train_lda_df.loc[
             train_lda_df["xray_class"] == "MX"].sort_values(by="LD1")
-        n_to_drop = int(0.05 * lda_index * nb_df.shape[0])
-        nb_df = nb_df.iloc[nb_df.shape[0] - n_to_drop:]
-        n_to_drop = int(0.05 * lda_index * mx_df.shape[0])
+        n_to_drop = int(0.025 * lda_index * nb_df.shape[0])
+        nb_df = nb_df.iloc[:n_to_drop]
+        n_to_drop = int(0.025 * lda_index * mx_df.shape[0])
         mx_df = mx_df.iloc[mx_df.shape[0] - n_to_drop:]
 
+        test_df = pd.concat([test_df, all_flares_df.iloc[nb_df.index]])
+        test_df = pd.concat([test_df, all_flares_df.iloc[mx_df.index]])
         all_flares_df.drop(nb_df.index.values, inplace=True)
         all_flares_df.drop(mx_df.index.values, inplace=True)
+
         # all_flares_df.drop("level_0", axis=1, inplace=True)
 
         # lda_index = 0
@@ -138,8 +143,8 @@ def main() -> None:
 
             # train_lda.intercept_ -= threshold
 
-            pred = train_lda.predict(X_test[FLARE_PROPERTIES])
-            y_true.append(y_test)
+            pred = train_lda.predict(X_test[FLARE_PROPERTIES])[0]
+            y_true.append(y_test[0])
             y_pred.append(pred)
             if 0 in test_index:
                 fig, ax = plt.subplots()
@@ -168,7 +173,7 @@ def main() -> None:
                 ax.scatter([mx_centroid], [0.5], color="k", marker='X')
                 plt.title(f"{experiment_caption} LOO Testing, Training on NB and MX Flares\n"
                          f"from {time_window_caption} \n"
-                          f"Trimmed Means ({0.05 * lda_index * 100}% from Each Class), "
+                          f"Trimmed Means ({0.025 * lda_index * 100:.2f}% from Each Class), "
                           f"Iteration {lda_index}"
                           )
                 fig.tight_layout()
@@ -176,6 +181,9 @@ def main() -> None:
                 fig.show()
 
         # midpoint = sum(midpoints) / len(midpoints)
+        if not test_df.empty:
+            y_true += list(test_df["xray_class"])
+            y_pred += list(train_lda.predict(test_df[FLARE_PROPERTIES]))
         cm = confusion_matrix(y_true, y_pred, labels=["NB", "MX"])
         tp, fn, fp, tn = cm.ravel()
         cr = classification_report(y_true, y_pred, output_dict=True)
@@ -190,7 +198,7 @@ def main() -> None:
         custom_cr["NB"]["count"] = custom_cr["NB"].pop("support")
         custom_cr["MX"]["count"] = custom_cr["MX"].pop("support")
         cr_df = pd.DataFrame(custom_cr).transpose()
-        with open(f"{metrics_directory}nb_mx_loo_{time_window}_{num2words(lda_index)}_trimmed_means.txt", "w") as f:
+        with open(f"{metrics_directory}nb_mx_loo_{time_window}_trimmed_means_{num2words(lda_index)}.txt", "w") as f:
             stdout = sys.stdout
             sys.stdout = f
             print("Confusion Matrix")
