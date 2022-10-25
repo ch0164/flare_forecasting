@@ -17,10 +17,10 @@ if __name__ == "__main__":
     shapes = []
     averages = {coin: {"tss": [], "recall": []} for coin in COINCIDENCES}
     for time_interval in time_intervals:
-        tss_file = f"{dir}modified_{time_interval}h_nb_mx_lda_tss.csv"
+        tss_file = f"{dir}{time_interval}h_nbc_mx_lda_tss.csv"
         tss_time_df = pd.read_csv(tss_file).iloc[::-1].drop("Unnamed: 0", axis=1)
         tss_df = pd.concat([tss_df, tss_time_df])
-        recall_file = f"{dir}modified_{time_interval}h_nb_mx_lda_recall.csv"
+        recall_file = f"{dir}{time_interval}h_nbc_mx_lda_recall.csv"
         recall_time_df = pd.read_csv(recall_file).iloc[::-1].drop("Unnamed: 0", axis=1)
         recall_df = pd.concat([recall_df, recall_time_df])
         shapes.append(recall_df.shape[0])
@@ -28,9 +28,8 @@ if __name__ == "__main__":
     colors = ["grey", "blue", "red"]
 
     def get_title(metric):
-        return f"Time Window Mean Analysis, Modified Def'n of Coincidence\n" \
-               f"{metric} from LDA Classifier Using LOO CV, for NB/MX Flares"
-
+        return f"Time Window Mean Analysis, {metric} from LDA Classifier Using LOO CV, \n" \
+               f"for NBC/MX Flares"
 
     tss_df.reset_index(inplace=True)
     tss_df.drop("index", axis=1, inplace=True)
@@ -43,6 +42,7 @@ if __name__ == "__main__":
     tss_mins = list(tss_df.min())
     tss_top_quantiles = list(tss_df.quantile(0.75))
 
+
     for coincidence, color in zip(COINCIDENCES, colors, ):
         plt.plot(range(tss_df.shape[0]), tss_df[coincidence],
                  label=coincidence, c=color)
@@ -54,6 +54,7 @@ if __name__ == "__main__":
         zip(COINCIDENCES, tss_top_quantiles, tss_mins):
         quantile_df = tss_df.loc[tss_df[coincidence] >= quantile]
         min_df = tss_df.loc[tss_df[coincidence] == minimum]
+
         plt.scatter(list(quantile_df.index.values), quantile_df[coincidence],
                     c="green",
                     label="top quartile" if coincidence == "all" else "")
@@ -73,7 +74,7 @@ if __name__ == "__main__":
     plt.ylabel("True Skill Score")
     plt.savefig(
         f"{RESULTS_DIRECTORY}time_window_classification/figures/"
-        f"modified_nb_mx_mean_analysis_tss.png")
+        f"nbc_mx_mean_analysis_tss.png")
     plt.show()
 
     plt.clf()
@@ -108,6 +109,6 @@ if __name__ == "__main__":
     plt.ylabel("MX Recall")
     plt.savefig(
         f"{RESULTS_DIRECTORY}time_window_classification/figures/"
-        f"modified_nb_mx_mean_analysis_recall.png")
+        f"nbc_mx_mean_analysis_recall.png")
     plt.show()
 

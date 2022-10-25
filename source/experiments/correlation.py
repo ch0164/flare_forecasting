@@ -25,11 +25,8 @@ def main() -> None:
     # ------------------------------------------------------------------------
     # Pre-process the data for the experiment.
     # Afterwards, place this data in `cleaned_data_directory`.
-    time_interval = 24
-    lo_time = 0
-    hi_time = lo_time + time_interval
-    lo_time_complement = 24 - lo_time
-    hi_time_complement = 24 - hi_time
+    lo_time = 21
+    hi_time = 23
 
     # Get the time window of the experiment for metadata.
     time_window = get_time_window(lo_time, hi_time)
@@ -40,17 +37,15 @@ def main() -> None:
         get_ar_properties(flare_class,
                           lo_time,
                           hi_time,
-                          cleaned_data_directory,
-                          now_string,
-                          wipe_old_data=False,
+                          coincidence_flare_classes="nbmx",
+                          # timepoint=13*24 + 24,
                           # coincidence_time_window="0h_24h"
                           )
-        for flare_class in ["NULL", "BC", "MX"]
+        for flare_class in ["NB", "MX"]
     ]
     flare_df = pd.concat(flare_dataframes).dropna()
-    flare_df["xray_class"].replace("N", "NBC", inplace=True)
-    flare_df["xray_class"].replace("B", "NBC", inplace=True)
-    flare_df["xray_class"].replace("C", "NBC", inplace=True)
+    flare_df["xray_class"].replace("N", "NB", inplace=True)
+    flare_df["xray_class"].replace("B", "NB", inplace=True)
     X = flare_df[FLARE_PROPERTIES]
     y = flare_df["xray_class"]
 
@@ -61,7 +56,7 @@ def main() -> None:
     f_n = pd.Series(f_n, index=FLARE_PROPERTIES).sort_values(ascending=False)
     f = pd.Series(f.ravel(), index=FLARE_PROPERTIES).sort_values(ascending=False)
     f_df = pd.DataFrame({"f_score": f, "f_score_norm": f_n}).rename_axis("parameter")
-    f_df.to_csv(f"{other_directory}nbc_mx_anova_f_scores_{time_window}.csv")
+    f_df.to_csv(f"{other_directory}nb_mx_anova_f_scores_{time_window}.csv")
 
     # X[X < 0] = 0
     # chi = pd.DataFrame(chi2(X, y), columns=FLARE_PROPERTIES).iloc[0]

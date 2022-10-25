@@ -45,7 +45,7 @@ def main() -> None:
     ]
 
     time_intervals = [1, 2, 4, 8, 12, 24]
-    flare_classes = ["NB", "MX"]
+    flare_classes = ["NBC", "MX"]
     random_state = 7
     for time_interval in time_intervals:
         time_interval_caption = f"{time_interval}h"
@@ -66,8 +66,7 @@ def main() -> None:
             # Obtain the properties for flares.
             flare_dataframes = [
                 get_ar_properties(flare_class, lo_time, hi_time,
-                                  coincidence_time_window=time_window,
-                                  coincidence_flare_classes="nbmx").dropna()
+                                  coincidence_flare_classes="nbcmx").dropna()
                 for flare_class in flare_classes
             ]
             # print("test")
@@ -85,13 +84,14 @@ def main() -> None:
 
                 all_flares_df = all_flares_df. \
                     reset_index(). \
-                    drop(["index", "level_0"], axis=1). \
+                    drop(["index"], axis=1). \
                     rename_axis("index")
 
                 all_flares_df["xray_class"].replace("M", "MX", inplace=True)
                 all_flares_df["xray_class"].replace("X", "MX", inplace=True)
-                all_flares_df["xray_class"].replace("N", "NB", inplace=True)
-                all_flares_df["xray_class"].replace("B", "NB", inplace=True)
+                all_flares_df["xray_class"].replace("N", "NBC", inplace=True)
+                all_flares_df["xray_class"].replace("B", "NBC", inplace=True)
+                all_flares_df["xray_class"].replace("C", "NBC", inplace=True)
 
                 all_flares_df = shuffle(all_flares_df, random_state=random_state)
                 y = all_flares_df["xray_class"].to_numpy()
@@ -118,8 +118,8 @@ def main() -> None:
                     tss_df.loc[index, coincidence] = tss
                     mx_recall_df.loc[index, coincidence] = cr['MX']['recall']
 
-            tss_df.to_csv(f"{metrics_directory}modified_{time_interval_caption}_nb_mx_lda_tss.csv")
-            mx_recall_df.to_csv(f"{metrics_directory}modified_{time_interval_caption}_nb_mx_lda_recall.csv")
+            tss_df.to_csv(f"{metrics_directory}{time_interval_caption}_nbc_mx_lda_tss.csv")
+            mx_recall_df.to_csv(f"{metrics_directory}{time_interval_caption}_nbc_mx_lda_recall.csv")
 
 
 
