@@ -2,33 +2,70 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b96d273d-abd9-45da-9424-fb1b6c4cc8cf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_eight_trimmed_means_other.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_five_trimmed_means_other.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_four_trimmed_means_other.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_nine_trimmed_means_other.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_one_trimmed_means_other.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_seven_trimmed_means_other.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_six_trimmed_means_other.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_ten_trimmed_means_other.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_three_trimmed_means_other.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_two_trimmed_means_other.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_other_eight.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_other_five.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_other_four.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_other_nine.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_other_one.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_other_seven.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_other_six.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_other_ten.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_other_three.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_other_two.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/experiments/plot_iterative_lda.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/flare_forecasting.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/flare_forecasting.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/bc_mx_2_means_clustering_minmax_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/bc_mx_3_means_clustering_minmax_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/bc_mx_4_means_clustering_minmax_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/c_mx_2_means_clustering_minmax_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/c_mx_3_means_clustering_minmax_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/c_mx_4_means_clustering_minmax_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_c_mx_2_means_clustering_minmax_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_c_mx_3_means_clustering_minmax_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_c_mx_4_means_clustering_minmax_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_c_mx_distortion_elbow_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_c_mx_distortion_elbow_minmax_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_c_mx_inertia_elbow_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_c_mx_inertia_elbow_minmax_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_c_mx_lda_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_c_mx_pca_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_c_mx_silhoutte_scores_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_c_mx_silhoutte_scores_minmax_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_mx_2_means_clustering_minmax_0h_24h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_mx_2_means_clustering_minmax_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_mx_2_means_clustering_standard_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_mx_3_means_clustering_minmax_0h_24h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_mx_3_means_clustering_minmax_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_mx_3_means_clustering_standard_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_mx_4_means_clustering_minmax_0h_24h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_mx_4_means_clustering_minmax_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_mx_4_means_clustering_standard_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_mx_distortion_elbow_minmax_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_mx_inertia_elbow_minmax_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nb_mx_silhoutte_scores_minmax_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nbc_mx_2_means_clustering_minmax_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nbc_mx_3_means_clustering_minmax_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/k_means/figures/nbc_mx_4_means_clustering_minmax_5h_17h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/lda_classifier/figures/iterative_lda_other_summary.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_eight_trimmed_means.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_eight_trimmed_means.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_eight_trimmed_means_other.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_eight_trimmed_means_other.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_five_trimmed_means.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_five_trimmed_means.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_five_trimmed_means_other.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_five_trimmed_means_other.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_four_trimmed_means.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_four_trimmed_means.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_four_trimmed_means_other.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_four_trimmed_means_other.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_nine_trimmed_means.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_nine_trimmed_means.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_nine_trimmed_means_other.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_nine_trimmed_means_other.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_one_trimmed_means.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_one_trimmed_means.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_one_trimmed_means_other.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_one_trimmed_means_other.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_seven_trimmed_means.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_seven_trimmed_means.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_seven_trimmed_means_other.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_seven_trimmed_means_other.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_six_trimmed_means.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_six_trimmed_means.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_six_trimmed_means_other.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_six_trimmed_means_other.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_ten_trimmed_means.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_ten_trimmed_means.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_ten_trimmed_means_other.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_ten_trimmed_means_other.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_three_trimmed_means.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_three_trimmed_means.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_three_trimmed_means_other.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_three_trimmed_means_other.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_two_trimmed_means.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_two_trimmed_means.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_two_trimmed_means_other.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_two_trimmed_means_other.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_eight.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_eight.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_five.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_five.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_four.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_four.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_nine.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_nine.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_one.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_one.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_seven.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_seven.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_six.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_six.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_ten.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_ten.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_three.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_three.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_two.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_two.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/experiments/k_means.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/k_means.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/experiments/lda_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/lda_classifier.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,17 +99,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/results/lda_classifier/figures" />
-    <property name="python.debugger.dataview.autoresize" value="false" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "/home/ch0164/PycharmProjects/flare_forecasting/results/k_means/figures"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/results/time_window_classification/metrics" />
       <recent name="$PROJECT_DIR$/source/experiments" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.plot_iterative_lda">
+  <component name="RunManager" selected="Python.lda_classifier">
     <configuration name="generate_time_series_means" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -87,6 +125,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/generate_time_series_means.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="k_means" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="flare_forecasting" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/source/experiments" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/k_means.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -161,35 +221,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="time_window_classification" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="flare_forecasting" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/source/experiments" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/time_window_classification.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.plot_iterative_lda" />
         <item itemvalue="Python.lda_classifier" />
+        <item itemvalue="Python.k_means" />
+        <item itemvalue="Python.plot_iterative_lda" />
         <item itemvalue="Python.generate_time_series_means" />
         <item itemvalue="Python.plot_timepoint_tss_recall" />
-        <item itemvalue="Python.time_window_classification" />
       </list>
     </recent_temporary>
   </component>
@@ -255,20 +293,23 @@
     <option name="LAST_COMMIT_MESSAGE" value="Dummy commit" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/flare_forecasting$classification.coverage" NAME="classification Coverage Results" MODIFIED="1664293640826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$plot_iterative_lda.coverage" NAME="plot_iterative_lda Coverage Results" MODIFIED="1666715146091" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$lda_classifier.coverage" NAME="lda_classifier Coverage Results" MODIFIED="1666714251775" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$generate_time_series_means.coverage" NAME="generate_time_series_means Coverage Results" MODIFIED="1665586166383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$correlation.coverage" NAME="correlation Coverage Results" MODIFIED="1663695704299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$coincidence.coverage" NAME="coincidence Coverage Results" MODIFIED="1665334952874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$time_window_classification.coverage" NAME="time_window_classification Coverage Results" MODIFIED="1665586240265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$plot_time_window_tss_recall.coverage" NAME="plot_time_window_tss_recall Coverage Results" MODIFIED="1665587634007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$plot_timepoint_tss_recall.coverage" NAME="plot_timepoint_tss_recall Coverage Results" MODIFIED="1665594281059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$tabulate_classification_metrics.coverage" NAME="tabulate_classification_metrics Coverage Results" MODIFIED="1665330515344" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$multiple_ars.coverage" NAME="multiple_ars Coverage Results" MODIFIED="1665593722013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$analyze_ar_data.coverage" NAME="analyze_ar_data Coverage Results" MODIFIED="1662995810984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$plot_classifier_comparison.coverage" NAME="plot_classifier_comparison Coverage Results" MODIFIED="1664176448542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$idealized_flares.coverage" NAME="idealized_flares Coverage Results" MODIFIED="1663696214789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$lda_classifier.coverage" NAME="lda_classifier Coverage Results" MODIFIED="1666806516230" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$correlation.coverage" NAME="correlation Coverage Results" MODIFIED="1666191275645" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$k_means.coverage" NAME="k_means Coverage Results" MODIFIED="1666804949437" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$plot_classifier_comparison.coverage" NAME="plot_classifier_comparison Coverage Results" MODIFIED="1664383379257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$generate_time_series_means.coverage" NAME="generate_time_series_means Coverage Results" MODIFIED="1665598534933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$classification.coverage" NAME="classification Coverage Results" MODIFIED="1666199832045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$idealized_flares.coverage" NAME="idealized_flares Coverage Results" MODIFIED="1663172491103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$plot_timepoint_tss_recall.coverage" NAME="plot_timepoint_tss_recall Coverage Results" MODIFIED="1665415379138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$time_window_classification.coverage" NAME="time_window_classification Coverage Results" MODIFIED="1666024243296" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$plot_anova_classification.coverage" NAME="plot_anova_classification Coverage Results" MODIFIED="1666200664883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$plot_time_window_tss_recall.coverage" NAME="plot_time_window_tss_recall Coverage Results" MODIFIED="1666124280831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$parallel_coordinates.coverage" NAME="parallel_coordinates Coverage Results" MODIFIED="1663179893534" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$plot_iterative_lda.coverage" NAME="plot_iterative_lda Coverage Results" MODIFIED="1666795876972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$plot_trimmed_lda_tss.coverage" NAME="plot_trimmed_lda_tss Coverage Results" MODIFIED="1666628066069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$tabulate_classification_metrics.coverage" NAME="tabulate_classification_metrics Coverage Results" MODIFIED="1666027687282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$multiple_ars.coverage" NAME="multiple_ars Coverage Results" MODIFIED="1665593722013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$coincidence.coverage" NAME="coincidence Coverage Results" MODIFIED="1665334952874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
   </component>
 </project>
