@@ -69,8 +69,8 @@ def main() -> None:
     # all_flares_df["xray_class"].replace("C", "BC", inplace=True)
 
     X = all_flares_df[FLARE_PROPERTIES].to_numpy()
-    X = StandardScaler().fit_transform(X)
-    # X = MinMaxScaler().fit_transform(X)
+    # X = StandardScaler().fit_transform(X)
+    X = MinMaxScaler().fit_transform(X)
     y = all_flares_df["xray_class"]
 
     pca = PCA(n_components=20)
@@ -78,7 +78,7 @@ def main() -> None:
     principal_components = pca.fit_transform(X)  # Plot the explained variances
     linear_discriminants = lda.fit_transform(X, y)
     features_num = range(pca.n_components_)
-    ev = sum(pca.explained_variance_ratio_[:2]) * 100
+    ev = sum(pca.explained_variance_ratio_[:3]) * 100
     pca_df = pd.DataFrame(principal_components, columns=[f"PC{i+1}" for i in features_num])
 
 
@@ -94,6 +94,7 @@ def main() -> None:
     # plt.title("NB/C/MX Flares, 5h-17h, LDA")
 
     pca_df["xray_class"] = list(y)
+    pca_df["magnitude"] = list(all_flares_df["magnitude"])
     # pca_df = pca_df.loc[pca_df["xray_class"] != "N"]
     # pca_df = pca_df.loc[pca_df["xray_class"] != "B"]
     # for flare_class in flare_classes:
@@ -113,7 +114,7 @@ def main() -> None:
             all_flares_df["xray_class"].replace(single_flare_class, flare_class, inplace=True)
 
 
-    parameters = [2, 3, 4]
+    parameters = [2, 3, 4, 5, 6]
     # instantiating ParameterGrid, pass number of clusters as input
     parameter_grid = ParameterGrid({'n_clusters': parameters})
     best_score = -1
@@ -123,31 +124,43 @@ def main() -> None:
     plt.clf()
     cluster_colors = ["blue", "orange", "green", "red"]
     for param, param_num in zip(parameter_grid, parameters):
-        fig, ax = plt.subplots(2, figsize=(19, 11))
-        for flare_class in flare_classes:
-            for single_flare_class in flare_class:
-                flare_pca_df = pca_df.loc[pca_df["xray_class"] == single_flare_class]
-                flare_pca_df.plot(kind="scatter", x="PC1", y="PC2",
-                                  ax=ax[0], color=colors[single_flare_class],
-                                  alpha=0.5,
-                                  label=single_flare_class)
-        ax[0].set_title(f"{flare_class_caption} Flares, {get_time_window(lo_time, hi_time)}, PCA K-Means,\n"
-              f"k={param_num}, Explained Variance of {ev:.2f}%, Original Data")
+        # fig, ax = plt.subplots(2, figsize=(19, 11))
+        # for flare_class in flare_classes:
+        #     for single_flare_class in flare_class:
+        #         flare_pca_df = pca_df.loc[pca_df["xray_class"] == single_flare_class]
+        #         flare_pca_df.plot(kind="scatter", x="PC1", y="PC2",
+        #                           ax=ax[0], color=colors[single_flare_class],
+        #                           alpha=0.5,
+        #                           label=single_flare_class)
+        # ax[0].set_title(f"{flare_class_caption} Flares, {get_time_window(lo_time, hi_time)}, PCA K-Means,\n"
+        #                 f"k={param_num}, Explained Variance of {ev:.2f}%, Original Data")
         kmeans_model.set_params(**param)
-        labels = kmeans_model.fit_predict(pca_df.iloc[:, :param_num])
-        centroids = kmeans_model.cluster_centers_
-        for k_index in range(param_num):
-            label_df = pca_df[labels == k_index]
-            ax[1].scatter(label_df.iloc[:, 0], label_df.iloc[:, 1], alpha=0.5)
-            ax[1].scatter(centroids[:, 0], centroids[:, 1], color="k")
-            ax[1].set_xlabel("PCA1")
-            ax[1].set_ylabel("PCA2")
-            ax[1].set_title(f"K-Means Clustering, k={param_num}")
+        clusters = kmeans_model.fit_predict(pca_df.iloc[:, :param_num])
+        centroids = (kmeans_model.cluster_centers_)
+        pca_df["clusters"] = [f"Cluster {label}" for label in clusters]
+        fig = px.scatter_3d(pca_df, x="PC1", y="PC2", z="PC3",
+                            color="clusters",
+                            symbol="xray_class",
+                            size="magnitude",
+                            opacity=0.5,
+                            title=f"{flare_class_caption} Flares, "
+                                  f"{get_time_window(lo_time, hi_time)}, "
+                                  f"PCA {param_num}-Means, "
+                                  f"Explained Variance of {ev:.2f}%")
+        fig.write_html(
+            f"{other_directory}{flare_class_filename.lower()}_{get_time_window(lo_time, hi_time)}_{param_num}_means_pca_3d.html")
+        # for k_index in range(param_num):
+            # label_df = pca_df[clusters == k_index]
+            # ax[1].scatter(label_df.iloc[:, 0], label_df.iloc[:, 1], alpha=0.5)
+            # ax[1].scatter(centroids[:, 0], centroids[:, 1], color="k")
+            # ax[1].set_xlabel("PCA1")
+            # ax[1].set_ylabel("PCA2")
+            # ax[1].set_title(f"K-Means Clustering, k={param_num}")
 
         # plotting the results
-        plt.tight_layout()
-        plt.savefig(f"{figure_directory}{flare_class_filename.lower()}_{param_num}_means_clustering_standard_{get_time_window(lo_time, hi_time)}.png")
-        plt.show()
+        # plt.tight_layout()
+        # plt.savefig(f"{figure_directory}{flare_class_filename.lower()}_{param_num}_means_clustering_standard_{get_time_window(lo_time, hi_time)}.png")
+        # plt.show()
     # evaluation based on silhouette_score
     # for p in parameter_grid:
     #     kmeans_model.set_params(**p)  # set current hyper parameter
