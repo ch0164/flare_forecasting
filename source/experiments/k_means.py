@@ -68,12 +68,19 @@ def main() -> None:
     # all_flares_df["xray_class"].replace("B", "NB", inplace=True)
     # all_flares_df["xray_class"].replace("C", "BC", inplace=True)
 
-    X = all_flares_df[FLARE_PROPERTIES].to_numpy()
+    file = f"{RESULTS_DIRECTORY}correlation/other/" \
+           f"nb_mx_anova_f_scores_{get_time_window(lo_time, hi_time)}.csv"
+    anova_df = pd.read_csv(file)
+    params = anova_df.iloc[:6]["parameter"].values
+    n = params.shape[0]
+
+    X = all_flares_df[params].to_numpy()
+
     # X = StandardScaler().fit_transform(X)
     X = MinMaxScaler().fit_transform(X)
     y = all_flares_df["xray_class"]
 
-    pca = PCA(n_components=20)
+    pca = PCA(n_components=n)
     lda = LinearDiscriminantAnalysis()
     principal_components = pca.fit_transform(X)  # Plot the explained variances
     linear_discriminants = lda.fit_transform(X, y)
@@ -146,9 +153,10 @@ def main() -> None:
                             title=f"{flare_class_caption} Flares, "
                                   f"{get_time_window(lo_time, hi_time)}, "
                                   f"PCA {param_num}-Means, "
-                                  f"Explained Variance of {ev:.2f}%")
+                                  f"Explained Variance of {ev:.2f}%, "
+                                  f"Using Top {n} ANOVA Parameters")
         fig.write_html(
-            f"{other_directory}{flare_class_filename.lower()}_{get_time_window(lo_time, hi_time)}_{param_num}_means_pca_3d.html")
+            f"{other_directory}{flare_class_filename.lower()}_{get_time_window(lo_time, hi_time)}_{param_num}_means_pca_3d_top_{n}_anova.html")
         # for k_index in range(param_num):
             # label_df = pca_df[clusters == k_index]
             # ax[1].scatter(label_df.iloc[:, 0], label_df.iloc[:, 1], alpha=0.5)
