@@ -2,34 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b96d273d-abd9-45da-9424-fb1b6c4cc8cf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_eight_trimmed_means_other.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_five_trimmed_means_other.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_four_trimmed_means_other.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_nine_trimmed_means_other.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_one_trimmed_means_other.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_seven_trimmed_means_other.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_six_trimmed_means_other.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_ten_trimmed_means_other.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_three_trimmed_means_other.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_two_trimmed_means_other.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_other_eight.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_other_five.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_other_four.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_other_nine.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_other_one.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_other_seven.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_other_six.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_other_ten.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_other_three.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_other_two.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/experiments/plot_iterative_lda.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/flare_forecasting.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/flare_forecasting.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_one_trimmed_means.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_one_trimmed_means.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_two_trimmed_means.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_two_trimmed_means.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_one.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/nb_mx_loo_0h_24h_trimmed_means_one.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/experiments/lda_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/lda_classifier.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666711300416</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Other iterative LDA">
+      <created>1666715196618</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666715196618</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,7 +232,8 @@
     <MESSAGE value="LDA B/MX classifier" />
     <MESSAGE value="Data" />
     <MESSAGE value="Dummy commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dummy commit" />
+    <MESSAGE value="Other iterative LDA" />
+    <option name="LAST_COMMIT_MESSAGE" value="Other iterative LDA" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/flare_forecasting$classification.coverage" NAME="classification Coverage Results" MODIFIED="1664293640826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
