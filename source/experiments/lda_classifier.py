@@ -84,6 +84,8 @@ def main() -> None:
     # Apply trimmed means.
     saved_df = all_flares_df
     plot = True
+    nb_centroid = None
+    mx_centroid = None
     for lda_index in range(1, 11):
         print(f"LOO LDA, Iteration {lda_index}")
         all_flares_df = saved_df.copy()
@@ -95,9 +97,24 @@ def main() -> None:
         train_lda_df.index = all_flares_df.index
         train_lda_df["xray_class"] = pd.Series(all_flares_df["xray_class"])
         nb_df = train_lda_df.loc[
-            train_lda_df["xray_class"] == "NB"].sort_values(by="LD1")
+            train_lda_df["xray_class"] == "NB"]
         mx_df = train_lda_df.loc[
-            train_lda_df["xray_class"] == "MX"].sort_values(by="LD1")
+            train_lda_df["xray_class"] == "MX"]
+        if nb_centroid is None and mx_centroid is None:
+            nb_centroid = nb_df.mean()
+            mx_centroid = mx_df.mean()
+        else:
+            pass
+        nb_diff = (abs(nb_df - nb_centroid))["LD1"].sort_values()
+        mx_diff = (abs(mx_df - mx_centroid))["LD1"].sort_values()
+        print(nb_df["LD1"])
+        print(mx_df["LD1"])
+        print(nb_diff)
+        print(mx_diff)
+        exit(1)
+        print(nb_centroid)
+        print(mx_centroid)
+        exit(1)
         # for _ in range(lda_index):
         n_to_drop = int(0.075 * lda_index * nb_df.shape[0])
         nb_df = nb_df.iloc[:n_to_drop]

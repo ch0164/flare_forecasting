@@ -1,0 +1,18 @@
+K Means, K=2 Classification Metrics
+--------------------------------------------------
+Confusion Matrix
+  NB   MX
+NB [1032   15]
+MX [ 54 243]
+--------------------------------------------------
+Classification Report
+              precision    recall  f1-score   support
+
+          NB       0.95      0.99      0.97      1047
+          MX       0.94      0.82      0.88       297
+
+    accuracy                           0.95      1344
+   macro avg       0.95      0.90      0.92      1344
+weighted avg       0.95      0.95      0.95      1344
+
+True Skill Score: 0.8039

@@ -1,6 +1,6 @@
 ################################################################################
-# Filename: k_means.py
-# Description: Todo
+# Filename: k_means_old.py
+# Description: Old version of K-Means (going back to correct something)
 ################################################################################
 
 # Custom Imports
@@ -68,60 +68,27 @@ def main() -> None:
     # all_flares_df["xray_class"].replace("B", "NB", inplace=True)
     # all_flares_df["xray_class"].replace("C", "BC", inplace=True)
 
-    file = f"{RESULTS_DIRECTORY}correlation/other/" \
-           f"nb_mx_anova_f_scores_{get_time_window(lo_time, hi_time)}.csv"
-    anova_df = pd.read_csv(file)
-    params = anova_df.iloc[:5]["parameter"].values
-    n = params.shape[0]
-
-    X = all_flares_df[params].to_numpy()
-
+    X = all_flares_df[FLARE_PROPERTIES].to_numpy()
     # X = StandardScaler().fit_transform(X)
     X = MinMaxScaler().fit_transform(X)
     y = all_flares_df["xray_class"]
 
-    pca = PCA(n_components=n)
+    pca = PCA(n_components=20)
     lda = LinearDiscriminantAnalysis()
     principal_components = pca.fit_transform(X)  # Plot the explained variances
     linear_discriminants = lda.fit_transform(X, y)
     features_num = range(pca.n_components_)
-    ev = sum(pca.explained_variance_ratio_[:3]) * 100
-    pca_df = pd.DataFrame(principal_components, columns=[f"PC{i+1}" for i in features_num])
-
-
-    # Uncomment this for LDA plot.
-    # lda_df = pd.DataFrame(linear_discriminants, columns=[f"LD{i + 1}" for i in range(len(flare_classes) - 1)])
-    # lda_df["xray_class"] = list(y)
-    # for flare_class in ["NB", "C", "MX"]:
-    #     flare_lda_df = lda_df.loc[lda_df["xray_class"] == flare_class]
-    #     flare_lda_df.plot(kind="scatter", x="LD1", y="LD2",
-    #                       ax=ax, color=colors[flare_class],
-    #                       alpha=0.5,
-    #                       label=flare_class)
-    # plt.title("NB/C/MX Flares, 5h-17h, LDA")
-
+    ev = sum(pca.explained_variance_ratio_[:2]) * 100
+    pca_df = pd.DataFrame(principal_components,
+                          columns=[f"PC{i + 1}" for i in features_num])
     pca_df["xray_class"] = list(y)
-    pca_df["magnitude"] = list(all_flares_df["magnitude"])
-    # pca_df = pca_df.loc[pca_df["xray_class"] != "N"]
-    # pca_df = pca_df.loc[pca_df["xray_class"] != "B"]
-    # for flare_class in flare_classes:
-    #     for single_flare_class in flare_class:
-    #         flare_pca_df = pca_df.loc[pca_df["xray_class"] == single_flare_class]
-    #         flare_pca_df.plot(kind="scatter", x="PC1", y="PC2",
-    #                           ax=ax[0], color=colors[single_flare_class],
-    #                           alpha=0.5,
-    #                           label=single_flare_class)
-    # plt.legend()
-    # plt.title(f"{flare_class_caption} Flares, {get_time_window(lo_time, hi_time)}, PCA,\n"
-    #           f"Explained Variance of {ev:.2f}%")
-    # plt.show()
 
     for flare_class in flare_classes:
         for single_flare_class in flare_class:
             all_flares_df["xray_class"].replace(single_flare_class, flare_class, inplace=True)
 
 
-    parameters = [2, 3, 4, 5, 6]
+    parameters = [2, 3, 4]
     # instantiating ParameterGrid, pass number of clusters as input
     parameter_grid = ParameterGrid({'n_clusters': parameters})
     best_score = -1
@@ -131,55 +98,33 @@ def main() -> None:
     plt.clf()
     cluster_colors = ["blue", "orange", "green", "red"]
     for param, param_num in zip(parameter_grid, parameters):
-        # fig, ax = plt.subplots(2, figsize=(19, 11))
-        # for flare_class in flare_classes:
-        #     for single_flare_class in flare_class:
-        #         flare_pca_df = pca_df.loc[pca_df["xray_class"] == single_flare_class]
-        #         flare_pca_df.plot(kind="scatter", x="PC1", y="PC2",
-        #                           ax=ax[0], color=colors[single_flare_class],
-        #                           alpha=0.5,
-        #                           label=single_flare_class)
-        # ax[0].set_title(f"{flare_class_caption} Flares, {get_time_window(lo_time, hi_time)}, PCA K-Means,\n"
-        #                 f"k={param_num}, Explained Variance of {ev:.2f}%, Original Data")
+        fig, ax = plt.subplots(2, figsize=(19, 11))
+        for flare_class in flare_classes:
+            for single_flare_class in flare_class:
+                flare_pca_df = pca_df.loc[pca_df["xray_class"] == single_flare_class]
+                flare_pca_df.plot(kind="scatter", x="PC1", y="PC2",
+                                  ax=ax[0], color=colors[single_flare_class],
+                                  alpha=0.5,
+                                  label=single_flare_class)
+        ax[0].set_title(f"{flare_class_caption} Flares, {get_time_window(lo_time, hi_time)}, PCA K-Means,\n"
+              f"k={param_num}, Explained Variance of {ev:.2f}%, Original Data")
         kmeans_model.set_params(**param)
-        clusters = kmeans_model.fit_predict(pca_df.iloc[:, :3])
-        centroids = (kmeans_model.cluster_centers_)
-        pca_df["clusters"] = [f"Cluster {label}" for label in clusters]
-        fig = px.scatter_3d(pca_df, x="PC1", y="PC2", z="PC3",
-                            color="clusters",
-                            symbol="xray_class",
-                            size="magnitude",
-                            opacity=0.5,
-                            title=f"{flare_class_caption} Flares, "
-                                  f"{get_time_window(lo_time, hi_time)}, "
-                                  f"PCA {param_num}-Means, "
-                                  f"Explained Variance of {ev:.2f}%, "
-                                  f"Using Top {n} ANOVA Parameters")
-        fig.write_html(
-            f"{other_directory}{flare_class_filename.lower()}_{get_time_window(lo_time, hi_time)}_{param_num}_means_pca_3d_top_{n}_anova.html")
-        if param_num == 2:
-            y_true = pca_df["xray_class"].replace("N", "NB").replace("B", "NB")\
-                .replace("M", "MX").replace("X", "MX").to_numpy()
-            flare_classes_reverse = [flare_classes[-i] for i in range(len(flare_classes))]
-            y_pred = np.array([flare_classes[-i] for i in clusters])
-            write_classification_metrics(
-                y_true, y_pred,
-                filename=f"{metrics_directory}{flare_class_filename.lower()}_{get_time_window(lo_time, hi_time)}_{param_num}_means_pca_3d_top_{n}_anova.txt",
-                clf_name="K Means, K=2",
-                flare_classes=flare_classes_reverse
-            )
-        # for k_index in range(param_num):
-            # label_df = pca_df[clusters == k_index]
-            # ax[1].scatter(label_df.iloc[:, 0], label_df.iloc[:, 1], alpha=0.5)
-            # ax[1].scatter(centroids[:, 0], centroids[:, 1], color="k")
-            # ax[1].set_xlabel("PCA1")
-            # ax[1].set_ylabel("PCA2")
-            # ax[1].set_title(f"K-Means Clustering, k={param_num}")
+
+        labels = kmeans_model.fit_predict(X)
+        centroids = kmeans_model.cluster_centers_
+        print(labels)
+        for k_index in range(param_num):
+            label_df = pca_df[labels == k_index]
+            ax[1].scatter(label_df.iloc[:, 0], label_df.iloc[:, 1], alpha=0.5)
+            ax[1].scatter(centroids[:, 0], centroids[:, 1], color="k")
+            ax[1].set_xlabel("PCA1")
+            ax[1].set_ylabel("PCA2")
+            ax[1].set_title(f"K-Means Clustering, k={param_num}")
 
         # plotting the results
-        # plt.tight_layout()
-        # plt.savefig(f"{figure_directory}{flare_class_filename.lower()}_{param_num}_means_clustering_standard_{get_time_window(lo_time, hi_time)}.png")
-        # plt.show()
+        plt.tight_layout()
+        plt.savefig(f"{figure_directory}{flare_class_filename.lower()}_{param_num}_means_clustering_minmax_{get_time_window(lo_time, hi_time)}_kmeans_first.png")
+        plt.show()
     # evaluation based on silhouette_score
     # for p in parameter_grid:
     #     kmeans_model.set_params(**p)  # set current hyper parameter
