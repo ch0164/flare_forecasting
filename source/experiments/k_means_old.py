@@ -4,6 +4,8 @@
 ################################################################################
 
 # Custom Imports
+from copy import copy
+
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn import metrics
@@ -73,7 +75,7 @@ def main() -> None:
     X = MinMaxScaler().fit_transform(X)
     y = all_flares_df["xray_class"]
 
-    pca = PCA(n_components=20)
+    pca = PCA(n_components=20, random_state=10)
     lda = LinearDiscriminantAnalysis()
     principal_components = pca.fit_transform(X)  # Plot the explained variances
     linear_discriminants = lda.fit_transform(X, y)
@@ -88,11 +90,11 @@ def main() -> None:
             all_flares_df["xray_class"].replace(single_flare_class, flare_class, inplace=True)
 
 
-    parameters = [2, 3, 4]
+    parameters = [2]
     # instantiating ParameterGrid, pass number of clusters as input
     parameter_grid = ParameterGrid({'n_clusters': parameters})
     best_score = -1
-    kmeans_model = KMeans()  # instantiating KMeans model
+    kmeans_model = KMeans(random_state=10)  # instantiating KMeans model
     silhouette_scores = []
 
     plt.clf()
@@ -120,6 +122,21 @@ def main() -> None:
             ax[1].set_xlabel("PCA1")
             ax[1].set_ylabel("PCA2")
             ax[1].set_title(f"K-Means Clustering, k={param_num}")
+        clusters = kmeans_model.fit_predict(pca_df.iloc[:, :2])
+        if param_num == 2:
+            y_true = pca_df["xray_class"].replace("N", "NB").replace("B", "NB") \
+                .replace("M", "MX").replace("X", "MX").to_numpy()
+            flare_classes_reverse = copy(flare_classes)
+            flare_classes_reverse.reverse()
+            print(flare_classes)
+            print(flare_classes_reverse)
+            y_pred = np.array([flare_classes_reverse[i] for i in clusters])
+            write_classification_metrics(
+                y_true, y_pred,
+                filename=f"{metrics_directory}{flare_class_filename.lower()}_{get_time_window(lo_time, hi_time)}_{param_num}_means_pca_2d_kmeans_first.txt",
+                clf_name="K Means, K=2",
+                flare_classes=flare_classes_reverse
+            )
 
         # plotting the results
         plt.tight_layout()
