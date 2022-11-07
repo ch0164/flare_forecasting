@@ -1,0 +1,15 @@
+matches = pd.DataFrame()
+stop = False
+for index, row in mx_df.iterrows():
+    if stop:
+        break
+    for col in cols:
+        val = row[col]
+        tol = val * 0.01
+        df = sinha_df[(val - tol <= sinha_df[col]) & (sinha_df[col] >= val + tol)]
+        if not df.empty:
+            matches = matches.append(row)
+    if df.empty:
+        print("Not found")
+        break
+print(matches)
