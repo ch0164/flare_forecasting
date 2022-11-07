@@ -126,16 +126,12 @@ def main() -> None:
                 tss = detection_rate - false_alarm_rate
                 clf_scores[name].append(tss)
 
-            d = json.dumps(clf_scores, indent=4)
-            with open(f"{other_directory}{time_window}_anova.json", "w") as f:
-                f.write(d)
-                # filename = f"{metrics_directory}{cross_validation}/" \
-                #            f"{name.lower().replace(' ', '_')}_" \
-                #            f"{'_'.join(flare_classes).lower()}_{time_window}_anova_params_classification_metrics.txt"
-                # # y_true = y_test
-                # write_classification_metrics(y_true, y_pred, filename, name,
-                #                              flare_classes=flare_classes,
-                #                              print_output=False)
+                filename = f"{metrics_directory}{cross_validation}/" \
+                           f"{name.lower().replace(' ', '_')}_" \
+                           f"{'_'.join(flare_classes).lower()}_{time_window}_anova_params_classification_metrics.txt"
+                write_classification_metrics(y_true, y_pred, filename, name,
+                                             flare_classes=flare_classes,
+                                             print_output=False)
 
 
 if __name__ == "__main__":
