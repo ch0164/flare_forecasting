@@ -39,8 +39,8 @@ from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 
 from sklearn.feature_selection import chi2, f_classif
-from sklearn.metrics import confusion_matrix, classification_report
-from sklearn.model_selection import train_test_split, LeaveOneOut, LeavePOut
+from sklearn.metrics import confusion_matrix, classification_report, recall_score
+from sklearn.model_selection import train_test_split, LeaveOneOut, LeavePOut, GridSearchCV
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.utils import shuffle
