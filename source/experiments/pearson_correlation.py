@@ -70,20 +70,27 @@ def main() -> None:
             #     "SHRGT45",
             # ]
             cm = all_flares_df[FLARE_PROPERTIES].corr()
+            fig, ax = plt.subplots(figsize=(19, 11))
             sns.heatmap(cm,
+                        vmin=-1,
+                         vmax=1,
                         xticklabels=cm.columns.values,
                         yticklabels=cm.columns.values,
-                        cmap="coolwarm")
-            plt.title(f"{'/'.join(flare_classes)} {coincidence} Flares Correlation Matrix, {time_window_caption},\n"
+                        cmap="RdYlGn",
+                        annot=True,
+                        fmt=".2f",
+                        ax=ax)
+            plt.title(f"{'/'.join(flare_classes)} {coincidence.capitalize()} Flares Correlation Matrix, {time_window_caption},\n"
                       f"All Flare Parameters")
-            plt.savefig(f"{figure_directory}{coincidence}/{'_'.join(flare_classes).lower()}_correlation_matrix_on_sinha_parameters_{time_window}.png")
+            plt.savefig(f"{figure_directory}{coincidence}/{'_'.join(flare_classes).lower()}_correlation_matrix_on_all_parameters_{time_window}.png")
             plt.show()
 
-
-        # flare_df["xray_class"].replace("N", "NB", inplace=True)
-        # flare_df["xray_class"].replace("B", "NB", inplace=True)
-        # X = flare_df[FLARE_PROPERTIES]
-        # y = flare_df["xray_class"]
+            # print(cm)
+            # tri = cm.where(np.triu(np.ones(cm.shape), k=1).astype(np.bool))
+            #
+            # to_drop = [column for column in tri.columns
+            #            if any(tri[column] >= 0.75) or any(tri[column] <= -0.75)]
+            # print(to_drop)
 
 
 if __name__ == "__main__":

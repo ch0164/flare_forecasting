@@ -29,9 +29,6 @@ def main() -> None:
     # ------------------------------------------------------------------------
     # Pre-process the data for the experiment.
     # Afterwards, place this data in `cleaned_data_directory`.
-    center_time = 16
-    time_interval = 12
-
     time_interval = 24
     lo_time = 0
     hi_time = lo_time + time_interval
@@ -52,22 +49,7 @@ def main() -> None:
         )
         for flare_class in ["NB", "MX"]
     ]
-    # flare_dataframes = []
-    # for flare_class in FLARE_CLASSES:
-    #     df = pd.read_csv(f"{cleaned_data_directory}{flare_class.lower()}_{time_window}_mean_dataset_20_09_2022_12_07_59.csv")
-    #     flare_dataframes.append(df)
 
-    # Plot specified flare properties over the specified time.
-    # to_drop = ["d_l_f", "MEANGAM",
-    #            "MEANGBH", "MEANGBT", "MEANGBZ", "MEANJZD",
-    #            "MEANJZH", "slf"]
-    # new_flare_properties = FLARE_PROPERTIES[:]
-    # for prop in to_drop:
-    #     new_flare_properties.remove(prop)
-
-    # Train LDA classifier with two classes: B and MX.
-    # Then, test LDA classifier with NULL flares.
-    # null_df, train_b_df, train_mx_df = tuple(flare_dataframes)
     nb_df, mx_df = tuple(flare_dataframes)
     nb_df.dropna(inplace=True)
     mx_df.dropna(inplace=True)
@@ -76,292 +58,149 @@ def main() -> None:
 
     flares_list = [nb_df, mx_df]
 
-    all_flares_df = pd.concat(flares_list).\
-        reset_index().\
-        drop(["index"], axis=1).\
-        rename_axis("index")
-
-    # Apply trimmed means.
-    saved_df = all_flares_df
-    plot = True
-    nb_centroid = None
-    mx_centroid = None
-    for lda_index in range(1, 11):
-        print(f"LOO LDA, Iteration {lda_index}")
-        all_flares_df = saved_df.copy()
-        test_df = pd.DataFrame()
-        train_lda = LinearDiscriminantAnalysis()
-        train_components = train_lda.fit_transform(all_flares_df[FLARE_PROPERTIES],
-                                                   all_flares_df["xray_class"])
-        train_lda_df = pd.DataFrame(train_components, columns=["LD1"])
-        train_lda_df.index = all_flares_df.index
-        train_lda_df["xray_class"] = pd.Series(all_flares_df["xray_class"])
-        nb_df = train_lda_df.loc[
-            train_lda_df["xray_class"] == "NB"]
-        mx_df = train_lda_df.loc[
-            train_lda_df["xray_class"] == "MX"]
-        if nb_centroid is None and mx_centroid is None:
-            nb_centroid = nb_df.mean()
-            mx_centroid = mx_df.mean()
+    for coincidence in ["coincident", "noncoincident", "all"]:
+        if coincidence == "coincident":
+            is_coincident = True
+        elif coincidence == "noncoincident":
+            is_coincident = False
         else:
-            pass
-        nb_diff = (abs(nb_df - nb_centroid))["LD1"].sort_values()
-        mx_diff = (abs(mx_df - mx_centroid))["LD1"].sort_values()
-        print(nb_df["LD1"])
-        print(mx_df["LD1"])
-        print(nb_diff)
-        print(mx_diff)
-        exit(1)
-        print(nb_centroid)
-        print(mx_centroid)
-        exit(1)
-        # for _ in range(lda_index):
-        n_to_drop = int(0.075 * lda_index * nb_df.shape[0])
-        nb_df = nb_df.iloc[:n_to_drop]
-        n_to_drop = int(0.075 * lda_index * mx_df.shape[0])
-        mx_df = mx_df.iloc[mx_df.shape[0] - n_to_drop:]
+            is_coincident = None
+        all_flares_df = pd.concat(flares_list)
+        if is_coincident is not None:
+            all_flares_df = all_flares_df.loc[all_flares_df["COINCIDENCE"] == is_coincident]
+        all_flares_df = all_flares_df.\
+            reset_index().\
+            drop(["index"], axis=1).\
+            rename_axis("index")
 
-        test_df = pd.concat([test_df, all_flares_df.iloc[nb_df.index]])
-        test_df = pd.concat([test_df, all_flares_df.iloc[mx_df.index]])
-        all_flares_df.drop(nb_df.index.values, inplace=True)
-        all_flares_df.drop(mx_df.index.values, inplace=True)
-
-            # train_lda = LinearDiscriminantAnalysis()
-            # train_components = train_lda.fit_transform(
-            #     all_flares_df[FLARE_PROPERTIES],
-            #     all_flares_df["xray_class"])
-            # train_lda_df = pd.DataFrame(train_components, columns=["LD1"])
-            # # train_lda_df.index = all_flares_df.index
-            # if "level_0" in all_flares_df.columns:
-            #     all_flares_df.drop("level_0", axis=1, inplace=True)
-            # all_flares_df.reset_index(inplace=True)
-            # train_lda_df["xray_class"] = pd.Series(all_flares_df["xray_class"])
-            # nb_df = train_lda_df.loc[
-            #     train_lda_df["xray_class"] == "NB"].sort_values(by="LD1")
-            # mx_df = train_lda_df.loc[
-            #     train_lda_df["xray_class"] == "MX"].sort_values(by="LD1")
-
-
-        # all_flares_df.drop("level_0", axis=1, inplace=True)
-
-        # lda_index = 0
-        X = all_flares_df.drop("xray_class", axis=1)
-        y = all_flares_df["xray_class"].to_numpy()
-        loo = LeaveOneOut()
-        loo.get_n_splits(X)
-        y_true, y_pred = [], []
-        for train_index, test_index in loo.split(X):
-            X_train, X_test = X.iloc[train_index], X.iloc[test_index]
-            y_train, y_test = y[train_index], y[test_index]
+        # Apply trimmed means.
+        nb_centroid = None
+        mx_centroid = None
+        saved_df = all_flares_df
+        for lda_index in range(0, 11):
+            all_flares_df = saved_df.copy()
+            print(f"{coincidence} LOO LDA, Iteration {lda_index}")
+            test_df = pd.DataFrame()
 
             train_lda = LinearDiscriminantAnalysis()
-            train_components = train_lda.fit_transform(X_train[FLARE_PROPERTIES], y_train)
+            train_components = train_lda.fit_transform(
+                all_flares_df[FLARE_PROPERTIES],
+                all_flares_df["xray_class"])
             train_lda_df = pd.DataFrame(train_components, columns=["LD1"])
-            train_lda_df["xray_class"] = pd.Series(y_train)
+            train_lda_df.index = all_flares_df.index
+            train_lda_df["xray_class"] = pd.Series(all_flares_df["xray_class"])
+            nb_df = train_lda_df.loc[
+                train_lda_df["xray_class"] == "NB"]
+            mx_df = train_lda_df.loc[
+                train_lda_df["xray_class"] == "MX"]
+            nb_df.sort_values(by="LD1", inplace=True)
+            mx_df.sort_values(by="LD1", inplace=True)
 
-            train_nbc_df = train_lda_df.loc[train_lda_df["xray_class"] == "NB"]
-            train_mx_df = train_lda_df.loc[train_lda_df["xray_class"] == "MX"]
+            # After the first iteration of LDA, do trimmed means.
+            if lda_index != 0:
+                # Trim a percentage of the records.
+                nb_to_drop = int(np.ceil(0.025 * lda_index * nb_df.shape[0]))
+                mx_to_drop = int(np.ceil(0.025 * lda_index * mx_df.shape[0]))
+                test_df = pd.concat(
+                    [test_df, nb_df.drop(nb_df.head(nb_df.shape[0] - nb_to_drop).index)])
+                test_df = pd.concat(
+                    [test_df,
+                     mx_df.drop(mx_df.tail(mx_df.shape[0] - mx_to_drop).index)])
 
-            nbc_centroid = train_nbc_df["LD1"].mean()
-            mx_centroid = train_mx_df["LD1"].mean()
-            midpoint = (nbc_centroid + mx_centroid) / 2
-            # midpoint += threshold
+            print(test_df.shape[0])
+            # Do LOO testing on the non-trimmed records.
+            if lda_index != 0:
+                X = all_flares_df[FLARE_PROPERTIES].drop(test_df.index, axis=0)
+                y = all_flares_df.drop(test_df.index, axis=0)["xray_class"].to_numpy()
+            else:
+                X = all_flares_df[FLARE_PROPERTIES]
+                y = all_flares_df["xray_class"].to_numpy()
+            loo = LeaveOneOut()
+            loo.get_n_splits(X)
+            y_true, y_pred = [], []
+            y_trimmed_predictions = pd.DataFrame()
+            plot_instance = True
+            for train_index, test_index in loo.split(X):
+                X_train, X_test = X.iloc[train_index], X.iloc[test_index]
+                y_train, y_test = y[train_index], y[test_index]
 
-            # train_lda.intercept_ -= threshold
+                train_lda = LinearDiscriminantAnalysis()
+                train_components = train_lda.fit_transform(
+                    X_train[FLARE_PROPERTIES], y_train)
+                train_lda_df = pd.DataFrame(train_components, columns=["LD1"])
+                train_lda_df["xray_class"] = pd.Series(y_train)
 
-            pred = train_lda.predict(X_test[FLARE_PROPERTIES])[0]
-            y_true.append(y_test[0])
-            y_pred.append(pred)
-            if 0 in test_index and plot:
-                fig, ax = plt.subplots()
-                test_lda_df = pd.DataFrame(test_df[FLARE_PROPERTIES].dot(train_lda.scalings_.reshape(-1, 1)))
-                test_lda_df["xray_class"] = test_df["xray_class"]
-                test_lda_df.rename({0: "LD1"}, inplace=True, axis=1)
-                print(test_lda_df)
-                test_nbc_df = test_lda_df.loc[test_lda_df["xray_class"] == "NB"]
-                test_mx_df = test_lda_df.loc[test_lda_df["xray_class"] == "MX"]
-                # train_nb_df = train_lda_df.loc[train_lda_df["xray_class"] == "NB"]
-                random.seed(10)
-                train_nbc_df["jitter"] = [random.uniform(0, 1) for _ in range(train_nbc_df.shape[0])]
-                train_mx_df["jitter"] = [random.uniform(0, 1) for _ in range(train_mx_df.shape[0])]
-                test_nbc_df["jitter"] = [random.uniform(0, 1) for _ in range(test_nbc_df.shape[0])]
-                test_mx_df["jitter"] = [random.uniform(0, 1) for _ in range(test_mx_df.shape[0])]
-                # train_nbc_df["xray_class"] = nbc_labels
-                # train_n_df = train_nbc_df.loc[train_nbc_df["xray_class"] == "N"]
-                # train_b_df = train_nbc_df.loc[train_nbc_df["xray_class"] == "B"]
-                # train_c_df = train_nbc_df.loc[train_nbc_df["xray_class"] == "C"]
-                # train_mx_df["xray_class"] = mx_labels[1:]
-                # train_m_df = train_mx_df.loc[train_mx_df["xray_class"] == "M"]
-                # train_x_df = train_mx_df.loc[train_mx_df["xray_class"] == "X"]
+                pred = train_lda.predict(X_test[FLARE_PROPERTIES])[0]
+                y_true.append(y_test[0])
+                y_pred.append(pred)
 
+                if plot_instance:
+                    fig, ax = plt.subplots()
+                    plot_instance = False
 
-                # train_n_df.plot(x="LD1", y="jitter", label="Train Null", kind="scatter", c="grey", ax=ax)
-                # train_b_df.plot(x="LD1", y="jitter", label="Train B", kind="scatter", c="dodgerblue", ax=ax)
-                # train_c_df.plot(x="LD1", y="jitter", label="Train C", kind="scatter", c="lightgreen", ax=ax)
-                train_nbc_df.plot(x="LD1", y="jitter", label="Train NB", kind="scatter", c="dodgerblue", ax=ax)
-                train_mx_df.plot(x="LD1", y="jitter", label="Train MX", kind="scatter", c="orangered", ax=ax)
-
-                test_nbc_df.plot(x="LD1", y="jitter", label="Test NB", kind="scatter", c="darkblue", ax=ax)
-                test_mx_df.plot(x="LD1", y="jitter", label="Test MX", kind="scatter", c="darkred", ax=ax)
-
-                # train_m_df.plot(x="LD1", y="jitter", label="Train M", kind="scatter", c="orange", ax=ax)
-                # train_x_df.plot(x="LD1", y="jitter", label="Train X", kind="scatter", c="red", ax=ax)
-                ax.axvline(x=midpoint, color="k")
-                ax.scatter([nbc_centroid], [0.5], color="k", marker='X')
-                ax.scatter([mx_centroid], [0.5], color="k", marker='X')
-                plt.title(f"{experiment_caption} LOO Testing, Training on NB and MX Flares\n"
-                         f"from {time_window_caption} \n"
-                          f"Trimmed Means ({0.075 * lda_index * 100:.2f}% from Each Class), "
-                          f"Iteration {lda_index}"
-                          )
-                fig.tight_layout()
-                fig.savefig(f"{figure_directory}nb_mx_lda_loo_{time_window}_{num2words(lda_index)}_trimmed_means.png")
-                fig.show()
-
-        # midpoint = sum(midpoints) / len(midpoints)
-        if not test_df.empty:
-            y_true += list(test_df["xray_class"])
-            y_pred += list(train_lda.predict(test_df[FLARE_PROPERTIES]))
-        cm = confusion_matrix(y_true, y_pred, labels=["NB", "MX"])
-        tp, fn, fp, tn = cm.ravel()
-        cr = classification_report(y_true, y_pred, output_dict=True)
-        accuracy = cr["accuracy"]
-        sens = tp / float(tp + fn)
-        far = fp / float(fp + tn)
-        tss = sens - far
-        custom_cr = {
-            "NB": cr["NB"],
-            "MX": cr["MX"],
-        }
-        custom_cr["NB"]["count"] = custom_cr["NB"].pop("support")
-        custom_cr["MX"]["count"] = custom_cr["MX"].pop("support")
-        cr_df = pd.DataFrame(custom_cr).transpose()
-        with open(f"{metrics_directory}nb_mx_loo_{time_window}_trimmed_means_{num2words(lda_index)}.txt", "w") as f:
-            stdout = sys.stdout
-            sys.stdout = f
-            print("Confusion Matrix")
-            print("-" * 50)
-            print("  NB", " MX")
-            print("NB", cm[0])
-            print("MX ", cm[1])
-            print("-" * 50)
-            print("Classification Metrics")
-            print("-" * 50)
-            print(cr_df)
-            print()
-            print(f"Accuracy: {accuracy}")
-            print(f"TSS: {tss}")
-            sys.stdout = stdout
-
-    # b_test_size = 0.3
-    # train_b_df, test_b_df = train_test_split(train_b_df, test_size=b_test_size)
-    # train = pd.concat([train_b_df, train_mx_df]).dropna()
-    # train_target = train["xray_class"]
-    # test = pd.concat([null_df, test_b_df]).dropna()
-    #
-    # print(test.iloc[[55, 145, 194]].to_string())
-    # exit(1)
-    #
-    # test_target = test["xray_class"]
-    #
-    # train_lda = LinearDiscriminantAnalysis()
-    # train_components = train_lda.fit_transform(train[FLARE_PROPERTIES], train_target)
-    #
-    # ld_labels = [f"LD{i + 1}" for i in range(1)]
-    # train_lda_df = pd.DataFrame(train_components, columns=ld_labels)
-    # train_lda_df["xray_class"] = list(train_target)
-    #
-    # train_b_df = train_lda_df.loc[train_lda_df["xray_class"] == "B"]
-    # train_b_count = train_b_df.shape[0]
-    # train_mx_df = train_lda_df.loc[train_lda_df["xray_class"] == "MX"]
-    # train_mx_count = train_mx_df.shape[0]
-    #
-    # b_centroid = train_b_df["LD1"].mean()
-    # mx_centroid = train_mx_df["LD1"].mean()
-    # midpoint = (b_centroid + mx_centroid) / 2
-    #
-    # test_lda = LinearDiscriminantAnalysis()
-    # print(test["xray_class"])
-    # test_components = test_lda.fit_transform(test[FLARE_PROPERTIES],
-    #                                          test_target)
-    #
-    # ld_labels = [f"LD{i + 1}" for i in range(1)]
-    # test_lda_df = pd.DataFrame(test_components, columns=ld_labels)
-    # test_lda_df["xray_class"] = list(test["xray_class"])
-
-    # sns.set_palette(sns.color_palette(["#FF0B04", "#4374B3"]))
-    # fig, ax = plt.subplots()
-    # train_b_df["jitter"] = [random.uniform(0, 1) for _ in range(train_b_df.shape[0])]
-    # train_mx_df["jitter"] = [random.uniform(0, 1) for _ in range(train_mx_df.shape[0])]
-    # test_lda_df["jitter"] = [random.uniform(0, 1) for _ in range(test_lda_df.shape[0])]
-    #
-    # test_b_df = test_lda_df.loc[test_lda_df["xray_class"] == "B"]
-    # test_null_df = test_lda_df.loc[test_lda_df["xray_class"] == "N"]
-    #
-    # train_b_df.plot(x="LD1", y="jitter", label="Train B", kind="scatter", c="dodgerblue", ax=ax)
-    # train_mx_df.plot(x="LD1", y="jitter", label="Train MX", kind="scatter", c="orangered", ax=ax)
-    # test_b_df.plot(x="LD1", y="jitter", label="Test B", kind="scatter", c="darkblue", ax=ax)
-    # test_null_df.plot(x="LD1", y="jitter", label="Test Null", kind="scatter", c="grey", ax=ax)
-    #
-    # ax.scatter([b_centroid], [0.5], color="k", marker='X')
-    # ax.scatter([mx_centroid], [0.5], color="k", marker='X')
-    # ax.scatter([midpoint], [0.5], color="k", marker='X')
-    # ax.axvline(x=midpoint, color="k")
-    #
-    # y_pred = []
-    # special = []
-    # for index, row in test_lda_df.iterrows():
-    #     x = row["LD1"]
-    #     if x >= 3:
-    #         special.append(index)
-    #     if x <= midpoint:
-    #         # y_pred.append("B")
-    #         y_pred.append("NB")
-    #     else:
-    #         y_pred.append("MX")
-    #
-    # exit(1)
-    #
-    # target = ["NB" for _ in range(len(y_pred))]
-    #
-    # correct = len([y_pred[i] for i in range(len(y_pred)) if y_pred[i] == target[i]])
-    # accuracy = correct / len(y_pred)
-    #
-    # plt.title(f"{experiment_caption} on Null/B Flares {time_window_caption} Mean\n"
-    #           f"Trained by {b_test_size * 100}% B and 100% MX Flares with {accuracy * 100 :.2f}% NB Accuracy")
-    # plt.tight_layout()
-    # plt.savefig(
-    #     f"{figure_directory}null_b_mx_scatterplot_{time_window}_mean_{now_string}.png")
-    # plt.show()
+                    train_lda_df["jitter"] = [random.uniform(0, 1) for _ in range(train_lda_df.shape[0])]
+                    for name, color in zip(["NB", "MX"], ["dodgerblue", "orangered"]):
+                        df = train_lda_df.loc[train_lda_df["xray_class"] == name]
+                        df.plot(x="LD1", y="jitter", label=f"{name} Train", kind="scatter", c=color, ax=ax)
+                    if lda_index != 0:
+                        ax.scatter(float(nb_df.mean()), 0.5, c="k", marker="+", label="NB Centroid")
+                        ax.scatter(float(mx_df.mean()), 0.5, c="k", marker="x", label="MX Centroid")
+                    ax.legend(loc="lower right")
+                    ax.set_title(f"LDA Classifier, Trimmed Means Iteration {lda_index}, LOO\n"
+                                 f"{0.025 * lda_index * 100:.1f}% Trimmed from Both Classes,\n"
+                                 f"NB/MX {coincidence.capitalize()} Flares, {time_window_caption}")
+                    plt.savefig(f"{figure_directory}{coincidence}/nb_mx_lda_trimmed_means_{time_window}_{lda_index}.png")
+                    plt.show()
 
 
 
+                # Maintain a DataFrames for predictions for the trimmed records.
+                if lda_index != 0:
+                    pred = pd.DataFrame(train_lda.predict(
+                        all_flares_df[FLARE_PROPERTIES].iloc[test_df.index]),
+                                        columns=test_index)
+                    y_trimmed_predictions = pd.concat([y_trimmed_predictions, pred], axis=1)
 
-    # with open(f"{other_directory}nb_mx_{time_window}_mean_classification_metrics_{now_string}.txt", "w", newline="\n") as f:
-    #     f.write("Classification Metrics\n")
-    #     f.write(f"Trained on {train_b_df} B Flares and {train_mx_count} MX Flares\n")
-    #     f.write('-' * 50 + "\n")
-    #     f.write(f'Accuracy: {round(conf_accuracy, 2)}\n')
-    #     f.write(f'NB Recall/Sensitivity: {round(conf_sensitivity, 2)}\n')
-    #     f.write(f'MX Recall/Specificity: {round(conf_specificity, 2)}\n')
-    #     f.write(f'Precision: {round(conf_precision, 2)}\n')
-    #     f.write(f'False Alarm Rate: {round(conf_false_alarm_rate, 2)}\n')
-    #     f.write(f'f_1 Score: {round(conf_f1, 2)}\n')
-    #     f.write(f"TSS: {round(conf_tss, 2)}\n")
+            # Add the trimmed records into the testing set.
+            if lda_index != 0:
+                for i in range(y_trimmed_predictions.shape[0]):
+                    pred_label = y_trimmed_predictions.T[i].mode().values[0]
+                    true_label = y[i]
+                    y_true.append(true_label)
+                    y_pred.append(pred_label)
 
-
-
-
-
-    # ------------------------------------------------------------------------
-    # Generate the figures of this experiment.
-    # Afterwards, place these figures in `figure_directory`.
-    # --- [ENTER CODE HERE]
-
-    # ------------------------------------------------------------------------
-    # Generate other kinds of output for the experiment.
-    # Afterwards, place the output in `other_directory`.
-    # --- [ENTER CODE HERE]
+            cm = confusion_matrix(y_true, y_pred, labels=["NB", "MX"])
+            tp, fn, fp, tn = cm.ravel()
+            cr = classification_report(y_true, y_pred, output_dict=True)
+            accuracy = cr["accuracy"]
+            sens = tp / float(tp + fn)
+            far = fp / float(fp + tn)
+            tss = sens - far
+            custom_cr = {
+                "NB": cr["NB"],
+                "MX": cr["MX"],
+            }
+            custom_cr["NB"]["count"] = custom_cr["NB"].pop("support")
+            custom_cr["MX"]["count"] = custom_cr["MX"].pop("support")
+            cr_df = pd.DataFrame(custom_cr).transpose()
+            with open(
+                    f"{metrics_directory}{coincidence}/nb_mx_loo_{time_window}_trimmed_means_{coincidence}_{lda_index}.txt",
+                    "w") as f:
+                stdout = sys.stdout
+                sys.stdout = f
+                print("Confusion Matrix")
+                print("-" * 50)
+                print("  NB", " MX")
+                print("NB", cm[0])
+                print("MX ", cm[1])
+                print("-" * 50)
+                print("Classification Metrics")
+                print("-" * 50)
+                print(cr_df)
+                print()
+                print(f"Accuracy: {accuracy}")
+                print(f"TSS: {tss}")
+                sys.stdout = stdout
 
 
 if __name__ == "__main__":
