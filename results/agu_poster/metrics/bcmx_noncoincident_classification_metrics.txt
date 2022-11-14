@@ -1,0 +1,18 @@
+Mean +/- Std Thresholding on TOTUSJH, TOTPOT, TOTUSJZ, ABSNJZH, R_VALUE Classification Metrics
+--------------------------------------------------
+Confusion Matrix
+  BC   MX
+BC [109   8]
+MX [68 29]
+--------------------------------------------------
+Classification Report
+              precision    recall  f1-score   support
+
+          BC       0.62      0.93      0.74       117
+          MX       0.78      0.30      0.43        97
+
+    accuracy                           0.64       214
+   macro avg       0.70      0.62      0.59       214
+weighted avg       0.69      0.64      0.60       214
+
+True Skill Score: 0.2306
