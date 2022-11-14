@@ -3,7 +3,59 @@
   <component name="ChangeListManager">
     <list default="true" id="b96d273d-abd9-45da-9424-fb1b6c4cc8cf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/experiments/agu_poster.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/agu_poster.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_10.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_5.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_6.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_7.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_8.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_9.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_9.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_10.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_5.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_6.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_7.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_8.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_9.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_9.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_5.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_6.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_10.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_10.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_3.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_4.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_5.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_6.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_7.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_8.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_8.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_9.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_9.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_10.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_10.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_3.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_4.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_5.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_6.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_7.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_8.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_8.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_9.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_9.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_3.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_4.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_5.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/experiments/lda_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/lda_classifier.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +116,7 @@
       <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\flare_data\time_series_means\original_coincidence_definition\5h_17h" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.agu_poster">
+  <component name="RunManager" selected="Python.lda_classifier">
     <configuration name="agu_poster" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -87,7 +139,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="mx_classification" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="lda_classifier" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -100,7 +152,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/mx_classification.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/lda_classifier.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -109,7 +161,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="pearson_correlation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="lda_classifier2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -122,7 +174,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/pearson_correlation.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/lda_classifier2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -177,11 +229,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.lda_classifier" />
+        <item itemvalue="Python.lda_classifier2" />
         <item itemvalue="Python.agu_poster" />
         <item itemvalue="Python.reverse_search" />
         <item itemvalue="Python.tsne" />
-        <item itemvalue="Python.mx_classification" />
-        <item itemvalue="Python.pearson_correlation" />
       </list>
     </recent_temporary>
   </component>
@@ -204,7 +256,7 @@
       <workItem from="1667501622181" duration="2067000" />
       <workItem from="1667529911970" duration="526000" />
       <workItem from="1668004536018" duration="13895000" />
-      <workItem from="1668435592421" duration="15024000" />
+      <workItem from="1668435592421" duration="16056000" />
     </task>
     <task id="LOCAL-00001" summary="LDA B/MX classifier">
       <created>1662575033124</created>
@@ -297,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668446211266</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Using majority vote mean + std thresholding.">
+      <created>1668451251471</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1668451251471</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,24 +387,14 @@
     <MESSAGE value="LDA classifiers, M/X classification (poor results), correlation, and TSNE" />
     <MESSAGE value="Reverse search done -- seems we do not have nearly all the NAB flares that Sinha used" />
     <MESSAGE value="Improved reverse search using majority vote" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved reverse search using majority vote" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/source/experiments/lda_classifier.py</url>
-          <line>136</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Using majority vote mean + std thresholding." />
+    <option name="LAST_COMMIT_MESSAGE" value="Using majority vote mean + std thresholding." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/flare_forecasting$pearson_correlation.coverage" NAME="pearson_correlation Coverage Results" MODIFIED="1668011409546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$classification.coverage" NAME="classification Coverage Results" MODIFIED="1664293640826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$plot_iterative_lda.coverage" NAME="plot_iterative_lda Coverage Results" MODIFIED="1666715146091" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$lda_classifier.coverage" NAME="lda_classifier Coverage Results" MODIFIED="1668007887072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$lda_classifier.coverage" NAME="lda_classifier Coverage Results" MODIFIED="1668451937768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$agu_poster.coverage" NAME="agu_poster Coverage Results" MODIFIED="1668451171662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$generate_time_series_means.coverage" NAME="generate_time_series_means Coverage Results" MODIFIED="1665586166383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$correlation.coverage" NAME="correlation Coverage Results" MODIFIED="1663695704299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
@@ -359,7 +408,7 @@
     <SUITE FILE_PATH="coverage/flare_forecasting$tabulate_classification_metrics.coverage" NAME="tabulate_classification_metrics Coverage Results" MODIFIED="1665330515344" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$multiple_ars.coverage" NAME="multiple_ars Coverage Results" MODIFIED="1665593722013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$k_means_old.coverage" NAME="k_means_old Coverage Results" MODIFIED="1667403936360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$lda_classifier2.coverage" NAME="lda_classifier2 Coverage Results" MODIFIED="1668006127444" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$lda_classifier2.coverage" NAME="lda_classifier2 Coverage Results" MODIFIED="1668451501636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$k_means.coverage" NAME="k_means Coverage Results" MODIFIED="1667405682616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$analyze_ar_data.coverage" NAME="analyze_ar_data Coverage Results" MODIFIED="1662995810984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$plot_classifier_comparison.coverage" NAME="plot_classifier_comparison Coverage Results" MODIFIED="1664176448542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />

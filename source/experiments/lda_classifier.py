@@ -4,6 +4,7 @@
 ################################################################################
 from copy import copy
 
+import matplotlib.pyplot as plt
 import pandas as pd
 
 # Custom Imports
@@ -58,7 +59,7 @@ def main() -> None:
 
     flares_list = [nb_df, mx_df]
 
-    for coincidence in ["coincident", "noncoincident", "all"]:
+    for coincidence in ["all", "coincident", "noncoincident"]:
         if coincidence == "coincident":
             is_coincident = True
         elif coincidence == "noncoincident":
@@ -77,7 +78,7 @@ def main() -> None:
         nb_centroid = None
         mx_centroid = None
         saved_df = all_flares_df
-        for lda_index in range(0, 11):
+        for lda_index in range(1, 11):
             all_flares_df = saved_df.copy()
             print(f"{coincidence} LOO LDA, Iteration {lda_index}")
             test_df = pd.DataFrame()
@@ -102,12 +103,11 @@ def main() -> None:
                 nb_to_drop = int(np.ceil(0.025 * lda_index * nb_df.shape[0]))
                 mx_to_drop = int(np.ceil(0.025 * lda_index * mx_df.shape[0]))
                 test_df = pd.concat(
-                    [test_df, nb_df.drop(nb_df.head(nb_df.shape[0] - nb_to_drop).index)])
+                    [test_df, nb_df.drop(nb_df.tail(nb_df.shape[0] - nb_to_drop).index)])
                 test_df = pd.concat(
                     [test_df,
-                     mx_df.drop(mx_df.tail(mx_df.shape[0] - mx_to_drop).index)])
+                     mx_df.drop(mx_df.head(mx_df.shape[0] - mx_to_drop).index)])
 
-            print(test_df.shape[0])
             # Do LOO testing on the non-trimmed records.
             if lda_index != 0:
                 X = all_flares_df[FLARE_PROPERTIES].drop(test_df.index, axis=0)
@@ -141,6 +141,7 @@ def main() -> None:
                     train_lda_df["jitter"] = [random.uniform(0, 1) for _ in range(train_lda_df.shape[0])]
                     for name, color in zip(["NB", "MX"], ["dodgerblue", "orangered"]):
                         df = train_lda_df.loc[train_lda_df["xray_class"] == name]
+                        print(df)
                         df.plot(x="LD1", y="jitter", label=f"{name} Train", kind="scatter", c=color, ax=ax)
                     if lda_index != 0:
                         ax.scatter(float(nb_df.mean()), 0.5, c="k", marker="+", label="NB Centroid")
@@ -149,7 +150,9 @@ def main() -> None:
                     ax.set_title(f"LDA Classifier, Trimmed Means Iteration {lda_index}, LOO\n"
                                  f"{0.025 * lda_index * 100:.1f}% Trimmed from Both Classes,\n"
                                  f"NB/MX {coincidence.capitalize()} Flares, {time_window_caption}")
+                    plt.tight_layout()
                     plt.savefig(f"{figure_directory}{coincidence}/nb_mx_lda_trimmed_means_{time_window}_{lda_index}.png")
+
                     plt.show()
 
 
