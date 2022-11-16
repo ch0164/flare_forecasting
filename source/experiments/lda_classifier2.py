@@ -76,8 +76,9 @@ def main() -> None:
         # Apply trimmed means.
         nb_centroid = None
         mx_centroid = None
+        trimming_ratio = 0.15
         saved_df = all_flares_df
-        for lda_index in range(1, 11):
+        for lda_index in range(0, 1):
             all_flares_df = saved_df.copy()
             print(f"{coincidence} LOO LDA, Iteration {lda_index}")
             test_df = pd.DataFrame()
@@ -105,8 +106,8 @@ def main() -> None:
 
                 nb_diff = (abs(nb_df - nb_centroid))["LD1"].sort_values()
                 mx_diff = (abs(mx_df - mx_centroid))["LD1"].sort_values()
-                nb_to_drop = int(np.ceil(0.1 * nb_diff.shape[0]))
-                mx_to_drop = int(np.ceil(0.1 * mx_diff.shape[0]))
+                nb_to_drop = int(np.ceil(trimming_ratio * nb_diff.shape[0]))
+                mx_to_drop = int(np.ceil(trimming_ratio * mx_diff.shape[0]))
                 test_df = pd.concat(
                     [test_df, nb_df.drop(nb_diff.head(nb_diff.shape[0] - nb_to_drop).index)])
                 test_df = pd.concat(
@@ -163,7 +164,7 @@ def main() -> None:
                     ax.legend(loc="lower right")
                     ax.set_title(f"LDA Classifier, Trimmed Means Iteration {lda_index}, LOO,\n"
                                  f"NB/MX {coincidence.capitalize()} Flares, {time_window_caption}")
-                    plt.savefig(f"{figure_directory}{coincidence}/nb_mx_lda_trimmed_means_{time_window}_{lda_index}.png")
+                    plt.savefig(f"{figure_directory}{coincidence}/nb_mx_lda_{int(trimming_ratio * 100)}_trimmed_means_{time_window}_{lda_index}.png")
                     plt.show()
 
 
@@ -198,7 +199,7 @@ def main() -> None:
             custom_cr["MX"]["count"] = custom_cr["MX"].pop("support")
             cr_df = pd.DataFrame(custom_cr).transpose()
             with open(
-                    f"{metrics_directory}{coincidence}/nb_mx_loo_{time_window}_trimmed_means_{coincidence}_{lda_index}.txt",
+                    f"{metrics_directory}{coincidence}/nb_mx_loo_{time_window}_{int(trimming_ratio * 100)}_trimmed_means_{coincidence}_{lda_index}.txt",
                     "w") as f:
                 stdout = sys.stdout
                 sys.stdout = f

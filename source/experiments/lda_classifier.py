@@ -59,7 +59,7 @@ def main() -> None:
 
     flares_list = [nb_df, mx_df]
 
-    for coincidence in ["all", "coincident", "noncoincident"]:
+    for coincidence in ["noncoincident", "all", "coincident"]:
         if coincidence == "coincident":
             is_coincident = True
         elif coincidence == "noncoincident":
@@ -141,7 +141,6 @@ def main() -> None:
                     train_lda_df["jitter"] = [random.uniform(0, 1) for _ in range(train_lda_df.shape[0])]
                     for name, color in zip(["NB", "MX"], ["dodgerblue", "orangered"]):
                         df = train_lda_df.loc[train_lda_df["xray_class"] == name]
-                        print(df)
                         df.plot(x="LD1", y="jitter", label=f"{name} Train", kind="scatter", c=color, ax=ax)
                     if lda_index != 0:
                         ax.scatter(float(nb_df.mean()), 0.5, c="k", marker="+", label="NB Centroid")
@@ -155,8 +154,6 @@ def main() -> None:
 
                     plt.show()
 
-
-
                 # Maintain a DataFrames for predictions for the trimmed records.
                 if lda_index != 0:
                     pred = pd.DataFrame(train_lda.predict(
@@ -166,11 +163,16 @@ def main() -> None:
 
             # Add the trimmed records into the testing set.
             if lda_index != 0:
+                modes = []
                 for i in range(y_trimmed_predictions.shape[0]):
-                    pred_label = y_trimmed_predictions.T[i].mode().values[0]
-                    true_label = y[i]
-                    y_true.append(true_label)
+                    modes.append(y_trimmed_predictions.T[i].mode().values[0])
+                modes_df = pd.DataFrame(modes, columns=["label"])
+                for index, row in modes_df.iterrows():
+                    pred_label = row["label"]
                     y_pred.append(pred_label)
+                for index, row in test_df.iterrows():
+                    true_label = row["xray_class"]
+                    y_true.append(true_label)
 
             cm = confusion_matrix(y_true, y_pred, labels=["NB", "MX"])
             tp, fn, fp, tn = cm.ravel()

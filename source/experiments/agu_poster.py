@@ -10,6 +10,25 @@ flare_classes = ["B", "C", "M", "X"]
 colors = ["blue", "green", "orange", "red"]
 
 study_caption = "Solar Cycle 24, Peak Years (2013-2014)"
+agu_properties = [
+    'ABSNJZH',
+    'AREA_ACR',
+    'MEANGAM',
+    'MEANGBH',
+    'MEANGBT',
+    'MEANGBZ',
+    'MEANJZD',
+    'MEANJZH',
+    'MEANPOT',
+    'MEANSHR',
+    'R_VALUE',
+    'SAVNCPP',
+    'SHRGT45',
+    'TOTPOT',
+    'TOTUSJH',
+    'TOTUSJZ',
+    'USFLUX',
+]
 
 # Experiment Name (No Acronyms)
 experiment = "agu_poster"
@@ -28,9 +47,10 @@ def generate_flare_count_line_plot(coincidence, all_flares_df):
         flares_df = all_flares_df.loc[all_flares_df["COINCIDENCE"] == False]
     else:
         flares_df = all_flares_df
-    for label, color in zip(flare_classes, colors):
+    plot_offsets_x = np.array([-2, -1, 1, 2]) * 40
+    plot_offsets_y = np.array([2, 1, -1, -2]) * 0.1
+    for label, color, offset_x ,offset_y in zip(flare_classes, colors, plot_offsets_x, plot_offsets_y):
         flare_df = flares_df.loc[flares_df["xray_class"] == label]
-
         values, counts = np.unique(flare_df["nar"], return_counts=True)
         value_counts = [(int(value), count) for value, count in
                         zip(values, counts)
@@ -38,16 +58,17 @@ def generate_flare_count_line_plot(coincidence, all_flares_df):
         value_counts = sorted(value_counts,
                               key=lambda value_count: value_count[1],
                               reverse=True)
-        values = [value for value, _ in value_counts]
-        counts = [count for _, count in value_counts]
-        values.sort()
-        ax.plot(values, counts, color=color, label=label)
+        values = [value + offset_x for value, _ in value_counts]
+        counts = [count + offset_y for _, count in value_counts]
+        ax.bar(values, counts, color=color, label=label)
     ax.set_title(f"BCMX Flare Count, {coincidence.capitalize()} Flares,\n{study_caption}")
     ax.set_xlabel("AR #")
     ax.set_ylabel("# of Flares")
-
+    ax.legend(loc="upper left")
+    ax.set_xticks(np.arange(11600, 12301, step=100))
+    ax.set_yticks(np.arange(0, 26, step=5))
     plt.tight_layout()
-    plt.savefig(f"{figure_directory}{coincidence}_bcmx_flare_count_line_plot.png")
+    plt.savefig(f"{figure_directory}{coincidence}_bcmx_flare_count_ar_plot.png")
     plt.show()
 
 
@@ -108,9 +129,36 @@ def generate_time_plot(coincidence, all_flares_df):
     plt.title(f"BCMX Flare Count, {coincidence.capitalize()} Flares,\n{study_caption}")
     plt.xticks(rotation="vertical", ha="center")
     plt.ylabel("# of Flares")
+    plt.legend(loc="upper left")
     plt.tight_layout()
-    plt.savefig(f"{figure_directory}{coincidence}_bcmx_flare_count_bar_plot.png")
+    plt.savefig(f"{figure_directory}{coincidence}_bcmx_flare_count_month_plot.png")
     plt.show()
+
+
+def generate_statistics_tables(all_flares_df):
+    fig, ax = plt.subplots()
+    for coincidence in coincidences:
+        flares_df = all_flares_df.copy()
+        if coincidence == "coincident":
+            flares_df = flares_df.loc[flares_df["COINCIDENCE"] == True]
+        elif coincidence == "noncoincident":
+            flares_df = flares_df.loc[flares_df["COINCIDENCE"] == False]
+        flares_df.drop("level_0", inplace=True, axis=1)
+
+        b = flares_df.loc[(flares_df["xray_class"] == "B")][agu_properties]
+        c = flares_df.loc[(flares_df["xray_class"] == "C")][agu_properties]
+        m = flares_df.loc[(flares_df["xray_class"] == "M")][agu_properties]
+        x = flares_df.loc[(flares_df["xray_class"] == "X")][agu_properties]
+        flare_dfs = [b, c, m, x]
+        all_classes_df = pd.DataFrame(columns=agu_properties)
+        for flare_df in [b, c, m, x]:
+            means = flare_df.mean().values
+            all_classes_df.loc[len(all_classes_df)] = means
+        all_classes_df.index = flare_classes
+        all_classes_df = all_classes_df.T
+        all_classes_df.index.names = ['parameter']
+        all_classes_df.to_csv(f"{other_directory}{coincidence}_bcmx_class_means.csv")
+
 
 
 def simple_classification(coincidence, all_flares_df):
@@ -201,8 +249,9 @@ def main():
     flares_df["time_start"] = pd.to_datetime(flares_df["time_start"])
 
     # Plot stuff
-    for coincidence in coincidences:
-        simple_classification(coincidence, flares_df.copy())
+    generate_statistics_tables(flares_df)
+    # for coincidence in coincidences:
+        # simple_classification(coincidence, flares_df.copy())
         # generate_flare_count_line_plot(coincidence, flares_df.copy())
         # generate_time_plot(coincidence, flares_df.copy())
 
