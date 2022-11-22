@@ -1,254 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b96d273d-abd9-45da-9424-fb1b6c4cc8cf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/flare_data/sinha_mx_data_absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/sinha_mx_data_area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/sinha_mx_data_majority2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/sinha_mx_data_r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/sinha_mx_data_savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/sinha_mx_data_shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/sinha_mx_data_totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/sinha_mx_data_totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/sinha_mx_data_totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/sinha_mx_data_usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_list/sinha_flare_times.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/agu_poster/figures/all_bcmx_flare_count_ar_plot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/agu_poster/figures/coincident_bcmx_flare_count_ar_plot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/agu_poster/figures/noncoincident_bcmx_flare_count_ar_plot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/all/nb_mx_lda_15_trimmed_means_0h_24h_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/all/nb_mx_lda_15_trimmed_means_0h_24h_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/all/nb_mx_lda_15_trimmed_means_0h_24h_10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/all/nb_mx_lda_15_trimmed_means_0h_24h_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/all/nb_mx_lda_15_trimmed_means_0h_24h_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/all/nb_mx_lda_15_trimmed_means_0h_24h_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/all/nb_mx_lda_15_trimmed_means_0h_24h_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/all/nb_mx_lda_15_trimmed_means_0h_24h_6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/all/nb_mx_lda_15_trimmed_means_0h_24h_7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/all/nb_mx_lda_15_trimmed_means_0h_24h_8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/all/nb_mx_lda_15_trimmed_means_0h_24h_9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/all/nb_mx_lda_17_trimmed_means_0h_24h_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/all/nb_mx_lda_17_trimmed_means_0h_24h_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/all/nb_mx_lda_17_trimmed_means_0h_24h_10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/all/nb_mx_lda_17_trimmed_means_0h_24h_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/all/nb_mx_lda_17_trimmed_means_0h_24h_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/all/nb_mx_lda_17_trimmed_means_0h_24h_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/all/nb_mx_lda_17_trimmed_means_0h_24h_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/all/nb_mx_lda_17_trimmed_means_0h_24h_6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/all/nb_mx_lda_17_trimmed_means_0h_24h_7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/all/nb_mx_lda_17_trimmed_means_0h_24h_8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/all/nb_mx_lda_17_trimmed_means_0h_24h_9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/coincident/nb_mx_lda_15_trimmed_means_0h_24h_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/coincident/nb_mx_lda_15_trimmed_means_0h_24h_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/coincident/nb_mx_lda_15_trimmed_means_0h_24h_10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/coincident/nb_mx_lda_15_trimmed_means_0h_24h_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/coincident/nb_mx_lda_15_trimmed_means_0h_24h_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/coincident/nb_mx_lda_15_trimmed_means_0h_24h_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/coincident/nb_mx_lda_15_trimmed_means_0h_24h_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/coincident/nb_mx_lda_15_trimmed_means_0h_24h_6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/coincident/nb_mx_lda_15_trimmed_means_0h_24h_7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/coincident/nb_mx_lda_15_trimmed_means_0h_24h_8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/coincident/nb_mx_lda_15_trimmed_means_0h_24h_9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/coincident/nb_mx_lda_17_trimmed_means_0h_24h_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/coincident/nb_mx_lda_17_trimmed_means_0h_24h_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/coincident/nb_mx_lda_17_trimmed_means_0h_24h_10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/coincident/nb_mx_lda_17_trimmed_means_0h_24h_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/coincident/nb_mx_lda_17_trimmed_means_0h_24h_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/coincident/nb_mx_lda_17_trimmed_means_0h_24h_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/coincident/nb_mx_lda_17_trimmed_means_0h_24h_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/coincident/nb_mx_lda_17_trimmed_means_0h_24h_6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/coincident/nb_mx_lda_17_trimmed_means_0h_24h_7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/coincident/nb_mx_lda_17_trimmed_means_0h_24h_8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/coincident/nb_mx_lda_17_trimmed_means_0h_24h_9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/newman_all_iterative_lda_10_summary.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/newman_all_iterative_lda_15_summary.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/newman_all_iterative_lda_17_summary.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/newman_coincident_iterative_lda_10_summary.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/newman_coincident_iterative_lda_15_summary.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/newman_coincident_iterative_lda_17_summary.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/newman_noncoincident_iterative_lda_10_summary.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/newman_noncoincident_iterative_lda_15_summary.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/newman_noncoincident_iterative_lda_17_summary.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/noncoincident/nb_mx_lda_15_trimmed_means_0h_24h_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/noncoincident/nb_mx_lda_15_trimmed_means_0h_24h_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/noncoincident/nb_mx_lda_15_trimmed_means_0h_24h_10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/noncoincident/nb_mx_lda_15_trimmed_means_0h_24h_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/noncoincident/nb_mx_lda_15_trimmed_means_0h_24h_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/noncoincident/nb_mx_lda_15_trimmed_means_0h_24h_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/noncoincident/nb_mx_lda_15_trimmed_means_0h_24h_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/noncoincident/nb_mx_lda_15_trimmed_means_0h_24h_6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/noncoincident/nb_mx_lda_15_trimmed_means_0h_24h_7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/noncoincident/nb_mx_lda_15_trimmed_means_0h_24h_8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/noncoincident/nb_mx_lda_15_trimmed_means_0h_24h_9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/noncoincident/nb_mx_lda_17_trimmed_means_0h_24h_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/noncoincident/nb_mx_lda_17_trimmed_means_0h_24h_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/noncoincident/nb_mx_lda_17_trimmed_means_0h_24h_10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/noncoincident/nb_mx_lda_17_trimmed_means_0h_24h_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/noncoincident/nb_mx_lda_17_trimmed_means_0h_24h_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/noncoincident/nb_mx_lda_17_trimmed_means_0h_24h_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/noncoincident/nb_mx_lda_17_trimmed_means_0h_24h_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/noncoincident/nb_mx_lda_17_trimmed_means_0h_24h_6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/noncoincident/nb_mx_lda_17_trimmed_means_0h_24h_7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/noncoincident/nb_mx_lda_17_trimmed_means_0h_24h_8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/figures/noncoincident/nb_mx_lda_17_trimmed_means_0h_24h_9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/all/nb_mx_loo_0h_24h_15_trimmed_means_all_0.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/all/nb_mx_loo_0h_24h_15_trimmed_means_all_1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/all/nb_mx_loo_0h_24h_15_trimmed_means_all_10.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/all/nb_mx_loo_0h_24h_15_trimmed_means_all_2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/all/nb_mx_loo_0h_24h_15_trimmed_means_all_3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/all/nb_mx_loo_0h_24h_15_trimmed_means_all_4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/all/nb_mx_loo_0h_24h_15_trimmed_means_all_5.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/all/nb_mx_loo_0h_24h_15_trimmed_means_all_6.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/all/nb_mx_loo_0h_24h_15_trimmed_means_all_7.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/all/nb_mx_loo_0h_24h_15_trimmed_means_all_8.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/all/nb_mx_loo_0h_24h_15_trimmed_means_all_9.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/all/nb_mx_loo_0h_24h_17_trimmed_means_all_0.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/all/nb_mx_loo_0h_24h_17_trimmed_means_all_1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/all/nb_mx_loo_0h_24h_17_trimmed_means_all_10.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/all/nb_mx_loo_0h_24h_17_trimmed_means_all_2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/all/nb_mx_loo_0h_24h_17_trimmed_means_all_3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/all/nb_mx_loo_0h_24h_17_trimmed_means_all_4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/all/nb_mx_loo_0h_24h_17_trimmed_means_all_5.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/all/nb_mx_loo_0h_24h_17_trimmed_means_all_6.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/all/nb_mx_loo_0h_24h_17_trimmed_means_all_7.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/all/nb_mx_loo_0h_24h_17_trimmed_means_all_8.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/all/nb_mx_loo_0h_24h_17_trimmed_means_all_9.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/coincident/nb_mx_loo_0h_24h_15_trimmed_means_coincident_0.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/coincident/nb_mx_loo_0h_24h_15_trimmed_means_coincident_1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/coincident/nb_mx_loo_0h_24h_15_trimmed_means_coincident_10.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/coincident/nb_mx_loo_0h_24h_15_trimmed_means_coincident_2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/coincident/nb_mx_loo_0h_24h_15_trimmed_means_coincident_3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/coincident/nb_mx_loo_0h_24h_15_trimmed_means_coincident_4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/coincident/nb_mx_loo_0h_24h_15_trimmed_means_coincident_5.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/coincident/nb_mx_loo_0h_24h_15_trimmed_means_coincident_6.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/coincident/nb_mx_loo_0h_24h_15_trimmed_means_coincident_7.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/coincident/nb_mx_loo_0h_24h_15_trimmed_means_coincident_8.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/coincident/nb_mx_loo_0h_24h_15_trimmed_means_coincident_9.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/coincident/nb_mx_loo_0h_24h_17_trimmed_means_coincident_0.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/coincident/nb_mx_loo_0h_24h_17_trimmed_means_coincident_1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/coincident/nb_mx_loo_0h_24h_17_trimmed_means_coincident_10.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/coincident/nb_mx_loo_0h_24h_17_trimmed_means_coincident_2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/coincident/nb_mx_loo_0h_24h_17_trimmed_means_coincident_3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/coincident/nb_mx_loo_0h_24h_17_trimmed_means_coincident_4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/coincident/nb_mx_loo_0h_24h_17_trimmed_means_coincident_5.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/coincident/nb_mx_loo_0h_24h_17_trimmed_means_coincident_6.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/coincident/nb_mx_loo_0h_24h_17_trimmed_means_coincident_7.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/coincident/nb_mx_loo_0h_24h_17_trimmed_means_coincident_8.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/coincident/nb_mx_loo_0h_24h_17_trimmed_means_coincident_9.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/noncoincident/nb_mx_loo_0h_24h_15_trimmed_means_noncoincident_0.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/noncoincident/nb_mx_loo_0h_24h_15_trimmed_means_noncoincident_1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/noncoincident/nb_mx_loo_0h_24h_15_trimmed_means_noncoincident_10.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/noncoincident/nb_mx_loo_0h_24h_15_trimmed_means_noncoincident_2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/noncoincident/nb_mx_loo_0h_24h_15_trimmed_means_noncoincident_3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/noncoincident/nb_mx_loo_0h_24h_15_trimmed_means_noncoincident_4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/noncoincident/nb_mx_loo_0h_24h_15_trimmed_means_noncoincident_5.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/noncoincident/nb_mx_loo_0h_24h_15_trimmed_means_noncoincident_6.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/noncoincident/nb_mx_loo_0h_24h_15_trimmed_means_noncoincident_7.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/noncoincident/nb_mx_loo_0h_24h_15_trimmed_means_noncoincident_8.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/noncoincident/nb_mx_loo_0h_24h_15_trimmed_means_noncoincident_9.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/noncoincident/nb_mx_loo_0h_24h_17_trimmed_means_noncoincident_0.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/noncoincident/nb_mx_loo_0h_24h_17_trimmed_means_noncoincident_1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/noncoincident/nb_mx_loo_0h_24h_17_trimmed_means_noncoincident_10.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/noncoincident/nb_mx_loo_0h_24h_17_trimmed_means_noncoincident_2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/noncoincident/nb_mx_loo_0h_24h_17_trimmed_means_noncoincident_3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/noncoincident/nb_mx_loo_0h_24h_17_trimmed_means_noncoincident_4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/noncoincident/nb_mx_loo_0h_24h_17_trimmed_means_noncoincident_5.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/noncoincident/nb_mx_loo_0h_24h_17_trimmed_means_noncoincident_6.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/noncoincident/nb_mx_loo_0h_24h_17_trimmed_means_noncoincident_7.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/noncoincident/nb_mx_loo_0h_24h_17_trimmed_means_noncoincident_8.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/lda_classifier2/metrics/noncoincident/nb_mx_loo_0h_24h_17_trimmed_means_noncoincident_9.txt" afterDir="false" />
+    <list default="true" id="b96d273d-abd9-45da-9424-fb1b6c4cc8cf" name="Changes" comment="Trimmed LDA, poster corrections, reverse search for peak time">
+      <change afterPath="$PROJECT_DIR$/histogram_figures/bmx_absnjzh_histogram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/histogram_figures/bmx_area_acr_histogram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/histogram_figures/bmx_d_l_f_histogram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/histogram_figures/bmx_g_s_histogram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/histogram_figures/bmx_meangam_histogram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/histogram_figures/bmx_meangbh_histogram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/histogram_figures/bmx_meangbt_histogram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/histogram_figures/bmx_meangbz_histogram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/histogram_figures/bmx_meanjzd_histogram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/histogram_figures/bmx_meanjzh_histogram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/histogram_figures/bmx_meanpot_histogram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/histogram_figures/bmx_meanshr_histogram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/histogram_figures/bmx_r_value_histogram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/histogram_figures/bmx_savncpp_histogram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/histogram_figures/bmx_shrgt45_histogram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/histogram_figures/bmx_slf_histogram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/histogram_figures/bmx_totpot_histogram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/histogram_figures/bmx_totusjh_histogram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/histogram_figures/bmx_totusjz_histogram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/histogram_figures/bmx_usflux_histogram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_absnjzh_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_area_acr_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_coincidence_histograms.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_meanpot_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_r_value_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_savncpp_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_shrgt45_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_totpot_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_totusjh_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_totusjz_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_usflux_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_TOTUSJH_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_absnjzh_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_area_acr_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_meanpot_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_b_absnjzh_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_b_area_acr_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_b_meanpot_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_b_r_value_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_b_savncpp_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_b_shrgt45_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_b_totpot_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_b_totusjh_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_b_totusjz_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_b_usflux_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_null_absnjzh_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_null_area_acr_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_null_meanpot_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_null_r_value_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_null_savncpp_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_null_shrgt45_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_null_totpot_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_null_totusjh_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_null_totusjz_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_null_usflux_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_r_value_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_savncpp_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_shrgt45_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_totpot_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_totusjz_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_usflux_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/two_sided_ks.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/other/two_sample_ks.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/agu_poster/figures/all_bcmx_flare_count_bar_plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/agu_poster/figures/all_bcmx_flare_count_month_plot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/agu_poster/figures/all_bcmx_flare_count_line_plot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/agu_poster/figures/coincident_bcmx_flare_count_bar_plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/agu_poster/figures/coincident_bcmx_flare_count_month_plot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/agu_poster/figures/coincident_bcmx_flare_count_line_plot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/agu_poster/figures/noncoincident_bcmx_flare_count_bar_plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/agu_poster/figures/noncoincident_bcmx_flare_count_month_plot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/agu_poster/figures/noncoincident_bcmx_flare_count_line_plot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_10.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_5.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_6.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_7.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_8.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_9.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/all/nb_mx_lda_trimmed_means_0h_24h_9.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_10.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_5.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_6.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_7.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_8.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_9.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/coincident/nb_mx_lda_trimmed_means_0h_24h_9.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_eight_trimmed_means.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_eight_trimmed_means_other.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_five_trimmed_means.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_five_trimmed_means_other.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_four_trimmed_means.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_four_trimmed_means_other.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_nine_trimmed_means.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_nine_trimmed_means_other.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_one_trimmed_means.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_one_trimmed_means_other.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_seven_trimmed_means.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_seven_trimmed_means_other.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_six_trimmed_means.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_six_trimmed_means_other.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_ten_trimmed_means.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_ten_trimmed_means_other.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_three_trimmed_means.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_three_trimmed_means_other.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_two_trimmed_means.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_two_trimmed_means_other.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/nb_mx_lda_loo_0h_24h_zero_trimmed_means.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_10.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_5.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_6.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_7.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_8.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_9.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/figures/noncoincident/nb_mx_lda_trimmed_means_0h_24h_9.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_10.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_10.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_3.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_4.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_5.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_6.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_7.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_8.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_8.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_9.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/all/nb_mx_loo_0h_24h_trimmed_means_all_9.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_10.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_10.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_3.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_4.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_5.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_6.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_7.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_8.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_8.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_9.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/coincident/nb_mx_loo_0h_24h_trimmed_means_coincident_9.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_10.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_10.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_3.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_4.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_5.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_6.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_7.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_8.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_8.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_9.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/lda_classifier/metrics/noncoincident/nb_mx_loo_0h_24h_trimmed_means_noncoincident_9.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/experiments/agu_poster.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/agu_poster.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/experiments/lda_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/lda_classifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/experiments/lda_classifier2.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/lda_classifier2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/experiments/plot_iterative_lda.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/plot_iterative_lda.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/experiments/reverse_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/reverse_search.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -292,7 +109,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/source/experiments" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="python.debugger.dataview.autoresize" value="false" />
@@ -306,11 +123,13 @@
       <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\lda_classifier\metrics" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\sinha_singh_distribution_comparison\figures" />
+      <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\agu_poster\other" />
       <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\mx_classification\metrics\all" />
       <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\flare_data\time_series_means\original_coincidence_definition\5h_17h" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.plot_iterative_lda">
+  <component name="RunManager" selected="Python.reverse_search">
     <configuration name="agu_poster" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -423,11 +242,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.reverse_search" />
         <item itemvalue="Python.plot_iterative_lda" />
         <item itemvalue="Python.agu_poster" />
         <item itemvalue="Python.lda_classifier" />
         <item itemvalue="Python.lda_classifier2" />
-        <item itemvalue="Python.reverse_search" />
       </list>
     </recent_temporary>
   </component>
@@ -451,7 +270,9 @@
       <workItem from="1667529911970" duration="526000" />
       <workItem from="1668004536018" duration="13895000" />
       <workItem from="1668435592421" duration="16322000" />
-      <workItem from="1668609847578" duration="10068000" />
+      <workItem from="1668609847578" duration="10996000" />
+      <workItem from="1668784308130" duration="2516000" />
+      <workItem from="1669132984432" duration="8606000" />
     </task>
     <task id="LOCAL-00001" summary="LDA B/MX classifier">
       <created>1662575033124</created>
@@ -558,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668452494390</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Trimmed LDA, poster corrections, reverse search for peak time">
+      <created>1668622044710</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1668622044710</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -591,20 +419,21 @@
     <MESSAGE value="Improved reverse search using majority vote" />
     <MESSAGE value="Using majority vote mean + std thresholding." />
     <MESSAGE value="Trimmed LDA corrections -- much better" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trimmed LDA corrections -- much better" />
+    <MESSAGE value="Trimmed LDA, poster corrections, reverse search for peak time" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trimmed LDA, poster corrections, reverse search for peak time" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/flare_forecasting$pearson_correlation.coverage" NAME="pearson_correlation Coverage Results" MODIFIED="1668011409546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$classification.coverage" NAME="classification Coverage Results" MODIFIED="1664293640826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$plot_iterative_lda.coverage" NAME="plot_iterative_lda Coverage Results" MODIFIED="1668618058921" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$plot_iterative_lda.coverage" NAME="plot_iterative_lda Coverage Results" MODIFIED="1668785620439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$lda_classifier.coverage" NAME="lda_classifier Coverage Results" MODIFIED="1668619848216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$agu_poster.coverage" NAME="agu_poster Coverage Results" MODIFIED="1668621708281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$agu_poster.coverage" NAME="agu_poster Coverage Results" MODIFIED="1668621872997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$generate_time_series_means.coverage" NAME="generate_time_series_means Coverage Results" MODIFIED="1665586166383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$correlation.coverage" NAME="correlation Coverage Results" MODIFIED="1663695704299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$tsne.coverage" NAME="tsne Coverage Results" MODIFIED="1668016318003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$mx_classification.coverage" NAME="mx_classification Coverage Results" MODIFIED="1668011988536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$coincidence.coverage" NAME="coincidence Coverage Results" MODIFIED="1665334952874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$reverse_search.coverage" NAME="reverse_search Coverage Results" MODIFIED="1668616710745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$reverse_search.coverage" NAME="reverse_search Coverage Results" MODIFIED="1669141304157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$time_window_classification.coverage" NAME="time_window_classification Coverage Results" MODIFIED="1665586240265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$plot_time_window_tss_recall.coverage" NAME="plot_time_window_tss_recall Coverage Results" MODIFIED="1665587634007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$plot_timepoint_tss_recall.coverage" NAME="plot_timepoint_tss_recall Coverage Results" MODIFIED="1665594281059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
