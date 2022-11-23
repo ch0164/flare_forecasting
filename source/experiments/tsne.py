@@ -34,9 +34,6 @@ def main() -> None:
     mx_classfied_by = "mx_classified_by"
 
     # ------------------------------------------------------------------------
-    # Place any results in the directory for the current experiment.
-    now_string, figure_directory, metrics_directory, other_directory = \
-        build_experiment_directories(experiment)
 
     flare_dataframes = [
         get_ar_properties(flare_class, lo_time, hi_time,

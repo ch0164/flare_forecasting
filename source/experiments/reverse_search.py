@@ -4,7 +4,7 @@ from matplotlib.colors import ListedColormap
 from source.common_imports import *
 from source.constants import *
 from distfit import distfit
-from scipy.stats import ks_2samp
+from scipy.stats import ks_2samp, chisquare, chi2_contingency, relfreq
 import numpy as np
 
 SINHA_PARAMETERS = [
@@ -26,30 +26,42 @@ OTHER_DIRECTORY = f"{EXPERIMENT_DIRECTORY}other/"
 x2_df = pd.DataFrame(columns=SINHA_PARAMETERS)
 
 
-def plot_histograms(df1, df2, label=None):
-    p_values = []
+def plot_histograms(sinha_df, flare_df):
+    mx_df = flare_df.loc[flare_df["AR_class"] == 1]
+    nb_df = flare_df.loc[flare_df["AR_class"] == 0]
+
+    sinha_df1 = sinha_df.loc[sinha_df["AR_class"] == 1]
+    sinha_df2 = sinha_df.loc[sinha_df["AR_class"] == 0]
+    num_bins = 5
     for column in SINHA_PARAMETERS:
         fig, ax = plt.subplots(nrows=2, ncols=2, figsize=(12, 12))
-        df1.hist(column=column, ax=ax[0, 0], bins=7)
-        ax[0, 0].set_title(f"Sinha {label.upper()} {column}")
+
+        sinha_df1.hist(column=column, ax=ax[0, 0], bins=num_bins)
+        ax[0, 0].set_title(f"Sinha MX {column}")
         ax[0, 0].set_xlabel("Unit")
         ax[0, 0].set_ylabel("Frequency")
-        X1 = df1[column].dropna()
-        dist = distfit(smooth=5)
-        dist.fit_transform(X1, verbose=False)
-        dist.plot(ax=ax[0, 1])
+        X1 = mx_df[column].dropna()
 
-        df2.hist(column=column, ax=ax[1, 0], bins=7)
-        ax[1, 0].set_title(f"Singh {label.upper()} {column}")
+        sinha_df2.hist(column=column, ax=ax[1, 0], bins=num_bins)
+        ax[1, 0].set_title(f"Sinha Non-MX {column}")
         ax[1, 0].set_xlabel("Unit")
         ax[1, 0].set_ylabel("Frequency")
-        X2 = df2[column].dropna()
-        dist = distfit(smooth=5)
-        dist.fit_transform(X2, verbose=False)
-        dist.plot(ax=ax[1, 1])
+        X2 = mx_df[column].dropna()
+
+        mx_df.hist(column=column, ax=ax[0, 1], bins=num_bins)
+        ax[0, 1].set_title(f"Singh MX {column}")
+        ax[0, 1].set_xlabel("Unit")
+        ax[0, 1].set_ylabel("Frequency")
+        X3 = mx_df[column].dropna()
+
+        nb_df.hist(column=column, ax=ax[1, 1], bins=num_bins)
+        ax[1, 1].set_title(f"Singh Non-MX {column}")
+        ax[1, 1].set_xlabel("Unit")
+        ax[1, 1].set_ylabel("Frequency")
+        X4 = mx_df[column].dropna()
 
         fig.tight_layout()
-        fig.savefig(f"{FIGURE_DIRECTORY}{label}_{column.lower()}_distribution.png")
+        fig.savefig(f"{FIGURE_DIRECTORY}{column.lower()}_distribution.png")
         fig.show()
 
     #     stat, p = ks_2samp(X1, X2)
@@ -57,26 +69,75 @@ def plot_histograms(df1, df2, label=None):
     # x2_df.loc[len(x2_df)] = p_values
 
 
-def plot_coincidence_histograms(df, flare_class):
+def plot_coincidence_histograms(flare_df):
     fig, ax = plt.subplots(nrows=10, ncols=3, figsize=(20, 28))
     min_max_ranges = {}
-    for col_index, coincidence in enumerate(COINCIDENCES):
-        flare_df = df.copy()
-        if coincidence == "coincident":
-            flare_df = flare_df.loc[flare_df["COINCIDENCE"] == True]
-        elif coincidence == "noncoincident":
-            flare_df = flare_df.loc[flare_df["COINCIDENCE"] == False]
-        else:
-            for col in SINHA_PARAMETERS:
-                min_max_ranges[col] = [flare_df[col].min(), flare_df[col].max()]
-        for row_index, col in enumerate(SINHA_PARAMETERS):
-            flare_df.hist(column=col, ax=ax[row_index, col_index], bins=7,
-                          range=min_max_ranges[col])
-            ax[row_index, col_index].set_title(f"Singh {coincidence.upper()} {col}")
-            ax[row_index, col_index].set_xlabel("Unit")
-            ax[row_index, col_index].set_ylabel("Frequency")
-    fig.suptitle(f"Singh {flare_class} Histograms", y=0.99, fontweight="bold")
+    nb_df = flare_df.loc[flare_df["AR_class"] == 0]
+    mx_df = flare_df.loc[flare_df["AR_class"] == 1]
+    for df, flare_class in zip([nb_df, mx_df], ["nb", "mx"]):
+        for col_index, coincidence in enumerate(COINCIDENCES):
+            flare_df = df.copy()
+            if coincidence == "coincident":
+                flare_df = flare_df.loc[flare_df["COINCIDENCE"] == True]
+            elif coincidence == "noncoincident":
+                flare_df = flare_df.loc[flare_df["COINCIDENCE"] == False]
+            else:
+                for col in SINHA_PARAMETERS:
+                    min_max_ranges[col] = [flare_df[col].min(), flare_df[col].max()]
+            for row_index, col in enumerate(SINHA_PARAMETERS):
+                flare_df.hist(column=col, ax=ax[row_index, col_index], bins=7,
+                              range=min_max_ranges[col], legend=True, alpha=0.5)
+                ax[row_index, col_index].set_title(f"Singh {coincidence.capitalize()} Flares {col}")
+                ax[row_index, col_index].set_xlabel("Unit")
+                ax[row_index, col_index].set_ylabel("Frequency")
+                ax[row_index, col_index].legend(["NB", "MX"])
+    fig.suptitle(f"NB/MX 24h Timepoint Before Flare Peak Time Coincidence Histograms", y=0.99, fontweight="bold")
     fig.tight_layout()
+    fig.savefig(f"{FIGURE_DIRECTORY}nb_mx_peak_timepoint_coincidence_histograms.png")
+    fig.show()
+    exit(1)
+
+
+def plot_coincidence_histograms2(flare_df):
+    fig, ax = plt.subplots(nrows=10, ncols=2, figsize=(20, 28))
+    min_max_ranges = {}
+    nb_df = flare_df.loc[flare_df["AR_class"] == 0]
+    mx_df = flare_df.loc[flare_df["AR_class"] == 1]
+
+    num_bins = 12
+
+    coin_nb_df = nb_df.loc[nb_df["COINCIDENCE"] == True]
+    noncoin_nb_df = nb_df.loc[nb_df["COINCIDENCE"] != True]
+    coin_mx_df = mx_df.loc[mx_df["COINCIDENCE"] == True]
+    noncoin_mx_df = mx_df.loc[mx_df["COINCIDENCE"] != True]
+
+    for row_index, parameter in enumerate(SINHA_PARAMETERS):
+        min_max_range = [nb_df[parameter].min(), nb_df[parameter].max()]
+        coin_nb_df.hist(column=parameter, ax=ax[row_index, 1], bins=num_bins,
+                              range=min_max_range, legend=True, alpha=0.5)
+        noncoin_nb_df.hist(column=parameter, ax=ax[row_index, 1], bins=num_bins,
+                        range=min_max_range, legend=True, alpha=0.5)
+        ax[row_index, 1].set_title(f"NB {parameter}")
+        ax[row_index, 1].set_xlabel("Unit")
+        ax[row_index, 1].set_ylabel("Frequency")
+        ax[row_index, 1].legend(["Coincident", "Non-coincident"])
+
+    for row_index, parameter in enumerate(SINHA_PARAMETERS):
+        min_max_range = [nb_df[parameter].min(), nb_df[parameter].max()]
+        coin_mx_df.hist(column=parameter, ax=ax[row_index, 0], bins=num_bins,
+                              range=min_max_range, legend=True, alpha=0.5)
+        noncoin_mx_df.hist(column=parameter, ax=ax[row_index, 0], bins=num_bins,
+                        range=min_max_range, legend=True, alpha=0.5)
+        ax[row_index, 0].set_title(f"MX {parameter}")
+        ax[row_index, 0].set_xlabel("Unit")
+        ax[row_index, 0].set_ylabel("Frequency")
+        ax[row_index, 0].legend(["Coincident", "Non-coincident"])
+
+
+
+    fig.suptitle(f"NB/MX 24h Timepoint Before Flare Peak Time Coincidence Histograms", y=0.99, fontweight="bold")
+    fig.tight_layout()
+    fig.savefig(f"{FIGURE_DIRECTORY}nb_mx_peak_timepoint_coincidence_histograms2.png")
     fig.show()
     exit(1)
 
@@ -144,29 +205,59 @@ def compute_mean_std(df1, df2):
             "sinha_stds": sinha_stds,
     }
     df = pd.DataFrame(d)
+    df.index = SINHA_PARAMETERS
     df.to_csv(OTHER_DIRECTORY + "non_mx_means_stds.csv")
     print(df)
     exit(1)
 
 
+def chi_square_test(sinha_df, flare_df):
+    mx_df = flare_df.loc[flare_df["AR_class"] == 1]
+    nb_df = flare_df.loc[flare_df["AR_class"] == 0]
+
+    sinha_df1 = sinha_df.loc[sinha_df["AR_class"] == 1]
+    sinha_df2 = sinha_df.loc[sinha_df["AR_class"] == 0]
+
+    num_bins = 5
+
+    for sinha_df, singh_df, flare_class in zip([sinha_df1, sinha_df2], [mx_df, nb_df], ["mx", "nb"]):
+        chisq_stats = []
+        p_values = []
+        reject_values = []
+        for param in SINHA_PARAMETERS:
+            singh_freq, _, _, _ = relfreq(singh_df[param], numbins=num_bins)
+            sinha_freq, _, _, _ = relfreq(sinha_df[param], numbins=num_bins)
+            print(param)
+            print(singh_freq)
+            print(sinha_freq)
+            chisq, p = chisquare(singh_freq, sinha_freq)
+            print(chisq)
+            print(p)
+            chisq_stats.append(chisq)
+            p_values.append(p)
+            reject_values.append(p <= 0.05)
+        chi_2_df = pd.DataFrame({
+            "chisq_stat": chisq_stats,
+            "p_value": p_values,
+            "reject_95_conf": reject_values,
+        })
+        chi_2_df.index = SINHA_PARAMETERS
+        chi_2_df.to_csv(f"{OTHER_DIRECTORY}{flare_class}_chisquare_test.csv")
 
 
 def main():
     sinha_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}sinha_dataset.csv")
     sinha_df1 = sinha_df.loc[sinha_df["AR_class"] == 1]
-    flare_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}mx_data.txt", header=0, delimiter=r"\s+")
-    mx_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}time_series_means/"
-            f"original_coincidence_definition/0h_24h/mx_0h_24h_mean_dataset.csv")
-    # plot_histograms(sinha_df1, mx_df, "mx")
-
     sinha_df2 = sinha_df.loc[sinha_df["AR_class"] == 0]
-    nab_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}time_series_means/"
-                        f"original_coincidence_definition/0h_24h/nb_0h_24h_nbmx_mean_dataset.csv")
-    # plot_histograms(sinha_df2, nab_df, "non_mx_only_b")
+    flare_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbmx_data.csv")
+    mx_df = flare_df.loc[flare_df["AR_class"] == 1]
+    nb_df = flare_df.loc[flare_df["AR_class"] == 0]
+    plot_coincidence_histograms2(flare_df)
+    # chi_square_test(sinha_df, flare_df)
+    # plot_histograms(sinha_df, flare_df)
     # x2_df.index = ["MX", "NON_MX"]
     # x2_df.to_csv(OTHER_DIRECTORY + "two_sample_ks.csv")
-    # plot_coincidence_histograms(nab_df, "NB")
-    compute_mean_std(nab_df, sinha_df2)
+    # compute_mean_std(nb_df, sinha_df2)
     exit(1)
     cols = ["TOTUSJH", "TOTUSJZ", "SAVNCPP", "R_VALUE", "SHRGT45", "ABSNJZH", "TOTPOT", "AREA_ACR", "USFLUX"]
     for col in cols:
