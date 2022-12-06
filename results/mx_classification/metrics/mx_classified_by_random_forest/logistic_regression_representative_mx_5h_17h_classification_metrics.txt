@@ -1,0 +1,18 @@
+Logistic Regression Classification Metrics
+--------------------------------------------------
+Confusion Matrix
+  M   X
+M [252  24]
+X [19  2]
+--------------------------------------------------
+Classification Report
+              precision    recall  f1-score   support
+
+           M       0.93      0.91      0.92       276
+           X       0.08      0.10      0.09        21
+
+    accuracy                           0.86       297
+   macro avg       0.50      0.50      0.50       297
+weighted avg       0.87      0.86      0.86       297
+
+True Skill Score: 0.0083

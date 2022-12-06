@@ -1,6 +1,6 @@
 ################################################################################
-# Filename: experiment_template.py
-# Description: This file is a correlation for easy creation of new experiments.
+# Filename: sinha_classification_figures.py
+# Description:
 ################################################################################
 
 # Custom Imports

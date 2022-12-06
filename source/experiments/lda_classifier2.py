@@ -58,7 +58,7 @@ def main() -> None:
 
     flares_list = [nb_df, mx_df]
 
-    for coincidence in ["all", "coincident", "noncoincident"]:
+    for coincidence in ["coincident", "noncoincident", "all"]:
         if coincidence == "coincident":
             is_coincident = True
         elif coincidence == "noncoincident":
@@ -76,8 +76,9 @@ def main() -> None:
         # Apply trimmed means.
         nb_centroid = None
         mx_centroid = None
+        trimming_ratio = 0.15
         saved_df = all_flares_df
-        for lda_index in range(0, 11):
+        for lda_index in range(0, 1):
             all_flares_df = saved_df.copy()
             print(f"{coincidence} LOO LDA, Iteration {lda_index}")
             test_df = pd.DataFrame()
@@ -103,28 +104,24 @@ def main() -> None:
                 # Drop 10% of the records the furthest away from the means.
                 # Save them for testing.
 
-                if lda_index == 1:
-                    nb_diff = (abs(nb_df - nb_centroid))["LD1"].sort_values()
-                    mx_diff = (abs(mx_df - mx_centroid))["LD1"].sort_values()
-                else:
-                    nb_diff = abs(nb_df["LD1"] - nb_centroid).sort_values()
-                    mx_diff = abs(mx_df["LD1"] - mx_centroid).sort_values()
-                nb_to_drop = int(np.ceil(0.1 * nb_diff.shape[0]))
-                mx_to_drop = int(np.ceil(0.1 * mx_diff.shape[0]))
+                nb_diff = (abs(nb_df - nb_centroid))["LD1"].sort_values()
+                mx_diff = (abs(mx_df - mx_centroid))["LD1"].sort_values()
+                nb_to_drop = int(np.ceil(trimming_ratio * nb_diff.shape[0]))
+                mx_to_drop = int(np.ceil(trimming_ratio * mx_diff.shape[0]))
                 test_df = pd.concat(
-                    [test_df, nb_diff.drop(nb_diff.head(nb_diff.shape[0] - nb_to_drop).index)])
+                    [test_df, nb_df.drop(nb_diff.head(nb_diff.shape[0] - nb_to_drop).index)])
                 test_df = pd.concat(
                     [test_df,
-                     mx_diff.drop(mx_diff.head(mx_diff.shape[0] - mx_to_drop).index)])
-                nb_diff.drop(nb_diff.tail(nb_to_drop).index, inplace=True)
-                mx_diff.drop(mx_diff.tail(mx_to_drop).index, inplace=True)
+                     mx_df.drop(mx_diff.head(mx_diff.shape[0] - mx_to_drop).index)])
+                nb_df.drop(nb_diff.tail(nb_to_drop).index, inplace=True)
+                mx_df.drop(mx_diff.tail(mx_to_drop).index, inplace=True)
 
                 # Recompute the means for the next iteration
                 # based on those records that were not dropped.
-                nb_centroid = nb_diff.mean()
-                mx_centroid = mx_diff.mean()
+                nb_centroid = nb_df.mean()
+                mx_centroid = mx_df.mean()
 
-
+            print(test_df.shape[0])
             # Do LOO testing on the non-trimmed records.
             if lda_index != 0:
                 X = all_flares_df[FLARE_PROPERTIES].drop(test_df.index, axis=0)
@@ -163,62 +160,62 @@ def main() -> None:
                         df.plot(x="LD1", y="jitter", label=f"{name} Train", kind="scatter", c=color, ax=ax)
                     if lda_index != 0:
                         ax.scatter(nb_centroid, 0.5, c="k", marker="+", label="NB Centroid")
-                        ax.scatter(-mx_centroid, 0.5, c="k", marker="x", label="MX Centroid")
+                        ax.scatter(mx_centroid, 0.5, c="k", marker="x", label="MX Centroid")
                     ax.legend(loc="lower right")
                     ax.set_title(f"LDA Classifier, Trimmed Means Iteration {lda_index}, LOO,\n"
                                  f"NB/MX {coincidence.capitalize()} Flares, {time_window_caption}")
-                    plt.savefig(f"{figure_directory}{coincidence}/nb_mx_lda_trimmed_means_{time_window}_{lda_index}.png")
+                    plt.savefig(f"{figure_directory}{coincidence}/nb_mx_lda_{int(trimming_ratio * 100)}_trimmed_means_{time_window}_{lda_index}.png")
                     plt.show()
 
 
-            #
-            #     # Maintain a DataFrames for predictions for the trimmed records.
-            #     if lda_index != 0:
-            #         pred = pd.DataFrame(train_lda.predict(
-            #             all_flares_df[FLARE_PROPERTIES].iloc[test_df.index]),
-            #                             columns=test_index)
-            #         y_trimmed_predictions = pd.concat([y_trimmed_predictions, pred], axis=1)
-            #
-            # # Add the trimmed records into the testing set.
-            # if lda_index != 0:
-            #     for i in range(y_trimmed_predictions.shape[0]):
-            #         pred_label = y_trimmed_predictions.T[i].mode().values[0]
-            #         true_label = y[i]
-            #         y_true.append(true_label)
-            #         y_pred.append(pred_label)
-            #
-            # cm = confusion_matrix(y_true, y_pred, labels=["NB", "MX"])
-            # tp, fn, fp, tn = cm.ravel()
-            # cr = classification_report(y_true, y_pred, output_dict=True)
-            # accuracy = cr["accuracy"]
-            # sens = tp / float(tp + fn)
-            # far = fp / float(fp + tn)
-            # tss = sens - far
-            # custom_cr = {
-            #     "NB": cr["NB"],
-            #     "MX": cr["MX"],
-            # }
-            # custom_cr["NB"]["count"] = custom_cr["NB"].pop("support")
-            # custom_cr["MX"]["count"] = custom_cr["MX"].pop("support")
-            # cr_df = pd.DataFrame(custom_cr).transpose()
-            # with open(
-            #         f"{metrics_directory}{coincidence}/nb_mx_loo_{time_window}_trimmed_means_{coincidence}_{lda_index}.txt",
-            #         "w") as f:
-            #     stdout = sys.stdout
-            #     sys.stdout = f
-            #     print("Confusion Matrix")
-            #     print("-" * 50)
-            #     print("  NB", " MX")
-            #     print("NB", cm[0])
-            #     print("MX ", cm[1])
-            #     print("-" * 50)
-            #     print("Classification Metrics")
-            #     print("-" * 50)
-            #     print(cr_df)
-            #     print()
-            #     print(f"Accuracy: {accuracy}")
-            #     print(f"TSS: {tss}")
-            #     sys.stdout = stdout
+
+                # Maintain a DataFrames for predictions for the trimmed records.
+                if lda_index != 0:
+                    pred = pd.DataFrame(train_lda.predict(
+                        all_flares_df[FLARE_PROPERTIES].iloc[test_df.index]),
+                                        columns=test_index)
+                    y_trimmed_predictions = pd.concat([y_trimmed_predictions, pred], axis=1)
+
+            # Add the trimmed records into the testing set.
+            if lda_index != 0:
+                for i in range(y_trimmed_predictions.shape[0]):
+                    pred_label = y_trimmed_predictions.T[i].mode().values[0]
+                    true_label = y[i]
+                    y_true.append(true_label)
+                    y_pred.append(pred_label)
+
+            cm = confusion_matrix(y_true, y_pred, labels=["NB", "MX"])
+            tp, fn, fp, tn = cm.ravel()
+            cr = classification_report(y_true, y_pred, output_dict=True)
+            accuracy = cr["accuracy"]
+            sens = tp / float(tp + fn)
+            far = fp / float(fp + tn)
+            tss = sens - far
+            custom_cr = {
+                "NB": cr["NB"],
+                "MX": cr["MX"],
+            }
+            custom_cr["NB"]["count"] = custom_cr["NB"].pop("support")
+            custom_cr["MX"]["count"] = custom_cr["MX"].pop("support")
+            cr_df = pd.DataFrame(custom_cr).transpose()
+            with open(
+                    f"{metrics_directory}{coincidence}/nb_mx_loo_{time_window}_{int(trimming_ratio * 100)}_trimmed_means_{coincidence}_{lda_index}.txt",
+                    "w") as f:
+                stdout = sys.stdout
+                sys.stdout = f
+                print("Confusion Matrix")
+                print("-" * 50)
+                print("  NB", " MX")
+                print("NB", cm[0])
+                print("MX ", cm[1])
+                print("-" * 50)
+                print("Classification Metrics")
+                print("-" * 50)
+                print(cr_df)
+                print()
+                print(f"Accuracy: {accuracy}")
+                print(f"TSS: {tss}")
+                sys.stdout = stdout
 
 
 if __name__ == "__main__":

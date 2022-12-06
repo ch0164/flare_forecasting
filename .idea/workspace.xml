@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b96d273d-abd9-45da-9424-fb1b6c4cc8cf" name="Changes" comment="LDA coincidence, Pearson correlation, and Sinha hyperparameter optimization plots.">
-      <change afterPath="$PROJECT_DIR$/source/experiments/reverse_search.txt" afterDir="false" />
+    <list default="true" id="b96d273d-abd9-45da-9424-fb1b6c4cc8cf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/count/absnjzh_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/count/area_acr_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/count/meanpot_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/count/r_value_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/count/savncpp_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/count/shrgt45_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/count/totpot_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/count/totusjh_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/count/totusjz_distribution.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/count/usflux_distribution.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/absnjzh_distribution.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/area_acr_distribution.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/meanpot_distribution.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/r_value_distribution.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/savncpp_distribution.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/shrgt45_distribution.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/totpot_distribution.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/totusjh_distribution.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/totusjz_distribution.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/usflux_distribution.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/other/mx_chisquare_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/other/mx_chisquare_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/other/nb_chisquare_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/other/nb_chisquare_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/experiments/reverse_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/reverse_search.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,26 +66,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "last_opened_file_path": "/home/ch0164/PycharmProjects/flare_forecasting/results/sinha_classification/metrics"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="python.debugger.dataview.autoresize" value="false" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/results/sinha_classification/metrics" />
-      <recent name="$PROJECT_DIR$/results/sinha_classification/figures" />
-      <recent name="$PROJECT_DIR$/source/experiments" />
-      <recent name="$PROJECT_DIR$/results/pearson_correlation/metrics" />
-      <recent name="$PROJECT_DIR$/results/pearson_correlation/figures" />
+      <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\source\experiments" />
+      <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\mx_classification\metrics" />
+      <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\mx_classification\metrics\noncoincident" />
+      <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\mx_classification\metrics\coincident" />
+      <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\lda_classifier\metrics" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/results/sinha_classification/figures" />
+      <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\sinha_singh_distribution_comparison\figures" />
+      <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\agu_poster\other" />
+      <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\mx_classification\metrics\all" />
       <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\flare_data\time_series_means\original_coincidence_definition\5h_17h" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.sinha_classification_figures">
-    <configuration name="k_means" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.reverse_search">
+    <configuration name="agu_poster" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -75,7 +102,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/k_means.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/agu_poster.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -84,7 +111,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="k_means_old" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="classification" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -97,7 +124,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/k_means_old.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/classification.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -106,7 +133,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="lda_classifier2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="reverse_search" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -119,7 +146,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/lda_classifier2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/reverse_search.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -128,7 +155,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="pearson_correlation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="sinha_singh_distribution_comparison" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -141,7 +168,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/pearson_correlation.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/sinha_singh_distribution_comparison.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -150,7 +177,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="sinha_classification_figures" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="time_window_classification" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -163,7 +190,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/sinha_classification_figures.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/time_window_classification.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -174,11 +201,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.sinha_classification_figures" />
-        <item itemvalue="Python.lda_classifier2" />
-        <item itemvalue="Python.pearson_correlation" />
-        <item itemvalue="Python.k_means" />
-        <item itemvalue="Python.k_means_old" />
+        <item itemvalue="Python.reverse_search" />
+        <item itemvalue="Python.agu_poster" />
+        <item itemvalue="Python.time_window_classification" />
+        <item itemvalue="Python.sinha_singh_distribution_comparison" />
+        <item itemvalue="Python.classification" />
       </list>
     </recent_temporary>
   </component>
@@ -197,7 +224,16 @@
       <workItem from="1664378416180" duration="634000" />
       <workItem from="1664816531094" duration="2675000" />
       <workItem from="1665414544353" duration="6263000" />
-      <workItem from="1667231622907" duration="27643000" />
+      <workItem from="1667231622907" duration="28632000" />
+      <workItem from="1667501622181" duration="2067000" />
+      <workItem from="1667529911970" duration="526000" />
+      <workItem from="1668004536018" duration="13895000" />
+      <workItem from="1668435592421" duration="16322000" />
+      <workItem from="1668609847578" duration="10996000" />
+      <workItem from="1668784308130" duration="2516000" />
+      <workItem from="1669132984432" duration="17608000" />
+      <workItem from="1669641489628" duration="32428000" />
+      <workItem from="1670327839156" duration="13941000" />
     </task>
     <task id="LOCAL-00001" summary="LDA B/MX classifier">
       <created>1662575033124</created>
@@ -255,14 +291,84 @@
       <option name="project" value="LOCAL" />
       <updated>1667327719876</updated>
     </task>
-    <task id="LOCAL-00009" summary="LDA coincidence, Pearson correlation, and Sinha hyperparameter optimization plots.">
-      <created>1667849088524</created>
+    <task id="LOCAL-00009" summary="New trimmed lda">
+      <created>1667412888613</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1667849088524</updated>
+      <updated>1667412888613</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Workspace">
+      <created>1668004552385</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1668004552385</updated>
+    </task>
+    <task id="LOCAL-00011" summary="LDA classifiers, M/X classification (poor results), correlation, and TSNE">
+      <created>1668017944879</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1668017944879</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Reverse search done -- seems we do not have nearly all the NAB flares that Sinha used">
+      <created>1668443041792</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1668443041792</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Improved reverse search using majority vote">
+      <created>1668446211266</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1668446211266</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Using majority vote mean + std thresholding.">
+      <created>1668451251471</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1668451251471</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Trimmed LDA corrections -- much better">
+      <created>1668452494390</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1668452494390</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Trimmed LDA, poster corrections, reverse search for peak time">
+      <created>1668622044710</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1668622044710</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Histograms and distribution comparison">
+      <created>1669141874248</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1669141874248</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Histograms and distribution comparison">
+      <created>1669228698345</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1669228698345</updated>
+    </task>
+    <task id="LOCAL-00019" summary="AGU poster">
+      <created>1670346339878</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1670346339878</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,31 +394,42 @@
     <MESSAGE value="K-Means 3d plots with colors for clusters, symbols for classes, and sizes for magnitudes." />
     <MESSAGE value="K-Means PCA after dropping parameters according to ANOVA -- good results!" />
     <MESSAGE value="K-Means stuff" />
-    <MESSAGE value="LDA coincidence, Pearson correlation, and Sinha hyperparameter optimization plots." />
-    <option name="LAST_COMMIT_MESSAGE" value="LDA coincidence, Pearson correlation, and Sinha hyperparameter optimization plots." />
+    <MESSAGE value="New trimmed lda" />
+    <MESSAGE value="Workspace" />
+    <MESSAGE value="LDA classifiers, M/X classification (poor results), correlation, and TSNE" />
+    <MESSAGE value="Reverse search done -- seems we do not have nearly all the NAB flares that Sinha used" />
+    <MESSAGE value="Improved reverse search using majority vote" />
+    <MESSAGE value="Using majority vote mean + std thresholding." />
+    <MESSAGE value="Trimmed LDA corrections -- much better" />
+    <MESSAGE value="Trimmed LDA, poster corrections, reverse search for peak time" />
+    <MESSAGE value="Histograms and distribution comparison" />
+    <MESSAGE value="AGU poster" />
+    <option name="LAST_COMMIT_MESSAGE" value="AGU poster" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/flare_forecasting$analyze_ar_data.coverage" NAME="analyze_ar_data Coverage Results" MODIFIED="1662995810984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$lda_classifier.coverage" NAME="lda_classifier Coverage Results" MODIFIED="1666809676370" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$correlation.coverage" NAME="correlation Coverage Results" MODIFIED="1666191275645" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$k_means.coverage" NAME="k_means Coverage Results" MODIFIED="1666804949437" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$plot_classifier_comparison.coverage" NAME="plot_classifier_comparison Coverage Results" MODIFIED="1664383379257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$generate_time_series_means.coverage" NAME="generate_time_series_means Coverage Results" MODIFIED="1665598534933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$classification.coverage" NAME="classification Coverage Results" MODIFIED="1666199832045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$idealized_flares.coverage" NAME="idealized_flares Coverage Results" MODIFIED="1663172491103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$plot_timepoint_tss_recall.coverage" NAME="plot_timepoint_tss_recall Coverage Results" MODIFIED="1665415379138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$time_window_classification.coverage" NAME="time_window_classification Coverage Results" MODIFIED="1666024243296" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$pearson_correlation.coverage" NAME="pearson_correlation Coverage Results" MODIFIED="1667840381540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$plot_anova_classification.coverage" NAME="plot_anova_classification Coverage Results" MODIFIED="1666200664883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$k_means_old.coverage" NAME="k_means_old Coverage Results" MODIFIED="1667403936360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$lda_classifier2.coverage" NAME="lda_classifier2 Coverage Results" MODIFIED="1667841089386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$plot_time_window_tss_recall.coverage" NAME="plot_time_window_tss_recall Coverage Results" MODIFIED="1666124280831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$parallel_coordinates.coverage" NAME="parallel_coordinates Coverage Results" MODIFIED="1663179893534" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$plot_iterative_lda.coverage" NAME="plot_iterative_lda Coverage Results" MODIFIED="1666795876972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$plot_trimmed_lda_tss.coverage" NAME="plot_trimmed_lda_tss Coverage Results" MODIFIED="1666628066069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$tabulate_classification_metrics.coverage" NAME="tabulate_classification_metrics Coverage Results" MODIFIED="1666027687282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$sinha_classification_figures.coverage" NAME="sinha_classification_figures Coverage Results" MODIFIED="1667848473192" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$multiple_ars.coverage" NAME="multiple_ars Coverage Results" MODIFIED="1665593722013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$pearson_correlation.coverage" NAME="pearson_correlation Coverage Results" MODIFIED="1668011409546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$plot_iterative_lda.coverage" NAME="plot_iterative_lda Coverage Results" MODIFIED="1668785620439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$classification.coverage" NAME="classification Coverage Results" MODIFIED="1669829152855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$lda_classifier.coverage" NAME="lda_classifier Coverage Results" MODIFIED="1668619848216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$agu_poster.coverage" NAME="agu_poster Coverage Results" MODIFIED="1670342995482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$generate_time_series_means.coverage" NAME="generate_time_series_means Coverage Results" MODIFIED="1665586166383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$correlation.coverage" NAME="correlation Coverage Results" MODIFIED="1663695704299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$tsne.coverage" NAME="tsne Coverage Results" MODIFIED="1668016318003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$mx_classification.coverage" NAME="mx_classification Coverage Results" MODIFIED="1668011988536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$coincidence.coverage" NAME="coincidence Coverage Results" MODIFIED="1665334952874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$reverse_search.coverage" NAME="reverse_search Coverage Results" MODIFIED="1670349528376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$time_window_classification.coverage" NAME="time_window_classification Coverage Results" MODIFIED="1670341056675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$plot_time_window_tss_recall.coverage" NAME="plot_time_window_tss_recall Coverage Results" MODIFIED="1665587634007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$plot_timepoint_tss_recall.coverage" NAME="plot_timepoint_tss_recall Coverage Results" MODIFIED="1665594281059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$tabulate_classification_metrics.coverage" NAME="tabulate_classification_metrics Coverage Results" MODIFIED="1665330515344" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$multiple_ars.coverage" NAME="multiple_ars Coverage Results" MODIFIED="1665593722013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$k_means_old.coverage" NAME="k_means_old Coverage Results" MODIFIED="1667403936360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$sinha_singh_distribution_comparison.coverage" NAME="sinha_singh_distribution_comparison Coverage Results" MODIFIED="1670334260456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$lda_classifier2.coverage" NAME="lda_classifier2 Coverage Results" MODIFIED="1668616753380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$k_means.coverage" NAME="k_means Coverage Results" MODIFIED="1667405682616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$analyze_ar_data.coverage" NAME="analyze_ar_data Coverage Results" MODIFIED="1662995810984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$plot_classifier_comparison.coverage" NAME="plot_classifier_comparison Coverage Results" MODIFIED="1664176448542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$idealized_flares.coverage" NAME="idealized_flares Coverage Results" MODIFIED="1663696214789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$parallel_coordinates.coverage" NAME="parallel_coordinates Coverage Results" MODIFIED="1663179893534" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
   </component>
 </project>
