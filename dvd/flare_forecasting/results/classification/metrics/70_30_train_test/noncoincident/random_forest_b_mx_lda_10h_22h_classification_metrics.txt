@@ -1,0 +1,18 @@
+Random Forest Classification Metrics
+--------------------------------------------------
+Confusion Matrix
+  B   MX
+B [141  12]
+MX [ 6 55]
+--------------------------------------------------
+Classification Report
+              precision    recall  f1-score   support
+
+           B       0.96      0.92      0.94       153
+          MX       0.82      0.90      0.86        61
+
+    accuracy                           0.92       214
+   macro avg       0.89      0.91      0.90       214
+weighted avg       0.92      0.92      0.92       214
+
+True Skill Score: 0.8232

@@ -1,0 +1,6 @@
+classifier,all,coincident,noncoincident
+lda,0.8062,0.9468,0.8198
+knn_3,0.887,0.9574,0.8361
+logistic_regression,0.8846,0.9787,0.8587
+linear_svm,0.8529,0.9574,0.8279
+random_forest,0.8578,0.9574,0.8506

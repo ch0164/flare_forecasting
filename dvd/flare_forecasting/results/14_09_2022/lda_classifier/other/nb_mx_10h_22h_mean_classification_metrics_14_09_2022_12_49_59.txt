@@ -1,0 +1,23 @@
+Classification Metrics
+Trained on           LD1 xray_class    jitter
+0   -2.123524          B  0.347767
+1   -2.830607          B  0.012558
+2   -2.203806          B  0.180702
+3   -2.408091          B  0.301539
+4   -3.656511          B  0.974217
+..        ...        ...       ...
+247 -2.242355          B  0.003673
+248 -3.006827          B  0.561789
+249 -2.066763          B  0.990961
+250 -1.190076          B  0.881957
+251 -2.835199          B  0.399902
+
+[252 rows x 3 columns] B Flares and 510 MX Flares
+--------------------------------------------------
+Accuracy: 0.36
+NB Recall/Sensitivity: nan
+MX Recall/Specificity: 0.36
+Precision: 0.36
+False Alarm Rate: 0.64
+f_1 Score: nan
+TSS: nan

@@ -1,0 +1,12 @@
+Classification Metrics
+--------------------------------------------------
+Total # of B Flares: 311Total # of MX Flares: 358Training Size: 0.7
+Testing Size: 0.3
+--------------------------------------------------
+Accuracy: 0.96
+B Recall/Sensitivity: 0.97
+MX Recall/Specificity: 0.96
+Precision: 0.96
+False Alarm Rate: 0.04
+f_1 Score: 0.96
+TSS: 0.92
