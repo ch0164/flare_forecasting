@@ -423,9 +423,9 @@ def get_ar_properties(flare_class: str,
 
 
 def write_classification_metrics(y_true: List[Any], y_pred: List[Any],
-                                 filename: str,
                                  clf_name: str,
                                  flare_classes: List[str],
+                                 filename: str = None,
                                  print_output: bool = False):
     stdout = None
 

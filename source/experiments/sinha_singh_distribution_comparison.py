@@ -71,7 +71,7 @@ def floor_minute(time, cadence=12):
 
 def generate_sinha_timepoint_info() -> pd.DataFrame:
     # Get info dataframe for all flares in the dataset, then find coincidences.
-    flare_classes = ["nb", "mx"]
+    flare_classes = ["bc", "mx"]
     all_info_df = pd.DataFrame()
     for flare_class in flare_classes:
         info_df = pd.read_csv(f"{FLARE_LIST_DIRECTORY}{flare_class}_list.txt")
@@ -104,20 +104,23 @@ def generate_sinha_timepoint_info() -> pd.DataFrame:
                 all_info_df.loc[index, "COINCIDENCE"] = [True]
                 break
     # all_info_df.to_csv(f"{FLARE_LIST_DIRECTORY}singh_nbmx_info.csv")
+    all_info_df.to_csv(f"{FLARE_LIST_DIRECTORY}agu_bcmx.csv")
 
     return all_info_df
 
 
 def generate_sinha_timepoint_dataset(all_info_df: pd.DataFrame) -> pd.DataFrame:
-    flare_classes = ["nb", "mx"]
+    flare_classes = ["bc", "mx"]
     for time in ["time_start", "time_end", "time_peak"]:
         all_info_df[time] = all_info_df[time].apply(floor_minute)
 
-    nb_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}nb_data.txt",
-                          delimiter=r"\s+", header=0)
+    # nb_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}agu_bc_data.txt",
+    #                       delimiter=r"\s+", header=0)
+    nb_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}agu_bc_data.txt")
     mx_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}mx_data.txt",
                         delimiter=r"\s+", header=0)
     for df in [nb_df, mx_df]:
+        print(df)
         df["T_REC"] = df["T_REC"].apply(parse_tai_string)
         df.set_index("T_REC", inplace=True)
         # df.drop_duplicates("T_REC", inplace=True)
@@ -128,7 +131,7 @@ def generate_sinha_timepoint_dataset(all_info_df: pd.DataFrame) -> pd.DataFrame:
         flare_class = row["xray_class"]
         nar = row["nar"]
 
-        if flare_class in "NAB":
+        if flare_class in "NABC":
             data_df = nb_df
         else:
             data_df = mx_df
@@ -145,13 +148,16 @@ def generate_sinha_timepoint_dataset(all_info_df: pd.DataFrame) -> pd.DataFrame:
             all_info_df.loc[index, flare_property] = record[flare_property]
 
     all_info_df.dropna(inplace=True)
-    all_info_df.to_csv(f"{FLARE_DATA_DIRECTORY}singh_nbmx_data.csv")
+    all_info_df.to_csv(f"{FLARE_DATA_DIRECTORY}agu_bcmx.csv")
 
 
 
 def main():
-    info_df = generate_sinha_timepoint_info()
-    data_df = generate_sinha_timepoint_dataset(info_df)
+    # info_df = generate_sinha_timepoint_info()
+    df = pd.read_csv(FLARE_LIST_DIRECTORY + "agu_bcmx.csv")
+    for time in ["time_start", "time_end", "time_peak"]:
+        df[time] = df[time].apply(parse_tai_string)
+    data_df = generate_sinha_timepoint_dataset(df)
 
 
 if __name__ == "__main__":

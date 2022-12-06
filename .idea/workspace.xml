@@ -2,69 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b96d273d-abd9-45da-9424-fb1b6c4cc8cf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/flare_data/singh_nbmx_data.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_list/singh_nbmx_info.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/absnjzh_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/area_acr_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/meanpot_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/r_value_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/savncpp_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/shrgt45_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/totpot_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/totusjh_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/totusjz_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/usflux_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/other/mx_chisquare_test.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/other/mx_means_stds.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/other/nb_chisquare_test.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/other/non_mx_means_stds.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/experiments/sinha_singh_distribution_comparison.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/agu_bc_data.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/agu_bcmx.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/time_series_means/original_coincidence_definition/0h_24h/n_0h_24h__mean_dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/agu_bcmx.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/agu_poster/figures/all_parallel_coordinates.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/agu_poster/figures/coincident_parallel_coordinates.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/agu_poster/figures/noncoincident_parallel_coordinates.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/agu_poster/figures/parallel_coordinates.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_absnjzh_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_area_acr_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_coincidence_histograms.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_meanpot_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_r_value_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_savncpp_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_shrgt45_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_totpot_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_totusjh_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_totusjz_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_usflux_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_TOTUSJH_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_absnjzh_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_area_acr_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_meanpot_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_b_absnjzh_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_b_area_acr_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_b_meanpot_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_b_r_value_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_b_savncpp_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_b_shrgt45_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_b_totpot_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_b_totusjh_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_b_totusjz_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_b_usflux_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_null_absnjzh_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_null_area_acr_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_null_meanpot_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_null_r_value_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_null_savncpp_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_null_shrgt45_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_null_totpot_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_null_totusjh_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_null_totusjz_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_only_null_usflux_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_r_value_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_savncpp_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_shrgt45_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_totpot_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_totusjz_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/non_mx_usflux_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/two_sided_ks.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/experiments/reverse_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/reverse_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/experiments/sinha_classification_figures.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/sinha_classification_figures.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/experiments/tsne.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/tsne.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flare_list/bc_list.txt" beforeDir="false" afterPath="$PROJECT_DIR$/flare_list/bc_list.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flare_list/nbc_list.txt" beforeDir="false" afterPath="$PROJECT_DIR$/flare_list/nbc_list.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/agu_poster/figures/all_bcmx_flare_count_ar_plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/agu_poster/figures/all_bcmx_flare_count_ar_plot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/agu_poster/figures/all_bcmx_flare_count_month_plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/agu_poster/figures/all_bcmx_flare_count_month_plot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/agu_poster/figures/coincident_bcmx_flare_count_ar_plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/agu_poster/figures/coincident_bcmx_flare_count_ar_plot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/agu_poster/figures/coincident_bcmx_flare_count_month_plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/agu_poster/figures/coincident_bcmx_flare_count_month_plot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/agu_poster/figures/noncoincident_bcmx_flare_count_ar_plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/agu_poster/figures/noncoincident_bcmx_flare_count_ar_plot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/agu_poster/figures/noncoincident_bcmx_flare_count_month_plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/agu_poster/figures/noncoincident_bcmx_flare_count_month_plot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/agu_poster/other/all_bcmx_class_means.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/agu_poster/other/all_bcmx_class_means.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/agu_poster/other/coincident_bcmx_class_means.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/agu_poster/other/coincident_bcmx_class_means.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/agu_poster/other/noncoincident_bcmx_class_means.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/agu_poster/other/noncoincident_bcmx_class_means.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/time_window_classification/metrics/1h_nbc_mx_lda_recall.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/1h_nbc_mx_lda_recall.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/time_window_classification/metrics/1h_nbc_mx_lda_tss.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_window_classification/metrics/1h_nbc_mx_lda_tss.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/experiments/agu_poster.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/agu_poster.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/experiments/classification.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/classification.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/experiments/sinha_singh_distribution_comparison.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/sinha_singh_distribution_comparison.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/utilities.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +90,7 @@
       <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\flare_data\time_series_means\original_coincidence_definition\5h_17h" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.reverse_search">
+  <component name="RunManager" selected="Python.agu_poster">
     <configuration name="agu_poster" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -150,7 +113,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="lda_classifier" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="classification" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -163,29 +126,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/lda_classifier.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="plot_iterative_lda" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="flare_forecasting" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/source/experiments" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/plot_iterative_lda.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/classification.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -238,13 +179,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="time_window_classification" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="flare_forecasting" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/source/experiments" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/time_window_classification.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.reverse_search" />
-        <item itemvalue="Python.sinha_singh_distribution_comparison" />
-        <item itemvalue="Python.plot_iterative_lda" />
         <item itemvalue="Python.agu_poster" />
-        <item itemvalue="Python.lda_classifier" />
+        <item itemvalue="Python.time_window_classification" />
+        <item itemvalue="Python.sinha_singh_distribution_comparison" />
+        <item itemvalue="Python.classification" />
+        <item itemvalue="Python.reverse_search" />
       </list>
     </recent_temporary>
   </component>
@@ -270,7 +233,9 @@
       <workItem from="1668435592421" duration="16322000" />
       <workItem from="1668609847578" duration="10996000" />
       <workItem from="1668784308130" duration="2516000" />
-      <workItem from="1669132984432" duration="17490000" />
+      <workItem from="1669132984432" duration="17608000" />
+      <workItem from="1669641489628" duration="32428000" />
+      <workItem from="1670327839156" duration="10727000" />
     </task>
     <task id="LOCAL-00001" summary="LDA B/MX classifier">
       <created>1662575033124</created>
@@ -391,7 +356,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669141874248</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Histograms and distribution comparison">
+      <created>1669228698345</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1669228698345</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -430,23 +402,23 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/flare_forecasting$pearson_correlation.coverage" NAME="pearson_correlation Coverage Results" MODIFIED="1668011409546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$classification.coverage" NAME="classification Coverage Results" MODIFIED="1664293640826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$plot_iterative_lda.coverage" NAME="plot_iterative_lda Coverage Results" MODIFIED="1668785620439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$classification.coverage" NAME="classification Coverage Results" MODIFIED="1669829152855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$lda_classifier.coverage" NAME="lda_classifier Coverage Results" MODIFIED="1668619848216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$agu_poster.coverage" NAME="agu_poster Coverage Results" MODIFIED="1668621872997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$agu_poster.coverage" NAME="agu_poster Coverage Results" MODIFIED="1670342995482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$generate_time_series_means.coverage" NAME="generate_time_series_means Coverage Results" MODIFIED="1665586166383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$correlation.coverage" NAME="correlation Coverage Results" MODIFIED="1663695704299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$tsne.coverage" NAME="tsne Coverage Results" MODIFIED="1668016318003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$mx_classification.coverage" NAME="mx_classification Coverage Results" MODIFIED="1668011988536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$coincidence.coverage" NAME="coincidence Coverage Results" MODIFIED="1665334952874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$reverse_search.coverage" NAME="reverse_search Coverage Results" MODIFIED="1669228646057" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$time_window_classification.coverage" NAME="time_window_classification Coverage Results" MODIFIED="1665586240265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$time_window_classification.coverage" NAME="time_window_classification Coverage Results" MODIFIED="1670341056675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$plot_time_window_tss_recall.coverage" NAME="plot_time_window_tss_recall Coverage Results" MODIFIED="1665587634007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$plot_timepoint_tss_recall.coverage" NAME="plot_timepoint_tss_recall Coverage Results" MODIFIED="1665594281059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$tabulate_classification_metrics.coverage" NAME="tabulate_classification_metrics Coverage Results" MODIFIED="1665330515344" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$multiple_ars.coverage" NAME="multiple_ars Coverage Results" MODIFIED="1665593722013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$k_means_old.coverage" NAME="k_means_old Coverage Results" MODIFIED="1667403936360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$sinha_singh_distribution_comparison.coverage" NAME="sinha_singh_distribution_comparison Coverage Results" MODIFIED="1669225216884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$sinha_singh_distribution_comparison.coverage" NAME="sinha_singh_distribution_comparison Coverage Results" MODIFIED="1670334260456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$lda_classifier2.coverage" NAME="lda_classifier2 Coverage Results" MODIFIED="1668616753380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$k_means.coverage" NAME="k_means Coverage Results" MODIFIED="1667405682616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$analyze_ar_data.coverage" NAME="analyze_ar_data Coverage Results" MODIFIED="1662995810984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
