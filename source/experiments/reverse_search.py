@@ -36,33 +36,60 @@ def plot_histograms(sinha_df, flare_df):
     for column in SINHA_PARAMETERS:
         fig, ax = plt.subplots(nrows=2, ncols=2, figsize=(12, 12))
 
-        sinha_df1.hist(column=column, ax=ax[0, 0], bins=num_bins)
+        mx_min = min(sinha_df1[column].min(), mx_df[column].min())
+        mx_max = max(sinha_df1[column].max(), mx_df[column].max())
+        nb_min = min(sinha_df2[column].min(), nb_df[column].min())
+        nb_max = max(sinha_df2[column].max(), nb_df[column].max())
+        mx_range = (mx_min, mx_max)
+        nb_range = (nb_min, nb_max)
+
+        density = True
+
+        # sinha_df1.hist(column=column, ax=ax[0, 0], bins=num_bins)
+        y = ax[0, 0].hist(sinha_df1[column], bins=num_bins, range=mx_range,
+                      density=density)
         ax[0, 0].set_title(f"Sinha MX {column}")
         ax[0, 0].set_xlabel("Unit")
-        ax[0, 0].set_ylabel("Frequency")
-        X1 = mx_df[column].dropna()
+        ax[0, 0].set_ylabel("Density" if density else "Count")
+        print(y)
 
-        sinha_df2.hist(column=column, ax=ax[1, 0], bins=num_bins)
-        ax[1, 0].set_title(f"Sinha Non-MX {column}")
+
+        # sinha_df2.hist(column=column, ax=ax[1, 0], bins=num_bins)
+        y = ax[1, 0].hist(sinha_df2[column], bins=num_bins, range=nb_range,
+                      density=density)
+        ax[1, 0].set_title(f"Sinha NAB {column}")
         ax[1, 0].set_xlabel("Unit")
-        ax[1, 0].set_ylabel("Frequency")
-        X2 = mx_df[column].dropna()
+        ax[1, 0].set_ylabel("Density" if density else "Count")
 
-        mx_df.hist(column=column, ax=ax[0, 1], bins=num_bins)
+        # mx_df.hist(column=column, ax=ax[0, 1], bins=num_bins)
+        y = ax[0, 1].hist(mx_df[column], bins=num_bins, range=mx_range,
+                      density=density)
         ax[0, 1].set_title(f"Singh MX {column}")
         ax[0, 1].set_xlabel("Unit")
-        ax[0, 1].set_ylabel("Frequency")
-        X3 = mx_df[column].dropna()
+        ax[0, 1].set_ylabel("Density" if density else "Count")
+        print(y)
+        exit(1)
 
-        nb_df.hist(column=column, ax=ax[1, 1], bins=num_bins)
-        ax[1, 1].set_title(f"Singh Non-MX {column}")
+        # nb_df.hist(column=column, ax=ax[1, 1], bins=num_bins)
+        y = ax[1, 1].hist(nb_df[column], bins=num_bins, range=nb_range,
+                      density=density)
+        ax[1, 1].set_title(f"Singh NAB {column}")
         ax[1, 1].set_xlabel("Unit")
-        ax[1, 1].set_ylabel("Frequency")
-        X4 = mx_df[column].dropna()
+        ax[1, 1].set_ylabel("Density" if density else "Count")
 
         fig.tight_layout()
-        fig.savefig(f"{FIGURE_DIRECTORY}{column.lower()}_distribution.png")
+        fig.savefig(f"{FIGURE_DIRECTORY}{'density' if density else 'count'}/"
+                    f"{column.lower()}_distribution.png")
         fig.show()
+
+        # print(y)
+        # exit(1)
+
+        # print(y[0])
+        # print(y[1])
+        # print(np.multiply(y[0], np.diff(y[1])))
+        # print(np.sum(y[0] * np.diff(y[1])))
+        # exit(1)
 
     #     stat, p = ks_2samp(X1, X2)
     #     p_values.append(p)
@@ -153,10 +180,10 @@ def plot_null_hypothesis(df):
             return 0
     for col in SINHA_PARAMETERS:
         df2[col] = df[col].apply(accept_reject)
-    df2.index = ["MX", "Non-MX"]
+    df2.index = ["MX", "NAB"]
     cmap = ListedColormap(['red', 'green'])
     sns.heatmap(df2, cmap=cmap, annot=df.values, square=True, cbar=False, fmt=".2f")
-    plt.title("Two-Sample Kolmogorov-Smirnov Tests on MX/Non-MX Flares,\n"
+    plt.title("Two-Sample Kolmogorov-Smirnov Tests on MX/NAB Flares,\n"
               "Confidence Level = 0.05")
     plt.show()
     exit(1)
@@ -211,12 +238,12 @@ def compute_mean_std(df1, df2):
     exit(1)
 
 
-def chi_square_test(sinha_df, flare_df):
+def chi_square_test(sinha_df_, flare_df):
     mx_df = flare_df.loc[flare_df["AR_class"] == 1]
     nb_df = flare_df.loc[flare_df["AR_class"] == 0]
 
-    sinha_df1 = sinha_df.loc[sinha_df["AR_class"] == 1]
-    sinha_df2 = sinha_df.loc[sinha_df["AR_class"] == 0]
+    sinha_df1 = sinha_df_.loc[sinha_df_["AR_class"] == 1]
+    sinha_df2 = sinha_df_.loc[sinha_df_["AR_class"] == 0]
 
     num_bins = 5
 
@@ -224,18 +251,24 @@ def chi_square_test(sinha_df, flare_df):
         chisq_stats = []
         p_values = []
         reject_values = []
+
+        sinha_n = sinha_df.shape[0]
+        singh_n = singh_df.shape[0]
         for param in SINHA_PARAMETERS:
-            singh_freq, _, _, _ = relfreq(singh_df[param], numbins=num_bins)
-            sinha_freq, _, _, _ = relfreq(sinha_df[param], numbins=num_bins)
+            minimum = min(sinha_df[param].min(), singh_df[param].min())
+            maximum = max(sinha_df[param].max(), singh_df[param].max())
+            min_max_range = (minimum, maximum)
+            singh_freq, _, _, _ = relfreq(singh_df[param], numbins=num_bins,
+                                          defaultreallimits=min_max_range)
+            sinha_freq, _, _, _ = relfreq(sinha_df[param], numbins=num_bins,
+                                          defaultreallimits=min_max_range)
             print(param)
-            print(singh_freq)
-            print(sinha_freq)
             chisq, p = chisquare(singh_freq, sinha_freq)
             print(chisq)
             print(p)
             chisq_stats.append(chisq)
             p_values.append(p)
-            reject_values.append(p <= 0.05)
+            reject_values.append(p <= 0.95)
         chi_2_df = pd.DataFrame({
             "chisq_stat": chisq_stats,
             "p_value": p_values,
@@ -252,8 +285,8 @@ def main():
     flare_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbmx_data.csv")
     mx_df = flare_df.loc[flare_df["AR_class"] == 1]
     nb_df = flare_df.loc[flare_df["AR_class"] == 0]
-    plot_coincidence_histograms2(flare_df)
-    # chi_square_test(sinha_df, flare_df)
+    # plot_coincidence_histograms2(flare_df)
+    chi_square_test(sinha_df, flare_df)
     # plot_histograms(sinha_df, flare_df)
     # x2_df.index = ["MX", "NON_MX"]
     # x2_df.to_csv(OTHER_DIRECTORY + "two_sample_ks.csv")
