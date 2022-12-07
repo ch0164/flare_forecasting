@@ -4,7 +4,8 @@ from matplotlib.colors import ListedColormap
 from source.common_imports import *
 from source.constants import *
 from distfit import distfit
-from scipy.stats import ks_2samp, chisquare, chi2_contingency, relfreq
+from scipy.stats import ks_2samp, chisquare, chi2_contingency, relfreq, kstest
+import scipy.stats as stats
 import numpy as np
 
 SINHA_PARAMETERS = [
@@ -32,7 +33,7 @@ def plot_histograms(sinha_df, flare_df):
 
     sinha_df1 = sinha_df.loc[sinha_df["AR_class"] == 1]
     sinha_df2 = sinha_df.loc[sinha_df["AR_class"] == 0]
-    num_bins = 5
+    # num_bins = 30
     for column in SINHA_PARAMETERS:
         fig, ax = plt.subplots(nrows=2, ncols=2, figsize=(12, 12))
 
@@ -43,43 +44,47 @@ def plot_histograms(sinha_df, flare_df):
         mx_range = (mx_min, mx_max)
         nb_range = (nb_min, nb_max)
 
-        density = True
+        density = False
 
         # sinha_df1.hist(column=column, ax=ax[0, 0], bins=num_bins)
+        num_bins = int(np.sqrt(min(sinha_df1[column].size, mx_df[column].size)))
         y = ax[0, 0].hist(sinha_df1[column], bins=num_bins, range=mx_range,
-                      density=density)
-        ax[0, 0].set_title(f"Sinha MX {column}")
+                          density=density,
+                          weights=np.zeros_like(sinha_df1[column]) + 1. / sinha_df1[column].size)
+        ax[0, 0].set_title(f"Sinha MX {column}, bins={num_bins}")
         ax[0, 0].set_xlabel("Unit")
-        ax[0, 0].set_ylabel("Density" if density else "Count")
-        print(y)
-
-
-        # sinha_df2.hist(column=column, ax=ax[1, 0], bins=num_bins)
-        y = ax[1, 0].hist(sinha_df2[column], bins=num_bins, range=nb_range,
-                      density=density)
-        ax[1, 0].set_title(f"Sinha NAB {column}")
-        ax[1, 0].set_xlabel("Unit")
-        ax[1, 0].set_ylabel("Density" if density else "Count")
+        ax[0, 0].set_ylabel("Relative Frequency")
 
         # mx_df.hist(column=column, ax=ax[0, 1], bins=num_bins)
         y = ax[0, 1].hist(mx_df[column], bins=num_bins, range=mx_range,
-                      density=density)
-        ax[0, 1].set_title(f"Singh MX {column}")
+                      density=density,
+                          weights=np.zeros_like(mx_df[column]) + 1. / mx_df[column].size)
+        ax[0, 1].set_title(f"Singh MX {column}, bins={num_bins}")
         ax[0, 1].set_xlabel("Unit")
-        ax[0, 1].set_ylabel("Density" if density else "Count")
-        print(y)
-        exit(1)
+        ax[0, 1].set_ylabel("Relative Frequency")
+
+        # sinha_df2.hist(column=column, ax=ax[1, 0], bins=num_bins)
+        num_bins = int(np.sqrt(min(sinha_df2[column].size, nb_df[column].size)))
+        y = ax[1, 0].hist(sinha_df2[column], bins=num_bins, range=nb_range,
+                      density=density,
+                          weights=np.zeros_like(sinha_df2[column]) + 1. / sinha_df2[column].size)
+        ax[1, 0].set_title(f"Sinha NAB {column}, bins={num_bins}")
+        ax[1, 0].set_xlabel("Unit")
+        ax[1, 0].set_ylabel("Relative Frequency")
+
 
         # nb_df.hist(column=column, ax=ax[1, 1], bins=num_bins)
         y = ax[1, 1].hist(nb_df[column], bins=num_bins, range=nb_range,
-                      density=density)
-        ax[1, 1].set_title(f"Singh NAB {column}")
+                      density=density,
+                          weights=np.zeros_like(nb_df[column]) + 1. / nb_df[column].size)
+        ax[1, 1].set_title(f"Singh NAB {column}, bins={num_bins}")
         ax[1, 1].set_xlabel("Unit")
-        ax[1, 1].set_ylabel("Density" if density else "Count")
+        ax[1, 1].set_ylabel("Relative Frequency")
 
         fig.tight_layout()
-        fig.savefig(f"{FIGURE_DIRECTORY}{'density' if density else 'count'}/"
-                    f"{column.lower()}_distribution.png")
+        # dir = "no_n/"
+        dir = ""
+        fig.savefig(f"{FIGURE_DIRECTORY}{dir}{column.lower()}_distribution.png")
         fig.show()
 
         # print(y)
@@ -268,7 +273,7 @@ def chi_square_test(sinha_df_, flare_df):
             print(p)
             chisq_stats.append(chisq)
             p_values.append(p)
-            reject_values.append(p <= 0.95)
+            reject_values.append(p < 0.05)
         chi_2_df = pd.DataFrame({
             "chisq_stat": chisq_stats,
             "p_value": p_values,
@@ -278,15 +283,56 @@ def chi_square_test(sinha_df_, flare_df):
         chi_2_df.to_csv(f"{OTHER_DIRECTORY}{flare_class}_chisquare_test.csv")
 
 
+def ks_test(sinha_df_, flare_df):
+    mx_df = flare_df.loc[flare_df["AR_class"] == 1]
+    nb_df = flare_df.loc[flare_df["AR_class"] == 0]
+
+    sinha_df1 = sinha_df_.loc[sinha_df_["AR_class"] == 1]
+    sinha_df2 = sinha_df_.loc[sinha_df_["AR_class"] == 0]
+
+    alpha = 0.05
+    num_bins = 30
+
+    for sinha_df, singh_df, flare_class in zip([sinha_df1, sinha_df2], [mx_df, nb_df], ["mx", "nb"]):
+        ks_stats = []
+        p_values = []
+        reject_values = []
+
+        for param in SINHA_PARAMETERS:
+            minimum = min(sinha_df[param].min(), singh_df[param].min())
+            maximum = max(sinha_df[param].max(), singh_df[param].max())
+            min_max_range = (minimum, maximum)
+            num_bins = int(np.sqrt(min(sinha_df[param].size, singh_df[param].size)))
+            singh_freq, _, _, _ = relfreq(singh_df[param], numbins=num_bins,
+                                          defaultreallimits=min_max_range)
+            sinha_freq, _, _, _ = relfreq(sinha_df[param], numbins=num_bins,
+                                          defaultreallimits=min_max_range)
+            stat, p_value = kstest(singh_freq, sinha_freq)
+            ks_stats.append(stat)
+            p_values.append(p_value)
+            reject_values.append(p_value < alpha)
+
+        ks_df = pd.DataFrame({
+            "ks_stat": ks_stats,
+            "p_value": p_values,
+            "reject_95_conf": reject_values,
+        })
+        ks_df.index = SINHA_PARAMETERS
+        print(ks_df)
+        ks_df.to_csv(f"{OTHER_DIRECTORY}{flare_class}_ks_test.csv")
+
+
 def main():
     sinha_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}sinha_dataset.csv")
     sinha_df1 = sinha_df.loc[sinha_df["AR_class"] == 1]
     sinha_df2 = sinha_df.loc[sinha_df["AR_class"] == 0]
     flare_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbmx_data.csv")
+    # flare_df = flare_df.loc[flare_df["xray_class"] != "N"]
     mx_df = flare_df.loc[flare_df["AR_class"] == 1]
     nb_df = flare_df.loc[flare_df["AR_class"] == 0]
     # plot_coincidence_histograms2(flare_df)
     chi_square_test(sinha_df, flare_df)
+    ks_test(sinha_df, flare_df)
     # plot_histograms(sinha_df, flare_df)
     # x2_df.index = ["MX", "NON_MX"]
     # x2_df.to_csv(OTHER_DIRECTORY + "two_sample_ks.csv")

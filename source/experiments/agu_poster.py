@@ -139,10 +139,14 @@ def generate_time_plot(coincidence, all_flares_df):
     flare_df = pd.DataFrame(columns=["B", "C", "M", "X"])
     for year in years:
         for month in range(1, 12 + 1, 3):
-            flares = flares_df.loc[
-                (flares_df['time_start'].dt.year == year) &
-                ((flares_df['time_start'].dt.month <= month) |
-                 (month >= flares_df['time_start'].dt.month))]
+            flares = flares_df.loc[(flares_df['time_start'].dt.year == year)]
+            flares = pd.concat([flares.loc[flares["time_start"].dt.month == month],
+                               flares.loc[flares["time_start"].dt.month == month + 1],
+                               flares.loc[flares["time_start"].dt.month == month + 2]])
+
+            print(flares.loc[(flares["xray_class"] == "M") |
+                             (flares["xray_class"] == "X")])
+            # exit(1)
 
             b = flares.loc[(flares["xray_class"] == "B")].shape[0]
             c = flares.loc[(flares["xray_class"] == "C")].shape[0]
@@ -157,7 +161,7 @@ def generate_time_plot(coincidence, all_flares_df):
     flare_df.plot(kind="bar", stacked=True, color=colors)
     plt.title(f"{coincidence.capitalize()}")
     plt.xticks(rotation="vertical", ha="center")
-    plt.ylim(bottom=0, top=225)
+    plt.ylim(bottom=0, top=100)
     plt.ylabel("# of Flares")
     plt.legend(loc="upper left")
     plt.tight_layout()
@@ -448,8 +452,8 @@ def best_time_window_plot():
 
 def main():
     plt.style.use('dark_background')
-    best_time_window_plot()
-    exit(1)
+    # best_time_window_plot()
+    # exit(1)
     # Disable Warnings
     warnings.simplefilter(action='ignore', category=FutureWarning)
 
@@ -488,10 +492,10 @@ def main():
 
         print(coincidence, b, m, x, b + m + x)
     # simple_classification(flares_df.copy(), True)
-    lda_classification(flares_df.copy(), False)
+    # lda_classification(flares_df.copy(), False)
         # generate_parallel_coordinates(coincidence, flares_df.copy())
         # generate_flare_count_line_plot(coincidence, flares_df.copy())
-        # generate_time_plot(coincidence, flares_df.copy())
+        generate_time_plot(coincidence, flares_df.copy())
 
 
 if __name__ == "__main__":
