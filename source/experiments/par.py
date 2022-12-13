@@ -236,8 +236,8 @@ def plot_figure_5():
     x_coords = [p.get_x() + 0.5 * p.get_width() for p in ax.patches]
     y_coords = [p.get_height() for p in ax.patches]
     ax.errorbar(x=x_coords, y=y_coords, yerr=df["error"], fmt="none", c="k")
-    plt.ylim(bottom=0.8, top=1.0)
-    plt.savefig(f"{figure_directory}sinha_classification_performance.png")
+    plt.ylim(bottom=0.3, top=1.0)
+    plt.savefig(f"{figure_directory}sinha_classification_performance2.png")
     plt.show()
 
 def main() -> None:
