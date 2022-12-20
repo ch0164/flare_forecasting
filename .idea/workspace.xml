@@ -1,73 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b96d273d-abd9-45da-9424-fb1b6c4cc8cf" name="Changes" comment="Some sinha stuff">
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/absnjzh_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/area_acr_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/meanpot_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/no_b/absnjzh_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/no_b/area_acr_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/no_b/meanpot_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/no_b/r_value_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/no_b/savncpp_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/no_b/shrgt45_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/no_b/totpot_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/no_b/totusjh_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/no_b/totusjz_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/no_b/usflux_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/no_n/absnjzh_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/no_n/area_acr_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/no_n/meanpot_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/no_n/r_value_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/no_n/savncpp_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/no_n/shrgt45_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/no_n/totpot_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/no_n/totusjh_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/no_n/totusjz_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/no_n/usflux_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/r_value_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/savncpp_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/shrgt45_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/totpot_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/totusjh_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/totusjz_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/usflux_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/other/mx_ks_test.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/other/nb_ks_test.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/other/nb_ks_test_no_b.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/other/nb_ks_test_no_n.csv" afterDir="false" />
+    <list default="true" id="b96d273d-abd9-45da-9424-fb1b6c4cc8cf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flare_data/singh_nbmx_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/flare_data/singh_nbmx_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flare_list/singh_nbmx_info.csv" beforeDir="false" afterPath="$PROJECT_DIR$/flare_list/singh_nbmx_info.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/agu_poster/figures/all_bcmx_flare_count_month_plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/agu_poster/figures/all_bcmx_flare_count_month_plot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/agu_poster/figures/coincident_bcmx_flare_count_month_plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/agu_poster/figures/coincident_bcmx_flare_count_month_plot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/agu_poster/figures/noncoincident_bcmx_flare_count_month_plot.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/agu_poster/figures/noncoincident_bcmx_flare_count_month_plot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/count/absnjzh_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/count/area_acr_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/count/meanpot_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/count/r_value_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/count/savncpp_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/count/shrgt45_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/count/totpot_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/count/totusjh_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/count/totusjz_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/count/usflux_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/density/absnjzh_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/density/area_acr_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/density/meanpot_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/density/r_value_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/density/savncpp_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/density/shrgt45_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/density/totpot_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/density/totusjh_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/density/totusjz_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/density/usflux_distribution.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/nb_mx_peak_timepoint_coincidence_histograms.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/nb_mx_peak_timepoint_coincidence_histograms2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/other/nb_chisquare_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/other/nb_chisquare_test.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/experiments/agu_poster.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/agu_poster.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/experiments/reverse_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/reverse_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/experiments/sinha_singh_distribution_comparison.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/sinha_singh_distribution_comparison.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,7 +210,9 @@
       <workItem from="1668784308130" duration="2516000" />
       <workItem from="1669132984432" duration="17608000" />
       <workItem from="1669641489628" duration="32428000" />
-      <workItem from="1670327839156" duration="23902000" />
+      <workItem from="1670327839156" duration="25261000" />
+      <workItem from="1670620152245" duration="1869000" />
+      <workItem from="1671424336517" duration="593000" />
     </task>
     <task id="LOCAL-00001" summary="LDA B/MX classifier">
       <created>1662575033124</created>
@@ -417,7 +354,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670349767424</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="KS test and poster corrections">
+      <created>1670441646864</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1670441646864</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -454,7 +398,8 @@
     <MESSAGE value="Histograms and distribution comparison" />
     <MESSAGE value="AGU poster" />
     <MESSAGE value="Some sinha stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some sinha stuff" />
+    <MESSAGE value="KS test and poster corrections" />
+    <option name="LAST_COMMIT_MESSAGE" value="KS test and poster corrections" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/flare_forecasting$pearson_correlation.coverage" NAME="pearson_correlation Coverage Results" MODIFIED="1668011409546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
