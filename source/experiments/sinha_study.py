@@ -5,6 +5,7 @@
 
 # Custom Imports
 import matplotlib.pyplot as plt
+import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import make_scorer
 from sklearn.preprocessing import StandardScaler
@@ -140,7 +141,7 @@ def get_datasets_figure_3(sinha_df, singh_df):
 
         for train_index in range(20):
             print(f"{name} {train_index + 1}/20")
-            train_df, test_df = train_test_split(sinha_df, test_size=0.2, stratify=sinha_df["AR_class"])
+            train_df, test_df = train_test_split(sinha_df, test_size=0.2, stratify=sinha_df["AR_class"], random_state=10 + train_index)
             for col in train_df.columns:
                 if col == "AR_class":
                     continue
@@ -164,81 +165,152 @@ def get_datasets_figure_3(sinha_df, singh_df):
         print()
 
 def figure_5_classification(sinha_df, singh_df):
-    singh_df = singh_df[SINHA_PARAMETERS + ["AR_class"]]
-    scores = {
-        "KNN": {
-            "TSS": [],
-            "MAC": [],
-            "SSW": [],
-            "CSW": []
-        },
-        "LR": {
-            "TSS": [],
-            "MAC": [],
-            "SSW": [],
-            "CSW": []
-        },
-        "RFC": {
-            "TSS": [],
-            "MAC": [],
-            "SSW": [],
-            "CSW": []
-        },
-        "SVM": {
-            "TSS": [],
-            "MAC": [],
-            "SSW": [],
-            "CSW": []
-        },
-    }
-    for train_index in range(20):
-        print(f"{train_index}/20")
-        train_df, test_df = train_test_split(singh_df, test_size=0.2, stratify=singh_df["AR_class"])
-        for col in train_df.columns:
-            if col == "AR_class":
-                continue
-            mean = train_df[col].mean()
-            std = train_df[col].std()
-            test_df[col] = (test_df[col] - mean) / std
-            train_df[col] = (train_df[col] - mean) / std
+    singh_df = singh_df[SINHA_PARAMETERS + ["AR_class", "COINCIDENCE"]]
+    for axis_index, coincidence in enumerate(COINCIDENCES):
+        if coincidence == "coincident":
+            flares_df = singh_df.loc[singh_df["COINCIDENCE"] == True]
+        elif coincidence == "noncoincident":
+            flares_df = singh_df.loc[singh_df["COINCIDENCE"] == False]
+        else:
+            flares_df = singh_df
+        scores = {
+            "KNN": {
+                "TSS": [],
+                "MAC": [],
+                "SSW": [],
+                "CSW": []
+            },
+            "LR": {
+                "TSS": [],
+                "MAC": [],
+                "SSW": [],
+                "CSW": []
+            },
+            "RFC": {
+                "TSS": [],
+                "MAC": [],
+                "SSW": [],
+                "CSW": []
+            },
+            "SVM": {
+                "TSS": [],
+                "MAC": [],
+                "SSW": [],
+                "CSW": []
+            },
+        }
+        for train_index in range(20):
+            print(f"{train_index}/20")
+            train_df, test_df = train_test_split(flares_df, test_size=0.2, stratify=flares_df["AR_class"])
+            for col in train_df.columns:
+                if col == "AR_class":
+                    continue
+                mean = train_df[col].mean()
+                std = train_df[col].std()
+                test_df[col] = (test_df[col] - mean) / std
+                train_df[col] = (train_df[col] - mean) / std
 
-        X_train, y_train = train_df[SINHA_PARAMETERS], train_df["AR_class"]
-        X_test, y_test = test_df[SINHA_PARAMETERS], test_df["AR_class"]
-        for clf, name in zip(classifiers, names):
-            clf.fit(X_train, y_train)
-            for score_label, score_fn in zip(["TSS", "MAC", "SSW", "CSW"],
-                                             [get_tss, get_mac, get_ssw, get_csw]):
-                scorer = make_scorer(score_fn)
-                scores[name][score_label].append(scorer(clf, X_test, y_test))
+            X_train, y_train = train_df[SINHA_PARAMETERS], train_df["AR_class"]
+            X_test, y_test = test_df[SINHA_PARAMETERS], test_df["AR_class"]
+            for clf, name in zip(classifiers, names):
+                clf.fit(X_train, y_train)
+                for score_label, score_fn in zip(["TSS", "MAC", "SSW", "CSW"],
+                                                 [get_tss, get_mac, get_ssw, get_csw]):
+                    scorer = make_scorer(score_fn)
+                    scores[name][score_label].append(scorer(clf, X_test, y_test))
 
-    import json
-    with open(f"{other_directory}singh_score.txt", "w") as fp:
-        fp.write(json.dumps(scores, indent=4))
+        import json
+        with open(f"{other_directory}{coincidence}/singh_score.txt", "w") as fp:
+            fp.write(json.dumps(scores, indent=4))
 
 def plot_figure_5():
     d = None
+
     import json
-    with open(f"{other_directory}sinha_score.txt", "r") as fp:
-        d = json.load(fp)
-    df = pd.DataFrame(columns=["name", "score", "performance", "error"])
+    for axis_index, coincidence in enumerate(COINCIDENCES):
+        with open(f"{other_directory}{coincidence}/singh_score.txt", "r") as fp:
+            d = json.load(fp)
+        df = pd.DataFrame(columns=["name", "score", "performance", "error"])
 
-    for name in names:
-        for score in ["TSS", "MAC", "SSW", "CSW"]:
-            df.loc[df.shape[0]] = [
-                name,
-                score,
-                np.mean(d[name][score]),
-                np.std(d[name][score])
-            ]
+        for name in names:
+            for score in ["TSS", "MAC", "SSW", "CSW"]:
+                df.loc[df.shape[0]] = [
+                    name,
+                    score,
+                    np.mean(d[name][score]),
+                    np.std(d[name][score])
+                ]
+        print(df)
 
 
-    ax = sns.barplot(data=df, x="name", y="performance", hue="score")
-    x_coords = [p.get_x() + 0.5 * p.get_width() for p in ax.patches]
-    y_coords = [p.get_height() for p in ax.patches]
-    ax.errorbar(x=x_coords, y=y_coords, yerr=df["error"], fmt="none", c="k")
-    plt.ylim(bottom=0.8, top=1.0)
-    plt.savefig(f"{figure_directory}sinha_classification_performance.png")
-    plt.show()
+        ax = sns.barplot(data=df, x="name", y="performance", hue="score")
+        plt.legend(bbox_to_anchor=(1.05, 1.0), loc='upper left')
+        x_coords = [p.get_x() + 0.5 * p.get_width() for p in ax.patches]
+        y_coords = [p.get_height() for p in ax.patches]
+        ax.errorbar(x=x_coords, y=y_coords, yerr=df["error"], fmt="none", c="k")
+        # ax.set_ylim(bottom=0.8, top=1.0)
+        ax.set_title(coincidence.capitalize())
+        plt.tight_layout()
+        plt.savefig(f"{figure_directory}{coincidence}/singh_classification_performance.png")
+        plt.show()
+        plt.clf()
+
+
+def figure_6_plot(sinha_df, singh_df):
+    singh_df = singh_df.loc[singh_df["xray_class"] != "N"]
+    singh_df = singh_df[SINHA_PARAMETERS + ["AR_class", "COINCIDENCE"]]
+    scores = {param: [] for param in SINHA_PARAMETERS}
+    scorer = make_scorer(get_tss)
+    clf = LogisticRegression(C=1000.0)
+    name = "LR"
+    for axis_index, coincidence in enumerate(COINCIDENCES):
+        if coincidence == "coincident":
+            flares_df = singh_df.loc[singh_df["COINCIDENCE"] == True]
+        elif coincidence == "noncoincident":
+            flares_df = singh_df.loc[singh_df["COINCIDENCE"] == False]
+        else:
+            flares_df = singh_df
+        for param in SINHA_PARAMETERS:
+            for train_index in range(20):
+                print(f"LR {param} {train_index + 1}/20")
+                train_df, test_df = train_test_split(flares_df, test_size=0.2,
+                                                     stratify=flares_df["AR_class"],
+                                                     random_state=10 + train_index)
+                for col in train_df.columns:
+                    if col == "AR_class":
+                        continue
+                    mean = train_df[col].mean()
+                    std = train_df[col].std()
+                    test_df[col] = (test_df[col] - mean) / std
+                    train_df[col] = (train_df[col] - mean) / std
+
+                X_train, y_train = train_df.drop("AR_class", axis=1), train_df[
+                    "AR_class"]
+                X_test, y_test = test_df.drop("AR_class", axis=1), test_df["AR_class"]
+
+                clf.fit(X_train[param].values.reshape(-1, 1), y_train)
+                scores[param].append(scorer(clf, X_test[param].values.reshape(-1, 1), y_test))
+        print(scores)
+
+
+        df = pd.DataFrame(columns=["TSS", "Features"])
+        means = [np.mean(scores[param]) for param in SINHA_PARAMETERS]
+        for feature, mean in zip(SINHA_PARAMETERS, means):
+            df.loc[df.shape[0]] = [mean, feature]
+        print(df)
+        ax = sns.barplot(df, y="Features", x="TSS")
+
+        for p in ax.patches:
+            ax.annotate("%.4f" % p.get_width(),
+                        xy=(p.get_width(), p.get_y() + p.get_height() / 2),
+                        xytext=(5, 0), textcoords='offset points', ha="left",
+                        va="center")
+        plt.title(coincidence.capitalize())
+        plt.tight_layout()
+        plt.savefig(f"{figure_directory}{coincidence}/singh_logistic_regression_no_n.png")
+        plt.show()
+
+
 
 def main() -> None:
     sinha_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}sinha_dataset.csv")
@@ -247,8 +319,9 @@ def main() -> None:
     # table_1_anova(sinha_df, singh_df)
     # get_datasets_figure_3(sinha_df, singh_df)
     # figure_5_classification(sinha_df, singh_df)
-    plot_figure_5()
+    # plot_figure_5()
     # print(parameters)
+    figure_6_plot(sinha_df, singh_df)
 
 if __name__ == "__main__":
     main()
