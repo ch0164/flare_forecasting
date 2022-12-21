@@ -9,6 +9,7 @@ import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import make_scorer
 from sklearn.preprocessing import StandardScaler
+import json
 
 from source.utilities import *
 
@@ -34,40 +35,50 @@ SINHA_PARAMETERS = [
 
 names = [
         "KNN",
-        "LR",
         "RFC",
+        "LR",
         "SVM",
 ]
 
-classifiers = [
-    KNeighborsClassifier(),
-    LogisticRegression(),
-    RandomForestClassifier(),
-    SVC(),
-]
+# classifiers = [
+#     KNeighborsClassifier(),
+#     RandomForestClassifier(),
+#     LogisticRegression(),
+#     SVC(),
+# ]
+
+# sinha
+# classifiers = [
+#     KNeighborsClassifier(n_neighbors=3),
+#     RandomForestClassifier(n_estimators=120),
+#     LogisticRegression(C=1000),
+#     SVC(C=100, gamma=0.001),
+# ]
+
+
+
+
 
 parameters = [
     dict(n_neighbors=list(range(1, 16 + 1))),
-    dict(C=[10**e for e in range(-5, 5)]),
     dict(n_estimators=[10 + 110 * i for i in range(10)]),
+    dict(C=[10**e for e in range(-5, 5)]),
     dict(C=[10**e for e in range(-4, 3)],
          gamma=[10**e for e in range(-5, 2)]),
 ]
 
 param_names = [
     "n_neighbors",
-    "C",
     "n_estimators",
+    "C",
     ("C", "gamma")
 ]
 
 occurrences = {
-    "KNN": {p: 0 for p in parameters[0]["n_neighbors"]},
-    "LR": {p: 0 for p in parameters[1]["C"]},
-    "RFC": {p: 0 for p in parameters[2]["n_estimators"]},
-    "SVM": {
-        "C": {p: 0 for p in parameters[3]["C"]},
-        "gamma": {p: 0 for p in parameters[3]["gamma"]} },
+    "KNN": [],
+    "RFC": [],
+    "LR": [],
+    "SVM": [],
 }
 
 # ------------------------------------------------------------------------
@@ -97,8 +108,6 @@ def get_mac(y_true, y_pred):
 def get_ssw(y_true, y_pred):
     cm = confusion_matrix(y_true, y_pred)
     tn, fp, fn, tp = cm.ravel()
-    detection_rate = tp / float(tp + fn)
-    true_negative_rate = tn / float(fp + tn)
     ssw = (tp - fn) / (tp + fn)
     return ssw
 
@@ -131,47 +140,85 @@ def table_1_anova(sinha_df, singh_df):
         print(f_df)
 
 
-def get_datasets_figure_3(sinha_df, singh_df):
-    singh_df = singh_df[SINHA_PARAMETERS + ["AR_class"]]
-    for clf, name, params, param_name in zip(classifiers, names, parameters, param_names):
-        if name == "RFC":
-            continue
-        score = make_scorer(get_tss)
-        cv = GridSearchCV(clf, params, cv=10, scoring=score)
-
-        for train_index in range(20):
-            print(f"{name} {train_index + 1}/20")
-            train_df, test_df = train_test_split(sinha_df, test_size=0.2, stratify=sinha_df["AR_class"], random_state=10 + train_index)
-            for col in train_df.columns:
-                if col == "AR_class":
-                    continue
-                mean = train_df[col].mean()
-                std = train_df[col].std()
-                test_df[col] = (test_df[col] - mean) / std
-                train_df[col] = (train_df[col] - mean) / std
-
-            X_train, y_train = train_df.drop("AR_class", axis=1), train_df["AR_class"]
-            X_test, y_test = test_df.drop("AR_class", axis=1), test_df["AR_class"]
-            cv.fit(X_train, y_train)
-            if name == "SVM":
-                key1, key2 = param_name
-                occurrences[name][key1][cv.best_params_[key1]] += 1
-                occurrences[name][key2][cv.best_params_[key2]] += 1
-            else:
-                occurrences[name][cv.best_params_[param_name]] += 1
-
-        print(name)
-        print(occurrences)
-        print()
-
-def figure_5_classification(sinha_df, singh_df):
+def get_datasets_figure_3(sinha_df, singh_df, dataset_count=20):
     singh_df = singh_df[SINHA_PARAMETERS + ["AR_class", "COINCIDENCE"]]
     for axis_index, coincidence in enumerate(COINCIDENCES):
+        occurrences = {
+            "KNN": [],
+            "RFC": [],
+            "LR": [],
+            "SVM": [],
+        }
         if coincidence == "coincident":
             flares_df = singh_df.loc[singh_df["COINCIDENCE"] == True]
         elif coincidence == "noncoincident":
             flares_df = singh_df.loc[singh_df["COINCIDENCE"] == False]
         else:
+            continue
+            flares_df = singh_df
+        for clf, name, params, param_name in zip(classifiers, names, parameters, param_names):
+            if name == "RFC":
+                continue
+            score = make_scorer(get_tss)
+            cv = GridSearchCV(clf, params, cv=10, scoring=score)
+
+            for train_index in range(dataset_count):
+                print(f"{name} {train_index + 1}/{dataset_count}")
+                train_df, test_df = train_test_split(flares_df, test_size=0.2, stratify=flares_df["AR_class"], random_state=10 + train_index)
+                for col in train_df.columns:
+                    if col == "AR_class":
+                        continue
+                    mean = train_df[col].mean()
+                    std = train_df[col].std()
+                    test_df[col] = (test_df[col] - mean) / std
+                    train_df[col] = (train_df[col] - mean) / std
+
+                X_train, y_train = train_df[SINHA_PARAMETERS], train_df["AR_class"]
+                X_test, y_test = test_df[SINHA_PARAMETERS], test_df["AR_class"]
+                cv.fit(X_train, y_train)
+                if name == "SVM":
+                    key1, key2 = param_name
+                    occurrences[name].append((cv.best_params_[key1], cv.best_params_[key2]))
+                else:
+                    occurrences[name].append(cv.best_params_[param_name])
+
+            print(name)
+            print(occurrences)
+            with open(f"{other_directory}{coincidence}/sinha_hyperparams.txt",
+                      "w") as fp:
+                fp.write(json.dumps(occurrences, indent=4))
+            print()
+
+def figure_5_classification(sinha_df, singh_df, dataset_count=20):
+    singh_df = singh_df[SINHA_PARAMETERS + ["AR_class", "COINCIDENCE"]]
+
+    for axis_index, coincidence in enumerate(COINCIDENCES):
+        if coincidence == "coincident":
+            # coin
+            classifiers = [
+                KNeighborsClassifier(n_neighbors=1),
+                RandomForestClassifier(n_estimators=120),
+                LogisticRegression(C=1000),
+                SVC(C=10, gamma=0.1),
+            ]
+            flares_df = singh_df.loc[singh_df["COINCIDENCE"] == True]
+        elif coincidence == "noncoincident":
+            # noncoin
+            classifiers = [
+                KNeighborsClassifier(n_neighbors=5),
+                RandomForestClassifier(n_estimators=120),
+                LogisticRegression(C=100),
+                SVC(C=1, gamma=1),
+            ]
+            flares_df = singh_df.loc[singh_df["COINCIDENCE"] == False]
+        else:
+            # all
+            classifiers = [
+                KNeighborsClassifier(n_neighbors=1),
+                RandomForestClassifier(n_estimators=120),
+                LogisticRegression(C=1),
+                SVC(C=100, gamma=10),
+            ]
             flares_df = singh_df
         scores = {
             "KNN": {
@@ -199,8 +246,8 @@ def figure_5_classification(sinha_df, singh_df):
                 "CSW": []
             },
         }
-        for train_index in range(20):
-            print(f"{train_index}/20")
+        for train_index in range(dataset_count):
+            print(f"{train_index}/{dataset_count}")
             train_df, test_df = train_test_split(flares_df, test_size=0.2, stratify=flares_df["AR_class"])
             for col in train_df.columns:
                 if col == "AR_class":
@@ -220,7 +267,7 @@ def figure_5_classification(sinha_df, singh_df):
                     scores[name][score_label].append(scorer(clf, X_test, y_test))
 
         import json
-        with open(f"{other_directory}{coincidence}/singh_score.txt", "w") as fp:
+        with open(f"{other_directory}{coincidence}/singh_score_with_hyperparams.txt", "w") as fp:
             fp.write(json.dumps(scores, indent=4))
 
 def plot_figure_5():
@@ -228,32 +275,32 @@ def plot_figure_5():
 
     import json
     for axis_index, coincidence in enumerate(COINCIDENCES):
-        with open(f"{other_directory}{coincidence}/singh_score.txt", "r") as fp:
+        with open(f"{other_directory}{coincidence}/singh_score_with_hyperparams.txt", "r") as fp:
             d = json.load(fp)
-        df = pd.DataFrame(columns=["name", "score", "performance", "error"])
+            df = pd.DataFrame(columns=["name", "score", "performance", "error"])
 
-        for name in names:
-            for score in ["TSS", "MAC", "SSW", "CSW"]:
-                df.loc[df.shape[0]] = [
-                    name,
-                    score,
-                    np.mean(d[name][score]),
-                    np.std(d[name][score])
-                ]
-        print(df)
+            for name in names:
+                for score in ["TSS", "MAC", "SSW", "CSW"]:
+                    df.loc[df.shape[0]] = [
+                        name,
+                        score,
+                        np.mean(d[name][score]),
+                        np.std(d[name][score])
+                    ]
+            print(df)
 
 
-        ax = sns.barplot(data=df, x="name", y="performance", hue="score")
-        plt.legend(bbox_to_anchor=(1.05, 1.0), loc='upper left')
-        x_coords = [p.get_x() + 0.5 * p.get_width() for p in ax.patches]
-        y_coords = [p.get_height() for p in ax.patches]
-        ax.errorbar(x=x_coords, y=y_coords, yerr=df["error"], fmt="none", c="k")
-        # ax.set_ylim(bottom=0.8, top=1.0)
-        ax.set_title(coincidence.capitalize())
-        plt.tight_layout()
-        plt.savefig(f"{figure_directory}{coincidence}/singh_classification_performance.png")
-        plt.show()
-        plt.clf()
+            ax = sns.barplot(data=df, x="name", y="performance", hue="score")
+            plt.legend(bbox_to_anchor=(1.05, 1.0), loc='upper left')
+            x_coords = [p.get_x() + 0.5 * p.get_width() for p in ax.patches]
+            y_coords = [p.get_height() for p in ax.patches]
+            ax.errorbar(x=x_coords, y=y_coords, yerr=df["error"], fmt="none", c="k")
+            # ax.set_ylim(bottom=0.8, top=1.0)
+            ax.set_title(coincidence.capitalize())
+            plt.tight_layout()
+            plt.savefig(f"{figure_directory}{coincidence}/singh_classification_performance_with_hyperparams.png")
+            plt.show()
+            plt.clf()
 
 
 def figure_6_plot(sinha_df, singh_df):
@@ -319,9 +366,9 @@ def main() -> None:
     # table_1_anova(sinha_df, singh_df)
     # get_datasets_figure_3(sinha_df, singh_df)
     # figure_5_classification(sinha_df, singh_df)
-    # plot_figure_5()
+    plot_figure_5()
     # print(parameters)
-    figure_6_plot(sinha_df, singh_df)
+    # figure_6_plot(sinha_df, singh_df)
 
 if __name__ == "__main__":
     main()

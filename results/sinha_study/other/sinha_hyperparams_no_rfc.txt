@@ -1,0 +1,22 @@
+values counts
+3     12
+7      3
+5      3
+13     1
+1      1
+Name: KNN, dtype: int64
+
+values counts
+10     11
+1       6
+100     3
+Name: LR, dtype: int64
+
+values       counts
+(10, 1)        6
+(100, 1)       4
+(1, 1)         4
+(100, 0.01)    3
+(10, 0.1)      2
+(100, 0.1)     1
+Name: SVM, dtype: int64
