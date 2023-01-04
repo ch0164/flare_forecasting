@@ -271,35 +271,51 @@ def figure_5_classification(sinha_df, singh_df, dataset_count=20, index=0):
             "CSW": []
         },
     }
-    for train_index in range(dataset_count):
-        print(f"{train_index}/{dataset_count}")
-        random_state = np.random.choice([2913, 4710, 4200, 2316, 4406, 4910])
-        train_df, test_df = train_test_split(flares_df, test_size=0.2, stratify=flares_df["AR_class"], random_state=random_state)
-        for col in train_df.columns:
-            if col == "AR_class":
-                continue
-            mean = train_df[col].mean()
-            std = train_df[col].std()
-            test_df[col] = (test_df[col] - mean) / std
-            train_df[col] = (train_df[col] - mean) / std
+    X = sinha_df[SINHA_PARAMETERS]
+    y = sinha_df["AR_class"]
+    loo = LeaveOneOut()
+    loo.get_n_splits(X)
 
-        X_train, y_train = train_df[SINHA_PARAMETERS], train_df["AR_class"]
-        X_test, y_test = test_df[SINHA_PARAMETERS], test_df["AR_class"]
+    y_true = []
+    pred_dict = {name: [] for name in names}
+    for i, (train_index, test_index) in enumerate(loo.split(X)):
+        print(i, "/", len(X))
+        X_train, X_test = X.iloc[train_index], X.iloc[test_index]
+        y_train, y_test = y[train_index], y[test_index]
+        for col in X_train.columns:
+            mean = X_train[col].mean()
+            std = X_train[col].std()
+            X_test[col] = (X_test[col] - mean) / std
+            X_train[col] = (X_train[col] - mean) / std
+
+        y_true.append(y_test.values[0])
         for clf, name in zip(classifiers, names):
             clf.fit(X_train, y_train)
-            for score_label, score_fn in zip(["TSS", "MAC", "SSW", "CSW"],
-                                             [get_tss, get_mac, get_ssw, get_csw]):
-                scorer = make_scorer(score_fn)
-                s = scorer(clf, X_test, y_test)
-                scores[name][score_label].append(s)
-                max_scores_dict[name][score_label] = max(max_scores_dict[name][score_label], s)
-                if s == max_scores_dict[name][score_label]:
-                    random_states_dict[name][score_label] = random_state
+            pred = clf.predict(X_test)[0]
+            pred_dict[name].append(pred)
 
+            # for train_index in range(dataset_count):
+            #     print(f"{train_index}/{dataset_count}")
+            #     random_state = index * 100 + train_index
+            #     train_df, test_df = train_test_split(flares_df, test_size=0.2, stratify=flares_df["AR_class"], random_state=random_state)
+            #     for col in train_df.columns:
+            #         if col == "AR_class":
+            #             continue
+            #         mean = train_df[col].mean()
+            #         std = train_df[col].std()
+            #         test_df[col] = (test_df[col] - mean) / std
+            #         train_df[col] = (train_df[col] - mean) / std
 
+            # X_train, y_train = train_df[SINHA_PARAMETERS], train_df["AR_class"]
+            # X_test, y_test = test_df[SINHA_PARAMETERS], test_df["AR_class"]
+    for clf, name in zip(classifiers, names):
+        for score_label, score_fn in zip(["TSS", "MAC", "SSW", "CSW"],
+                                         [get_tss, get_mac, get_ssw, get_csw]):
+            s = score_fn(y_true, pred_dict[name])
+            scores[name][score_label].append(s)
 
     import json
-    with open(f"{other_directory}/sinha_score.txt", "w") as fp:
+    with open(f"{other_directory}/sinha_score_loo.txt", "w") as fp:
         fp.write(json.dumps(scores, indent=4))
 
 def plot_figure_5():
@@ -350,22 +366,19 @@ def plot_figure_5():
                     np.std(d[name][score])
                 ]
         print(df)
-        df.to_csv(f"{other_directory}sinha_scores.csv")
 
 
-
-
-        # ax = sns.barplot(data=df, x="name", y="performance", hue="score")
-        # plt.legend(bbox_to_anchor=(1.05, 1.0), loc='upper left')
-        # plt.title(f"")
-        # x_coords = [p.get_x() + 0.5 * p.get_width() for p in ax.patches]
-        # y_coords = [p.get_height() for p in ax.patches]
-        # ax.errorbar(x=x_coords, y=y_coords, yerr=df["error"], fmt="none", c="k")
-        # ax.set_ylim(bottom=0.8, top=1.0)
-        # plt.tight_layout()
-        # plt.savefig(f"{figure_directory}sinha_classification_performance_preset_random_state.png")
-        # plt.show()
-        # plt.clf()
+        ax = sns.barplot(data=df, x="name", y="performance", hue="score")
+        plt.legend(bbox_to_anchor=(1.05, 1.0), loc='upper left')
+        plt.title(f"Leave One Out Testing")
+        x_coords = [p.get_x() + 0.5 * p.get_width() for p in ax.patches]
+        y_coords = [p.get_height() for p in ax.patches]
+        ax.errorbar(x=x_coords, y=y_coords, yerr=df["error"], fmt="none", c="k")
+        ax.set_ylim(bottom=0.8, top=1.0)
+        plt.tight_layout()
+        plt.savefig(f"{figure_directory}sinha_classification_performance_loo.png")
+        plt.show()
+        plt.clf()
 
 
 def figure_6_plot(sinha_df, singh_df):
@@ -430,7 +443,7 @@ def main() -> None:
     singh_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbmx_data.csv", index_col="index")
     # table_1_anova(sinha_df, singh_df)
     # get_datasets_figure_3(sinha_df, singh_df)
-    # figure_5_classification(sinha_df, singh_df)
+    figure_5_classification(sinha_df, singh_df)
     plot_figure_5()
     print(max_scores_dict)
     print(random_states_dict)
