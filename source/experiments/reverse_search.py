@@ -33,7 +33,7 @@ def plot_histograms(sinha_df, flare_df):
 
     sinha_df1 = sinha_df.loc[sinha_df["AR_class"] == 1]
     sinha_df2 = sinha_df.loc[sinha_df["AR_class"] == 0]
-    # num_bins = 30
+    num_bins = 22
     for column in SINHA_PARAMETERS:
         fig, ax = plt.subplots(nrows=2, ncols=2, figsize=(12, 12))
 
@@ -46,8 +46,6 @@ def plot_histograms(sinha_df, flare_df):
 
         density = False
 
-        # sinha_df1.hist(column=column, ax=ax[0, 0], bins=num_bins)
-        num_bins = int(np.sqrt(min(sinha_df1[column].size, mx_df[column].size)))
         y = ax[0, 0].hist(sinha_df1[column], bins=num_bins, range=mx_range,
                           density=density,
                           weights=np.zeros_like(sinha_df1[column]) + 1. / sinha_df1[column].size)
@@ -55,7 +53,6 @@ def plot_histograms(sinha_df, flare_df):
         ax[0, 0].set_xlabel("Unit")
         ax[0, 0].set_ylabel("Relative Frequency")
 
-        # mx_df.hist(column=column, ax=ax[0, 1], bins=num_bins)
         y = ax[0, 1].hist(mx_df[column], bins=num_bins, range=mx_range,
                       density=density,
                           weights=np.zeros_like(mx_df[column]) + 1. / mx_df[column].size)
@@ -63,8 +60,6 @@ def plot_histograms(sinha_df, flare_df):
         ax[0, 1].set_xlabel("Unit")
         ax[0, 1].set_ylabel("Relative Frequency")
 
-        # sinha_df2.hist(column=column, ax=ax[1, 0], bins=num_bins)
-        num_bins = int(np.sqrt(min(sinha_df2[column].size, nb_df[column].size)))
         y = ax[1, 0].hist(sinha_df2[column], bins=num_bins, range=nb_range,
                       density=density,
                           weights=np.zeros_like(sinha_df2[column]) + 1. / sinha_df2[column].size)
@@ -73,7 +68,6 @@ def plot_histograms(sinha_df, flare_df):
         ax[1, 0].set_ylabel("Relative Frequency")
 
 
-        # nb_df.hist(column=column, ax=ax[1, 1], bins=num_bins)
         y = ax[1, 1].hist(nb_df[column], bins=num_bins, range=nb_range,
                       density=density,
                           weights=np.zeros_like(nb_df[column]) + 1. / nb_df[column].size)
@@ -131,12 +125,10 @@ def plot_coincidence_histograms(flare_df):
 
 
 def plot_coincidence_histograms2(flare_df):
-    fig, ax = plt.subplots(nrows=10, ncols=2, figsize=(20, 28))
-    min_max_ranges = {}
     nb_df = flare_df.loc[flare_df["AR_class"] == 0]
     mx_df = flare_df.loc[flare_df["AR_class"] == 1]
 
-    num_bins = 12
+    num_bins = 22
 
     coin_nb_df = nb_df.loc[nb_df["COINCIDENCE"] == True]
     noncoin_nb_df = nb_df.loc[nb_df["COINCIDENCE"] != True]
@@ -144,33 +136,68 @@ def plot_coincidence_histograms2(flare_df):
     noncoin_mx_df = mx_df.loc[mx_df["COINCIDENCE"] != True]
 
     for row_index, parameter in enumerate(SINHA_PARAMETERS):
+        fig, ax = plt.subplots(nrows=1, ncols=2)
         min_max_range = [nb_df[parameter].min(), nb_df[parameter].max()]
-        coin_nb_df.hist(column=parameter, ax=ax[row_index, 1], bins=num_bins,
-                              range=min_max_range, legend=True, alpha=0.5)
-        noncoin_nb_df.hist(column=parameter, ax=ax[row_index, 1], bins=num_bins,
-                        range=min_max_range, legend=True, alpha=0.5)
-        ax[row_index, 1].set_title(f"NB {parameter}")
-        ax[row_index, 1].set_xlabel("Unit")
-        ax[row_index, 1].set_ylabel("Frequency")
-        ax[row_index, 1].legend(["Coincident", "Non-coincident"])
+        coin_nb_df.hist(column=parameter, ax=ax[0], bins=num_bins, density=True,
+                              range=min_max_range)
+        noncoin_nb_df.hist(column=parameter, ax=ax[1], bins=num_bins, density=True,
+                        range=min_max_range)
+        ax[0].set_title(f"Singh NB Coincident {parameter}")
+        ax[0].set_xlabel("Unit")
+        ax[0].set_ylabel("Relative Frequency")
+        ax[1].set_title(f"Singh NB Non-coincident {parameter}")
+        ax[1].set_xlabel("Unit")
+        ax[1].set_ylabel("Relative Frequency")
+        ax[1].set_ylim(ax[0].get_ylim())
+        fig.suptitle(f"Singh NB {parameter} Flare Coincidence Histograms",
+                     y=0.99, fontweight="bold")
+        fig.savefig(f"{FIGURE_DIRECTORY}nb_coincidence_histogram_{parameter.lower()}.png")
+        plt.show()
 
     for row_index, parameter in enumerate(SINHA_PARAMETERS):
+        fig, ax = plt.subplots(nrows=1, ncols=2)
         min_max_range = [nb_df[parameter].min(), nb_df[parameter].max()]
-        coin_mx_df.hist(column=parameter, ax=ax[row_index, 0], bins=num_bins,
-                              range=min_max_range, legend=True, alpha=0.5)
-        noncoin_mx_df.hist(column=parameter, ax=ax[row_index, 0], bins=num_bins,
-                        range=min_max_range, legend=True, alpha=0.5)
-        ax[row_index, 0].set_title(f"MX {parameter}")
-        ax[row_index, 0].set_xlabel("Unit")
-        ax[row_index, 0].set_ylabel("Frequency")
-        ax[row_index, 0].legend(["Coincident", "Non-coincident"])
+        coin_mx_df.hist(column=parameter, ax=ax[0], bins=num_bins, density=True,
+                              range=min_max_range)
+        noncoin_mx_df.hist(column=parameter, ax=ax[1], bins=num_bins, density=True,
+                        range=min_max_range)
+        ax[0].set_title(f"Coincident")
+        ax[0].set_xlabel("Unit")
+        ax[0].set_ylabel("Relative Frequency")
+        ax[1].set_title(f"Non-coincident")
+        ax[1].set_xlabel("Unit")
+        ax[1].set_ylabel("Relative Frequency")
+        ax[1].set_ylim(ax[0].get_ylim())
+        fig.suptitle(f"Singh MX {parameter} Flare Coincidence Histograms", y=0.99, fontweight="bold")
+        fig.savefig(f"{FIGURE_DIRECTORY}mx_coincidence_histogram_{parameter.lower()}.png")
+        plt.show()
+
+    # for row_index, parameter in enumerate(SINHA_PARAMETERS):
+    #     min_max_range = [nb_df[parameter].min(), nb_df[parameter].max()]
+    #     coin_nb_df.hist(column=parameter, ax=ax[row_index, 1], bins=num_bins,
+    #                           range=min_max_range, legend=True, alpha=0.5)
+    #     noncoin_nb_df.hist(column=parameter, ax=ax[row_index, 1], bins=num_bins,
+    #                     range=min_max_range, legend=True, alpha=0.5)
+    #     ax[row_index, 1].set_title(f"NB {parameter}")
+    #     ax[row_index, 1].set_xlabel("Unit")
+    #     ax[row_index, 1].set_ylabel("Frequency")
+    #     ax[row_index, 1].legend(["Coincident", "Non-coincident"])
+    #
+    # for row_index, parameter in enumerate(SINHA_PARAMETERS):
+    #     min_max_range = [nb_df[parameter].min(), nb_df[parameter].max()]
+    #     coin_mx_df.hist(column=parameter, ax=ax[row_index, 0], bins=num_bins,
+    #                           range=min_max_range, legend=True, alpha=0.5)
+    #     noncoin_mx_df.hist(column=parameter, ax=ax[row_index, 0], bins=num_bins,
+    #                     range=min_max_range, legend=True, alpha=0.5)
+    #     ax[row_index, 0].set_title(f"MX {parameter}")
+    #     ax[row_index, 0].set_xlabel("Unit")
+    #     ax[row_index, 0].set_ylabel("Frequency")
+    #     ax[row_index, 0].legend(["Coincident", "Non-coincident"])
 
 
-
-    fig.suptitle(f"NB/MX 24h Timepoint Before Flare Peak Time Coincidence Histograms", y=0.99, fontweight="bold")
-    fig.tight_layout()
-    fig.savefig(f"{FIGURE_DIRECTORY}nb_mx_peak_timepoint_coincidence_histograms2.png")
-    fig.show()
+    # fig.tight_layout()
+    # fig.savefig(f"{FIGURE_DIRECTORY}nb_mx_peak_timepoint_coincidence_histograms2.png")
+    # fig.show()
     exit(1)
 
 
@@ -327,12 +354,28 @@ def main():
     sinha_df1 = sinha_df.loc[sinha_df["AR_class"] == 1]
     sinha_df2 = sinha_df.loc[sinha_df["AR_class"] == 0]
     flare_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbmx_data.csv")
+
+
     # flare_df = flare_df.loc[flare_df["xray_class"] != "N"]
     mx_df = flare_df.loc[flare_df["AR_class"] == 1]
     nb_df = flare_df.loc[flare_df["AR_class"] == 0]
-    # plot_coincidence_histograms2(flare_df)
-    chi_square_test(sinha_df, flare_df)
-    ks_test(sinha_df, flare_df)
+    classes = ["N", "A", "B", "M", "X"]
+    for coincidence in [True, False]:
+        df = flare_df.loc[flare_df["COINCIDENCE"] == coincidence]
+        for c in classes:
+            coin_df = df.loc[df["xray_class"] == c]
+            print(coin_df.shape[0], end=" ")
+        print()
+    for c in classes:
+        df = flare_df.loc[flare_df["xray_class"] == c]
+        print(df.shape[0], end=" ")
+
+
+    exit(1)
+
+    plot_coincidence_histograms2(flare_df)
+    # chi_square_test(sinha_df, flare_df)
+    # ks_test(sinha_df, flare_df)
     # plot_histograms(sinha_df, flare_df)
     # x2_df.index = ["MX", "NON_MX"]
     # x2_df.to_csv(OTHER_DIRECTORY + "two_sample_ks.csv")

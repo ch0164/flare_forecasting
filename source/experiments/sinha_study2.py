@@ -20,35 +20,35 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 experiment = "sinha_study"
 experiment_caption = experiment.title().replace("_", " ")
 
-# SINHA_PARAMETERS = [
-#     "TOTUSJH",
-#     "USFLUX",
-#     "TOTUSJZ",
-#     "R_VALUE",
-#     "TOTPOT",
-#     "AREA_ACR",
-#     "SAVNCPP",
-#     "ABSNJZH",
-#     "MEANPOT",
-#     "SHRGT45",
-# ]
-
 SINHA_PARAMETERS = [
     "TOTUSJH",
-    "TOTPOT",
-    "TOTUSJZ",
-    "ABSNJZH",
-    "SAVNCPP",
     "USFLUX",
-    "AREA_ACR",
-    "MEANPOT",
+    "TOTUSJZ",
     "R_VALUE",
+    "TOTPOT",
+    "AREA_ACR",
+    "SAVNCPP",
+    "ABSNJZH",
+    "MEANPOT",
     "SHRGT45",
-    "EPSZ",
-    "TOTBSQ",
-    "TOTFZ",
-    "TOTABSTWIST"
 ]
+
+# SINHA_PARAMETERS = [
+#     "TOTUSJH",
+#     "TOTPOT",
+#     "TOTUSJZ",
+#     "ABSNJZH",
+#     "SAVNCPP",
+#     "USFLUX",
+#     "AREA_ACR",
+#     "MEANPOT",
+#     "R_VALUE",
+#     "SHRGT45",
+#     "EPSZ",
+#     "TOTBSQ",
+#     "TOTFZ",
+#     "TOTABSTWIST"
+# ]
 
 score_names = [
     "TSS",
@@ -217,139 +217,140 @@ def get_datasets_figure_3(sinha_df, singh_df, dataset_count=20):
 def figure_5_classification(sinha_df, singh_df, dataset_count=20, index=0):
     # singh_df = singh_df[SINHA_PARAMETERS + ["AR_class", "COINCIDENCE"]]
 
-    # for axis_index, coincidence in enumerate(COINCIDENCES):
-    #     if coincidence == "coincident":
-    #         # coin
-    #         classifiers = [
-    #             KNeighborsClassifier(n_neighbors=1),
-    #             RandomForestClassifier(n_estimators=120),
-    #             LogisticRegression(C=1000),
-    #             SVC(C=10, gamma=0.1),
-    #         ]
-    #         flares_df = singh_df.loc[singh_df["COINCIDENCE"] == True]
-    #     elif coincidence == "noncoincident":
-    #         # noncoin
-    #         classifiers = [
-    #             KNeighborsClassifier(n_neighbors=5),
-    #             RandomForestClassifier(n_estimators=120),
-    #             LogisticRegression(C=100),
-    #             SVC(C=1, gamma=1),
-    #         ]
-    #         flares_df = singh_df.loc[singh_df["COINCIDENCE"] == False]
-    #     else:
-    #         # all
-    #         classifiers = [
-    #             KNeighborsClassifier(n_neighbors=1),
-    #             RandomForestClassifier(n_estimators=120),
-    #             LogisticRegression(C=1),
-    #             SVC(C=100, gamma=10),
-    #         ]
-    flares_df = sinha_df
-    scores = {
-        "KNN": {
-            "TSS": [],
-            "MAC": [],
-            "SSW": [],
-            "CSW": []
-        },
-        "LR": {
-            "TSS": [],
-            "MAC": [],
-            "SSW": [],
-            "CSW": []
-        },
-        "RFC": {
-            "TSS": [],
-            "MAC": [],
-            "SSW": [],
-            "CSW": []
-        },
-        "SVM": {
-            "TSS": [],
-            "MAC": [],
-            "SSW": [],
-            "CSW": []
-        },
-    }
-    X = sinha_df[SINHA_PARAMETERS]
-    y = sinha_df["AR_class"]
-    loo = LeaveOneOut()
-    loo.get_n_splits(X)
+    for axis_index, coincidence in enumerate(COINCIDENCES):
+        if coincidence == "coincident":
+            # coin
+            classifiers = [
+                KNeighborsClassifier(n_neighbors=1),
+                RandomForestClassifier(n_estimators=120),
+                LogisticRegression(C=1000),
+                SVC(C=10, gamma=0.1),
+            ]
+            flares_df = singh_df.loc[singh_df["COINCIDENCE"] == True]
+        elif coincidence == "noncoincident":
+            # noncoin
+            classifiers = [
+                KNeighborsClassifier(n_neighbors=5),
+                RandomForestClassifier(n_estimators=120),
+                LogisticRegression(C=100),
+                SVC(C=1, gamma=1),
+            ]
+            flares_df = singh_df.loc[singh_df["COINCIDENCE"] == False]
+        else:
+            # all
+            classifiers = [
+                KNeighborsClassifier(n_neighbors=1),
+                RandomForestClassifier(n_estimators=120),
+                LogisticRegression(C=1),
+                SVC(C=100, gamma=10),
+            ]
+        flares_df = sinha_df
+        scores = {
+            "KNN": {
+                "TSS": [],
+                "MAC": [],
+                "SSW": [],
+                "CSW": []
+            },
+            "LR": {
+                "TSS": [],
+                "MAC": [],
+                "SSW": [],
+                "CSW": []
+            },
+            "RFC": {
+                "TSS": [],
+                "MAC": [],
+                "SSW": [],
+                "CSW": []
+            },
+            "SVM": {
+                "TSS": [],
+                "MAC": [],
+                "SSW": [],
+                "CSW": []
+            },
+        }
+        X = sinha_df[SINHA_PARAMETERS]
+        y = sinha_df["AR_class"]
+        loo = LeaveOneOut()
+        loo.get_n_splits(X)
 
-    y_true = []
-    pred_dict = {name: [] for name in names}
-    for i, (train_index, test_index) in enumerate(loo.split(X)):
-        print(i, "/", len(X))
-        X_train, X_test = X.iloc[train_index], X.iloc[test_index]
-        y_train, y_test = y[train_index], y[test_index]
-        for col in X_train.columns:
-            mean = X_train[col].mean()
-            std = X_train[col].std()
-            X_test[col] = (X_test[col] - mean) / std
-            X_train[col] = (X_train[col] - mean) / std
+        y_true = []
+        pred_dict = {name: [] for name in names}
+        for i, (train_index, test_index) in enumerate(loo.split(X)):
+            print(i, "/", len(X))
+            X_train, X_test = X.iloc[train_index], X.iloc[test_index]
+            y_train, y_test = y[train_index], y[test_index]
+            for col in X_train.columns:
+                mean = X_train[col].mean()
+                std = X_train[col].std()
+                X_test[col] = (X_test[col] - mean) / std
+                X_train[col] = (X_train[col] - mean) / std
 
-        y_true.append(y_test.values[0])
+            y_true.append(y_test.values[0])
+            for clf, name in zip(classifiers, names):
+                clf.fit(X_train, y_train)
+                pred = clf.predict(X_test)[0]
+                pred_dict[name].append(pred)
+
+                # for train_index in range(dataset_count):
+                #     print(f"{train_index}/{dataset_count}")
+                #     random_state = index * 100 + train_index
+                #     train_df, test_df = train_test_split(flares_df, test_size=0.2, stratify=flares_df["AR_class"], random_state=random_state)
+                #     for col in train_df.columns:
+                #         if col == "AR_class":
+                #             continue
+                #         mean = train_df[col].mean()
+                #         std = train_df[col].std()
+                #         test_df[col] = (test_df[col] - mean) / std
+                #         train_df[col] = (train_df[col] - mean) / std
+
+                # X_train, y_train = train_df[SINHA_PARAMETERS], train_df["AR_class"]
+                # X_test, y_test = test_df[SINHA_PARAMETERS], test_df["AR_class"]
         for clf, name in zip(classifiers, names):
-            clf.fit(X_train, y_train)
-            pred = clf.predict(X_test)[0]
-            pred_dict[name].append(pred)
+            for score_label, score_fn in zip(["TSS", "MAC", "SSW", "CSW"],
+                                             [get_tss, get_mac, get_ssw, get_csw]):
+                s = score_fn(y_true, pred_dict[name])
+                scores[name][score_label].append(s)
 
-            # for train_index in range(dataset_count):
-            #     print(f"{train_index}/{dataset_count}")
-            #     random_state = index * 100 + train_index
-            #     train_df, test_df = train_test_split(flares_df, test_size=0.2, stratify=flares_df["AR_class"], random_state=random_state)
-            #     for col in train_df.columns:
-            #         if col == "AR_class":
-            #             continue
-            #         mean = train_df[col].mean()
-            #         std = train_df[col].std()
-            #         test_df[col] = (test_df[col] - mean) / std
-            #         train_df[col] = (train_df[col] - mean) / std
-
-            # X_train, y_train = train_df[SINHA_PARAMETERS], train_df["AR_class"]
-            # X_test, y_test = test_df[SINHA_PARAMETERS], test_df["AR_class"]
-    for clf, name in zip(classifiers, names):
-        for score_label, score_fn in zip(["TSS", "MAC", "SSW", "CSW"],
-                                         [get_tss, get_mac, get_ssw, get_csw]):
-            s = score_fn(y_true, pred_dict[name])
-            scores[name][score_label].append(s)
-
-    import json
-    with open(f"{other_directory}/sinha_score_loo.txt", "w") as fp:
-        fp.write(json.dumps(scores, indent=4))
+        import json
+        with open(f"{other_directory}{coincidence}/sinha_score_loo.txt", "w") as fp:
+            fp.write(json.dumps(scores, indent=4))
 
 def plot_figure_5():
-    # d = None
-    #
-    # import json
-    # for axis_index, coincidence in enumerate(COINCIDENCES):
-    #     with open(f"{other_directory}{coincidence}/singh_score_with_hyperparams.txt", "r") as fp:
-    #         d = json.load(fp)
-    #         df = pd.DataFrame(columns=["name", "score", "performance", "error"])
-    #
-    #         for name in names:
-    #             for score in ["TSS", "MAC", "SSW", "CSW"]:
-    #                 df.loc[df.shape[0]] = [
-    #                     name,
-    #                     score,
-    #                     np.mean(d[name][score]),
-    #                     np.std(d[name][score])
-    #                 ]
-    #         print(df)
-    #
-    #
-    #         ax = sns.barplot(data=df, x="name", y="performance", hue="score")
-    #         plt.legend(bbox_to_anchor=(1.05, 1.0), loc='upper left')
-    #         x_coords = [p.get_x() + 0.5 * p.get_width() for p in ax.patches]
-    #         y_coords = [p.get_height() for p in ax.patches]
-    #         ax.errorbar(x=x_coords, y=y_coords, yerr=df["error"], fmt="none", c="k")
-    #         # ax.set_ylim(bottom=0.8, top=1.0)
-    #         ax.set_title(coincidence.capitalize())
-    #         plt.tight_layout()
-    #         plt.savefig(f"{figure_directory}{coincidence}/singh_classification_performance_with_hyperparams.png")
-    #         plt.show()
-    #         plt.clf()
+    d = None
 
+    import json
+    for axis_index, coincidence in enumerate(COINCIDENCES):
+        with open(f"{other_directory}{coincidence}/singh_score_with_hyperparams.txt", "r") as fp:
+            d = json.load(fp)
+            df = pd.DataFrame(columns=["name", "score", "performance", "error"])
+
+            for name in names:
+                for score in ["TSS", "MAC", "SSW", "CSW"]:
+                    df.loc[df.shape[0]] = [
+                        name,
+                        score,
+                        np.mean(d[name][score]),
+                        np.std(d[name][score])
+                    ]
+            print(df)
+
+
+            ax = sns.barplot(data=df, x="name", y="performance", hue="score")
+            plt.legend(bbox_to_anchor=(1.05, 1.0), loc='upper left')
+            x_coords = [p.get_x() + 0.5 * p.get_width() for p in ax.patches]
+            y_coords = [p.get_height() for p in ax.patches]
+            ax.errorbar(x=x_coords, y=y_coords, yerr=df["error"], fmt="none", c="k")
+            # ax.set_ylim(bottom=0.8, top=1.0)
+            ax.set_title(coincidence.capitalize())
+            plt.tight_layout()
+            plt.savefig(f"{figure_directory}{coincidence}/singh_classification_performance_with_hyperparams.png")
+            plt.show()
+            plt.clf()
+
+    exit(1)
     d = None
 
     import json
@@ -443,7 +444,7 @@ def main() -> None:
     singh_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbmx_data.csv", index_col="index")
     # table_1_anova(sinha_df, singh_df)
     # get_datasets_figure_3(sinha_df, singh_df)
-    figure_5_classification(sinha_df, singh_df)
+    # figure_5_classification(sinha_df, singh_df)
     plot_figure_5()
     print(max_scores_dict)
     print(random_states_dict)
