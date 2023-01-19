@@ -142,14 +142,14 @@ def plot_coincidence_histograms2(flare_df):
                               range=min_max_range)
         noncoin_nb_df.hist(column=parameter, ax=ax[1], bins=num_bins, density=True,
                         range=min_max_range)
-        ax[0].set_title(f"Singh NB Coincident {parameter}")
+        ax[0].set_title(f"Coincident")
         ax[0].set_xlabel("Unit")
         ax[0].set_ylabel("Relative Frequency")
-        ax[1].set_title(f"Singh NB Non-coincident {parameter}")
+        ax[1].set_title(f"Non-coincident")
         ax[1].set_xlabel("Unit")
         ax[1].set_ylabel("Relative Frequency")
         ax[1].set_ylim(ax[0].get_ylim())
-        fig.suptitle(f"Singh NB {parameter} Flare Coincidence Histograms",
+        fig.suptitle(f"{parameter}",
                      y=0.99, fontweight="bold")
         fig.savefig(f"{FIGURE_DIRECTORY}nb_coincidence_histogram_{parameter.lower()}.png")
         plt.show()
@@ -168,7 +168,8 @@ def plot_coincidence_histograms2(flare_df):
         ax[1].set_xlabel("Unit")
         ax[1].set_ylabel("Relative Frequency")
         ax[1].set_ylim(ax[0].get_ylim())
-        fig.suptitle(f"Singh MX {parameter} Flare Coincidence Histograms", y=0.99, fontweight="bold")
+        fig.suptitle(f"{parameter}",
+                     y=0.99, fontweight="bold")
         fig.savefig(f"{FIGURE_DIRECTORY}mx_coincidence_histogram_{parameter.lower()}.png")
         plt.show()
 
@@ -357,21 +358,21 @@ def main():
 
 
     # flare_df = flare_df.loc[flare_df["xray_class"] != "N"]
-    mx_df = flare_df.loc[flare_df["AR_class"] == 1]
-    nb_df = flare_df.loc[flare_df["AR_class"] == 0]
-    classes = ["N", "A", "B", "M", "X"]
-    for coincidence in [True, False]:
-        df = flare_df.loc[flare_df["COINCIDENCE"] == coincidence]
-        for c in classes:
-            coin_df = df.loc[df["xray_class"] == c]
-            print(coin_df.shape[0], end=" ")
-        print()
-    for c in classes:
-        df = flare_df.loc[flare_df["xray_class"] == c]
-        print(df.shape[0], end=" ")
-
-
-    exit(1)
+    # mx_df = flare_df.loc[flare_df["AR_class"] == 1]
+    # nb_df = flare_df.loc[flare_df["AR_class"] == 0]
+    # classes = ["N", "A", "B", "M", "X"]
+    # for coincidence in [True, False]:
+    #     df = flare_df.loc[flare_df["COINCIDENCE"] == coincidence]
+    #     for c in classes:
+    #         coin_df = df.loc[df["xray_class"] == c]
+    #         print(coin_df.shape[0], end=" ")
+    #     print()
+    # for c in classes:
+    #     df = flare_df.loc[flare_df["xray_class"] == c]
+    #     print(df.shape[0], end=" ")
+    #
+    #
+    # exit(1)
 
     plot_coincidence_histograms2(flare_df)
     # chi_square_test(sinha_df, flare_df)

@@ -5,10 +5,21 @@
 import os.path
 
 from source.common_imports import *
+from datetime import datetime as dt_obj
 
 
 # ---------------------------------------------------------------------------
 # --- Flare Functions
+def parse_tai_string(tstr: str):
+    if "not applicable" in tstr:
+        return "not applicable"
+    year = int(tstr[:4])
+    month = int(tstr[5:7])
+    day = int(tstr[8:10])
+    hour = int(tstr[11:13])
+    minute = int(tstr[14:16])
+    return dt_obj(year, month, day, hour, minute)
+
 
 def classify_flare(magnitude: str, combine: bool = False) -> str:
     """
@@ -33,6 +44,10 @@ def classify_flare(magnitude: str, combine: bool = False) -> str:
         return "X"
     else:
         return "N"
+
+
+def get_magnitude(magnitude: str) -> str:
+    return magnitude[1:]
 
 
 def get_time_window(lo_time: int = 10, hi_time: int = 22):

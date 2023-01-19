@@ -21,51 +21,39 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 experiment = "sinha_study_lr_svm"
 experiment_caption = experiment.title().replace("_", " ")
 
-# SINHA_PARAMETERS = [
-#     "TOTUSJH",
-#     "USFLUX",
-#     "TOTUSJZ",
-#     "R_VALUE",
-#     "TOTPOT",
-#     "AREA_ACR",
-#     "SAVNCPP",
-#     "ABSNJZH",
-#     "MEANPOT",
-#     "SHRGT45",
-# ]
-
 SINHA_PARAMETERS = [
     "TOTUSJH",
-    "TOTPOT",
-    "TOTUSJZ",
-    "ABSNJZH",
-    "SAVNCPP",
     "USFLUX",
-    "AREA_ACR",
-    "MEANPOT",
+    "TOTUSJZ",
     "R_VALUE",
+    "TOTPOT",
+    "AREA_ACR",
+    "SAVNCPP",
+    "ABSNJZH",
+    "MEANPOT",
     "SHRGT45",
-    "EPSZ",
-    "TOTBSQ",
-    "TOTFZ",
-    "TOTABSTWIST"
 ]
 
-score_names = [
-    "TSS",
-    "MAC",
-    "SSW",
-    "CSW",
-]
+# SINHA_PARAMETERS = [
+#     "TOTUSJH",
+#     "TOTPOT",
+#     "TOTUSJZ",
+#     "ABSNJZH",
+#     "SAVNCPP",
+#     "USFLUX",
+#     "AREA_ACR",
+#     "MEANPOT",
+#     "R_VALUE",
+#     "SHRGT45",
+#     "EPSZ",
+#     "TOTBSQ",
+#     "TOTFZ",
+#     "TOTABSTWIST"
+# ]
 
 names = [
-# "LR",
+"LR",
 "SVM",
-]
-
-classifiers = [
-# LogisticRegression(),
-SVC(),
 ]
 
 lr_params = {
@@ -76,16 +64,12 @@ lr_params = {
 }
 
 svm_params = {
-    "kernel": ["sigmoid"],
-    "C": [10**e for e in range(-1, 3)],
-    "gamma": [10**e for e in range(-3, 2)],
+    "kernel": ["sigmoid", "rbf", "poly"],
+    "C": [10**e for e in range(-4, 3)],
+    "gamma": [10**e for e in range(-5, 2)],
     "tol": [10**e for e in range(-5, -2)],
     "coef0": [-1, 0, 1]
 }
-
-
-max_scores_dict = {name: {score: 0 for score in score_names} for name in names}
-random_states_dict = {name: {score: 0 for score in score_names} for name in names}
 
 # ------------------------------------------------------------------------
 # Place any results in the directory for the current experiment.
@@ -125,12 +109,26 @@ def get_csw(y_true, y_pred):
     return csw
 
 
-def figure_5_classification(sinha_df, dataset_count=20):
-    flares_df = sinha_df
-    # with open(f"{other_directory}lr_sinha_scores.csv", "w") as fp:
-    #     fp.write("TSS_mean,TSS_std,SSW_mean,SSW_std,solver,penalty,C,dual,l1_ratio,tol,\n")
-    # with open(f"{other_directory}svm_sinha_scores.csv", "w") as fp:
-    #     fp.write("TSS_mean,TSS_std,SSW_mean,SSW_std,kernel,C,gamma,degree,coef0,tol,\n")
+score_names = [
+    "TSS",
+    "MAC",
+    "SSW",
+    "CSW",
+]
+
+score_functions = [
+    get_tss,
+    get_mac,
+    get_ssw,
+    get_csw
+]
+
+def figure_5_classification(df, dataset_count=20):
+    flares_df = df
+    with open(f"{other_directory}lr_singh_noncoincident_scores.csv", "w") as fp:
+        fp.write("TSS_mean,TSS_std,SSW_mean,SSW_std,solver,penalty,C,dual,l1_ratio,tol,\n")
+    with open(f"{other_directory}svm_singh_noncoincident_scores.csv", "w") as fp:
+        fp.write("TSS_mean,TSS_std,SSW_mean,SSW_std,kernel,C,gamma,degree,coef0,tol,\n")
 
 
     def train_test_clf(classifier, classifier_name, params):
@@ -141,11 +139,11 @@ def figure_5_classification(sinha_df, dataset_count=20):
         classifier.set_params(**params)
         print(f"{classifier_name} : {params}")
         for train_index in range(dataset_count):
-            print(f"{train_index}/{dataset_count}")
+            # print(f"{train_index}/{dataset_count}")
             train_df, test_df = train_test_split(flares_df, test_size=0.2,
                                                  stratify=flares_df["AR_class"],
                                                  random_state=100 + train_index)
-            for col in train_df.columns:
+            for col in SINHA_PARAMETERS:
                 if col == "AR_class":
                     continue
                 mean = train_df[col].mean()
@@ -160,7 +158,7 @@ def figure_5_classification(sinha_df, dataset_count=20):
             tss_scores.append(tss_scorer(classifier, X_test, y_test))
             ssw_scores.append(ssw_scorer(classifier, X_test, y_test))
 
-        with open(f"{other_directory}{classifier_name.lower()}_sinha_scores.csv", "a") as fp:
+        with open(f"{other_directory}{classifier_name.lower()}_singh_noncoincident_scores.csv", "a") as fp:
             if classifier_name in "LR":
                 fp.write(f"{np.mean(tss_scores)},"
                          f"{np.std(tss_scores)},"
@@ -185,7 +183,7 @@ def figure_5_classification(sinha_df, dataset_count=20):
                          f"{params['tol']},\n")
 
 
-
+    classifiers = None
     for clf, name in zip(classifiers, names):
         if name in "LR":
             for solver in lr_params["solver"]:
@@ -227,46 +225,131 @@ def figure_5_classification(sinha_df, dataset_count=20):
                                 train_test_clf(clf, name, d)
 
 
+def loo_classification(flare_df, label):
+    names = [
+        "LR",
+        "SVM",
+    ]
 
+    score_names = [
+        "TSS",
+        "MAC",
+        "SSW",
+        "CSW",
+    ]
 
-def plot_figure_5():
-    d = None
+    # with open(f"{other_directory}lr_svm_loo_classification.txt", "w") as fp:
+    #     fp.write("classifier,dataset,TSS,MAC,SSW,CSW,\n")
 
-    import json
-    with open(f"{other_directory}sinha_score_loo.txt", "r") as fp:
-        d = json.load(fp)
-        df = pd.DataFrame(columns=["name", "score", "performance", "error"])
+    if label == "singh":
+        params = [
+            "TOTUSJH",
+            "USFLUX",
+            "TOTUSJZ",
+            "R_VALUE",
+            "TOTPOT",
+            "AREA_ACR",
+            "SAVNCPP",
+            "ABSNJZH",
+            "MEANPOT",
+            "SHRGT45",
+        ]
+    else:
+        params = [
+            "TOTUSJH",
+            "TOTPOT",
+            "TOTUSJZ",
+            "ABSNJZH",
+            "SAVNCPP",
+            "USFLUX",
+            "AREA_ACR",
+            "MEANPOT",
+            "R_VALUE",
+            "SHRGT45",
+            "EPSZ",
+            "TOTBSQ",
+            "TOTFZ",
+            "TOTABSTWIST"
+        ]
 
-        for name in names:
-            for score in ["TSS", "MAC", "SSW", "CSW"]:
-                df.loc[df.shape[0]] = [
-                    name,
-                    score,
-                    np.mean(d[name][score]),
-                    np.std(d[name][score])
+    def classify(df, label, classifiers2):
+        for clf, name in zip(classifiers2, names):
+            X = df[params]
+            y = df["AR_class"].values
+            loo = LeaveOneOut()
+            loo.get_n_splits(X)
+            y_true, y_pred = [], []
+            for index, (train_index, test_index) in enumerate(loo.split(X)):
+                print(f"{name} {label} {index}/{len(X)}")
+                X_train, X_test = X.iloc[train_index], X.iloc[test_index]
+                y_train, y_test = y[train_index], y[test_index]
+
+                for col in params:
+                    if col == "AR_class":
+                        continue
+                    mean = X_train[col].mean()
+                    std = X_train[col].std()
+                    X_test[col] = (X_test[col] - mean) / std
+                    X_train[col] = (X_train[col] - mean) / std
+
+                clf.fit(X_train, y_train)
+                y_pred.append(clf.predict(X_test)[0])
+                y_true.append(y_test[0])
+            with open(f"{other_directory}lr_svm_loo_classification.txt", "a") as fp:
+                fp.write(f"{name},{label},")
+                print(y_true, y_pred)
+                for score, score_fn in zip(score_names, score_functions):
+                    fp.write(f"{score_fn(y_true, y_pred)},")
+                fp.write("\n")
+
+    if label == "singh":
+        for coincidence in ["all", "coincident", "noncoincident"]:
+            if coincidence == "coincident":
+                df = flare_df.loc[flare_df["COINCIDENCE"] == True]
+                classifiers2 = [
+                    LogisticRegression(C=100, tol=1e-5),
+                    SVC(C=1, gamma=1, tol=1e-5),
                 ]
-        print(df)
+            elif coincidence == "noncoincident":
+                df = flare_df.loc[flare_df["COINCIDENCE"] == False]
+                classifiers2 = [
+                    LogisticRegression(solver="liblinear", C=1e-5, tol=1e-5),
+                    SVC(C=100, gamma=0.01, tol=1e-5),
+                ]
+            else:
+                df = flare_df.copy()
+                classifiers2 = [
+                    LogisticRegression(solver="liblinear", C=100, tol=1e-5),
+                    SVC(C=100, gamma=10, tol=1e-5),
+                ]
+            classify(df, coincidence, classifiers2)
+    else:
 
-
-        ax = sns.barplot(data=df, x="name", y="performance", hue="score")
-        plt.legend(bbox_to_anchor=(1.05, 1.0), loc='upper left')
-        plt.title(f"Leave One Out Testing")
-        x_coords = [p.get_x() + 0.5 * p.get_width() for p in ax.patches]
-        y_coords = [p.get_height() for p in ax.patches]
-        ax.errorbar(x=x_coords, y=y_coords, yerr=df["error"], fmt="none", c="k")
-        ax.set_ylim(bottom=0.8, top=1.0)
-        plt.tight_layout()
-        plt.savefig(f"{figure_directory}sinha_classification_performance_loo.png")
-        plt.show()
-        plt.clf()
-
+        classifiers2 = [
+            LogisticRegression(solver="liblinear", C=100, tol=1e-5, dual=True),
+            SVC(kernel="sigmoid", C=0.001, gamma=0.1, coef0=1, tol=1e-5),
+        ]
+        df = flare_df
+        classify(df, "sinha", classifiers2)
 
 
 def main() -> None:
     sinha_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}sinha_dataset.csv")
     sinha_df.index.names = ["index"]
     singh_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbmx_data.csv", index_col="index")
-    figure_5_classification(sinha_df)
+
+    # classes = ["N", "A", "B", "M", "X"]
+    # for coin in [True, False]:
+    #     df = singh_df.loc[singh_df["COINCIDENCE"] == coin]
+    #     for c in classes:
+    #         class_df = df.loc[df["xray_class"] == c]
+    #         print(class_df.shape[0], end=" ")
+    #     print()
+    # for c in classes:
+    #     class_df = singh_df.loc[singh_df["xray_class"] == c]
+    #     print(class_df.shape[0], end=" ")
+
+    loo_classification(singh_df, "singh")
 
 if __name__ == "__main__":
     main()

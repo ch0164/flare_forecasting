@@ -20,35 +20,35 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 experiment = "sinha_study"
 experiment_caption = experiment.title().replace("_", " ")
 
-# SINHA_PARAMETERS = [
-#     "TOTUSJH",
-#     "USFLUX",
-#     "TOTUSJZ",
-#     "R_VALUE",
-#     "TOTPOT",
-#     "AREA_ACR",
-#     "SAVNCPP",
-#     "ABSNJZH",
-#     "MEANPOT",
-#     "SHRGT45",
-# ]
-
 SINHA_PARAMETERS = [
     "TOTUSJH",
-    "TOTPOT",
-    "TOTUSJZ",
-    "ABSNJZH",
-    "SAVNCPP",
     "USFLUX",
-    "AREA_ACR",
-    "MEANPOT",
+    "TOTUSJZ",
     "R_VALUE",
+    "TOTPOT",
+    "AREA_ACR",
+    "SAVNCPP",
+    "ABSNJZH",
+    "MEANPOT",
     "SHRGT45",
-    "EPSZ",
-    "TOTBSQ",
-    "TOTFZ",
-    "TOTABSTWIST"
 ]
+
+# SINHA_PARAMETERS = [
+#     "TOTUSJH",
+#     "TOTPOT",
+#     "TOTUSJZ",
+#     "ABSNJZH",
+#     "SAVNCPP",
+#     "USFLUX",
+#     "AREA_ACR",
+#     "MEANPOT",
+#     "R_VALUE",
+#     "SHRGT45",
+#     "EPSZ",
+#     "TOTBSQ",
+#     "TOTFZ",
+#     "TOTABSTWIST"
+# ]
 
 score_names = [
     "TSS",
@@ -147,22 +147,29 @@ def get_csw(y_true, y_pred):
 def table_1_anova(sinha_df, singh_df):
         flare_df = singh_df
         label = "singh"
-        flare_df = flare_df.loc[flare_df["xray_class"] != "N"]
-        params = SINHA_PARAMETERS
-        # X = flare_df.drop("AR_class", axis=1)
-        X = flare_df[params]
-        params = X.columns
-        y = flare_df["AR_class"]
+        for coincidence in ["all", "coincident", "noncoincident"]:
+            if coincidence == "coincident":
+                df = flare_df.loc[flare_df["COINCIDENCE"] == True]
+            elif coincidence == "noncoincident":
+                df = flare_df.loc[flare_df["COINCIDENCE"] == False]
+            else:
+                df = flare_df.copy()
+            flare_df = flare_df.loc[flare_df["xray_class"] != "N"]
+            params = SINHA_PARAMETERS
+            # X = flare_df.drop("AR_class", axis=1)
+            X = df[params]
+            params = X.columns
+            y = df["AR_class"]
 
-        f = pd.DataFrame(f_classif(X, y), columns=params).iloc[0]
-        f = f.values.reshape(-1, 1)
+            f = pd.DataFrame(f_classif(X, y), columns=params).iloc[0]
+            f = f.values.reshape(-1, 1)
 
-        f_n = MinMaxScaler().fit_transform(f).ravel()
-        f_n = pd.Series(f_n, index=params).sort_values(ascending=False)
-        f = pd.Series(f.ravel(), index=params).sort_values(ascending=False)
-        f_df = pd.DataFrame({"f_score": f, "f_score_norm": f_n}).rename_axis("parameter")
-        f_df.to_csv(f"{other_directory}anova/{label}_anova_no_n.csv")
-        print(f_df)
+            f_n = MinMaxScaler().fit_transform(f).ravel()
+            f_n = pd.Series(f_n, index=params).sort_values(ascending=False)
+            f = pd.Series(f.ravel(), index=params).sort_values(ascending=False)
+            f_df = pd.DataFrame({"f_score": f, "f_score_norm": f_n}).rename_axis("parameter")
+            f_df.to_csv(f"{other_directory}anova/{label}_anova_{coincidence}.csv")
+            print(f_df)
 
 
 def get_datasets_figure_3(sinha_df, singh_df, dataset_count=20):
@@ -428,7 +435,8 @@ def main() -> None:
     sinha_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}sinha_dataset.csv")
     sinha_df.index.names = ["index"]
     singh_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbmx_data.csv", index_col="index")
-    # table_1_anova(sinha_df, singh_df)
+    table_1_anova(sinha_df, singh_df)
+    exit(1)
     # get_datasets_figure_3(sinha_df, singh_df)
     # figure_5_classification(sinha_df, singh_df)
     plot_figure_5()
