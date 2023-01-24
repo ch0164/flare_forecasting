@@ -30,6 +30,8 @@ def classify_flare(magnitude: str, combine: bool = False) -> str:
         Converts magnitude of a flare to a single letter
         for use in classification.
     """
+    if "A" in magnitude:
+        return "A"
     if "B" in magnitude:
         return "B"
     elif "C" in magnitude:
@@ -136,9 +138,6 @@ def get_dataframe(filename: str) -> pd.DataFrame():
 
 def filter_data(df: pd.DataFrame(),
                 nar: int,
-                time_range_lo: pd.Timestamp = None,
-                time_range_hi: pd.Timestamp = None,
-                timepoint: pd.Timestamp = None,
                 filter_multiple_ars: bool = True) -> pd.DataFrame():
     """
     Args:
@@ -157,15 +156,9 @@ def filter_data(df: pd.DataFrame(),
                    (abs(0.5 * (df["LONMIN"] + df["LONMAX"])) <= 60) & \
                    (abs(0.5 * (df["LATMIN"] + df["LATMAX"])) <= 60)
 
-    if timepoint is not None:
-        is_good_data &= (df["T_REC"] == timepoint)
-    else:
-        is_good_data &= (df["T_REC"] <= time_range_hi) & \
-                        (df["T_REC"] >= time_range_lo)
-
     # If the flare has multiple ARs, ignore them.
     if filter_multiple_ars:
-        is_good_data &= ~df["ARs"].str.contains(",")
+        is_good_data &= ~df["NOAA_ARS"].str.contains(",")
 
     return df.where(is_good_data).dropna()
 

@@ -1,0 +1,11 @@
+LDA Confusion Matrix
+[[212   6]
+ [ 14 230]]
+              precision    recall  f1-score   support
+
+           0       0.94      0.97      0.95       218
+           1       0.97      0.94      0.96       244
+
+    accuracy                           0.96       462
+   macro avg       0.96      0.96      0.96       462
+weighted avg       0.96      0.96      0.96       462

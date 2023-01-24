@@ -264,6 +264,49 @@ def peak_years_testing():
                 fp.write("\n")
 
 
+def first_coin_flare_and_other_ars():
+    with open(f"{metrics_directory}first_coincident_in_one_ar_and_other_coincident_in_other_ars_bmx_flare_loo_classification.csv", "w") as fp:
+        fp.write("classifier,TSS,MAC,SSW,CSW,\n")
+
+    for clf, name in zip(classifiers, names):
+        y_true, y_pred = [], []
+        for index, row in first_coin_df.iterrows():
+            print(f"{name} {index}/{len(first_coin_df)}")
+            time_start = row["time_start"]
+            nar = row["nar"]
+            train_df = coincidence_df.loc[coincidence_df["nar"] != nar]
+            test_df = coincidence_df.loc[(coincidence_df["nar"] == nar) & (coincidence_df["time_start"] != time_start)]
+            if test_df.empty:
+                continue
+
+
+            train_X = train_df[params]
+            train_y = train_df["AR_class"].values
+            test_X = test_df[params]
+            test_y = test_df["AR_class"].values
+
+            for col in params:
+                mean = train_X[col].mean()
+                std = train_X[col].std()
+                test_X[col] = (test_X[col] - mean) / std
+                train_X[col] = (train_X[col] - mean) / std
+
+            clf.fit(train_X, train_y)
+            y_pred += list(clf.predict(test_X))
+            y_true += list(test_y)
+
+            with open(f"{other_directory}{name}_first_coincident_in_one_ar_and_other_coincident_in_other_ars_bmx_flare_loo_classification_confusion_matrix.txt", "w") as fp:
+                fp.write(f"{name} Confusion Matrix\n")
+                fp.write(str(confusion_matrix(y_true, y_pred)) + "\n")
+                fp.write(str(classification_report(y_true, y_pred)))
+
+        with open(f"{metrics_directory}first_coincident_in_one_ar_and_other_coincident_in_other_ars_bmx_flare_loo_classification.csv", "a") as fp:
+            fp.write(f"{name},")
+            for score, score_fn in zip(score_names, score_functions):
+                fp.write(f"{score_fn(y_true, y_pred)},")
+            fp.write("\n")
+
+
 def main() -> None:
     # Disable Warnings
     warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -278,7 +321,9 @@ def main() -> None:
     # index = coincidence_df["nar"].value_counts().reset_index(name="count").query("count >= 2")["index"]
     # print(index)
 
-    print(coincidence_df.groupby("nar").head(1).shape[0])
+    # print(coincidence_df.groupby("nar").head(1).shape[0])
+
+    first_coin_flare_and_other_ars()
 
     # print()
     # print(df.groupby('nar').head(2))

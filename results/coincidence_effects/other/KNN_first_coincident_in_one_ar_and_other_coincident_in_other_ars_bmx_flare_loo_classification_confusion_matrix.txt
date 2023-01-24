@@ -1,0 +1,11 @@
+KNN Confusion Matrix
+[[210   8]
+ [  6 238]]
+              precision    recall  f1-score   support
+
+           0       0.97      0.96      0.97       218
+           1       0.97      0.98      0.97       244
+
+    accuracy                           0.97       462
+   macro avg       0.97      0.97      0.97       462
+weighted avg       0.97      0.97      0.97       462
