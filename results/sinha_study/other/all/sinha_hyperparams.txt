@@ -11,6 +11,17 @@ values counts
 Name: LR, dtype: int64
 
 values counts
+120    5
+10     3
+230    2
+340    1
+450    1
+670    1
+890    1
+1000   2
+Name: RFC, dtype: int64
+
+values counts
 [100, 10]    18
 [10, 10]      2
 Name: SVM, dtype: int64

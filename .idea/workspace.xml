@@ -1,25 +1,820 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b96d273d-abd9-45da-9424-fb1b6c4cc8cf" name="Changes" comment="More LOO, coincidence stuff, and goodness of fit idealized flares">
-      <change afterPath="$PROJECT_DIR$/flare_list/nbcmx_list.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_idealized_flares_old.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_idealized_flares_old2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/b_ks_test.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/c_ks_test.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/m_ks_test.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/n_ks_test.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/x_ks_test.txt" afterDir="false" />
+    <list default="true" id="b96d273d-abd9-45da-9424-fb1b6c4cc8cf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/flare_data/singh_nbcmx_data.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_list/singh_nbcmx_info.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification_comparison/figures/b_mx_comparison.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification_comparison/figures/bc_mx_comparison.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification_comparison/metrics/0h_24h_b_mx_true_skill_score_summary.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification_comparison/metrics/0h_24h_bc_mx_true_skill_score_summary.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification_comparison/metrics/b_mx_classification_comparison.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification_comparison/metrics/bc_mx_classification_comparison.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/classification_comparison/metrics/sinha_score_loo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/coincidence_effects/metrics/first_coincident_in_one_ar_and_other_coincident_in_other_ars_bmx_flare_loo_classification_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/coincidence_effects/metrics/train_on_first_coincident_test_on_second_coincident_bmx.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/coincidence_effects/metrics/train_on_second_coincident_test_on_first_coincident_bmx.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/coincidence_effects/other/KNNfirst_coincident_in_one_ar_and_other_coincident_in_other_ars_bmx_flare_loo_classification_new.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/coincidence_effects/other/LDAfirst_coincident_in_one_ar_and_other_coincident_in_other_ars_bmx_flare_loo_classification_new.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/coincidence_effects/other/LRfirst_coincident_in_one_ar_and_other_coincident_in_other_ars_bmx_flare_loo_classification_new.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/coincidence_effects/other/RFCfirst_coincident_in_one_ar_and_other_coincident_in_other_ars_bmx_flare_loo_classification_new.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/coincidence_effects/other/SVMfirst_coincident_in_one_ar_and_other_coincident_in_other_ars_bmx_flare_loo_classification_new.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/coincidence_effects/other/knn_train_on_first_coincident_test_on_second_coincident_bmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/coincidence_effects/other/knntrain_on_second_coincident_test_on_first_coincident_bmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/coincidence_effects/other/lda_train_on_first_coincident_test_on_second_coincident_bmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/coincidence_effects/other/ldatrain_on_second_coincident_test_on_first_coincident_bmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/coincidence_effects/other/lr_train_on_first_coincident_test_on_second_coincident_bmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/coincidence_effects/other/lrtrain_on_second_coincident_test_on_first_coincident_bmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/coincidence_effects/other/rfc_train_on_first_coincident_test_on_second_coincident_bmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/coincidence_effects/other/rfctrain_on_second_coincident_test_on_first_coincident_bmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/coincidence_effects/other/svm_train_on_first_coincident_test_on_second_coincident_bmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/coincidence_effects/other/svmtrain_on_second_coincident_test_on_first_coincident_bmx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/figures/bidirectional_lstm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/figures/bidirectional_lstm_tss_loss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/figures/five_layer_lstm_tss_loss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/figures/odcnn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/figures/odcnn_no_batch_normalization_sigmoid_tss_loss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/figures/odcnn_sigmoid_tss_loss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/figures/one_layer_ltsm_tss_loss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/figures/resnet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/figures/resnet_2_epochs_tss_loss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/figures/resnet_tss_loss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/figures/three_layer_ltsm_tss_loss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/figures/three_layer_nn2_tss_loss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/bidirectional_lstm/fingerprint.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/bidirectional_lstm/history.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/bidirectional_lstm/keras_metadata.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/bidirectional_lstm/saved_model.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/bidirectional_lstm/variables/variables.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/bidirectional_lstm/variables/variables.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/flare_test_labels.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/flare_test_normalized.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/flare_train_labels.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/flare_train_normalized.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/flare_validation_labels.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/flare_validation_normalized.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/odcnn/fingerprint.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/odcnn/history.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/odcnn/keras_metadata.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/odcnn/saved_model.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/odcnn/variables/variables.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/odcnn/variables/variables.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/odcnn_no_batch_normalization_sigmoid/fingerprint.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/odcnn_no_batch_normalization_sigmoid/history.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/odcnn_no_batch_normalization_sigmoid/keras_metadata.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/odcnn_no_batch_normalization_sigmoid/saved_model.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/odcnn_no_batch_normalization_sigmoid/variables/variables.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/odcnn_no_batch_normalization_sigmoid/variables/variables.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/odcnn_sigmoid/fingerprint.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/odcnn_sigmoid/history.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/odcnn_sigmoid/keras_metadata.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/odcnn_sigmoid/saved_model.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/odcnn_sigmoid/variables/variables.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/odcnn_sigmoid/variables/variables.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/one_layer_ltsm.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/one_layer_ltsm/fingerprint.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/one_layer_ltsm/history.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/one_layer_ltsm/keras_metadata.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/one_layer_ltsm/saved_model.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/one_layer_ltsm/variables/variables.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/one_layer_ltsm/variables/variables.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/one_layer_nn2/fingerprint.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/one_layer_nn2/history.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/one_layer_nn2/keras_metadata.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/one_layer_nn2/saved_model.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/one_layer_nn2/variables/variables.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/one_layer_nn2/variables/variables.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/resnet/fingerprint.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/resnet/history.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/resnet/keras_metadata.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/resnet/saved_model.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/resnet/variables/variables.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/resnet/variables/variables.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/resnet_2_epochs/fingerprint.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/resnet_2_epochs/history.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/resnet_2_epochs/keras_metadata.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/resnet_2_epochs/saved_model.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/resnet_2_epochs/variables/variables.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/resnet_2_epochs/variables/variables.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/three_layer_ltsm.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/three_layer_ltsm/fingerprint.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/three_layer_ltsm/history.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/three_layer_ltsm/keras_metadata.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/three_layer_ltsm/saved_model.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/three_layer_ltsm/variables/variables.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/three_layer_ltsm/variables/variables.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/three_layer_nn2/fingerprint.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/three_layer_nn2/history.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/three_layer_nn2/keras_metadata.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/three_layer_nn2/saved_model.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/three_layer_nn2/variables/variables.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/neural_network/other/three_layer_nn2/variables/variables.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/knn_all_hyperparameters.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/lr_all_hyperparameters.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/rfc_all_hyperparameters.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/singh_correlation_coincident_plot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/singh_correlation_noncoincident_plot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/singh_correlation_plot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/sinha_correlation_plot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/sinha_full_correlation_plot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/svm_all_hyperparameters.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/swan_sf_mvts/other/parition1_abt.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/swan_sf_mvts/other/parition1_r_values.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/swan_sf_mvts/other/parition1_r_values_and_totusjz.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/swan_sf_mvts/other/parition1_r_values_and_totusjz_mean.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/swan_sf_mvts/other/parition1_r_values_mean.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/swan_sf_mvts/other/parition1_r_values_totusjz_totusjh.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/swan_sf_mvts/other/parition1_r_values_totusjz_totusjh_mean.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/swan_sf_mvts/other/parition2_r_values.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/swan_sf_mvts/other/parition2_r_values_and_totusjz.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/swan_sf_mvts/other/parition2_r_values_and_totusjz_mean.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/swan_sf_mvts/other/parition2_r_values_mean.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/swan_sf_mvts/other/parition2_r_values_totusjz_totusjh.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/swan_sf_mvts/other/parition2_r_values_totusjz_totusjh_mean.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/all_parallel_coordinates.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/b_r_value_individual_flares.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/c_r_value_individual_flares.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/classification/coincidence/all results.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/classification/coincidence/coincident results.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/classification/coincidence/noncoincident results.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/classification/time_series/0-12h Time-series results.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/classification/time_series/13-24h Time-series results.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/classification/time_series/24h Mean results.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/classification/time_series/24h Time-series results.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/classification/time_series/6h-18h Time-series results.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/coincident_parallel_coordinates.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/m_r_value_individual_flares.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/n_r_value_individual_flares.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/noncoincident_parallel_coordinates.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/pairs_and_triples/top_five_pairs_on_0-12h Time-series.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/pairs_and_triples/top_five_pairs_on_13-24h Time-series.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/pairs_and_triples/top_five_pairs_on_24h Time-series.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/pairs_and_triples/top_five_pairs_on_6h-18h Time-series.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/pairs_and_triples/top_five_triples_on_0-12h Time-series.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/pairs_and_triples/top_five_triples_on_13-24h Time-series.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/pairs_and_triples/top_five_triples_on_24h Time-series.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/pairs_and_triples/top_five_triples_on_6h-18h Time-series.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/0-12h Time-series_KNN_pairs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/0-12h Time-series_KNN_singles.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/0-12h Time-series_KNN_triples.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/0-12h Time-series_RFC_pairs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/0-12h Time-series_RFC_singles.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/0-12h Time-series_RFC_triples.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/0-12h Time-series_SVM_pairs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/0-12h Time-series_SVM_singles.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/0-12h Time-series_SVM_triples.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/13-24h Time-series_KNN_pairs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/13-24h Time-series_KNN_singles.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/13-24h Time-series_KNN_triples.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/13-24h Time-series_RFC_pairs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/13-24h Time-series_RFC_singles.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/13-24h Time-series_RFC_triples.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/13-24h Time-series_SVM_pairs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/13-24h Time-series_SVM_singles.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/13-24h Time-series_SVM_triples.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/24h Time-series_KNN_pairs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/24h Time-series_KNN_singles.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/24h Time-series_KNN_triples.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/24h Time-series_RFC_pairs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/24h Time-series_RFC_singles.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/24h Time-series_RFC_triples.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/24h Time-series_SVM_pairs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/24h Time-series_SVM_singles.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/24h Time-series_SVM_triples.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/6h-18h Time-series_KNN_pairs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/6h-18h Time-series_KNN_singles.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/6h-18h Time-series_KNN_triples.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/6h-18h Time-series_RFC_pairs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/6h-18h Time-series_RFC_singles.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/6h-18h Time-series_RFC_triples.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/6h-18h Time-series_SVM_pairs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/6h-18h Time-series_SVM_singles.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/top_params/6h-18h Time-series_SVM_triples.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/x_absnjzh_individual_flares.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/x_r_value_individual_flares.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/classification/all_best_parameters.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/classification/all_params_coincidence.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/classification/all_params_singles.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/classification/all_params_triples.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/classification/coincident_best_parameters.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/classification/noncoincident_best_parameters.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/classification/r_value_coincidence.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/classification/r_value_coincidence_no_c.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/classification/selected_quads_totusjh_totusjz_savncpp.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/classification/selected_quintuples_totusjh_totusjz_savncpp.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/absnjzh.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/area_acr.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/d_l_f.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/g_s.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/meangam.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/meangbh.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/meangbt.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/meangbz.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/meanjzd.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/meanjzh.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/meanpot.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/meanshr.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_area_acr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_area_acr_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_d_l_f_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_g_s_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_meangam.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_meangam_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_meangbh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_meangbh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_meangbt.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_meangbt_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_meangbz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_meangbz_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_meanjzd.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_meanjzd_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_meanjzh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_meanjzh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_meanpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_meanpot_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_meanshr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_meanshr_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_r_value.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_r_value_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_savncpp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_savncpp_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_shrgt45_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_slf_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_totpot_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_totusjh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_totusjz_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/absnjzh_vs_usflux_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_d_l_f_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_g_s_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_meangam.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_meangam_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_meangbh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_meangbh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_meangbt.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_meangbt_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_meangbz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_meangbz_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_meanjzd.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_meanjzd_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_meanjzh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_meanjzh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_meanpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_meanpot_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_meanshr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_meanshr_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_r_value.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_r_value_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_savncpp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_savncpp_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_shrgt45_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_slf_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_totpot_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_totusjh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_totusjz_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/area_acr_vs_usflux_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/d_l_f_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/d_l_f_vs_g_s_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/d_l_f_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/d_l_f_vs_slf_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/g_s_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/g_s_vs_slf_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_d_l_f_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_g_s_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_meangbh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_meangbh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_meangbt.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_meangbt_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_meangbz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_meangbz_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_meanjzd.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_meanjzd_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_meanjzh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_meanjzh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_meanpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_meanpot_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_meanshr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_meanshr_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_r_value.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_r_value_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_savncpp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_savncpp_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_shrgt45_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_slf_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_totpot_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_totusjh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_totusjz_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangam_vs_usflux_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_d_l_f_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_g_s_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_meangbt.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_meangbt_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_meangbz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_meangbz_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_meanjzd.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_meanjzd_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_meanjzh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_meanjzh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_meanpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_meanpot_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_meanshr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_meanshr_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_r_value.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_r_value_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_savncpp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_savncpp_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_shrgt45_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_slf_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_totpot_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_totusjh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_totusjz_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbh_vs_usflux_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_d_l_f_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_g_s_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_meangbz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_meangbz_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_meanjzd.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_meanjzd_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_meanjzh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_meanjzh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_meanpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_meanpot_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_meanshr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_meanshr_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_r_value.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_r_value_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_savncpp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_savncpp_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_shrgt45_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_slf_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_totpot_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_totusjh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_totusjz_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbt_vs_usflux_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_d_l_f_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_g_s_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_meanjzd.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_meanjzd_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_meanjzh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_meanjzh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_meanpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_meanpot_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_meanshr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_meanshr_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_r_value.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_r_value_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_savncpp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_savncpp_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_shrgt45_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_slf_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_totpot_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_totusjh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_totusjz_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meangbz_vs_usflux_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_d_l_f_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_g_s_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_meanjzh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_meanjzh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_meanpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_meanpot_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_meanshr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_meanshr_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_r_value.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_r_value_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_savncpp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_savncpp_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_shrgt45_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_slf_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_totpot_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_totusjh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_totusjz_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzd_vs_usflux_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_d_l_f_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_g_s_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_meanpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_meanpot_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_meanshr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_meanshr_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_r_value.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_r_value_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_savncpp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_savncpp_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_shrgt45_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_slf_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_totpot_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_totusjh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_totusjz_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanjzh_vs_usflux_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanpot_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanpot_vs_d_l_f_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanpot_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanpot_vs_g_s_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanpot_vs_meanshr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanpot_vs_meanshr_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanpot_vs_r_value.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanpot_vs_r_value_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanpot_vs_savncpp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanpot_vs_savncpp_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanpot_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanpot_vs_shrgt45_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanpot_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanpot_vs_slf_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanpot_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanpot_vs_totpot_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanpot_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanpot_vs_totusjh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanpot_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanpot_vs_totusjz_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanpot_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanpot_vs_usflux_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanshr_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanshr_vs_d_l_f_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanshr_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanshr_vs_g_s_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanshr_vs_r_value.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanshr_vs_r_value_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanshr_vs_savncpp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanshr_vs_savncpp_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanshr_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanshr_vs_shrgt45_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanshr_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanshr_vs_slf_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanshr_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanshr_vs_totpot_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanshr_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanshr_vs_totusjh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanshr_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanshr_vs_totusjz_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanshr_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/meanshr_vs_usflux_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/r_value_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/r_value_vs_d_l_f_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/r_value_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/r_value_vs_g_s_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/r_value_vs_savncpp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/r_value_vs_savncpp_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/r_value_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/r_value_vs_shrgt45_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/r_value_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/r_value_vs_slf_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/r_value_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/r_value_vs_totpot_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/r_value_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/r_value_vs_totusjh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/r_value_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/r_value_vs_totusjz_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/r_value_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/r_value_vs_usflux_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/savncpp_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/savncpp_vs_d_l_f_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/savncpp_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/savncpp_vs_g_s_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/savncpp_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/savncpp_vs_shrgt45_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/savncpp_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/savncpp_vs_slf_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/savncpp_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/savncpp_vs_totpot_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/savncpp_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/savncpp_vs_totusjh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/savncpp_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/savncpp_vs_totusjz_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/savncpp_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/savncpp_vs_usflux_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/shrgt45_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/shrgt45_vs_d_l_f_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/shrgt45_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/shrgt45_vs_g_s_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/shrgt45_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/shrgt45_vs_slf_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/shrgt45_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/shrgt45_vs_totpot_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/shrgt45_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/shrgt45_vs_totusjh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/shrgt45_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/shrgt45_vs_totusjz_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/shrgt45_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/shrgt45_vs_usflux_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totpot_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totpot_vs_d_l_f_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totpot_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totpot_vs_g_s_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totpot_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totpot_vs_slf_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totpot_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totpot_vs_totusjh_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totpot_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totpot_vs_totusjz_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totpot_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totpot_vs_usflux_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totusjh_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totusjh_vs_d_l_f_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totusjh_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totusjh_vs_g_s_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totusjh_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totusjh_vs_slf_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totusjh_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totusjh_vs_totusjz_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totusjh_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totusjh_vs_usflux_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totusjz_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totusjz_vs_d_l_f_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totusjz_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totusjz_vs_g_s_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totusjz_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totusjz_vs_slf_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totusjz_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/totusjz_vs_usflux_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/usflux_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/usflux_vs_d_l_f_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/usflux_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/usflux_vs_g_s_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/usflux_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/idealized_flares/usflux_vs_slf_raw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/absnjzh_vs_area_acr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_absnjzh_vs_area_acr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_absnjzh_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_absnjzh_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_absnjzh_vs_meangam.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_absnjzh_vs_meangbh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_absnjzh_vs_meangbt.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_absnjzh_vs_meangbz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_absnjzh_vs_meanjzd.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_absnjzh_vs_meanjzh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_absnjzh_vs_meanpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_absnjzh_vs_meanshr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_absnjzh_vs_r_value.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_absnjzh_vs_savncpp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_absnjzh_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_absnjzh_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_absnjzh_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_absnjzh_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_absnjzh_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_absnjzh_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_area_acr_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_area_acr_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_area_acr_vs_meangam.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_area_acr_vs_meangbh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_area_acr_vs_meangbt.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_area_acr_vs_meangbz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_area_acr_vs_meanjzd.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_area_acr_vs_meanjzh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_area_acr_vs_meanpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_area_acr_vs_meanshr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_area_acr_vs_r_value.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_area_acr_vs_savncpp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_area_acr_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_area_acr_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_area_acr_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_area_acr_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_area_acr_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_area_acr_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_d_l_f_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_d_l_f_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_g_s_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangam_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangam_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangam_vs_meangbh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangam_vs_meangbt.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangam_vs_meangbz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangam_vs_meanjzd.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangam_vs_meanjzh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangam_vs_meanpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangam_vs_meanshr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangam_vs_r_value.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangam_vs_savncpp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangam_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangam_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangam_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangam_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangam_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangam_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbh_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbh_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbh_vs_meangbt.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbh_vs_meangbz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbh_vs_meanjzd.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbh_vs_meanjzh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbh_vs_meanpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbh_vs_meanshr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbh_vs_r_value.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbh_vs_savncpp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbh_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbh_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbh_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbh_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbh_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbh_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbt_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbt_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbt_vs_meangbz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbt_vs_meanjzd.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbt_vs_meanjzh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbt_vs_meanpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbt_vs_meanshr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbt_vs_r_value.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbt_vs_savncpp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbt_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbt_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbt_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbt_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbt_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbt_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbz_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbz_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbz_vs_meanjzd.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbz_vs_meanjzh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbz_vs_meanpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbz_vs_meanshr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbz_vs_r_value.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbz_vs_savncpp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbz_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbz_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbz_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbz_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbz_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meangbz_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzd_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzd_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzd_vs_meanjzh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzd_vs_meanpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzd_vs_meanshr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzd_vs_r_value.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzd_vs_savncpp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzd_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzd_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzd_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzd_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzd_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzd_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzh_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzh_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzh_vs_meanpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzh_vs_meanshr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzh_vs_r_value.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzh_vs_savncpp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzh_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzh_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzh_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzh_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzh_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanjzh_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanpot_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanpot_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanpot_vs_meanshr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanpot_vs_r_value.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanpot_vs_savncpp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanpot_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanpot_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanpot_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanpot_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanpot_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanpot_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanshr_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanshr_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanshr_vs_r_value.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanshr_vs_savncpp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanshr_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanshr_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanshr_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanshr_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanshr_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_meanshr_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_r_value_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_r_value_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_r_value_vs_savncpp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_r_value_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_r_value_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_r_value_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_r_value_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_r_value_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_r_value_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_savncpp_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_savncpp_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_savncpp_vs_shrgt45.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_savncpp_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_savncpp_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_savncpp_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_savncpp_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_savncpp_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_shrgt45_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_shrgt45_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_shrgt45_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_shrgt45_vs_totpot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_shrgt45_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_shrgt45_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_shrgt45_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_totpot_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_totpot_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_totpot_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_totpot_vs_totusjh.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_totpot_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_totpot_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_totusjh_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_totusjh_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_totusjh_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_totusjh_vs_totusjz.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_totusjh_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_totusjz_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_totusjz_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_totusjz_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_totusjz_vs_usflux.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_usflux_vs_d_l_f.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_usflux_vs_g_s.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/multivariate_flare_plots/individual_flares/all_usflux_vs_slf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/r_value.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/r_value_totusjz_totusjh.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/savncpp.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/shrgt45.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/slf.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/totpot.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/totusjh.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/totusjz.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/usflux.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/experiments/classification_comparison.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/experiments/dummy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/experiments/neural_network.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/experiments/neural_network2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/experiments/ribbon_plot_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/experiments/ribbon_test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/experiments/swan_sf_mvts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/experiments/swan_sf_mvts2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/experiments/time_series_goodness_of_fit2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flare_data/Data_ABC_ARs_and_errors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/flare_data/Data_ABC_ARs_and_errors.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/coincidence_effects/metrics/first_coincident_bmx_flare_loo_classification.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/coincidence_effects/metrics/first_coincident_bmx_flare_loo_classification.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_idealized_flares.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/b_idealized_flare.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/b_idealized_flare.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/c_idealized_flare.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/c_idealized_flare.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/m_idealized_flare.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/m_idealized_flare.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/n_idealized_flare.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/n_idealized_flare.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/x_idealized_flare.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/x_idealized_flare.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/other/all/sinha_hyperparams.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/other/all/sinha_hyperparams.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/other/anova/singh_anova_all.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/other/anova/singh_anova_all.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/other/anova/singh_anova_coincident.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/other/anova/singh_anova_coincident.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/other/anova/singh_anova_noncoincident.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/other/anova/singh_anova_noncoincident.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/classification/all_params_pairs.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/classification/all_params_pairs.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/classification/all_params_pairs_triples.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/classification/all_params_pairs_triples.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/experiments/coincidence_effects.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/coincidence_effects.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/experiments/sinha_singh_distribution_comparison.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/sinha_singh_distribution_comparison.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/experiments/sinha_study.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/sinha_study.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/experiments/time_series_goodness_of_fit.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/time_series_goodness_of_fit.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/utilities.py" afterDir="false" />
     </list>
@@ -65,7 +860,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="grid.search.filter.rows" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/source/experiments" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="python.debugger.dataview.autoresize" value="false" />
@@ -79,15 +874,15 @@
       <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\coincidence_effects\metrics" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\neural_network\figures" />
+      <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\time_series_goodness_of_fit\metrics\classification" />
       <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\flare_data" />
       <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\sinha_study\other" />
       <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\sinha_singh_distribution_comparison\figures" />
-      <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\agu_poster\other" />
-      <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\mx_classification\metrics\all" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.coincidence_effects">
-    <configuration name="coincidence_effects" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.time_series_goodness_of_fit2">
+    <configuration name="max_subarray" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -100,7 +895,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/coincidence_effects.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/max_subarray.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -109,7 +904,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="reverse_search" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="neural_network" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -122,7 +917,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/reverse_search.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/neural_network.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -131,7 +926,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="sinha_study" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="neural_network2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -144,29 +939,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/sinha_study.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="sinha_study_lr_svm" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="flare_forecasting" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/source/experiments" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/sinha_study_lr_svm.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/neural_network2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -197,13 +970,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="time_series_goodness_of_fit2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="flare_forecasting" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/source/experiments" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/time_series_goodness_of_fit2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.coincidence_effects" />
+        <item itemvalue="Python.time_series_goodness_of_fit2" />
         <item itemvalue="Python.time_series_goodness_of_fit" />
-        <item itemvalue="Python.sinha_study_lr_svm" />
-        <item itemvalue="Python.reverse_search" />
-        <item itemvalue="Python.sinha_study" />
+        <item itemvalue="Python.max_subarray" />
+        <item itemvalue="Python.neural_network" />
+        <item itemvalue="Python.neural_network2" />
       </list>
     </recent_temporary>
   </component>
@@ -238,6 +1033,10 @@
       <workItem from="1672769725734" duration="7830000" />
       <workItem from="1673349156669" duration="28054000" />
       <workItem from="1673967161574" duration="53024000" />
+      <workItem from="1674589082797" duration="17849000" />
+      <workItem from="1675340333519" duration="50409000" />
+      <workItem from="1676563873668" duration="16952000" />
+      <workItem from="1677160360507" duration="75902000" />
     </task>
     <task id="LOCAL-00001" summary="LDA B/MX classifier">
       <created>1662575033124</created>
@@ -428,7 +1227,21 @@
       <option name="project" value="LOCAL" />
       <updated>1674161070818</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="More LOO, coincidence stuff, and goodness of fit idealized flares">
+      <created>1674589153308</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1674589153308</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Stuff">
+      <created>1677618168954</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1677618168954</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -471,36 +1284,57 @@
     <MESSAGE value="Hyperparam stuff" />
     <MESSAGE value="New stuff with coincidence histograms and LR/SVM battery of tests" />
     <MESSAGE value="More LOO, coincidence stuff, and goodness of fit idealized flares" />
-    <option name="LAST_COMMIT_MESSAGE" value="More LOO, coincidence stuff, and goodness of fit idealized flares" />
+    <MESSAGE value="Stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stuff" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/source/experiments/swan_sf_mvts.py</url>
+          <line>48</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/flare_forecasting$plot_iterative_lda.coverage" NAME="plot_iterative_lda Coverage Results" MODIFIED="1668785620439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$dummy.coverage" NAME="dummy Coverage Results" MODIFIED="1677164635938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$tsne.coverage" NAME="tsne Coverage Results" MODIFIED="1668016318003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$sinha_study2.coverage" NAME="sinha_study2 Coverage Results" MODIFIED="1673373161565" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$max_subarray.coverage" NAME="max_subarray Coverage Results" MODIFIED="1678341184003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$coincidence.coverage" NAME="coincidence Coverage Results" MODIFIED="1665334952874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$swan_sf_mvts.coverage" NAME="swan_sf_mvts Coverage Results" MODIFIED="1675776991979" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$time_series_goodness_of_fit2.coverage" NAME="time_series_goodness_of_fit2 Coverage Results" MODIFIED="1678392701952" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$time_window_classification.coverage" NAME="time_window_classification Coverage Results" MODIFIED="1670341056675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$time_series_goodness_of_fit.coverage" NAME="time_series_goodness_of_fit Coverage Results" MODIFIED="1674584792010" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$time_series_goodness_of_fit.coverage" NAME="time_series_goodness_of_fit Coverage Results" MODIFIED="1678383588722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$plot_time_window_tss_recall.coverage" NAME="plot_time_window_tss_recall Coverage Results" MODIFIED="1665587634007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$sinha_study_lr_svm.coverage" NAME="sinha_study_lr_svm Coverage Results" MODIFIED="1673973838727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$sinha_singh_distribution_comparison.coverage" NAME="sinha_singh_distribution_comparison Coverage Results" MODIFIED="1670430248019" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$sinha_study.coverage" NAME="sinha_study Coverage Results" MODIFIED="1673549842712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$swan_sf_mvts2.coverage" NAME="swan_sf_mvts2 Coverage Results" MODIFIED="1675788002488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$sinha_singh_distribution_comparison.coverage" NAME="sinha_singh_distribution_comparison Coverage Results" MODIFIED="1678210139829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$sinha_study.coverage" NAME="sinha_study Coverage Results" MODIFIED="1676068204744" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$plot_classifier_comparison.coverage" NAME="plot_classifier_comparison Coverage Results" MODIFIED="1664176448542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$idealized_flares.coverage" NAME="idealized_flares Coverage Results" MODIFIED="1663696214789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$pearson_correlation.coverage" NAME="pearson_correlation Coverage Results" MODIFIED="1668011409546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$classification.coverage" NAME="classification Coverage Results" MODIFIED="1669829152855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$lda_classifier.coverage" NAME="lda_classifier Coverage Results" MODIFIED="1668619848216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$ribbon_plot_test.coverage" NAME="ribbon_plot_test Coverage Results" MODIFIED="1675346084624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$classification_comparison.coverage" NAME="classification_comparison Coverage Results" MODIFIED="1675967073392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$agu_poster.coverage" NAME="agu_poster Coverage Results" MODIFIED="1670437060583" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$generate_time_series_means.coverage" NAME="generate_time_series_means Coverage Results" MODIFIED="1665586166383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$correlation.coverage" NAME="correlation Coverage Results" MODIFIED="1663695704299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$mx_classification.coverage" NAME="mx_classification Coverage Results" MODIFIED="1668011988536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$reverse_search.coverage" NAME="reverse_search Coverage Results" MODIFIED="1673555519066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$coincidence_effects.coverage" NAME="coincidence_effects Coverage Results" MODIFIED="1674587087139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$neural_network.coverage" NAME="neural_network Coverage Results" MODIFIED="1678310655926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$coincidence_effects.coverage" NAME="coincidence_effects Coverage Results" MODIFIED="1675182052778" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$plot_timepoint_tss_recall.coverage" NAME="plot_timepoint_tss_recall Coverage Results" MODIFIED="1665594281059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$tabulate_classification_metrics.coverage" NAME="tabulate_classification_metrics Coverage Results" MODIFIED="1665330515344" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$multiple_ars.coverage" NAME="multiple_ars Coverage Results" MODIFIED="1665593722013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$k_means_old.coverage" NAME="k_means_old Coverage Results" MODIFIED="1667403936360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$lda_classifier2.coverage" NAME="lda_classifier2 Coverage Results" MODIFIED="1668616753380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$k_means.coverage" NAME="k_means Coverage Results" MODIFIED="1667405682616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$neural_network2.coverage" NAME="neural_network2 Coverage Results" MODIFIED="1678302195840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$analyze_ar_data.coverage" NAME="analyze_ar_data Coverage Results" MODIFIED="1662995810984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$parallel_coordinates.coverage" NAME="parallel_coordinates Coverage Results" MODIFIED="1663179893534" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
   </component>

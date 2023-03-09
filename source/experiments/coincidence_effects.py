@@ -49,6 +49,14 @@ noncoincidence_df = df.loc[df["COINCIDENCE"] == False]
 
 first_coin_df = coincidence_df.groupby('nar').head(1)
 
+second_coin_df = coincidence_df.groupby('nar').head(2)
+s = second_coin_df["nar"].value_counts()
+s = s.loc[s == 2]
+second_coin_df.drop("level_0", axis=1, inplace=True)
+df = second_coin_df.loc[
+    second_coin_df["nar"].isin(s.index.tolist())].reset_index()
+second_coin_df = df.iloc[::2, :]
+
 params = [
     "TOTUSJH",
     "USFLUX",
@@ -265,25 +273,20 @@ def peak_years_testing():
 
 
 def first_coin_flare_and_other_ars():
-    with open(f"{metrics_directory}first_coincident_in_one_ar_and_other_coincident_in_other_ars_bmx_flare_loo_classification.csv", "w") as fp:
+    with open(f"{metrics_directory}first_coincident_in_one_ar_and_other_coincident_in_other_ars_bmx_flare_loo_classification_new.csv", "w") as fp:
         fp.write("classifier,TSS,MAC,SSW,CSW,\n")
 
     for clf, name in zip(classifiers, names):
         y_true, y_pred = [], []
         for index, row in first_coin_df.iterrows():
             print(f"{name} {index}/{len(first_coin_df)}")
-            time_start = row["time_start"]
             nar = row["nar"]
             train_df = coincidence_df.loc[coincidence_df["nar"] != nar]
-            test_df = coincidence_df.loc[(coincidence_df["nar"] == nar) & (coincidence_df["time_start"] != time_start)]
-            if test_df.empty:
-                continue
-
 
             train_X = train_df[params]
             train_y = train_df["AR_class"].values
-            test_X = test_df[params]
-            test_y = test_df["AR_class"].values
+            test_X = row[params]
+            test_y = row["AR_class"]
 
             for col in params:
                 mean = train_X[col].mean()
@@ -292,15 +295,47 @@ def first_coin_flare_and_other_ars():
                 train_X[col] = (train_X[col] - mean) / std
 
             clf.fit(train_X, train_y)
-            y_pred += list(clf.predict(test_X))
-            y_true += list(test_y)
+            y_pred.append(clf.predict(test_X.values.reshape(1, -1))[0])
+            y_true.append(test_y)
 
-            with open(f"{other_directory}{name}_first_coincident_in_one_ar_and_other_coincident_in_other_ars_bmx_flare_loo_classification_confusion_matrix.txt", "w") as fp:
-                fp.write(f"{name} Confusion Matrix\n")
-                fp.write(str(confusion_matrix(y_true, y_pred)) + "\n")
-                fp.write(str(classification_report(y_true, y_pred)))
+        with open(f"{other_directory}{name}first_coincident_in_one_ar_and_other_coincident_in_other_ars_bmx_flare_loo_classification_new.txt", "w") as fp:
+            fp.write(f"{name} Confusion Matrix\n")
+            fp.write(str(confusion_matrix(y_true, y_pred)) + "\n")
+            fp.write(str(classification_report(y_true, y_pred)))
 
-        with open(f"{metrics_directory}first_coincident_in_one_ar_and_other_coincident_in_other_ars_bmx_flare_loo_classification.csv", "a") as fp:
+        with open(f"{metrics_directory}first_coincident_in_one_ar_and_other_coincident_in_other_ars_bmx_flare_loo_classification_new.csv", "a") as fp:
+            fp.write(f"{name},")
+            for score, score_fn in zip(score_names, score_functions):
+                fp.write(f"{score_fn(y_true, y_pred)},")
+            fp.write("\n")
+
+
+def first_second_coin_flares():
+    with open(f"{metrics_directory}train_on_second_coincident_test_on_first_coincident_bmx.csv", "w") as fp:
+        fp.write("classifier,TSS,MAC,SSW,CSW,\n")
+
+    for clf, name in zip(classifiers, names):
+        train_df = second_coin_df
+        test_df = first_coin_df
+        train_X, train_y = train_df[params], train_df["AR_class"].values
+        test_X, test_y = test_df[params], test_df["AR_class"].values
+
+        for col in params:
+            mean = train_X[col].mean()
+            std = train_X[col].std()
+            test_X[col] = (test_X[col] - mean) / std
+            train_X[col] = (train_X[col] - mean) / std
+
+        clf.fit(train_X, train_y)
+        y_pred = clf.predict(test_X)
+        y_true = test_y
+
+        with open(f"{other_directory}{name.lower()}train_on_second_coincident_test_on_first_coincident_bmx.txt", "w") as fp:
+            fp.write(f"{name} Confusion Matrix\n")
+            fp.write(str(confusion_matrix(y_true, y_pred)) + "\n")
+            fp.write(str(classification_report(y_true, y_pred)))
+
+        with open(f"{metrics_directory}train_on_second_coincident_test_on_first_coincident_bmx.csv", "a") as fp:
             fp.write(f"{name},")
             for score, score_fn in zip(score_names, score_functions):
                 fp.write(f"{score_fn(y_true, y_pred)},")
@@ -323,8 +358,19 @@ def main() -> None:
 
     # print(coincidence_df.groupby("nar").head(1).shape[0])
 
-    first_coin_flare_and_other_ars()
+    # first_coin_flare_and_other_ars()
+    first_second_coin_flares()
 
+
+    # print(first_coin_df["nar"])
+    # print(second_coin_df[["nar", "time_start"]].to_string())
+
+    # df = second_coin_df["nar"].value_counts().to_frame().reset_index()
+    # df = df.loc[df["nar"] == 2]
+    # df = df.sort_values("index")
+    # print(df)
+    # print(df.loc[df])
+    # print(first_coin_df["nar"].value_counts())
     # print()
     # print(df.groupby('nar').head(2))
     # peak_years_testing()

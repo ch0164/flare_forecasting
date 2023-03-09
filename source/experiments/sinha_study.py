@@ -5,7 +5,9 @@
 
 # Custom Imports
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
+from matplotlib.colors import LinearSegmentedColormap
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import make_scorer
 from sklearn.preprocessing import StandardScaler
@@ -155,7 +157,7 @@ def table_1_anova(sinha_df, singh_df):
             else:
                 df = flare_df.copy()
             flare_df = flare_df.loc[flare_df["xray_class"] != "N"]
-            params = SINHA_PARAMETERS
+            params = FLARE_PROPERTIES
             # X = flare_df.drop("AR_class", axis=1)
             X = df[params]
             params = X.columns
@@ -189,7 +191,7 @@ def get_datasets_figure_3(sinha_df, singh_df, dataset_count=20):
             continue
             flares_df = singh_df
         for clf, name, params, param_name in zip(classifiers, names, parameters, param_names):
-            if name == "RFC":
+            if name != "RFC":
                 continue
             score = make_scorer(get_tss)
             cv = GridSearchCV(clf, params, cv=10, scoring=score)
@@ -216,9 +218,9 @@ def get_datasets_figure_3(sinha_df, singh_df, dataset_count=20):
 
             print(name)
             print(occurrences)
-            with open(f"{other_directory}{coincidence}/sinha_hyperparams.txt",
-                      "w") as fp:
-                fp.write(json.dumps(occurrences, indent=4))
+            # with open(f"{other_directory}{coincidence}/sinha_hyperparams.txt",
+            #           "w") as fp:
+            #     fp.write(json.dumps(occurrences, indent=4))
             print()
 
 def figure_5_classification(sinha_df, singh_df, dataset_count=20, index=0):
@@ -310,23 +312,24 @@ def figure_5_classification(sinha_df, singh_df, dataset_count=20, index=0):
         fp.write(json.dumps(scores, indent=4))
 
 def plot_figure_5():
-    # d = None
-    #
-    # import json
-    # for axis_index, coincidence in enumerate(COINCIDENCES):
-    #     with open(f"{other_directory}{coincidence}/singh_score_with_hyperparams.txt", "r") as fp:
-    #         d = json.load(fp)
-    #         df = pd.DataFrame(columns=["name", "score", "performance", "error"])
-    #
-    #         for name in names:
-    #             for score in ["TSS", "MAC", "SSW", "CSW"]:
-    #                 df.loc[df.shape[0]] = [
-    #                     name,
-    #                     score,
-    #                     np.mean(d[name][score]),
-    #                     np.std(d[name][score])
-    #                 ]
-    #         print(df)
+    d = None
+
+    import json
+    with open(f"{other_directory}all/singh_score.txt", "r") as fp:
+        d = json.load(fp)
+        df = pd.DataFrame(columns=["name", "score", "performance", "error"])
+
+        for name in names:
+            for score in ["TSS", "MAC", "SSW", "CSW"]:
+                df.loc[df.shape[0]] = [
+                    name,
+                    score,
+                    np.mean(d[name][score]),
+                    np.std(d[name][score])
+                ]
+        df = df.loc[df["score"] == "TSS"].drop("error", axis=1)
+        df.to_csv("")
+        print(df)
     #
     #
     #         ax = sns.barplot(data=df, x="name", y="performance", hue="score")
@@ -341,23 +344,23 @@ def plot_figure_5():
     #         plt.show()
     #         plt.clf()
 
-    d = None
-
-    import json
-    with open(f"{other_directory}sinha_score_loo.txt", "r") as fp:
-        d = json.load(fp)
-        df = pd.DataFrame(columns=["name", "score", "performance", "error"])
-
-        for name in names:
-            for score in ["TSS", "MAC", "SSW", "CSW"]:
-                df.loc[df.shape[0]] = [
-                    name,
-                    score,
-                    np.mean(d[name][score]),
-                    np.std(d[name][score])
-                ]
-        print(df)
-        df.to_csv(f"{other_directory}sinha_scores.csv")
+    # d = None
+    #
+    # import json
+    # with open(f"{other_directory}sinha_score_loo.txt", "r") as fp:
+    #     d = json.load(fp)
+    #     df = pd.DataFrame(columns=["name", "score", "performance", "error"])
+    #
+    #     for name in names:
+    #         for score in ["TSS", "MAC", "SSW", "CSW"]:
+    #             df.loc[df.shape[0]] = [
+    #                 name,
+    #                 score,
+    #                 np.mean(d[name][score]),
+    #                 np.std(d[name][score])
+    #             ]
+    #     print(df)
+    #     df.to_csv(f"{other_directory}sinha_scores.csv")
 
 
 
@@ -429,19 +432,127 @@ def figure_6_plot(sinha_df, singh_df):
         plt.savefig(f"{figure_directory}{coincidence}/singh_logistic_regression_no_n.png")
         plt.show()
 
+def figure_10_plot(sinha_df, singh_df):
+    cdict = {'red': ((0.0, 0.0, 0.0),
+                     (1 / 6., 0.0, 0.0),
+                     (1 / 2., 0.8, 1.0),
+                     (5 / 6., 1.0, 1.0),
+                     (1.0, 0.4, 1.0)),
+
+             'green': ((0.0, 0.0, 0.4),
+                       (1 / 6., 1.0, 1.0),
+                       (1 / 2., 1.0, 0.8),
+                       (5 / 6., 0.0, 0.0),
+                       (1.0, 0.0, 0.0)),
+
+             'blue': ((0.0, 0.0, 0.0),
+                      (1 / 6., 0.0, 0.0),
+                      (1 / 2., 0.9, 0.9),
+                      (5 / 6., 0.0, 0.0),
+                      (1.0, 0.0, 0.0))
+
+             }
+
+    cmap = "PiYG"
+    param_order = ["TOTUSJH", "USFLUX", "TOTUSJZ",
+                   "R_VALUE", "TOTABSTWIST", "TOTBSQ",
+                   "TOTPOT", "AREA_ACR", "SAVNCPP",
+                   "TOTFZ", "ABSNJZH", "MEANPOT",
+                   "SHRGT45", "EPSZ"]
+    coin_df = singh_df.loc[singh_df["COINCIDENCE"] == True]
+    noncoin_df = singh_df.loc[singh_df["COINCIDENCE"] == False]
+    plt.figure(figsize=(10, 9), dpi=100)
+    g = sns.heatmap(coin_df[SINHA_PARAMETERS].corr(), cmap=cmap, vmin=-1.0, vmax=1.0,
+                    fmt=".2f", annot=True)
+    plt.tight_layout()
+    plt.show()
+
+    plt.figure(figsize=(10, 9), dpi=100)
+    g = sns.heatmap(noncoin_df[SINHA_PARAMETERS].corr(), cmap=cmap, vmin=-1.0, vmax=1.0,
+                    fmt=".2f", annot=True)
+    plt.tight_layout()
+    plt.show()
+
+    # plt.figure(figsize=(10, 9), dpi=100)
+    # g = sns.heatmap(sinha_df[SINHA_PARAMETERS].corr(), cmap=cmap, vmin=-1.0, vmax=1.0,
+    #                 fmt=".2f", annot=True)
+    # plt.tight_layout()
+    # plt.show()
+    #
+    # plt.figure(figsize=(10, 9), dpi=100)
+    # g = sns.heatmap(singh_df[SINHA_PARAMETERS].corr(), cmap=cmap, vmin=-1.0, vmax=1.0,
+    #                 fmt=".2f", annot=True)
+    # plt.tight_layout()
+    # plt.show()
+
+def hyperparam_plot():
+    knn_values = [i for i in range(1, 17)]
+    knn_counts = [3, 0, 6, 0, 4, 0, 2, 0, 2, 0, 3, 0, 1, 0, 0, 0]
+
+    plt.bar(knn_values, knn_counts)
+    plt.xticks(knn_values)
+    plt.xlabel("K")
+    plt.ylabel("Occurrences")
+    plt.tight_layout()
+    plt.show()
+
+    lr_counts = [0, 0, 0, 0, 2, 5, 7, 6, 0]
+    lr_values = [i for i in range(len(lr_counts))]
+
+    plt.bar(lr_values, lr_counts)
+    plt.xlabel("C")
+    plt.ylabel("Occurrences")
+    plt.xticks(range(len(lr_counts)), labels=[10**e for e in range(-4, 5)], rotation=45)
+    plt.yticks([i for i in range(max(lr_counts) + 1)])
+    plt.tight_layout()
+    plt.show()
+
+    rfc_counts = [3, 5, 2, 1, 1, 0, 1, 0, 1, 2]
+    rfc_values = [10, 120, 230, 340, 450, 560, 670, 780, 890, 1000]
+
+    plt.bar(range(len(rfc_counts)), rfc_counts)
+    plt.xlabel("Number of decision trees")
+    plt.ylabel("Occurrences")
+    plt.xticks(range(len(rfc_counts)), labels=rfc_values,
+               rotation=45)
+    plt.yticks([i for i in range(max(rfc_counts) + 1)])
+    plt.tight_layout()
+    plt.show()
+    data = np.zeros((6, 6))
+    data[1, 3] = 7
+    data[0, 4] = 5
+    data[1, 4] = 3
+    data[0, 2] = 2
+    data[2, 3] = 2
+    data[2, 4] = 1
+    yticks = [10**e for e in range(-3, 3)]
+    yticks.reverse()
+    ax = sns.heatmap(data, annot=True,
+                xticklabels=[10**e for e in range(-4, 2)],
+                yticklabels=yticks,
+                     cmap="RdYlGn",
+                     cbar=False)
+    ax.set(xlabel="gamma", ylabel="C")
+    plt.tight_layout()
+    plt.show()
+
 
 
 def main() -> None:
     sinha_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}sinha_dataset.csv")
     sinha_df.index.names = ["index"]
     singh_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbmx_data.csv", index_col="index")
-    table_1_anova(sinha_df, singh_df)
-    exit(1)
+    # plot_figure_5()
+    hyperparam_plot()
+    # figure_10_plot(sinha_df, singh_df)
+    # table_1_anova(sinha_df, singh_df)
+    # get_datasets_figure_3(sinha_df, singh_df)
+    # exit(1)
     # get_datasets_figure_3(sinha_df, singh_df)
     # figure_5_classification(sinha_df, singh_df)
-    plot_figure_5()
-    print(max_scores_dict)
-    print(random_states_dict)
+    # plot_figure_5()
+    # print(max_scores_dict)
+    # print(random_states_dict)
     # print(parameters)
     # figure_6_plot(sinha_df, singh_df)
 

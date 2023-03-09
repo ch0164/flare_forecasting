@@ -7,6 +7,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
+from sklearn.preprocessing import LabelEncoder
 
 # Disable Warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -22,13 +23,27 @@ def get_tss(y_true, y_pred, convert=True):
     if convert:
         y_true = y_true.numpy()
         y_pred = y_pred.numpy()
-    y_pred[np.nonzero(y_pred)] = 1
+    y_pred = np.where(y_pred > 0.5, 1, 0)
     cm = confusion_matrix(y_true, y_pred)
     tn, fp, fn, tp = cm.ravel()
     detection_rate = tp / float(tp + fn)
     false_alarm_rate = fp / float(fp + tn)
     tss = detection_rate - false_alarm_rate
     return tss
+
+def get_hss(y_true, y_pred, convert=True):
+    if convert:
+        y_true = y_true.numpy()
+        y_pred = y_pred.numpy()
+    y_pred = np.where(y_pred > 0.5, 1, 0)
+    cm = confusion_matrix(y_true, y_pred)
+    tn, fp, fn, tp = cm.ravel()
+    p = tp + fn
+    n = fp + tn
+    numerator = 2 * ((tp * tn) - (fn * fp))
+    denominator = p * (fn + tn) + n * (tp + fp)
+    hss = numerator / denominator
+    return hss
 
 data_dir = r"C:\Users\youar\PycharmProjects\flare_forecasting\results\time_series_goodness_of_fit\other/"
 # df = pd.DataFrame()
@@ -84,17 +99,28 @@ train_y_df = pd.read_csv(f"{other_directory}flare_train_labels.csv")
 test_y_df = pd.read_csv(f"{other_directory}flare_test_labels.csv")
 validation_y_df = pd.read_csv(f"{other_directory}flare_validation_labels.csv")
 
+# kept_params = ["SAVNCPP", "TOTUSJH", "TOTUSJZ", "R_VALUE", "ABSNJZH", "USFLUX", "AREA_ACR", "SHRGT45", "g_s"]
+kept_params = FLARE_PROPERTIES
+dfs = [train_X_df, test_X_df, validation_X_df]
+train_X_df = train_X_df[[f"{param}_{i}" for param in kept_params for i in range(1, 121)]]
+test_X_df = test_X_df[[f"{param}_{i}" for param in kept_params for i in range(1, 121)]]
+validation_X_df = validation_X_df[[f"{param}_{i}" for param in kept_params for i in range(1, 121)]]
+
+
 
 # (batch_size, input_dim, window)
-batch_size = 64
-input_dim = 20
+batch_size = 128
+epochs = 15
+input_dim = len(kept_params)
 window = 120
-output_dim = 2
+feature_length = window * input_dim
+input_shape = (feature_length, 1)
 
-data_dim = 16
-timesteps = 8
-num_classes = 10
-model_name = "one_layer_nn2"
+y_train = np.asarray(train_y_df["LABEL"].values).astype('float32').reshape((-1, 1))
+y_val = np.asarray(validation_y_df["LABEL"].values).astype('float32').reshape((-1, 1))
+y_test = np.asarray(test_y_df["LABEL"].values).astype('float32').reshape((-1, 1))
+
+model_name = "five_layer_lstm"
 
 # n_hidden_1 = 120 # 1st layer number of neurons
 # n_hidden_2 = 60 # 2nd layer number of neurons
@@ -151,20 +177,135 @@ def build_model():
     return model
 
 
+def residual_block(x, filters, stride=1, projection=False):
+    shortcut = x
+    if projection:
+        shortcut = layers.Conv1D(filters, 1, strides=stride, padding='same')(shortcut)
+        shortcut = layers.BatchNormalization()(shortcut)
+    x = layers.Conv1D(filters, 1, strides=stride, padding='same')(x)
+    x = layers.BatchNormalization()(x)
+    x = layers.Activation('relu')(x)
+    x = layers.Conv1D(filters, 3, padding='same')(x)
+    x = layers.BatchNormalization()(x)
+    x = layers.Activation('relu')(x)
+    x = layers.Conv1D(filters, 1, padding='same')(x)
+    x = layers.BatchNormalization()(x)
+    x = layers.Add()([x, shortcut])
+    x = layers.Activation('relu')(x)
+    return x
+
+
+def resnet50(input_tensor):
+    x = layers.ZeroPadding1D(padding=3)(input_tensor)
+    x = layers.Conv1D(64, 7, strides=2, padding='valid')(x)
+    x = layers.BatchNormalization()(x)
+    x = layers.Activation('relu')(x)
+    x = layers.MaxPooling1D(3, strides=2, padding='same')(x)
+
+    x = residual_block(x, filters=64, projection=True)
+    for _ in range(2):
+        x = residual_block(x, filters=64)
+
+    x = residual_block(x, filters=128, stride=2, projection=True)
+    for _ in range(3):
+        x = residual_block(x, filters=128)
+
+    x = residual_block(x, filters=256, stride=2, projection=True)
+    for _ in range(5):
+        x = residual_block(x, filters=256)
+
+    x = residual_block(x, filters=512, stride=2, projection=True)
+    for _ in range(2):
+        x = residual_block(x, filters=512)
+
+    x = layers.MaxPooling1D()(x)
+    x = layers.Flatten()(x)
+    x = layers.Dense(1, activation='sigmoid')(x)
+
+    model = keras.Model(inputs=input_tensor, outputs=x, name='resnet50')
+    model.summary()
+    return model
+
+
+def build_lstm_model():
+    model = keras.Sequential()
+    model.add(
+        layers.LSTM(64, return_sequences=True, input_shape=input_shape))
+
+    for i in range(3):
+        model.add(layers.LSTM(64, return_sequences=True))
+        model.add(layers.Dropout(0.5))
+
+    model.add(layers.LSTM(64))
+    model.add(layers.Dropout(0.5))
+    model.add(layers.Dense(1, activation='sigmoid'))
+
+    return model
+
+def build_ocdcnn_model():
+    # Define the model architecture
+    model = keras.Sequential()
+
+    # model.add(layers.Reshape((120, 20), input_shape=(2400,)))
+
+    # Add a 1D convolutional layer with 5 filters of length 3 and input size of 2400
+    model.add(layers.Conv1D(filters=5, kernel_size=3, activation='relu',
+                     input_shape=input_shape))
+    # model.add(layers.MaxPool1D(pool_size=2, strides=2))
+    # model.add(layers.BatchNormalization())
+    # model.add(layers.Activation(activation="relu"))
+    # model.add(layers.BatchNormalization())
+    # model.add(layers.Activation("relu"))
+    # model.add(layers.Conv1D(filters=5, kernel_size=3, activation='relu',
+    #                         input_shape=input_shape))
+    # model.add(layers.Add())
+    # model.add(layers.BatchNormalization())
+    # model.add(layers.Activation("relu"))
+    # model.add(layers.Conv1D(filters=5, kernel_size=3, activation='relu',
+    #                         input_shape=input_shape))
+    # model.add(layers.Add())
+    # model.add(layers.BatchNormalization())
+    # model.add(layers.Activation("relu"))
+    # model.add(layers.MaxPool1D(pool_size=2, strides=2))
+
+
+
+    model.add(layers.Conv1D(filters=5, kernel_size=3, activation='relu',
+                            input_shape=input_shape))
+    # model.add(layers.MaxPool1D(pool_size=2, strides=2))
+    # model.add(layers.BatchNormalization())
+
+    model.add(layers.Conv1D(filters=5, kernel_size=3, activation='relu',
+                            input_shape=input_shape))
+    # model.add(layers.BatchNormalization())
+    model.add(layers.MaxPool1D(pool_size=2, strides=2))
+
+    model.add(layers.Flatten())
+    model.add(layers.Dense(1, activation='sigmoid'))
+    # model.add(layers.Dense(64, activation='relu'))
+    # model.add(layers.Dense(1))
+
+    # Print the model summary
+    model.summary()
+
+    return model
+
 def train_model(model):
     model.compile(loss='binary_crossentropy',
                   optimizer='adam',
-                  metrics=[get_tss],
+                  metrics=[get_tss, get_hss],
                   run_eagerly=True)
-    history = model.fit(train_X_df.values, train_y_df["LABEL"].values,
-                        validation_data=(validation_X_df.values, validation_y_df["LABEL"].values),
+    history = model.fit(train_X_df.values, y_train,
+                        validation_data=(validation_X_df.values, y_val),
                         batch_size=batch_size,
-                        epochs=30)
+                        epochs=epochs)
     model.save(f"{other_directory}{model_name}")
     # Gather history parameters.
     history_dict = {
         "tss": history.history["get_tss"],
         "validation_tss": history.history['val_get_tss'],
+        "hss": history.history["get_hss"],
+        "validation_hss": history.history['val_get_hss'],
         "loss": history.history['loss'],
         "validation_loss": history.history['val_loss'],
     }
@@ -220,11 +361,21 @@ def plot_history(filename):
 
 
 def test_model(filename):
-    model = keras.models.load_model(filename, custom_objects={"get_tss": get_tss})
+    model = keras.models.load_model(filename, custom_objects={"get_tss": get_tss,
+                                                              "get_hss": get_hss})
     y_pred = model.predict(test_X_df.values)
     y_true = test_y_df["LABEL"].values
-    tss = get_tss(y_true, y_pred)
-    print(tss)
+    tss = get_tss(y_true, y_pred, convert=False)
+    hss = get_hss(y_true, y_pred, convert=False)
+
+    print()
+    print(model_name)
+    print("-" * 50)
+    y_pred = np.where(y_pred > 0.5, 1, 0)
+    y_true = np.where(y_true > 0.5, 1, 0)
+    print(confusion_matrix(y_true, y_pred))
+    print("TSS:", tss)
+    print("HSS:", hss)
 
 
 def mlp_classfifier():
@@ -234,15 +385,18 @@ def mlp_classfifier():
     X = pd.concat([train_X_df, test_X_df])
     y = pd.concat([train_y_df, test_y_df])
     df = pd.concat([X, y], axis=1)
-    df = df.loc[df["COINCIDENCE"] == False]
+    # df = df.loc[df["COINCIDENCE"] == False]
+
+    best_triple = [f"AREA_ACR_{i}" for i in range(1, 121)] + [f"SAVNCPP_{i}" for i in range(1, 121)] + [f"TOTUSJH_{i}" for i in range(1, 121)]
 
     tss_list = []
     for train_index in range(100):
         print(f"{train_index}/100")
         train_df, test_df = train_test_split(df, test_size=0.2, stratify=df["FLARE_TYPE"])
-        train_X_df = train_df.drop(["FLARE_TYPE", "COINCIDENCE", "LABEL"], axis=1)
+        # train_X_df = train_df.drop(["FLARE_TYPE", "COINCIDENCE", "LABEL"], axis=1)
+        train_X_df = train_df[best_triple]
         train_y_df = train_df[["FLARE_TYPE", "COINCIDENCE", "LABEL"]]
-        test_X_df = test_df.drop(["FLARE_TYPE", "COINCIDENCE", "LABEL"], axis=1)
+        test_X_df = test_df[best_triple]
         test_y_df = test_df[["FLARE_TYPE", "COINCIDENCE", "LABEL"]]
         model = MLPClassifier(hidden_layer_sizes=(120, 60, 30, 10),
                         solver="adam",
@@ -261,10 +415,31 @@ def mlp_classfifier():
     print(tss_list)
     print(f"TSS: {np.mean(tss_list):.4f} +/- {np.std(tss_list):.4f}")
 
+def bidirectional_lstm():
+    model = keras.Sequential()
+    model.add(layers.Bidirectional(layers.LSTM(64, return_sequences=True),
+                            input_shape=input_shape))
+    model.add(layers.Dropout(0.5))
+    model.add(layers.Bidirectional(layers.LSTM(64)))
+    model.add(layers.Dropout(0.5))
+    model.add(layers.Dense(1, activation='sigmoid'))
+    return model
+
+model_name = "odcnn_no_batch_normalization_sigmoid"
+epochs = 50
+
+
 def main() -> None:
-    # mlp_classfifier()
-    model = build_model()
-    train_model(model)
+    # resnet = keras.models.load_model(
+    #     r"C:\Users\youar\PycharmProjects\flare_forecasting\resnet_mnist_digits\resnet_mnist_digits.hdf5")
+    # resnet.summary()
+    # exit(1)
+    # model = build_ocdcnn_model()
+    # exit(1)
+    # model = resnet50(keras.Input(shape=(2400, 1)))
+    # train_model(model)
+    # model = keras.models.load_model(f"{other_directory}{model_name}")
+
     test_model(f"{other_directory}{model_name}")
     # plot_history(f"{other_directory}{model_name}/history.csv")
 

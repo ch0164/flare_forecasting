@@ -1173,6 +1173,42 @@ def classification_plot():
     #     plt.show()
     #     plt.clf()
 
+def generate_parallel_coordinates(coincidence, all_flares_df):
+    fig, ax = plt.subplots(figsize=(19, 10))
+    colors = ["blue", "green", "orange", "grey",  "red"]
+    flare_classes = ["B", "C", "M", "N",  "X"]
+    if coincidence == "coincident":
+        flares_df = all_flares_df.loc[all_flares_df["COINCIDENCE"] == True]
+    elif coincidence == "noncoincident":
+        flares_df = all_flares_df.loc[all_flares_df["COINCIDENCE"] == False]
+    else:
+        flares_df = all_flares_df
+    # normalized_df = (properties_df - properties_df.mean()) / properties_df.std()
+    properties_df = flares_df[FLARE_PROPERTIES]
+    normalized_df = (properties_df - properties_df.min()) / (
+                properties_df.max() - properties_df.min())
+    normalized_df["xray_class"] = flares_df["xray_class"]
+
+    print()
+    normalized_df = normalized_df.sort_values(by="xray_class", ascending=True)
+    print(normalized_df["xray_class"].to_string())
+    parallel_coordinates(normalized_df, "xray_class", FLARE_PROPERTIES, ax, sort_labels=False,
+                         color=colors, axvlines=True, axvlines_kwds={"color": "white"},
+                         alpha=0.4)
+    # ax.set_title(f"BCMX Flare Count, {coincidence.capitalize()} Flares,\n{study_caption}")
+    # ax.set_xlabel("AR #")
+    # ax.set_ylabel("# of Flares")
+    # ax.legend(loc="upper left")
+    # ax.set_xticks(np.arange(11600, 12301, step=100))
+    # ax.set_yticks(np.arange(0, 26, step=5))
+    # plt.gca().legend_.remove()
+    plt.title(f"{coincidence.capitalize()}")
+    plt.tight_layout()
+    plt.savefig(f"{figure_directory}{coincidence}_parallel_coordinates.png")
+    plt.show()
+
+
+
 def main() -> None:
     # Disable Warnings
     warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -1182,17 +1218,24 @@ def main() -> None:
     # get_idealized_flare()
     # idealized_flares_plot()
     # classification_plot()
-
+    # plot_parameter_tss()
+    flare_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbcmx_data.csv", index_col=False)
+    flare_df = flare_df.loc[flare_df["xray_class"] != "A"]
+    for coincidence in ["all", "coincident", "noncoincident"]:
+        generate_parallel_coordinates(coincidence, flare_df)
+        exit(1)
     # goodness_of_fit2()
-    time_series_vector_classification3()
+    # time_series_vector_classification3()
     # test()
     # get_dataframe_of_vectors()
     # idealized_series_plot_2d()
     # individual_time_series_plot_2d()
     # individual_flares_plot()
-    exit(1)
+    # exit(1)
     # time_series_classification()
-
+    # classification_plot2()
+    # resnet = keras.models.load_model(r"C:\Users\youar\PycharmProjects\flare_forecasting\resnet_mnist_digits\resnet_mnist_digits.hdf5")
+    # resnet.summary()
     # goodness_of_fit()
 
 if __name__ == "__main__":

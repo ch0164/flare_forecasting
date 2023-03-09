@@ -120,7 +120,7 @@ y_train = np.asarray(train_y_df["LABEL"].values).astype('float32').reshape((-1, 
 y_val = np.asarray(validation_y_df["LABEL"].values).astype('float32').reshape((-1, 1))
 y_test = np.asarray(test_y_df["LABEL"].values).astype('float32').reshape((-1, 1))
 
-model_name = "resnet"
+model_name = "odcnn_sigmoid"
 
 # n_hidden_1 = 120 # 1st layer number of neurons
 # n_hidden_2 = 60 # 2nd layer number of neurons
@@ -266,7 +266,7 @@ def build_ocdcnn_model():
     model.add(layers.MaxPool1D(pool_size=2, strides=2))
 
     model.add(layers.Flatten())
-    model.add(layers.Dense(1, activation='relu'))
+    model.add(layers.Dense(1, activation='sigmoid'))
     # model.add(layers.Dense(64, activation='relu'))
     # model.add(layers.Dense(1))
 
@@ -402,9 +402,10 @@ def main() -> None:
     #     r"C:\Users\youar\PycharmProjects\flare_forecasting\resnet_mnist_digits\resnet_mnist_digits.hdf5")
     # resnet.summary()
     # exit(1)
-    # model = build_ocdcnn_model()
+    model = build_ocdcnn_model()
     # exit(1)
-    model = resnet50(keras.Input(shape=(2400, 1)))
+    # model = resnet50(keras.Input(shape=(2400, 1)))
+    # keras.utils.plot_model(model, to_file=f"{figure_directory}{model_name}.png")
     train_model(model)
     test_model(f"{other_directory}{model_name}")
     # plot_history(f"{other_directory}{model_name}/history.csv")

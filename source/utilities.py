@@ -20,6 +20,11 @@ def parse_tai_string(tstr: str):
     minute = int(tstr[14:16])
     return dt_obj(year, month, day, hour, minute)
 
+def get_ar_class(flare_class: str) -> int:
+    if "M" in flare_class or "X" in flare_class:
+        return 1
+    else:
+        return 0
 
 def classify_flare(magnitude: str, combine: bool = False) -> str:
     """
