@@ -1,0 +1,11 @@
+RFC Confusion Matrix
+[[91  2]
+ [ 5 65]]
+              precision    recall  f1-score   support
+
+           0       0.95      0.98      0.96        93
+           1       0.97      0.93      0.95        70
+
+    accuracy                           0.96       163
+   macro avg       0.96      0.95      0.96       163
+weighted avg       0.96      0.96      0.96       163

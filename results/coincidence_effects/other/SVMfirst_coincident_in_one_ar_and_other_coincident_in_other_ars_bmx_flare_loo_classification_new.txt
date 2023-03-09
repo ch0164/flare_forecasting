@@ -1,0 +1,11 @@
+SVM Confusion Matrix
+[[93  0]
+ [ 8 62]]
+              precision    recall  f1-score   support
+
+           0       0.92      1.00      0.96        93
+           1       1.00      0.89      0.94        70
+
+    accuracy                           0.95       163
+   macro avg       0.96      0.94      0.95       163
+weighted avg       0.95      0.95      0.95       163

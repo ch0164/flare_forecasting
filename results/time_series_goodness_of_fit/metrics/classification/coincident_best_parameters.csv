@@ -1,0 +1,21 @@
+name,coincidence,parameter,label,tss
+KNN,coincident,TOTUSJH,6h-18h Time-series,0.8912708600770218
+RFC,coincident,R_VALUE,6h-18h Time-series,0.8784552845528455
+SVM,coincident,TOTUSJZ,13-24h Time-series,0.8717800599058624
+RFC,coincident,SAVNCPP,13-24h Time-series,0.865939238339752
+KNN,coincident,AREA_ACR,13-24h Time-series,0.8466623876765083
+RFC,coincident,ABSNJZH,13-24h Time-series,0.8412922550278135
+SVM,coincident,TOTPOT,24h Time-series,0.8166024818142917
+RFC,coincident,g_s,24h Time-series,0.8062901155327343
+SVM,coincident,USFLUX,13-24h Time-series,0.7963200684638427
+KNN,coincident,d_l_f,13-24h Time-series,0.6239409499358151
+SVM,coincident,MEANPOT,24h Time-series,0.560012836970475
+RFC,coincident,MEANJZD,13-24h Time-series,0.4995721009841677
+RFC,coincident,slf,13-24h Time-series,0.4819212665810868
+SVM,coincident,SHRGT45,24h Time-series,0.4216944801026957
+SVM,coincident,MEANJZH,24h Mean,0.3877192982456139
+SVM,coincident,MEANSHR,13-24h Time-series,0.3842533162173727
+SVM,coincident,MEANGBT,6h-18h Time-series,0.383076593923834
+RFC,coincident,MEANGBZ,24h Time-series,0.3645913564398801
+SVM,coincident,MEANGAM,24h Time-series,0.3284552845528455
+KNN,coincident,MEANGBH,6h-18h Time-series,0.3266795036371415

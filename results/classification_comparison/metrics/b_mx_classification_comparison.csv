@@ -1,0 +1,25 @@
+﻿name,data,tss
+KNN,Sinha replication (Their data),0.933009
+RFC,Sinha replication (Their data),0.949212
+LR,Sinha replication (Their data),0.933903
+SVM,Sinha replication (Their data),0.937082
+KNN,24hr Timepoint,0.731882
+RFC,24hr Timepoint,0.772781
+LR,24hr Timepoint,0.657485
+SVM,24hr Timepoint,0.683806
+KNN,0h-24h Mean Timepoint,0.8978
+RFC,0h-24h Mean Timepoint,0.9064
+LR,0h-24h Mean Timepoint,0.9092
+SVM,0h-24h Mean Timepoint,0.8835
+KNN,10h-22h Mean Timepoint,0.8821
+RFC,10h-22h Mean Timepoint,0.886
+LR,10h-22h Mean Timepoint,0.8937
+SVM,10h-22h Mean Timepoint,0.8661
+KNN,"24h Time-series, R_VALUE",0.817086194
+RFC,"24h Time-series, R_VALUE",0.862395118
+LR,"24h Time-series, R_VALUE",0.099313501
+SVM,"24h Time-series, R_VALUE",0.785812357
+KNN,"24h Time-series, 3 params",0.817086194
+RFC,"24h Time-series, 3 params",0.858886346
+LR,"24h Time-series, 3 params",0.100076278
+SVM,"24h Time-series, 3 params",0.785812357

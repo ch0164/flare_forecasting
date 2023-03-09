@@ -1,0 +1,11 @@
+LR Confusion Matrix
+[[92  1]
+ [ 3 67]]
+              precision    recall  f1-score   support
+
+           0       0.97      0.99      0.98        93
+           1       0.99      0.96      0.97        70
+
+    accuracy                           0.98       163
+   macro avg       0.98      0.97      0.97       163
+weighted avg       0.98      0.98      0.98       163
