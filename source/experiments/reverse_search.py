@@ -1,9 +1,9 @@
+import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib.colors import ListedColormap
 
 from source.common_imports import *
 from source.constants import *
-from distfit import distfit
 from scipy.stats import ks_2samp, chisquare, chi2_contingency, relfreq, kstest
 import scipy.stats as stats
 import numpy as np
@@ -34,8 +34,8 @@ def plot_histograms(sinha_df, flare_df):
     sinha_df1 = sinha_df.loc[sinha_df["AR_class"] == 1]
     sinha_df2 = sinha_df.loc[sinha_df["AR_class"] == 0]
     num_bins = 22
-    for column in SINHA_PARAMETERS:
-        fig, ax = plt.subplots(nrows=2, ncols=2, figsize=(12, 12))
+    for column in ["R_VALUE"]:
+        fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(12, 12), sharex=True, sharey=True)
 
         mx_min = min(sinha_df1[column].min(), mx_df[column].min())
         mx_max = max(sinha_df1[column].max(), mx_df[column].max())
@@ -46,34 +46,34 @@ def plot_histograms(sinha_df, flare_df):
 
         density = False
 
-        y = ax[0, 0].hist(sinha_df1[column], bins=num_bins, range=mx_range,
+        y = axes[0, 0].hist(sinha_df1[column], bins=num_bins, range=mx_range,
                           density=density,
                           weights=np.zeros_like(sinha_df1[column]) + 1. / sinha_df1[column].size)
-        ax[0, 0].set_title(f"Sinha MX {column}, bins={num_bins}")
-        ax[0, 0].set_xlabel("Unit")
-        ax[0, 0].set_ylabel("Relative Frequency")
+        axes[0, 0].set_title(f"Sinha MX {column}, bins={num_bins}")
+        axes[0, 0].set_xlabel("Unit")
+        axes[0, 0].set_ylabel("Relative Frequency")
 
-        y = ax[0, 1].hist(mx_df[column], bins=num_bins, range=mx_range,
+        y = axes[0, 1].hist(mx_df[column], bins=num_bins, range=mx_range,
                       density=density,
                           weights=np.zeros_like(mx_df[column]) + 1. / mx_df[column].size)
-        ax[0, 1].set_title(f"Singh MX {column}, bins={num_bins}")
-        ax[0, 1].set_xlabel("Unit")
-        ax[0, 1].set_ylabel("Relative Frequency")
+        axes[0, 1].set_title(f"Singh MX {column}, bins={num_bins}")
+        axes[0, 1].set_xlabel("Unit")
+        axes[0, 1].set_ylabel("Relative Frequency")
 
-        y = ax[1, 0].hist(sinha_df2[column], bins=num_bins, range=nb_range,
+        y = axes[1, 0].hist(sinha_df2[column], bins=num_bins, range=nb_range,
                       density=density,
                           weights=np.zeros_like(sinha_df2[column]) + 1. / sinha_df2[column].size)
-        ax[1, 0].set_title(f"Sinha NAB {column}, bins={num_bins}")
-        ax[1, 0].set_xlabel("Unit")
-        ax[1, 0].set_ylabel("Relative Frequency")
+        axes[1, 0].set_title(f"Sinha NAB {column}, bins={num_bins}")
+        axes[1, 0].set_xlabel("Unit")
+        axes[1, 0].set_ylabel("Relative Frequency")
 
 
-        y = ax[1, 1].hist(nb_df[column], bins=num_bins, range=nb_range,
+        y = axes[1, 1].hist(nb_df[column], bins=num_bins, range=nb_range,
                       density=density,
                           weights=np.zeros_like(nb_df[column]) + 1. / nb_df[column].size)
-        ax[1, 1].set_title(f"Singh NAB {column}, bins={num_bins}")
-        ax[1, 1].set_xlabel("Unit")
-        ax[1, 1].set_ylabel("Relative Frequency")
+        axes[1, 1].set_title(f"Singh NAB {column}, bins={num_bins}")
+        axes[1, 1].set_xlabel("Unit")
+        axes[1, 1].set_ylabel("Relative Frequency")
 
         fig.tight_layout()
         # dir = "no_n/"
@@ -93,6 +93,69 @@ def plot_histograms(sinha_df, flare_df):
     #     stat, p = ks_2samp(X1, X2)
     #     p_values.append(p)
     # x2_df.loc[len(x2_df)] = p_values
+
+
+def plot_histograms2(sinha_df, flare_df):
+    from mpl_toolkits.axes_grid1 import ImageGrid
+    mx_df = flare_df.loc[flare_df["AR_class"] == 1]
+    nb_df = flare_df.loc[flare_df["AR_class"] == 0]
+
+    sinha_df1 = sinha_df.loc[sinha_df["AR_class"] == 1]
+    sinha_df2 = sinha_df.loc[sinha_df["AR_class"] == 0]
+    num_bins = 22
+    for column in ["R_VALUE"]: # "TOTUSJH"
+        mx_min = min(sinha_df1[column].min(), mx_df[column].min())
+        mx_max = max(sinha_df1[column].max(), mx_df[column].max())
+        nb_min = min(sinha_df2[column].min(), nb_df[column].min())
+        nb_max = max(sinha_df2[column].max(), nb_df[column].max())
+        mx_range = (mx_min, mx_max)
+        nb_range = (nb_min, nb_max)
+        density = False
+
+        for data, label, range, bins in zip(
+                [sinha_df1[column], sinha_df2[column], mx_df[column], nb_df[column]],
+                ["Zenodo MX", "Zenodo NAB", "Our MX", "Our NAB"],
+                [mx_range, nb_range, mx_range, nb_range],
+                [22, 43, 22, 43],
+        ):
+            fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True)
+            fig.subplots_adjust(hspace=100000)
+            # fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(12, 12), sharex=True, sharey=True)
+
+            y = ax1.hist(data, bins=bins, range=range,
+                          density=density,
+                              weights=np.zeros_like(data) + 1. / data.size)
+            ax1.set_title(f"{label} {column}, bins={bins}")
+            y = ax2.hist(data, bins=bins, range=range,
+                          density=density,
+                              weights=np.zeros_like(data) + 1. / data.size)
+
+            ax1.set_ylim(0.7, 1.0)  # outliers only
+            # ax2.set_ylim(0, 0.4)  # most of the data
+            ax2.set_ylim(0, 0.27)
+
+            ax1.spines.bottom.set_visible(False)
+            ax2.spines.top.set_visible(False)
+            ax1.xaxis.tick_top()
+            ax1.tick_params(labeltop=False)  # don't put tick labels at the top
+            ax2.xaxis.tick_bottom()
+
+            d = .1  # proportion of vertical to horizontal extent of the slanted line
+            kwargs = dict(marker=[(-1, -d), (1, d)], markersize=12,
+                          linestyle="none", color='k', mec='k', mew=1,
+                          clip_on=False)
+            ax1.plot([0, 1], [0, 0], transform=ax1.transAxes, **kwargs)
+            ax2.plot([0, 1], [1, 1], transform=ax2.transAxes, **kwargs)
+
+            # plt.xlabel('Value')
+            ax2.set_ylabel('Relative Frequency')
+            ax2.get_yaxis().set_label_coords(-0.1, 1.2)
+
+            # Show the plot
+            plt.tight_layout()
+            plt.savefig(f"{FIGURE_DIRECTORY}figure_1_histograms/{label} {column}.png")
+            plt.show()
+
 
 
 def plot_coincidence_histograms(flare_df):
@@ -350,6 +413,31 @@ def ks_test(sinha_df_, flare_df):
         ks_df.to_csv(f"{OTHER_DIRECTORY}{flare_class}_ks_test.csv")
 
 
+def combine_plots_into_figure1():
+    from mpl_toolkits.axes_grid1 import ImageGrid
+    labels = ["Zenodo MX", "Our MX", "Zenodo NAB", "Our NAB"]
+    for param in ["R_VALUE", "TOTUSJH"]:
+        fig = plt.figure(figsize=(12, 9))
+        grid = ImageGrid(fig, 111, nrows_ncols=(2, 2), axes_pad=0.01)
+        for index, label in enumerate(labels):
+            print(label)
+
+            image = plt.imread(f"{FIGURE_DIRECTORY}figure_1_histograms/{label} {param}.png")
+            grid[index].imshow(image)
+            # grid[index].set_aspect('auto')
+            # grid[index].set_adjustable('datalim')
+            grid[index].axis("off")
+
+        # for ax in axs.flat:
+        #     ax.set_xticks([])
+        #     ax.set_yticks([])
+        plt.tight_layout()
+        plt.show()
+        # image1 = plt.imread(f'{FIGURE_DIRECTORY}figure_1_histograms/.png')
+        # image2 = plt.imread('path/to/image2.png')
+        # image3 = plt.imread('path/to/image1.png')
+        # image4 = plt.imread('path/to/image2.png')
+
 def main():
     sinha_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}sinha_dataset.csv")
     sinha_df1 = sinha_df.loc[sinha_df["AR_class"] == 1]
@@ -374,13 +462,15 @@ def main():
     #
     # exit(1)
 
-    plot_coincidence_histograms2(flare_df)
+    # plot_coincidence_histograms2(flare_df)
     # chi_square_test(sinha_df, flare_df)
     # ks_test(sinha_df, flare_df)
     # plot_histograms(sinha_df, flare_df)
     # x2_df.index = ["MX", "NON_MX"]
     # x2_df.to_csv(OTHER_DIRECTORY + "two_sample_ks.csv")
     # compute_mean_std(nb_df, sinha_df2)
+    # plot_histograms2(sinha_df, flare_df)
+    combine_plots_into_figure1()
     exit(1)
     cols = ["TOTUSJH", "TOTUSJZ", "SAVNCPP", "R_VALUE", "SHRGT45", "ABSNJZH", "TOTPOT", "AREA_ACR", "USFLUX"]
     for col in cols:

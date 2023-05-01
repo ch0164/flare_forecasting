@@ -536,14 +536,75 @@ def hyperparam_plot():
     plt.tight_layout()
     plt.show()
 
+def best_features_for_clf():
+    classifiers = [
+        KNeighborsClassifier(n_neighbors=3),
+        LogisticRegression(C=100),
+        RandomForestClassifier(n_estimators=120),
+        SVC(C=10, gamma=0.1)
+    ]
+    names = [
+        "KNN",
+        "LR",
+        "RFC",
+        "SVM"
+    ]
+    score_names = [
+        "tss",
+        "mac",
+        "ssw",
+        "csw"
+    ]
+    score_functions = [
+        get_tss,
+        get_mac,
+        get_ssw,
+        get_csw
+    ]
+
+    singh_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbmx_data.csv",
+                           index_col="index")
+    classifier_df = pd.DataFrame(columns=["name", "parameter"] + score_names)
+    for parameter in FLARE_PROPERTIES:
+        X = singh_df[[parameter]]
+        y = singh_df["AR_class"].values
+        loo = LeaveOneOut()
+        loo.get_n_splits(X)
+        for name, clf in zip(names, classifiers):
+            y_true, y_pred = [], []
+            i = 0
+            for train_index, test_index in loo.split(X):
+                i += 1
+                print(f"{name} {clf} {parameter} {i}/{len(X)}")
+                X_train, X_test = X.iloc[train_index], X.iloc[test_index]
+                y_train, y_test = y[train_index], y[test_index]
+                clf.fit(X_train, y_train)
+                y_pred.append(clf.predict(X_test))
+                y_true.append(y_test)
+            tss = get_tss(y_true, y_pred)
+            mac = get_mac(y_true, y_pred)
+            ssw = get_ssw(y_true, y_pred)
+            csw = get_csw(y_true, y_pred)
+            classifier_df.loc[classifier_df.shape[0]] = [
+                name,
+                parameter,
+                tss,
+                mac,
+                ssw,
+                csw
+            ]
+            classifier_df.to_csv(f"{metrics_directory}individual_feature_performances_by_classifier.csv")
+
 
 
 def main() -> None:
-    sinha_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}sinha_dataset.csv")
-    sinha_df.index.names = ["index"]
-    singh_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbmx_data.csv", index_col="index")
+    # sinha_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}sinha_dataset.csv")
+    # sinha_df.index.names = ["index"]
+    # singh_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbmx_data.csv", index_col="index")
+    best_features_for_clf()
+    # print(singh_df)
     # plot_figure_5()
-    hyperparam_plot()
+    # hyperparam_plot()
     # figure_10_plot(sinha_df, singh_df)
     # table_1_anova(sinha_df, singh_df)
     # get_datasets_figure_3(sinha_df, singh_df)

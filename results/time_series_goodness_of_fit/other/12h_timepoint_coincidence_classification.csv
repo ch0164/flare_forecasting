@@ -1,0 +1,13 @@
+,name,tss,dataset
+0,KNN,0.7181373965725784,All Flares
+1,LR,0.7484816372841806,All Flares
+2,RFC,0.7595356603834171,All Flares
+3,SVM,0.6601875341190072,All Flares
+4,KNN,0.7612121212121212,Coincidental Flares
+5,LR,0.8021818181818183,Coincidental Flares
+6,RFC,0.7905454545454546,Coincidental Flares
+7,SVM,0.7993939393939394,Coincidental Flares
+8,KNN,0.6540250994796449,Noncoincidental Flares
+9,LR,0.731404958677686,Noncoincidental Flares
+10,RFC,0.6763085399449036,Noncoincidental Flares
+11,SVM,0.5917049280685645,Noncoincidental Flares

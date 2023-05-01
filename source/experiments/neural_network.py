@@ -7,6 +7,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
+import lightgbm as lgb
 from sklearn.preprocessing import LabelEncoder
 
 # Disable Warnings
@@ -19,7 +20,7 @@ now_string, figure_directory, metrics_directory, other_directory = \
 # tf.compat.v1.enable_eager_execution()
 print(tf.compat.v1.executing_eagerly())
 
-def get_tss(y_true, y_pred, convert=True):
+def get_tss(y_true, y_pred, convert=False):
     if convert:
         y_true = y_true.numpy()
         y_pred = y_pred.numpy()
@@ -380,6 +381,7 @@ def test_model(filename):
 
 def mlp_classfifier():
     global train_X_df, train_y_df, test_X_df, test_y_df
+
     train_X_df = pd.concat([train_X_df, validation_X_df])
     train_y_df = pd.concat([train_y_df, validation_y_df])
     X = pd.concat([train_X_df, test_X_df])
@@ -387,33 +389,46 @@ def mlp_classfifier():
     df = pd.concat([X, y], axis=1)
     # df = df.loc[df["COINCIDENCE"] == False]
 
-    best_triple = [f"AREA_ACR_{i}" for i in range(1, 121)] + [f"SAVNCPP_{i}" for i in range(1, 121)] + [f"TOTUSJH_{i}" for i in range(1, 121)]
 
-    tss_list = []
-    for train_index in range(100):
-        print(f"{train_index}/100")
-        train_df, test_df = train_test_split(df, test_size=0.2, stratify=df["FLARE_TYPE"])
-        # train_X_df = train_df.drop(["FLARE_TYPE", "COINCIDENCE", "LABEL"], axis=1)
-        train_X_df = train_df[best_triple]
-        train_y_df = train_df[["FLARE_TYPE", "COINCIDENCE", "LABEL"]]
-        test_X_df = test_df[best_triple]
-        test_y_df = test_df[["FLARE_TYPE", "COINCIDENCE", "LABEL"]]
-        model = MLPClassifier(hidden_layer_sizes=(120, 60, 30, 10),
-                        solver="adam",
-                        activation='relu',
-                        learning_rate_init=0.0001,
-                        batch_size=64,
-                        max_iter=300,
-                        n_iter_no_change=50,
-                        learning_rate='adaptive')
-        model.fit(train_X_df.values, train_y_df["LABEL"].values)
-        y_pred = model.predict(test_X_df.values)
-        y_true = test_y_df["LABEL"].values
-        tss = get_tss(y_true, y_pred, convert=False)
-        tss_list.append(tss)
-        print(tss)
-    print(tss_list)
-    print(f"TSS: {np.mean(tss_list):.4f} +/- {np.std(tss_list):.4f}")
+    def get_features(params, low=1, high=121, keep=120, randomize=False):
+        features = []
+        for param in list(params):
+            f = [f"{param}_{i}" for i in range(low, high)]
+            if randomize:
+                np.random.shuffle(f)
+            features += f[:keep]
+        return features
+
+    complete_features = get_features(FLARE_PROPERTIES, keep=60,
+                                                randomize=False)
+    randomized_complete_features = get_features(FLARE_PROPERTIES, keep=60, randomize=True)
+
+
+    for feature_list in [complete_features]:
+        tss_list = []
+        for train_index in range(30):
+            print(f"{train_index}/30")
+            train_df, test_df = train_test_split(df, test_size=0.2, stratify=df["FLARE_TYPE"])
+            # train_X_df = train_df.drop(["FLARE_TYPE", "COINCIDENCE", "LABEL"], axis=1)
+            train_X_df = train_df[feature_list]
+            train_y_df = train_df[["FLARE_TYPE", "COINCIDENCE", "LABEL"]]
+            test_X_df = test_df[feature_list]
+            test_y_df = test_df[["FLARE_TYPE", "COINCIDENCE", "LABEL"]]
+            model = MLPClassifier(hidden_layer_sizes=(120),
+                            solver="adam",
+                            activation='relu',
+                            learning_rate_init=0.0001,
+                            batch_size=64,
+                            max_iter=300,
+                            n_iter_no_change=50,
+                            learning_rate='adaptive')
+            model.fit(train_X_df.values, train_y_df["LABEL"].values)
+            y_pred = model.predict(test_X_df.values)
+            y_true = test_y_df["LABEL"].values
+            tss = get_tss(y_true, y_pred, convert=False)
+            tss_list.append(tss)
+            print(tss)
+        print(f"TSS: {np.mean(tss_list):.4f} +/- {np.std(tss_list):.4f}")
 
 def bidirectional_lstm():
     model = keras.Sequential()
@@ -429,6 +444,27 @@ model_name = "odcnn_no_batch_normalization_sigmoid"
 epochs = 50
 
 
+def light_gbm():
+    global train_X_df, train_y_df, test_X_df, test_y_df
+
+    train_X_df = pd.concat([train_X_df, validation_X_df])
+    train_y_df = pd.concat([train_y_df, validation_y_df])
+    X = pd.concat([train_X_df, test_X_df])
+    y = pd.concat([train_y_df, test_y_df])
+    df = pd.concat([X, y], axis=1)
+    tss_list = []
+    for train_index in range(30):
+        print(f"{train_index+1}/30")
+        train_df, test_df = train_test_split(df, test_size=0.25, stratify=df["FLARE_TYPE"])
+        clf = lgb.LGBMClassifier(boosting_type="dart")
+        clf.fit(train_df.drop(["FLARE_TYPE", "COINCIDENCE", "LABEL"], axis=1).values, train_df["LABEL"].values)
+        y_pred = clf.predict(test_df.drop(["FLARE_TYPE", "COINCIDENCE", "LABEL"], axis=1).values)
+        tss = get_tss(test_df["LABEL"].values, y_pred, convert=False)
+        print(tss)
+        tss_list.append(tss)
+    mean, std = np.mean(tss_list), np.std(tss_list)
+    print(mean, "+/-", std)
+
 def main() -> None:
     # resnet = keras.models.load_model(
     #     r"C:\Users\youar\PycharmProjects\flare_forecasting\resnet_mnist_digits\resnet_mnist_digits.hdf5")
@@ -440,7 +476,9 @@ def main() -> None:
     # train_model(model)
     # model = keras.models.load_model(f"{other_directory}{model_name}")
 
-    test_model(f"{other_directory}{model_name}")
+    # light_gbm()
+    mlp_classfifier()
+    # test_model(f"{other_directory}{model_name}")
     # plot_history(f"{other_directory}{model_name}/history.csv")
 
 

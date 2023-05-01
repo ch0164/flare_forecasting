@@ -1,0 +1,122 @@
+Nearest Timepoint, w/o Filter
+==========================================================
+Flare Counts
+-------------------------
+all 408 533 36 977
+coincident 63 174 13 250
+noncoincident 345 359 23 727
+
+All Mean-based Classifier Classification Metrics
+--------------------------------------------------
+Confusion Matrix
+  BC   MX
+BC [ 64 206]
+MX [ 48 384]
+--------------------------------------------------
+Classification Report
+              precision    recall  f1-score   support
+
+          BC       0.57      0.24      0.34       270
+          MX       0.65      0.89      0.75       432
+
+    accuracy                           0.64       702
+   macro avg       0.61      0.56      0.54       702
+weighted avg       0.62      0.64      0.59       702
+
+True Skill Score: 0.1259
+Coincident Mean-based Classifier Classification Metrics
+--------------------------------------------------
+Confusion Matrix
+  BC   MX
+BC [12 18]
+MX [ 15 123]
+--------------------------------------------------
+Classification Report
+              precision    recall  f1-score   support
+
+          BC       0.44      0.40      0.42        30
+          MX       0.87      0.89      0.88       138
+
+    accuracy                           0.80       168
+   macro avg       0.66      0.65      0.65       168
+weighted avg       0.80      0.80      0.80       168
+
+True Skill Score: 0.2913
+Noncoincident Mean-based Classifier Classification Metrics
+--------------------------------------------------
+Confusion Matrix
+  BC   MX
+BC [ 46 194]
+MX [ 30 264]
+--------------------------------------------------
+Classification Report
+              precision    recall  f1-score   support
+
+          BC       0.61      0.19      0.29       240
+          MX       0.58      0.90      0.70       294
+
+    accuracy                           0.58       534
+   macro avg       0.59      0.54      0.50       534
+weighted avg       0.59      0.58      0.52       534
+
+True Skill Score: 0.0896
+all
+LDA-based Classifier Classification Metrics
+--------------------------------------------------
+Confusion Matrix
+  B   MX
+B [332  76]
+MX [ 52 517]
+--------------------------------------------------
+Classification Report
+              precision    recall  f1-score   support
+
+           B       0.86      0.81      0.84       408
+          MX       0.87      0.91      0.89       569
+
+    accuracy                           0.87       977
+   macro avg       0.87      0.86      0.86       977
+weighted avg       0.87      0.87      0.87       977
+
+True Skill Score: 0.7223
+coincident
+LDA-based Classifier Classification Metrics
+--------------------------------------------------
+Confusion Matrix
+  B   MX
+B [50 13]
+MX [ 16 171]
+--------------------------------------------------
+Classification Report
+              precision    recall  f1-score   support
+
+           B       0.76      0.79      0.78        63
+          MX       0.93      0.91      0.92       187
+
+    accuracy                           0.88       250
+   macro avg       0.84      0.85      0.85       250
+weighted avg       0.89      0.88      0.88       250
+
+True Skill Score: 0.7081
+noncoincident
+LDA-based Classifier Classification Metrics
+--------------------------------------------------
+Confusion Matrix
+  B   MX
+B [282  63]
+MX [ 38 344]
+--------------------------------------------------
+Classification Report
+              precision    recall  f1-score   support
+
+           B       0.88      0.82      0.85       345
+          MX       0.85      0.90      0.87       382
+
+    accuracy                           0.86       727
+   macro avg       0.86      0.86      0.86       727
+weighted avg       0.86      0.86      0.86       727
+
+True Skill Score: 0.7179
+
+Process finished with exit code 0
+

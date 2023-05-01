@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import sklearn
 from matplotlib.ticker import MaxNLocator
 from sklearn.metrics import ConfusionMatrixDisplay
 from sklearn.preprocessing import StandardScaler
@@ -193,8 +194,12 @@ def generate_statistics_tables(all_flares_df):
 
 
 
-def simple_classification(all_flares_df, include_c=False):
+def simple_classification(all_flares_df, include_c=True):
     fig, ax = plt.subplots(ncols=3, figsize=(8, 4))
+    all_flares_df = all_flares_df.loc[(all_flares_df["time_start"].str.contains("2013")) | (all_flares_df["time_start"].str.contains("2014"))]
+    # print(all_flares_df)
+    # exit(1)
+    all_flares_df["time_start"] = pd.to_datetime(all_flares_df["time_start"])
     for axis_index, coincidence in enumerate(coincidences):
         if coincidence == "coincident":
             flares_df = all_flares_df.loc[all_flares_df["COINCIDENCE"] == True]
@@ -264,7 +269,7 @@ def simple_classification(all_flares_df, include_c=False):
             df.replace("C", "BC", inplace=True)
 
         cm, cm_label = confusion_matrix(list(df["true"]), list(df["pred"])), coincidence
-        write_classification_metrics(list(df["true"]), list(df["pred"]), "Mean-based Classifier",
+        write_classification_metrics(list(df["true"]), list(df["pred"]), f"{coincidence.capitalize()} Mean-based Classifier",
                                      classifications, print_output=True)
         disp = ConfusionMatrixDisplay(confusion_matrix=cm,
                                       display_labels=classifications)
@@ -292,9 +297,10 @@ def simple_classification(all_flares_df, include_c=False):
     #                              clf_name=f"Mean +/- Std Thresholding on {', '.join(params)}",
     #                              flare_classes=["BC", "MX"])
 
-def lda_classification(all_flares_df, include_c: False):
+def lda_classification(all_flares_df, include_c = False):
     fig, ax = plt.subplots(ncols=3, figsize=(8, 4))
     for axis_index, coincidence in enumerate(coincidences):
+        print(coincidence)
         if coincidence == "coincident":
             flares_df = all_flares_df.loc[all_flares_df["COINCIDENCE"] == True]
         elif coincidence == "noncoincident":
@@ -317,6 +323,8 @@ def lda_classification(all_flares_df, include_c: False):
         y = flares_df["xray_class"].to_numpy()
         X = flares_df[FLARE_PROPERTIES]
 
+
+
         loo = LeaveOneOut()
         loo.get_n_splits(X)
         y_true, y_pred = [], []
@@ -332,7 +340,7 @@ def lda_classification(all_flares_df, include_c: False):
 
             mx_mid = train_lda_df.loc[train_lda_df["xray_class"] == "MX"].mean().values[0]
             b_mid = train_lda_df.loc[train_lda_df["xray_class"] == "B"].mean().values[0]
-            test_lda = np.dot(X_test.values.tolist()[0], train_lda.coef_.tolist()[0])
+            test_lda = train_lda.transform([X_test.values.tolist()[0]])
             # print(b_mid, mx_mid)
             # print(test_lda)
             # exit(1)
@@ -341,6 +349,21 @@ def lda_classification(all_flares_df, include_c: False):
             else:
                 y_pred.append("MX")
             y_true.append(y_test[0])
+
+            # if coincidence == "coincident":
+            #     print(f"train_lda\n{train_lda_df.to_string()}\n\n")
+            #     print(f"test_lda\n{test_lda}\n\n")
+            #     print(f"pred={y_pred}, true={y_true}")
+            #     point_lda = train_lda.transform([X_test.values.tolist()[0]])
+            #     if point_lda <= (b_mid + mx_mid) / 2:
+            #         point_pred = "B"
+            #     else:
+            #         point_pred = "MX"
+            #     print(f"correct_calculation_test_lda\n{point_lda}\n\n")
+            #     print(f"pred={point_pred}, true={y_true}")
+            #
+            #     print(f"b_mid={b_mid}, mx_mid={mx_mid}, midpoint={(b_mid + mx_mid) / 2}")
+            #     exit(1)
 
             # pred = train_lda.predict(X_test[FLARE_PROPERTIES])[0]
             # y_pred.append(pred)
@@ -379,7 +402,7 @@ def lda_classification(all_flares_df, include_c: False):
 
 
 def best_time_window_plot():
-    timepoint = 0.8307320217141415
+    timepoint = 0.82757320217141415
     mean_24 = 0.8597385827601656
     mean_12 = [
         0.8637692392339232,
@@ -456,11 +479,17 @@ def main():
     # exit(1)
     # Disable Warnings
     warnings.simplefilter(action='ignore', category=FutureWarning)
+    warnings.simplefilter(action='ignore', category=UserWarning)
+    warnings.simplefilter(action='ignore', category=SettingWithCopyWarning)
+    warnings.simplefilter(action='ignore', category=sklearn.exceptions.UndefinedMetricWarning)
 
-    flare_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}agu_bcmx.csv")  # use for bcmx
-    # flare_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}sinha_nbmx_data.csv")  # use for bmx
+    # flare_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}agu_bcmx.csv")  # use for bcmx
+    flare_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}new_agu_data.csv")
+    # flare_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}timepoints_default/singh_nbcmx_data_24h_default_timepoint_with_filter.csv")
+    # flare_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbmx_data.csv")  # use for bmx
     flare_df = flare_df.loc[flare_df["xray_class"] != "N"]
     flare_df = flare_df.loc[flare_df["xray_class"] != "A"]
+    # flare_df = flare_df.loc[flare_df["xray_class"] != "C"]
     # flares_df = flares_df[agu_properties + ["time_start", "xray_class", "COINCIDENCE"]].dropna()
 
     flares_df = flare_df.sort_values(by="xray_class")
@@ -471,13 +500,14 @@ def main():
                               | (flares_df["time_start"].str.contains("2015"))
                               | (flares_df["time_start"].str.contains("2016"))
         ].dropna()
-    flares_df["time_start"] = pd.to_datetime(flares_df["time_start"])
+
 
     # Plot stuff
     # generate_statistics_tables(flares_df)
-    print(flares_df.shape[0])
     # simple_classification(flares_df.copy())
     # lda_classification(flares_df.copy())
+    # print("Flare Counts")
+    # print("-" * 25)
     for coincidence in coincidences:
         if coincidence == "coincident":
             df = flares_df.loc[flares_df["COINCIDENCE"] == True]
@@ -491,11 +521,17 @@ def main():
         x = df.loc[(df["xray_class"] == "X")].shape[0]
 
         print(coincidence, b, m, x, b + m + x)
-    # simple_classification(flares_df.copy(), True)
-    # lda_classification(flares_df.copy(), False)
-        # generate_parallel_coordinates(coincidence, flares_df.copy())
+    print()
+    # exit(1)
+    # simple_classification(flares_df.copy())
+    flares_df["time_start"] = pd.to_datetime(flares_df["time_start"])
+    best_time_window_plot()
+    # flares_df["time_start"] = pd.to_datetime(flares_df["time_peak"])
+    # lda_classification(flares_df.copy())
+    # for coincidence in coincidences:
+    #     generate_parallel_coordinates(coincidence, flares_df.copy())
         # generate_flare_count_line_plot(coincidence, flares_df.copy())
-        generate_time_plot(coincidence, flares_df.copy())
+        # generate_time_plot(coincidence, flares_df.copy())
 
 
 if __name__ == "__main__":

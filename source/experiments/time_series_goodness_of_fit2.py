@@ -13,6 +13,7 @@ from source.utilities import *
 from scipy.stats import ks_2samp, chi2, relfreq, chisquare
 from scipy.signal import find_peaks
 import json
+import lightgbm as lgb
 
 # Experiment Name (No Acronyms)
 experiment = "time_series_goodness_of_fit"
@@ -55,29 +56,31 @@ n_list = flare_list.loc[flare_list["xray_class"] == "N"]
 mx_list = pd.concat([m_list, x_list])
 nb_list = pd.concat([b_list, n_list])
 bc_list = pd.concat([b_list, c_list])
+nbc_list = pd.concat([n_list, bc_list])
 
-# mx_data = pd.read_csv(f"{FLARE_DATA_DIRECTORY}Data_MX_ARs_and_errors.txt", header=0, delimiter=r"\s+")
-# mx_data["T_REC"] = mx_data["T_REC"].apply(parse_tai_string)
-# mx_data.set_index("T_REC", inplace=True)
+mx_data = pd.read_csv(f"{FLARE_DATA_DIRECTORY}Data_MX_ARs_and_errors.txt", header=0, delimiter=r"\s+")
+# mx_data = pd.read_csv(f"{FLARE_DATA_DIRECTORY}mx_data.txt", header=0, delimiter=r"\s+")
+mx_data["T_REC"] = mx_data["T_REC"].apply(parse_tai_string)
+mx_data.set_index("T_REC", inplace=True)
 #
-# b_data = pd.read_csv(f"{FLARE_DATA_DIRECTORY}Data_OnlyB_ARs_and_errors.txt", header=0, delimiter=r"\s+")
-# b_data["T_REC"] = b_data["T_REC"].apply(parse_tai_string)
-# b_data.set_index("T_REC", inplace=True)
+b_data = pd.read_csv(f"{FLARE_DATA_DIRECTORY}Data_OnlyB_ARs_and_errors.txt", header=0, delimiter=r"\s+")
+b_data["T_REC"] = b_data["T_REC"].apply(parse_tai_string)
+b_data.set_index("T_REC", inplace=True)
 #
-# bc_data = pd.read_csv(f"{FLARE_DATA_DIRECTORY}Data_ABC_ARs_and_errors.txt", header=0, delimiter=r"\s+")
-# bc_data["T_REC"] = bc_data["T_REC"].apply(parse_tai_string)
-# bc_data.set_index("T_REC", inplace=True)
+bc_data = pd.read_csv(f"{FLARE_DATA_DIRECTORY}Data_ABC_ARs_and_errors.txt", header=0, delimiter=r"\s+")
+bc_data["T_REC"] = bc_data["T_REC"].apply(parse_tai_string)
+bc_data.set_index("T_REC", inplace=True)
 #
-# n_data = pd.read_csv(f"{FLARE_DATA_DIRECTORY}Data_No_flare_ARs_and_errors.txt", header=0, delimiter=r"\s+")
-# n_data["T_REC"] = n_data["T_REC"].apply(parse_tai_string)
-# n_data.set_index("T_REC", inplace=True)
+n_data = pd.read_csv(f"{FLARE_DATA_DIRECTORY}Data_No_flare_ARs_and_errors.txt", header=0, delimiter=r"\s+")
+n_data["T_REC"] = n_data["T_REC"].apply(parse_tai_string)
+n_data.set_index("T_REC", inplace=True)
 
-# nb_data = pd.concat([b_data, n_data])
-mx_data = None
-b_data = None
-bc_data = None
-n_data = None
-nb_data = None
+nb_data = pd.concat([b_data, n_data])
+# mx_data = None
+# b_data = None
+# bc_data = None
+# n_data = None
+# nb_data = None
 
 data = mx_data
 class_list = x_list
@@ -729,14 +732,23 @@ def get_dataframe_of_vectors():
             time_end = row["time_start"]
             try:
                 nar_data = data.loc[data["NOAA_AR"] == nar]
-                start_index = nar_data.index.get_indexer([time_start], method='pad')
+                start_index = nar_data.index.get_indexer([time_start], method='nearest')
                 end_index = nar_data.index.get_indexer([time_end],
-                                                       method='backfill')
+                                                       method='nearest')
                 start_index = nar_data.iloc[start_index].index[0]
                 end_index = nar_data.iloc[end_index].index[0]
-                time_series_df = nar_data.loc[start_index:end_index].reset_index()
+                time_series_df = nar_data.loc[start_index:end_index]
+
+                if time_series_df.shape[0] < 119:
+                    time_series_df = time_series_df.reindex(
+                        pd.date_range(start=start_index, end=end_index,
+                                      freq='12T'))
+                    for param in FLARE_PROPERTIES:
+                        time_series_df[param] = time_series_df[param].interpolate(method="time")
+
                 if time_series_df.shape[0] < 120:
                     continue
+                time_series_df = time_series_df.reset_index()
                 time_series_df = time_series_df.iloc[0:120]
             except IndexError:
                 print(
@@ -748,8 +760,15 @@ def get_dataframe_of_vectors():
                 continue
 
             for param in FLARE_PROPERTIES:
+                # try:
                 param_values = time_series_df[param].tolist()
                 param_dfs[param].loc[len(param_dfs[param])] = [flare_class, coincidence] + param_values
+                # except ValueError:
+                #     time_series_df.reset_index(inplace=True)
+                #     print(time_series_df.to_string())
+                #     print(param_values)
+                #     print(len(param_values))
+                #     exit(1)
 
             # r_values = time_series_df["R_VALUE"].tolist()
             # totus_jz_values = time_series_df["TOTUSJZ"].tolist()
@@ -759,7 +778,7 @@ def get_dataframe_of_vectors():
         print(counts)
 
     for param in FLARE_PROPERTIES:
-        param_dfs[param].to_csv(f"{other_directory}{param.lower()}.csv")
+        param_dfs[param].to_csv(f"{other_directory}interpolated_time_series/0h_24h/{param.lower()}.csv")
 
 
 def calc_tss(y_true=None, y_predict=None):
@@ -1208,6 +1227,970 @@ def generate_parallel_coordinates(coincidence, all_flares_df):
     plt.show()
 
 
+def get_features(params, low=1, high=121, keep=120, randomize=False):
+    features = []
+    for param in list(params):
+        f = [f"{param}_{i}" for i in range(low, high)]
+        if randomize:
+            np.random.shuffle(f)
+        features += f[:keep]
+    return features
+
+def time_series_vector_classification4(dir=""):
+    names = [
+        "KNN",
+        "LDA",
+        "DART",
+        "RFC",
+        "SVM",
+    ]
+
+    classifiers = [
+        KNeighborsClassifier(n_neighbors=3),
+        LinearDiscriminantAnalysis(),
+        lgb.LGBMClassifier(boosting_type="dart"),
+        RandomForestClassifier(n_estimators=120),
+        SVC(),
+    ]
+
+    results_df = pd.DataFrame(columns=["name", "tss_mean", "tss_std", "label"])
+
+    data_df = pd.DataFrame()
+    for param in FLARE_PROPERTIES:
+        if data_df.empty:
+            data_df = pd.concat([
+                data_df,
+                pd.read_csv(f"{other_directory}{dir}{param}.csv", index_col=0)],
+                axis=1)
+        else:
+            d = pd.read_csv(f"{other_directory}{dir}{param}.csv", index_col=0)
+            d = d[get_features([param])]
+            data_df = pd.concat([data_df, d], axis=1)
+
+    data_df["LABEL"] = data_df["FLARE_TYPE"].apply(get_ar_class)
+
+    complete_features = get_features(FLARE_PROPERTIES)
+    randomized_features = get_features(FLARE_PROPERTIES, randomize=True)
+    unrandomized_series_tss = {name: [] for name in names}
+    randomized_series_tss = {name: [] for name in names}
+    df = data_df[["FLARE_TYPE", "COINCIDENCE", "LABEL"] + complete_features]
+
+    for clf, name in zip(classifiers, names):
+        for index in range(30):
+            print(f"{name} {index}/30")
+            train_df, test_df = train_test_split(df, test_size=0.3,
+                                                 stratify=data_df["FLARE_TYPE"])
+            train_X, unrandomized_test_X = train_df[complete_features], test_df[complete_features]
+            train_y, test_y = train_df["LABEL"].values, test_df["LABEL"].values
+            randomized_test_X = test_df[randomized_features]
+
+            clf.fit(train_X, train_y)
+            unrandomized_y_pred = clf.predict(unrandomized_test_X)
+            randomized_y_pred = clf.predict(randomized_test_X)
+            unrandomized_series_tss[name].append(calc_tss(test_y, unrandomized_y_pred))
+            randomized_series_tss[name].append(calc_tss(test_y, randomized_y_pred))
+        results_df.loc[results_df.shape[0]] = [name, np.mean(unrandomized_series_tss[name]), np.std(unrandomized_series_tss[name]), "0h-24h time-series"]
+        results_df.loc[results_df.shape[0]] = [name, np.mean(randomized_series_tss[name]), np.std(randomized_series_tss[name]), "Randomized 60 time-points"]
+        print(results_df)
+        results_df.to_csv(f"{metrics_directory}randomized_time_series_comparison.csv")
+
+
+def generate_mean_dataset():
+    for hour in range(0, 24):
+        data_df = pd.DataFrame()
+        mean_df = pd.DataFrame()
+        hours_before_flare = 24 - hour
+        # counts = {flare_class: 0 for flare_class in flare_classes}
+        subdir = f"0h_{hours_before_flare}h"
+        timepoints = hours_before_flare * 5
+        for param in FLARE_PROPERTIES:
+            df = pd.read_csv(f"{other_directory}/{subdir}/{param}.csv", index_col=0)
+            if data_df.empty:
+                mean_df["FLARE_TYPE"] = df["FLARE_TYPE"]
+                mean_df["COINCIDENCE"] = df["COINCIDENCE"]
+                mean_df["LABEL"] = df["FLARE_TYPE"].apply(get_ar_class)
+            mean_df[param] = df[get_features([param], high=timepoints+1)].mean(axis=1)
+
+        mean_df.to_csv(f"{other_directory}mean_datasets/nbcmx_{subdir}_mean_timepoint.csv")
+
+
+def year_1_report_bcmx_classification_comparison():
+    names = [
+        "KNN",
+        "LR",
+        "RFC",
+        "SVM",
+        "DART",
+        "LDA"
+    ]
+
+    def get_tss(y_true, y_pred):
+        cm = confusion_matrix(y_true, y_pred)
+        tn, fp, fn, tp = cm.ravel()
+        detection_rate = tp / float(tp + fn)
+        false_alarm_rate = fp / float(fp + tn)
+        tss = detection_rate - false_alarm_rate
+        return tss
+
+    classifiers = [
+        KNeighborsClassifier(n_neighbors=3),
+        LogisticRegression(C=1000, class_weight="balanced"),
+        RandomForestClassifier(n_estimators=120),
+        SVC(),
+        lgb.LGBMClassifier(boosting_type="dart"),
+        LinearDiscriminantAnalysis()
+    ]
+
+    tss_df = pd.DataFrame(columns=["name", "tss", "timepoint", "dataset"])
+    # tss_df = pd.DataFrame(columns=["name", "tss", "std", "label", "dataset"])
+    # for df, label in zip([mean_df, timepoint_df, timeseries_df], ["0h-24h Parameter Mean",
+    #                                                               "24h in Advance Timepoint",
+    #                                                               "0h-24h Time Series, R_VALUE"]):
+    timepoint_labels = ["default_timepoint_with_filter", "default_timepoint_without_filter", "nearest_timepoint_with_filter", "nearest_timepoint_without_filter"]
+    for i in range(0, 25):
+    # for timepoint_label in timepoint_labels:
+    # for i in range(24, 0, -1):
+    #     subdir = f"0h_{i}h"
+
+        # timepoint_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}timepoints_default/singh_nbcmx_data_{24}h_{timepoint_label}.csv")
+        # timepoint_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}timepoints/singh_nbcmx_data_{i}h_timepoint.csv")
+        timepoint_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}timepoints_default/singh_nbcmx_data_{i}h_nearest_timepoint_with_filter.csv")
+        # timepoint_df = pd.read_csv(
+        #     f"{other_directory}mean_datasets/nbcmx_{subdir}_mean_timepoint.csv")
+
+        # time_series_df = pd.DataFrame()
+        # for param in FLARE_PROPERTIES:
+        #     if time_series_df.empty:
+        #         time_series_df = pd.concat([
+        #             time_series_df,
+        #             pd.read_csv(f"{other_directory}{subdir}/{param}.csv", index_col=0)],
+        #             axis=1)
+        #     else:
+        #         d = pd.read_csv(f"{other_directory}{subdir}/{param}.csv", index_col=0)
+        #         d = d.drop(["FLARE_TYPE", "COINCIDENCE"], axis=1)
+        #         time_series_df = pd.concat([time_series_df, d], axis=1)
+
+        all_df = timepoint_df
+        # all_df = all_df.loc[all_df["xray_class"] != "C"]
+        coin_df = all_df.loc[all_df["COINCIDENCE"] == True]
+        noncoin_df = all_df.loc[all_df["COINCIDENCE"] == False]
+        for df, label in zip([all_df, coin_df, noncoin_df],
+                             ["All Flares",
+                              "Coincidental Flares",
+                              "Noncoincidental Flares"]):
+            print(label)
+            if "xray_class" not in df.columns:
+                xray_class = "FLARE_TYPE"
+            else:
+                xray_class = "xray_class"
+            # df = df.loc[df[xray_class] != "N"]
+            if "LABEL" not in df.columns:
+                df["LABEL"] = df[xray_class].apply(get_ar_class)
+
+            for name, clf in zip(names, classifiers):
+                tss_list = []
+                if "R_VALUE" in label:
+                    features = get_features(["R_VALUE"])
+                else:
+                    features = FLARE_PROPERTIES
+                X = df[features]
+                if "R_VALUE" not in label:
+                    X = (X - X.min()) / (X.max() - X.min())
+                y = df["LABEL"]
+                for index in range(30):
+                    X_train, X_test, y_train, y_test = train_test_split(X, y,
+                                                                        test_size=0.30,
+                                                                        stratify=df[xray_class])
+
+                    clf.fit(X_train, y_train)
+                    y_pred = clf.predict(X_test)
+                    tss = get_tss(y_test, y_pred)
+                    tss_list.append(tss)
+                tss_df.loc[tss_df.shape[0]] = [name, np.mean(tss_list), i, label]
+                # tss_df.loc[tss_df.shape[0]] = [name, np.mean(tss_list), np.std(tss_list), timepoint_label, label]
+                print(tss_df)
+    tss_df.to_csv(f"{other_directory}0h_to_24h_nbcmx_nearest_timepoint_with_filter_coincidence_classification.csv")
+    # tss_df.to_csv(f"{other_directory}24h_timepoint_method_filter_comparison.csv")
+
+
+
+    # df = pd.DataFrame(columns=["name", "score", "performance"])
+    # names = ["KNN", "RFC", "LR", "SVM"]
+    # # timepoint_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}timepoints_default/singh_nbcmx_data_24h_nearest_timepoint_without_filter.csv")
+    # # df = pd.read_csv(r"C:\Users\youar\PycharmProjects\flare_forecasting\results\time_series_goodness_of_fit\other\0h_to_24h_timepoint_coincidence_classification.csv")
+    # df = pd.read_csv(f"{other_directory}24h_timepoint_method_filter_comparison.csv")
+    # df = df.loc[df["label"] == "default_timepoint_without_filter"]
+    # # df = df.loc[df["timepoint"] == 24]
+    # # df = tss_df
+    #
+    # df = df.loc[(df["name"] != "DART") & (df["name"] != "LDA")]
+    # ax = sns.barplot(data=df, x="name", y="tss", hue="dataset")
+    # plt.legend(bbox_to_anchor=(1.05, 1.0), loc='upper left')
+    # ax.set_title("NBC vs. MX, 24h in Advance Timepoint, Coincidence Comparison", loc="left")
+    # ax.set_ylim(bottom=0.0, top=1.0)
+    # plt.tight_layout()
+    # plt.show()
+    # plt.clf()
+
+
+
+
+def time_point_comparison():
+    data_df = pd.read_csv(r"C:\Users\youar\PycharmProjects\flare_forecasting\flare_data\singh_nbcmx_data_corrected.csv", index_col=0)
+    data_df["LABEL"] = data_df["xray_class"].apply(get_ar_class)
+    # data_df = data_df.loc[data_df["xray_class"] != "N"]
+    X = data_df[FLARE_PROPERTIES + ["COINCIDENCE"]]
+    y = data_df["LABEL"]
+
+    names = [
+        "KNN",
+        "LR",
+        "RFC",
+        "SVM",
+    ]
+
+    classifiers = [
+        KNeighborsClassifier(n_neighbors=3),
+        LogisticRegression(),
+        RandomForestClassifier(n_estimators=120),
+        SVC(),
+    ]
+
+    series_tss = {name: [] for name in names}
+    for index in range(30):
+        for name, clf in zip(names, classifiers):
+            X_train, X_test, y_train, y_test = train_test_split(X, y,
+                                                                test_size = 0.30, stratify=data_df["xray_class"])
+            clf.fit(X_train, y_train)
+            y_pred = clf.predict(X_test)
+            tss_series = calc_tss(y_test, y_pred)
+            series_tss[name].append(tss_series)
+    for name in names:
+        print(name, np.mean(series_tss[name]), np.std(series_tss[name]))
+
+
+def individual_flares_plot2():
+    m_list.reset_index(inplace=True)
+    m_list.drop("index", axis=1, inplace=True)
+
+    print(m_list.shape[0])
+
+    shapes = {f"sum_{hour}": [] for hour in range(0, 24)}
+    count = {f"timepoint_{i}": 0 for i in range(1, 121)}
+    for index, row in x_list.iterrows():
+        nar = row["nar"]
+        flare_class = row["xray_class"]
+        coincidence = row["COINCIDENCE"]
+        time_start = row["time_start"] - timedelta(hours=24)
+        time_end = row["time_start"]
+        try:
+            nar_data = mx_data.loc[data["NOAA_AR"] == nar]
+            start_index = nar_data.index.get_indexer([time_start], method='backfill')
+            end_index = nar_data.index.get_indexer([time_end],
+                                                   method='pad')
+            start_index = nar_data.iloc[start_index].index[0]
+            end_index = nar_data.iloc[end_index].index[0]
+            time_series_df = nar_data.loc[start_index:end_index].reset_index()
+            time_series_df = time_series_df.iloc[0:120]
+            # print(time_series_df)
+            time_series_df.index = [i for i in range(time_series_df.shape[0])]
+            # print(time_series_df)
+
+            for hour in range(0, 24):
+                shapes[f"sum_{hour}"].append(time_series_df.iloc[hour*5:hour*5 + 5].shape[0])
+
+        except IndexError:
+            # print(f"Skipping {flare_class} flare at {time_end} due to IndexError")
+            print(time_series_df)
+            exit(1)
+            continue
+        except pd.errors.InvalidIndexError:
+            # print(f"Skipping {flare_class} flare at {time_end} due to InvalidIndexError")
+            print(time_series_df)
+            exit(1)
+            continue
+
+    for hour in range(0, 24):
+        print(f"{hour},{np.mean(shapes[f'sum_{hour}'])}")
+
+
+def floor_minute(time, cadence=12):
+    return time - timedelta(minutes=time.minute % cadence)
+
+def dropouts():
+
+    for class_list, class_data, c in zip(
+            # [m_list, x_list, c_list, b_list, n_list],
+            # [mx_data, mx_data, bc_data, b_data, n_data],
+            # ["m", "x", "c", "b", "n"]
+            [x_list, m_list, c_list, b_list, n_list],
+            [mx_data, mx_data, bc_data, b_data, n_data],
+            ["x", "m", "c", "b", "n"]
+    ):
+        class_list.reset_index(inplace=True)
+        class_list.drop("index", axis=1, inplace=True)
+
+        dropout_stats = {c: {"isolated_dropout_count": 0,
+                             "isolated_pair_dropout_count": 0,
+                             "total_flares_with_dropouts": 0,
+                             "total_flares_with_isolated_dropouts": 0,
+                             "atleast_isolated_pair_dropout_count": 0,
+                             "total_dropouts": 0,
+                             "distribution": {i: 0 for i in range (0, 122)},
+                             "total_dropout_count": [],
+                             }
+                         for c in ["m", "x", "c", "b", "n"]}
+
+        shapes = {f"sum_{hour}": [] for hour in range(0, 24)}
+        for index, row in class_list.iterrows():
+            nar = row["nar"]
+            time_start = row["time_start"] - timedelta(hours=24)
+            time_end = row["time_start"]
+
+            try:
+                nar_data = class_data.loc[class_data["NOAA_AR"] == nar]
+                start_index = nar_data.index.get_indexer([time_start],
+                                                         method='nearest')
+                end_index = nar_data.index.get_indexer([time_end],
+                                                       method='nearest')
+                start_index = nar_data.iloc[start_index].index[0]
+                end_index = nar_data.iloc[end_index].index[0]
+                time_series_df = nar_data.loc[start_index:end_index]
+            except IndexError:
+                continue
+            except pd.errors.InvalidIndexError:
+                continue
+
+            if time_series_df.shape[0] < 120:
+                temp_df = pd.DataFrame()
+                temp2_df = time_series_df.copy()
+                temp_df["timestamp"] = time_series_df.index
+                temp_df['minutes'] = temp_df['timestamp'].diff()
+                isolated_dropout_count = temp_df.loc[temp_df["minutes"] == pd.Timedelta(minutes=24)].shape[0]
+                isolated_pair_dropout_count = temp_df.loc[
+                    temp_df["minutes"] == pd.Timedelta(minutes=36)].shape[0]
+                temp2_df = temp2_df.reindex(pd.date_range(start=start_index, end=end_index, freq='12T'))
+                total_dropouts = int(temp2_df.isna().sum(axis=1).astype(bool).sum())
+
+                if total_dropouts > 0:
+                    dropout_stats[c]["total_flares_with_dropouts"] += 1
+                if total_dropouts == isolated_dropout_count:
+                    dropout_stats[c]["total_flares_with_isolated_dropouts"] += isolated_dropout_count
+                if total_dropouts <= isolated_dropout_count + isolated_pair_dropout_count:
+                    dropout_stats[c]["atleast_isolated_pair_dropout_count"] += 1
+                dropout_stats[c]["total_dropouts"] += total_dropouts
+                dropout_stats[c]["isolated_dropout_count"] += isolated_dropout_count
+                dropout_stats[c]["isolated_pair_dropout_count"] += isolated_pair_dropout_count
+
+                dropout_df = pd.DataFrame()
+                dropout_df.index = pd.date_range(floor_minute(time_start),
+                                                 floor_minute(time_end), freq="12min")
+                dropout_df["dropout"] = False
+                dropouts = pd.date_range(floor_minute(time_start),
+                                         floor_minute(time_end), freq="12min").difference(time_series_df.index)
+
+                for dropout in dropouts:
+                    dropout_df.loc[dropout]["dropout"] = True
+                dropout_df["index"] = [i for i in range(dropout_df.shape[0])]
+                dropout_indexes = dropout_df.loc[dropout_df["dropout"] == True]["index"]
+                for dropout_index in dropout_indexes:
+                    dropout_stats[c]["distribution"][dropout_index] += 1
+                dropout_stats[c]["total_dropout_count"].append(len(dropout_indexes))
+            else:
+                dropout_stats[c]["total_dropout_count"].append(0)
+
+
+        print(c, dropout_stats[c])
+        with open(f"{metrics_directory}{c}_dropout_stats.txt", "w") as fp:
+            json.dump(dropout_stats[c], fp, indent=4)
+
+def dropout_statistics():
+    for c, class_list in zip(["m", "x", "c", "b", "n", "mx", "bc", "nbc"], [m_list, x_list, c_list, b_list, n_list, mx_list, bc_list, nbc_list]):
+        if len(c) > 1:
+            with open(f"{metrics_directory}{c[0]}_dropout_stats.txt",
+                      "r") as fp:
+                d = json.load(fp)
+                distribution = d["distribution"]
+                dropout_counts = d["total_dropout_count"]
+            for char in c[1:]:
+                with open(f"{metrics_directory}{char}_dropout_stats.txt",
+                          "r") as fp:
+                    d = json.load(fp)
+                    for i in range(0, 122):
+                        distribution[str(i)] += d["distribution"][str(i)]
+                    dropout_counts += d["total_dropout_count"]
+        else:
+            with open(f"{metrics_directory}{c}_dropout_stats.txt", "r") as fp:
+                d = json.load(fp)
+                distribution = d["distribution"]
+                dropout_counts = d["total_dropout_count"]
+
+        distribution.pop('0')
+        distribution.pop('120')
+        distribution.pop('121')
+
+        # has_dropout = np.count_nonzero(dropout_counts)
+        # print(f"{c.upper()}\t{has_dropout}/{class_list.shape[0]}\t{has_dropout / class_list.shape[0]}")
+
+        # print(distribution['6'], c)
+        #
+        # plt.bar(range(len(distribution)), distribution.values(), align='center')
+        # plt.title(f"{c.upper()}-Flare Dropout Distribution")
+        # plt.ylabel("Dropout Count")
+        # plt.xlabel("Timepoint (from 24h prior to onset)")
+        # plt.savefig(f"{figure_directory}dropouts/{c}_dropout_distribution.png")
+        # plt.show()
+
+        bins = [1] + [i*5 for i in range(1, 10)]
+        arr = plt.hist(dropout_counts, bins=bins)
+        plt.title(f"{c.upper()}-Flare Dropout Histogram")
+        plt.ylabel("Count")
+        plt.xlabel("# of Dropouts over 24h")
+        for i in range(len(bins) - 1):
+            plt.text(arr[1][i], arr[0][i], str(int(arr[0][i])))
+        plt.grid(True)
+        plt.savefig(f"{figure_directory}dropouts/{c}_dropout_histogram.png")
+        plt.show()
+
+def time_series_vector_classification5():
+    import lightgbm as lgb
+    names = [
+        "LR",
+        "LDA",
+        "KNN",
+        "DART",
+        "RFC",
+        "SVM",
+    ]
+
+    classifiers = [
+        LogisticRegression(C=1000, class_weight="balanced"),
+        LinearDiscriminantAnalysis(),
+        KNeighborsClassifier(n_neighbors=3),
+        lgb.LGBMClassifier(boosting_type="dart"),
+        RandomForestClassifier(n_estimators=120),
+        SVC(),
+    ]
+    coincidences = ["All Flares", "Coincidental Flares",
+                    "Noncoincidental Flares"]
+    # results_df = pd.DataFrame(columns=["name", "tss_mean", "tss_std", "label"])
+    # results_df = pd.DataFrame(columns=["name", "tss_mean", "tss_std", "hours", "dataset"])
+
+    results_df = pd.read_csv(f"{metrics_directory}time_series_classification.csv", index_col=0)
+    for hour in range(2, 25):
+        subdir = f"0h_{hour}h"
+        data_df = pd.DataFrame()
+        for param in FLARE_PROPERTIES:
+            if data_df.empty:
+                data_df = pd.concat([
+                    data_df,
+                    pd.read_csv(f"{other_directory}{subdir}/{param}.csv", index_col=0)],
+                    axis=1)
+            else:
+                d = pd.read_csv(f"{other_directory}{subdir}/{param}.csv", index_col=0)
+                d = d.drop(["FLARE_TYPE", "COINCIDENCE"], axis=1)
+                data_df = pd.concat([data_df, d], axis=1)
+
+        for coincidence, coin_val in zip(coincidences, [None, True, False]):
+            if coin_val is None:
+                flare_df = data_df.copy()
+            else:
+                flare_df = data_df.loc[data_df["COINCIDENCE"] == coin_val]
+            flare_df["LABEL"] = flare_df["FLARE_TYPE"].apply(get_ar_class)
+            properties_df = flare_df.drop(["FLARE_TYPE", "LABEL", "COINCIDENCE"], axis=1)
+            normalized_df = (properties_df - properties_df.min()) / (
+                    properties_df.max() - properties_df.min())
+            for col in normalized_df.columns:
+                flare_df[col] = normalized_df[col]
+
+            series_tss = {name: [] for name in names}
+            df = flare_df
+
+            for clf, name in zip(classifiers, names):
+                for index in range(30):
+                    train_df, test_df = train_test_split(df, test_size=0.3,
+                                                         stratify=flare_df["FLARE_TYPE"])
+                    train_X = train_df.drop(["LABEL", "FLARE_TYPE", "COINCIDENCE"], axis=1)
+                    test_X = test_df.drop(["LABEL", "FLARE_TYPE", "COINCIDENCE"], axis=1)
+                    train_y, test_y = train_df["LABEL"].values, test_df["LABEL"].values
+
+                    clf.fit(train_X, train_y)
+                    y_pred = clf.predict(test_X)
+                    series_tss[name].append(calc_tss(test_y, y_pred))
+                # results_df.loc[results_df.shape[0]] = [name, np.mean(series_tss[name]), np.std(series_tss[name]), f"{dir[:-1]} time-series"]
+                results_df.loc[results_df.shape[0]] = [name, np.mean(series_tss[name]), np.std(series_tss[name]), hour, coincidence]
+                print(results_df)
+                results_df.to_csv(f"{metrics_directory}time_series_classification.csv")
+
+
+def timepoint_tss_plot():
+    names = [
+        "KNN",
+        "LR",
+        "RFC",
+        "SVM",
+        "DART",
+        "LDA"
+    ]
+    coincidences = ["All Flares", "Coincidental Flares", "Noncoincidental Flares"]
+    # coincidences = ["All Flares"]
+    # df = pd.read_csv(f"{metrics_directory}0h_to_24h_mean_timepoint_coincidence_classification.csv")
+    # df = pd.read_csv(f"{metrics_directory}0h_to_24h_timepoint_coincidence_classification.csv")
+    # df = pd.read_csv(f"{metrics_directory}0h_to_24h_mean_timepoint_coincidence_classification.csv")
+    df = pd.read_csv(f"{other_directory}0h_to_24h_nbcmx_nearest_timepoint_with_filter_coincidence_classification.csv")
+
+
+    for coincidence in coincidences:
+        global_max_tss = -1
+        max_index = -1
+        for name in names:
+            name_df = df.loc[df["name"] == name]
+            name_coin_df = name_df.loc[name_df["dataset"] == coincidence]
+            tss = list(name_coin_df["tss"])
+            # tss = list(name_coin_df["tss_mean"])
+            # sd = list(name_coin_df["tss_std"])
+            tss.reverse()
+            # plt.plot(range(len(tss)), tss, label=name)
+            plt.plot(range(len(tss)), tss, label=name)
+            plt.ylim(bottom=0.45, top=1)
+            plt.xticks(range(0, 25), range(24, -1, -1), rotation="vertical")
+            # plt.xticks(range(1, 25), range(24, 0, -1), rotation="vertical")
+            # plt.xticks(range(1, 25), rotation="vertical")
+            max_tss = max(tss)
+            if max_tss > global_max_tss:
+                global_max_tss = max_tss
+                max_index = tss.index(max_tss)
+        plt.axvline(max_index, color="grey", ls="dashed", label="Max TSS", alpha=0.5)
+        plt.legend(bbox_to_anchor=(1.05, 1.0), loc='upper left')
+        plt.xlabel("Hours Before Flare Onset")
+        plt.ylabel("TSS")
+        # plt.title(f"NBC vs. MX, Timepoint Comparison, {coincidence}")
+        plt.title(f"NBC vs. MX, Timepoint Comparison, {coincidence}\n(Nearest Timepoint w/ Filtering)")
+        # plt.title(f"NBC vs. MX, Time-series Comparison, {coincidence}")
+        # plt.title(coincidence)
+        plt.tight_layout()
+        plt.savefig(f"{figure_directory}nbcmx_nearest_timepoint_filter_comparison_{coincidence.split()[0].lower()}.png")
+        plt.show()
+        plt.clf()
+
+
+def get_dataframe_for_time_series():
+    # params = ["R_VALUE", "TOTUSJZ", "TOTUSJH"]
+    # df = pd.DataFrame(columns=["FLARE_TYPE", "COINCIDENCE"] + [f"{param}_{i}" for i in range(1, 121) for param in params])
+    flare_classes = ["x", "m", "c", "b", "n"]
+
+
+
+    for hour in range(0, 1):
+        hours_before_flare = 24 - hour
+        # counts = {flare_class: 0 for flare_class in flare_classes}
+        subdir = f"0h_{hours_before_flare}h"
+        timepoints = hours_before_flare * 5
+        param_dfs = {
+            param: pd.DataFrame(
+                columns=["FLARE_TYPE", "COINCIDENCE"] +
+                        [f"{param}_{i}" for i in range(1, timepoints + 1)])
+            for param in FLARE_PROPERTIES}
+        for data, class_list, c in zip(
+                [mx_data, mx_data, bc_data, b_data, n_data],
+                [x_list, m_list, c_list, b_list, n_list],
+                flare_classes
+        ):
+            print(f'Processing {class_list.shape[0]} {c}-flares for {subdir} ({timepoints} timepoints)')
+            # data = data.loc[data["QUALITY"] == 0]
+            for index, row in class_list.iterrows():
+                nar = row["nar"]
+                flare_class = row["xray_class"]
+                coincidence = row["COINCIDENCE"]
+                time_start = row["time_start"] - timedelta(hours=24)
+                time_end = row["time_start"] - timedelta(hours=hour)
+                try:
+                    nar_data = data.loc[data["NOAA_AR"] == nar]
+                    start_index = nar_data.index.get_indexer([time_start],
+                                                             method='nearest')
+                    end_index = nar_data.index.get_indexer([time_end],
+                                                           method='nearest')
+                    start_index = nar_data.iloc[start_index].index[0]
+                    end_index = nar_data.iloc[end_index].index[0]
+
+                    # time_series_df = nar_data.loc[start_index:end_index].reset_index()
+
+                    time_series_df = nar_data.loc[start_index:end_index]
+
+                    # time_series_df = time_series_df.reindex(
+                    #     pd.date_range(start=start_index, end=end_index,
+                    #                   freq='12T'))
+                    # for param in FLARE_PROPERTIES:
+                    #     time_series_df[param] = time_series_df[
+                    #         param].interpolate(method="time", limit=2)
+                    # # time_series_df = time_series_df.dropna()
+                    # if time_series_df.shape[0] < timepoints:
+                    #     continue
+                    time_series_df = time_series_df.reset_index()
+                    time_series_df = time_series_df.iloc[0:timepoints]
+                    time_series_df = filter_data(time_series_df, nar)
+
+                    # time_series_df = time_series_df.reindex(
+                    #     pd.date_range(start=start_index, end=end_index,
+                    #                   freq='12T'))
+                    # for param in FLARE_PROPERTIES:
+                    #     time_series_df[param] = time_series_df[param].interpolate(
+                    #         method="time")
+                    time_series_df = time_series_df.dropna()
+                    # time_series_df = time_series_df.reset_index()
+                    if time_series_df.shape[0] < timepoints:
+                        continue
+
+                    time_series_df = time_series_df.iloc[0:timepoints]
+                except IndexError:
+                    print(
+                        f"Skipping {flare_class} flare at {time_end} due to IndexError")
+                    continue
+                except pd.errors.InvalidIndexError:
+                    print(
+                        f"Skipping {flare_class} flare at {time_end} due to InvalidIndexError")
+                    continue
+
+                for param in FLARE_PROPERTIES:
+                    # try:
+                    param_values = time_series_df[param].tolist()
+                    param_dfs[param].loc[len(param_dfs[param])] = [flare_class,
+                                                                   coincidence] + param_values
+            #     counts[flare_class.lower()] += 1
+            # print(counts)
+
+        for param in FLARE_PROPERTIES:
+            param_dfs[param].to_csv(f"{other_directory}/{subdir}/{param.lower()}_no_interpolation.csv")
+
+
+def get_dataframe_for_mean_time_series():
+    # params = ["R_VALUE", "TOTUSJZ", "TOTUSJH"]
+    # df = pd.DataFrame(columns=["FLARE_TYPE", "COINCIDENCE"] + [f"{param}_{i}" for i in range(1, 121) for param in params])
+    flare_classes = ["x", "m", "c", "b", "n"]
+    timestamp_format = "%Y-%m-%d %H:%M:%S"
+
+
+
+    for hour in range(1, 24):
+        hours_before_flare = 24 - hour
+        # counts = {flare_class: 0 for flare_class in flare_classes}
+        subdir = f"0h_{hours_before_flare}h"
+        timepoints = hours_before_flare * 5
+        # param_dfs = {
+        #     param: pd.DataFrame(
+        #         columns=["FLARE_TYPE", "COINCIDENCE"] +
+        #                 [f"{param}_{i}" for i in range(1, hours_before_flare + 1)])
+        #     for param in FLARE_PROPERTIES}
+        mean_time_series_df = pd.DataFrame(columns=["FLARE_TYPE", "COINCIDENCE"] +
+                                           [f"{param}_{i}" for i in range(1, hours_before_flare + 1) for param in FLARE_PROPERTIES])
+        flare_count = 0
+        param_column_count = mean_time_series_df.shape[1] - 2
+        for data, class_list, c in zip(
+                [mx_data, mx_data, bc_data, b_data, n_data],
+                [x_list, m_list, c_list, b_list, n_list],
+                flare_classes
+        ):
+            print(f'Processing {class_list.shape[0]} {c}-flares for {subdir} ({timepoints} timepoints)')
+            # data = data.loc[data["QUALITY"] == 0]
+            for index, row in class_list.iterrows():
+                nar = row["nar"]
+                flare_class = row["xray_class"]
+                coincidence = row["COINCIDENCE"]
+                mean_time_series_df.loc[flare_count] = [flare_class, coincidence] + [np.nan for _ in range(param_column_count)]
+                time_start = floor_minute(row["time_start"] - timedelta(hours=24))
+                time_end = floor_minute(row["time_start"] - timedelta(hours=hour))
+                temp = filter_data(data, nar)
+                nar_data = temp.loc[temp["NOAA_AR"] == nar]
+                time_between = nar_data.loc[(nar_data.index >= time_start.strftime(timestamp_format)) & (nar_data.index <= time_end.strftime(timestamp_format))]
+                mean_timepoints = []
+                for mean_hour in range(hours_before_flare):
+                    mean_time_start = time_start + timedelta(hours=mean_hour)
+                    mean_time_end = mean_time_start + timedelta(hours=1)
+                    timepoints_in_hour = time_between.loc[(time_between.index >= mean_time_start.strftime(timestamp_format)) & (time_between.index < mean_time_end.strftime(timestamp_format))]
+                    for param in FLARE_PROPERTIES:
+                        mean_timepoints.append(timepoints_in_hour.mean()[param])
+                        # mean_timepoints[param] = [timepoints_in_hour.mean()[param]]
+                mean_time_series_df.iloc[flare_count, 2:] = mean_timepoints
+                flare_count += 1
+            mean_time_series_df.to_csv(f"{other_directory}/mean_time_series/{subdir}_mean_time_series_with_null.csv")
+            mean_time_series_df.dropna().to_csv(f"{other_directory}/mean_time_series/{subdir}_mean_time_series.csv")
+
+def dropouts2():
+    import csv
+    empty = True
+    def floor_minute(time, cadence=12):
+        return time - timedelta(minutes=time.minute % cadence)
+
+    for class_list, class_data, c in zip(
+            # [m_list, x_list, c_list, b_list, n_list],
+            # [mx_data, mx_data, bc_data, b_data, n_data],
+            # ["m", "x", "c", "b", "n"]
+            [x_list, m_list, c_list, b_list, n_list],
+            [mx_data, mx_data, bc_data, b_data, n_data],
+            ["x", "m", "c", "b", "n"]
+    ):
+        class_list.reset_index(inplace=True)
+        class_list.drop("index", axis=1, inplace=True)
+
+        dropout_stats = {c: {
+            "missing_singles": 0,
+            "missing_pairs": 0,
+            "missing_triples": 0,
+            "missing_quads": 0,
+            "missing_five_plus": 0,
+            "flares_only_one_single": 0,
+            "flares_only_two_single": 0,
+            "flares_only_three_single": 0,
+            "flares_only_four_single": 0,
+            "flares_five_plus_single": 0,
+            "flares_only_one_pair": 0,
+            "flares_only_two_pair": 0,
+            "flares_only_three_pair": 0,
+            "flares_four_plus_pair": 0,
+            "flares_only_one_triple": 0,
+            "flares_only_two_triple": 0,
+            "flares_three_plus_triple": 0,
+            "flares_only_one_single_and_one_pair": 0,
+            "flares_only_two_single_and_one_pair": 0,
+            "flares_only_three_single_and_one_pair": 0,
+            "flares_three_plus_single_and_one_pair": 0,
+            "flares_only_one_single_and_two_pair": 0,
+            "flares_only_two_single_and_two_pair": 0,
+            "flares_only_one_single_and_one_triple": 0,
+            "flares_only_two_single_and_one_triple": 0,
+            "flares_only_one_double_and_one_triple": 0,
+        } for c in ["m", "x", "c", "b", "n"]}
+
+        for index, row in class_list.iterrows():
+            nar = row["nar"]
+            time_start = row["time_start"] - timedelta(hours=24)
+            time_end = row["time_start"]
+
+            try:
+                nar_data = class_data.loc[class_data["NOAA_AR"] == nar]
+                start_index = nar_data.index.get_indexer([time_start],
+                                                         method='nearest')
+                end_index = nar_data.index.get_indexer([time_end],
+                                                       method='nearest')
+                start_index = nar_data.iloc[start_index].index[0]
+                end_index = nar_data.iloc[end_index].index[0]
+                time_series_df = nar_data.loc[start_index:end_index]
+            except IndexError:
+                continue
+            except pd.errors.InvalidIndexError:
+                continue
+
+            if time_series_df.shape[0] < 120:
+                temp_df = pd.DataFrame()
+                temp2_df = time_series_df.copy()
+                temp_df["timestamp"] = time_series_df.index
+                temp_df['minutes'] = temp_df['timestamp'].diff()
+
+                # Count total dropouts
+                isolated_single_dropout_count = temp_df.loc[temp_df["minutes"] == pd.Timedelta(minutes=24)].shape[0]
+                isolated_pair_dropout_count = temp_df.loc[temp_df["minutes"] == pd.Timedelta(minutes=36)].shape[0]
+                isolated_triple_dropout_count = temp_df.loc[temp_df["minutes"] == pd.Timedelta(minutes=48)].shape[0]
+                isolated_quad_dropout_count = temp_df.loc[temp_df["minutes"] == pd.Timedelta(minutes=60)].shape[0]
+                isolated_fiveplus_dropout_count = temp_df.loc[temp_df["minutes"] >= pd.Timedelta(minutes=72)].shape[0]
+
+                for dropout_label, dropout_count in zip(
+                        ["missing_singles", "missing_pairs", "missing_triples", "missing_quads", "missing_five_plus"],
+                        [isolated_single_dropout_count, isolated_pair_dropout_count, isolated_triple_dropout_count, isolated_quad_dropout_count, isolated_fiveplus_dropout_count]):
+                    dropout_stats[c][dropout_label] += dropout_count
+
+                # Count flares w/ specific dropouts
+                # Singles
+                if isolated_single_dropout_count == 1:
+                    dropout_stats[c]["flares_only_one_single"] += 1
+                elif isolated_single_dropout_count == 2:
+                    dropout_stats[c]["flares_only_two_single"] += 1
+                elif isolated_single_dropout_count == 3:
+                    dropout_stats[c]["flares_only_three_single"] += 1
+                elif isolated_single_dropout_count == 4:
+                    dropout_stats[c]["flares_only_four_single"] += 1
+                elif isolated_single_dropout_count >= 5:
+                    dropout_stats[c]["flares_five_plus_single"] += 1
+
+                # Pairs
+                if isolated_pair_dropout_count == 1:
+                    dropout_stats[c]["flares_only_one_pair"] += 1
+                elif isolated_pair_dropout_count == 2:
+                    dropout_stats[c]["flares_only_two_pair"] += 1
+                elif isolated_pair_dropout_count == 3:
+                    dropout_stats[c]["flares_only_three_pair"] += 1
+                elif isolated_pair_dropout_count >= 4:
+                    dropout_stats[c]["flares_four_plus_pair"] += 1
+
+                # Triples
+                if isolated_triple_dropout_count == 1:
+                    dropout_stats[c]["flares_only_one_triple"] += 1
+                elif isolated_triple_dropout_count == 2:
+                    dropout_stats[c]["flares_only_two_triple"] += 1
+                elif isolated_triple_dropout_count >= 3:
+                    dropout_stats[c]["flares_three_plus_triple"] += 1
+
+                # Combos
+                if isolated_single_dropout_count == 1 and isolated_pair_dropout_count == 1:
+                    dropout_stats[c]["flares_only_one_single_and_one_pair"] += 1
+                elif isolated_single_dropout_count == 2 and isolated_pair_dropout_count == 1:
+                    dropout_stats[c]["flares_only_two_single_and_one_pair"] += 1
+                elif isolated_single_dropout_count == 3 and isolated_pair_dropout_count == 1:
+                    dropout_stats[c]["flares_only_three_single_and_one_pair"] += 1
+                elif isolated_single_dropout_count >= 3 and isolated_pair_dropout_count == 1:
+                    dropout_stats[c]["flares_three_plus_single_and_one_pair"] += 1
+                elif isolated_single_dropout_count == 1 and isolated_pair_dropout_count == 2:
+                    dropout_stats[c]["flares_only_one_single_and_two_pair"] += 1
+                elif isolated_single_dropout_count == 2 and isolated_pair_dropout_count == 2:
+                    dropout_stats[c]["flares_only_two_single_and_two_pair"] += 1
+                elif isolated_single_dropout_count == 1 and isolated_triple_dropout_count == 1:
+                    dropout_stats[c]["flares_only_one_single_and_one_triple"] += 1
+                elif isolated_single_dropout_count == 2 and isolated_triple_dropout_count == 1:
+                    dropout_stats[c]["flares_only_two_single_and_one_triple"] += 1
+                elif isolated_pair_dropout_count == 1 and isolated_triple_dropout_count == 1:
+                    dropout_stats[c]["flares_only_one_double_and_one_triple"] += 1
+
+
+        print(f"{c.upper()} Flares")
+        print(dropout_stats[c].keys())
+        print(dropout_stats[c].values())
+        print("-" * 50)
+        # for k, v in dropout_stats[c].items():
+        #     print(k, ":", v)
+        # print()
+        # print()
+
+        # print(dropout_stats[c])
+        # with open(f"{metrics_directory}dropout_stats.csv", "w") as csvfile:
+        #     writer = csv.DictWriter(csvfile, fieldnames=dropout_stats[c].keys())
+        #     if empty:
+        #         writer.writeheader()
+        #         empty = False
+        #     writer.writerows(dropout_stats[c])
+        # with open(f"{metrics_directory}{c}_dropout_stats.txt", "w") as fp:
+        #     json.dump(dropout_stats[c], fp, indent=4)
+
+
+def barplot_counts():
+    flare_classes = ['N', 'B', 'C', 'M', 'X']
+    timepoints = 25
+    index = [f"{i}" for i in range(0, timepoints)]
+    all_data = {"N": [],
+            "B": [],
+            "C": [],
+            "M": [],
+            "X": []}
+    coin_data = {"N": [],
+                "B": [],
+                "C": [],
+                "M": [],
+                "X": []}
+    noncoin_data = {"N": [],
+                "B": [],
+                "C": [],
+                "M": [],
+                "X": []}
+    for i in range(0, timepoints):
+        temp_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}timepoints_default/singh_nbcmx_data_{i}h_nearest_timepoint_with_filter.csv")
+        # if i == 12:
+        #     print(temp_df.loc[temp_df["xray_class"] == "X"])
+        #     exit(1)
+        for flare_class in flare_classes:
+            all_data[flare_class].append(temp_df.loc[temp_df["xray_class"] == flare_class].shape[0])
+            coin_data[flare_class].append(temp_df.loc[(temp_df["xray_class"] == flare_class) & (temp_df["COINCIDENCE"] == True)].shape[0])
+            noncoin_data[flare_class].append(temp_df.loc[(temp_df["xray_class"] == flare_class) & (temp_df["COINCIDENCE"] == False)].shape[0])
+
+    all_df = pd.DataFrame(all_data, index=index)
+    coin_df = pd.DataFrame(coin_data, index=index)
+    noncoin_df = pd.DataFrame(noncoin_data, index=index)
+    print(noncoin_df)
+    colors = ["grey", "blue", "green", "orange", "red"]
+
+    # create grouped bar chart
+    fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(24, 18))
+    for ax, df, coincidence in zip(axes, [all_df, coin_df, noncoin_df], ["All", "Coincident", "Noncoincident"]):
+        df.plot(kind='bar', figsize=(24, 6), width=0.8, stacked=True, color=colors, ax=ax, legend=False)
+
+        # add numerical count labels to each individual bar
+        for container in ax.containers:
+            ax.bar_label(container, label_type='center', fontsize=10)
+
+        # add labels and title
+        ax.set_xlabel('Timepoint Before Flare Onset')
+        ax.set_ylabel(coincidence)
+        ax.set_xticklabels(ax.get_xticklabels(), rotation=0)
+
+    axes[0].set_title('Class Counts by Flare Coincidence\n(Nearest Timepoint w/ Filtering)')
+    # add legend
+    axes[0].legend(title='Class', bbox_to_anchor=(1.05, 1), loc='upper left')
+
+    # show the plot
+    fig.savefig(f"{figure_directory}flare_counts_nearest_timepoint_with_filter.png")
+    plt.show()
+
+
+def generate_sinha_timepoint_dataset(all_flare_df: pd.DataFrame=None) -> pd.DataFrame:
+    # flare_classes = ["nbc", "mx"]
+    flare_classes = ["x", "m", "c", "b", "n"]
+
+    def floor_minute(time, cadence=12):
+        if not isinstance(time, str):
+            return time - timedelta(minutes=time.minute % cadence)
+        else:
+            return "not applicable"
+
+    n_list["magnitude"] = 0
+
+    # nb_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}Data_ABC_ARs_and_errors.txt",
+    #                       delimiter=r"\s+", header=0)
+    # nb_df = pd.concat([nb_df, pd.read_csv(f"{FLARE_DATA_DIRECTORY}Data_OnlyB_ARs_and_errors.txt", delimiter=r"\s+", header=0),
+    #                    pd.read_csv(f"{FLARE_DATA_DIRECTORY}Data_No_flare_ARs_and_errors.txt", delimiter=r"\s+", header=0)])
+    # nb_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}agu_bc_data.txt")
+    # mx_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}Data_MX_ARs_and_errors.txt",
+    #                     delimiter=r"\s+", header=0)
+    # for df in [nb_df, mx_df]:
+    #     df["T_REC"] = df["T_REC"].apply(parse_tai_string)
+    #     df.set_index("T_REC", inplace=True)
+        # df.drop_duplicates("T_REC", inplace=True)
+
+    for i in range(24, 25):
+        all_flare_df = pd.DataFrame(columns=FLARE_PROPERTIES + ["expected_timepoint", "observed_timepoint", "time_difference"])
+        for data, class_list, c in zip(
+                [mx_data, mx_data, bc_data, b_data, n_data],
+                [x_list, m_list, c_list, b_list, n_list],
+                flare_classes
+        ):
+            all_flare_df = pd.concat([class_list, all_flare_df])
+            for index, row in class_list.iterrows():
+                print(f"{index}/{class_list.shape[0]}")
+                dt = floor_minute(row["time_start"] - timedelta(hours=i))
+                nar = row["nar"]
+
+                # temp = filter_data(data, nar)
+                temp = data
+                ar_records = temp.loc[temp["NOAA_AR"] == nar]
+                try:
+                    # record_index = ar_records.index[ar_records.index.get_loc(dt, method='nearest')]
+                    record_index = ar_records.index[ar_records.index.get_loc(dt)]
+                except KeyError:
+                    continue
+                except pd.errors.InvalidIndexError:
+                    continue
+                record = ar_records.loc[record_index]
+                try:
+                    for flare_property in FLARE_PROPERTIES:
+                        all_flare_df.loc[index, flare_property] = record[flare_property]
+                except ValueError:
+                    continue
+                all_flare_df.loc[index, "expected_timepoint"] = dt
+                all_flare_df.loc[index, "observed_timepoint"] = record_index
+                all_flare_df.loc[index, "time_difference"] = abs(record_index - dt)
+                # all_flare_df.loc[index, "expected_timepoint", "observed_timepoint", "time_difference"] = [dt, record_index, abs(record_index - dt)]
+
+
+        all_flare_df.dropna(inplace=True)
+        # all_flare_df.to_csv(f"{FLARE_DATA_DIRECTORY}timepoints_default/singh_nbcmx_data_{i}h_nearest_timepoint_without_filter.csv")
+        all_flare_df.to_csv(f"{FLARE_DATA_DIRECTORY}timepoints_default/singh_nbcmx_data_{i}h_default_timepoint_without_filter.csv")
+        # all_info_df.to_csv(f"{FLARE_DATA_DIRECTORY}singh_nbcmx_data.csv")
 
 def main() -> None:
     # Disable Warnings
@@ -1217,15 +2200,29 @@ def main() -> None:
     # print(mx_data)
     # get_idealized_flare()
     # idealized_flares_plot()
+    # barplot_counts()
+    get_dataframe_for_mean_time_series()
+    # timepoint_tss_plot()
     # classification_plot()
-    # plot_parameter_tss()
-    flare_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbcmx_data.csv", index_col=False)
-    flare_df = flare_df.loc[flare_df["xray_class"] != "A"]
-    for coincidence in ["all", "coincident", "noncoincident"]:
-        generate_parallel_coordinates(coincidence, flare_df)
-        exit(1)
+    # flare_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbcmx_data.csv", index_col=False)
+    # flare_df = flare_df.loc[flare_df["xray_class"] != "A"]
+    # for coincidence in ["all", "coincident", "noncoincident"]:
+    #     generate_parallel_coordinates(coincidence, flare_df)
+    #     exit(1)
     # goodness_of_fit2()
-    # time_series_vector_classification3()
+    # time_point_comparison()
+    # generate_sinha_timepoint_dataset()
+    # barplot_counts()
+    # year_1_report_bcmx_classification_comparison()
+    # dropouts()
+    # get_dataframe_for_time_series()
+    # generate_mean_dataset()
+    # year_1_report_bcmx_classification_comparison()
+    # year_1_report_bcmx_classification_comparison()
+    # year_1_report_bcmx_classification_comparison()
+    # time_series_vector_classification5()
+    # time_series_vector_classification5("interpolated_time_series/0h_24h/")
+    # time_series_vector_classification5()
     # test()
     # get_dataframe_of_vectors()
     # idealized_series_plot_2d()

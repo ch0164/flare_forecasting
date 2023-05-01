@@ -1,5 +1,6 @@
 # Custom Imports
 import pandas as pd
+from sklearn.metrics import make_scorer
 
 from source.utilities import *
 
@@ -8,9 +9,11 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 from sklearn.preprocessing import LabelEncoder
+import sklearn
 
 # Disable Warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
+warnings.simplefilter(action='ignore', category=sklearn.exceptions.ConvergenceWarning)
 
 experiment = "neural_network"
 experiment_caption = experiment.title().replace("_", " ")
@@ -362,6 +365,90 @@ def test_model(filename):
 
 def mlp_classfifier():
     global train_X_df, train_y_df, test_X_df, test_y_df
+
+    # parameter_space = {
+    #     'hidden_layer_sizes': [(120,), (120, 120), (120, 120, 120), (120, 60), (120, 60, 30)],
+    #     # 'activation': ['sigmoid', 'relu'],
+    # }
+    parameter_space = {
+        'hidden_layer_sizes': [(1200,), (1200, 600, 300, 100)],
+        # 'activation': ['tanh', 'relu'],
+        # 'solver': ['sgd', 'adam'],
+        # 'alpha': [0.0001, 0.05],
+        # 'learning_rate': ['constant', 'adaptive'],
+    }
+
+    train_X_df = pd.concat([train_X_df, validation_X_df])
+    train_y_df = pd.concat([train_y_df, validation_y_df])
+    X = pd.concat([train_X_df, test_X_df])
+    y = pd.concat([train_y_df, test_y_df])
+    df = pd.concat([X, y], axis=1)
+
+
+    def tss_(y_true, y_pred):
+        cm = confusion_matrix(y_true, y_pred)
+        tn, fp, fn, tp = cm.ravel()
+        detection_rate = tp / float(tp + fn)
+        false_alarm_rate = fp / float(fp + tn)
+        tss = detection_rate - false_alarm_rate
+        return tss
+    #
+    # mlp = MLPClassifier(max_iter=300,
+    #                     solver="adam",
+    #                     activation='relu',
+    #                     learning_rate_init=0.0001,
+    #                     n_iter_no_change=50,
+    #                     learning_rate='adaptive'
+    #                     )
+    # score = make_scorer(tss_)
+    # clf = GridSearchCV(mlp, parameter_space, n_jobs=-1, cv=3, verbose=3, scoring=score)
+    # clf.fit(train_X_df.values, train_y_df["LABEL"].values)
+    #
+    # # Best paramete set
+    # print('Best parameters found:\n', clf.best_params_)
+    #
+    # # All results
+    # means = clf.cv_results_['mean_test_score']
+    # stds = clf.cv_results_['std_test_score']
+    # for mean, std, params in zip(means, stds, clf.cv_results_['params']):
+    #     print("%0.3f (+/-%0.03f) for %r" % (mean, std * 2, params))
+    # exit(1)
+    # df = df.loc[df["COINCIDENCE"] == False]
+
+    best_triple = [f"AREA_ACR_{i}" for i in range(1, 121)] + [f"SAVNCPP_{i}" for i in range(1, 121)] + [f"TOTUSJH_{i}" for i in range(1, 121)] + [f"TOTUSJZ_{i}" for i in range(1, 121)]
+
+    tss_list = []
+    for train_index in range(30):
+        print(f"{train_index}/30")
+        train_df, test_df = train_test_split(df, test_size=0.2, stratify=df["FLARE_TYPE"])
+        # train_X_df = train_df.drop(["FLARE_TYPE", "COINCIDENCE", "LABEL"], axis=1)
+        train_df, test_df = train_test_split(df, test_size=0.2,
+                                             stratify=df["FLARE_TYPE"])
+        train_X_df = train_df.drop(["FLARE_TYPE", "COINCIDENCE", "LABEL"],
+                                   axis=1)
+        train_y_df = train_df[["FLARE_TYPE", "COINCIDENCE", "LABEL"]]
+        test_X_df = test_df.drop(["FLARE_TYPE", "COINCIDENCE", "LABEL"], axis=1)
+        test_y_df = test_df[["FLARE_TYPE", "COINCIDENCE", "LABEL"]]
+        model = MLPClassifier(hidden_layer_sizes=(120,),
+                        solver="adam",
+                        activation='relu',
+                        learning_rate_init=0.0001,
+                        max_iter=300,
+                        n_iter_no_change=50,
+                        learning_rate='adaptive')
+        model.fit(train_X_df.values, train_y_df["LABEL"].values)
+        y_pred = model.predict(test_X_df.values)
+        y_true = test_y_df["LABEL"].values
+        tss = tss_(y_true, y_pred)
+        tss_list.append(tss)
+        print(tss)
+    print(tss_list)
+    print(f"TSS: {np.mean(tss_list):.4f} +/- {np.std(tss_list):.4f}")
+
+
+def mlp_classfifier2():
+    global train_X_df, train_y_df, test_X_df, test_y_df
+
     train_X_df = pd.concat([train_X_df, validation_X_df])
     train_y_df = pd.concat([train_y_df, validation_y_df])
     X = pd.concat([train_X_df, test_X_df])
@@ -369,45 +456,73 @@ def mlp_classfifier():
     df = pd.concat([X, y], axis=1)
     # df = df.loc[df["COINCIDENCE"] == False]
 
-    best_triple = [f"AREA_ACR_{i}" for i in range(1, 121)] + [f"SAVNCPP_{i}" for i in range(1, 121)] + [f"TOTUSJH_{i}" for i in range(1, 121)]
+    def get_features(params, low=1, high=121, keep=120, randomize=False):
+        features = []
+        for param in list(params):
+            f = [f"{param}_{i}" for i in range(low, high)]
+            if randomize:
+                np.random.shuffle(f)
+            features += f[:keep]
+        return features
 
-    tss_list = []
-    for train_index in range(100):
-        print(f"{train_index}/100")
-        train_df, test_df = train_test_split(df, test_size=0.2, stratify=df["FLARE_TYPE"])
-        # train_X_df = train_df.drop(["FLARE_TYPE", "COINCIDENCE", "LABEL"], axis=1)
-        train_X_df = train_df[best_triple]
-        train_y_df = train_df[["FLARE_TYPE", "COINCIDENCE", "LABEL"]]
-        test_X_df = test_df[best_triple]
-        test_y_df = test_df[["FLARE_TYPE", "COINCIDENCE", "LABEL"]]
-        model = MLPClassifier(hidden_layer_sizes=(120, 60, 30, 10),
-                        solver="adam",
-                        activation='relu',
-                        learning_rate_init=0.0001,
-                        batch_size=64,
-                        max_iter=300,
-                        n_iter_no_change=50,
-                        learning_rate='adaptive')
-        model.fit(train_X_df.values, train_y_df["LABEL"].values)
-        y_pred = model.predict(test_X_df.values)
-        y_true = test_y_df["LABEL"].values
-        tss = get_tss(y_true, y_pred, convert=False)
-        tss_list.append(tss)
-        print(tss)
-    print(tss_list)
-    print(f"TSS: {np.mean(tss_list):.4f} +/- {np.std(tss_list):.4f}")
+    complete_features = get_features(FLARE_PROPERTIES)
+    randomized_features = get_features(FLARE_PROPERTIES, randomize=True)
+    unrandomized_tss = []
+    randomized_tss = []
+
+    model = MLPClassifier(hidden_layer_sizes=(120),
+                          solver="adam",
+                          activation='relu',
+                          learning_rate_init=0.0001,
+                          batch_size=64,
+                          max_iter=300,
+                          n_iter_no_change=50,
+                          learning_rate='adaptive')
+    for index in range(30):
+        print(index+1)
+        train_df, test_df = train_test_split(df, test_size=0.3,
+                                             stratify=df["FLARE_TYPE"])
+        train_X, unrandomized_test_X = train_df[complete_features], test_df[
+            complete_features]
+        train_y, y_true = train_df["LABEL"].values, test_df["LABEL"].values
+        randomized_test_X = test_df[randomized_features]
+
+        model.fit(train_X.values, train_y)
+        unrandomized_y_pred = model.predict(unrandomized_test_X)
+        randomized_y_pred = model.predict(randomized_test_X)
+        unrandomized_tss.append(calc_tss(y_true, unrandomized_y_pred))
+        randomized_tss.append(calc_tss(y_true, randomized_y_pred))
+    print(f"Unrandomized TSS: {np.mean(unrandomized_tss):.4f} +/- {np.std(unrandomized_tss):.4f}")
+    print(f"Randomized TSS: {np.mean(randomized_tss):.4f} +/- {np.std(randomized_tss):.4f}")
+
+
+
+def calc_tss(y_true=None, y_predict=None):
+    """
+    Calculates the true skill score for binary classification based on the output of the confusion
+    table function
+    """
+    scores = confusion_matrix(y_true, y_predict).ravel()
+    TN, FP, FN, TP = scores
+    # print('TN={0}\tFP={1}\tFN={2}\tTP={3}'.format(TN, FP, FN, TP))
+    tp_rate = TP / float(TP + FN) if TP > 0 else 0
+    fp_rate = FP / float(FP + TN) if FP > 0 else 0
+
+    return tp_rate - fp_rate
+
 
 def main() -> None:
     # resnet = keras.models.load_model(
     #     r"C:\Users\youar\PycharmProjects\flare_forecasting\resnet_mnist_digits\resnet_mnist_digits.hdf5")
     # resnet.summary()
     # exit(1)
-    model = build_ocdcnn_model()
+    # model = build_ocdcnn_model()
     # exit(1)
     # model = resnet50(keras.Input(shape=(2400, 1)))
     # keras.utils.plot_model(model, to_file=f"{figure_directory}{model_name}.png")
-    train_model(model)
-    test_model(f"{other_directory}{model_name}")
+    # train_model(model)
+    # test_model(f"{other_directory}{model_name}")
+    mlp_classfifier2()
     # plot_history(f"{other_directory}{model_name}/history.csv")
 
 

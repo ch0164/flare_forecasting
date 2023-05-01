@@ -6,6 +6,8 @@
 # Custom Imports
 import matplotlib.pyplot as plt
 import pandas as pd
+from matplotlib.colors import ListedColormap
+from matplotlib.lines import Line2D
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import make_scorer
 from sklearn.preprocessing import StandardScaler
@@ -436,19 +438,205 @@ def figure_6_plot(sinha_df, singh_df):
         plt.savefig(f"{figure_directory}{coincidence}/singh_logistic_regression_no_n.png")
         plt.show()
 
+def best_features_for_clf():
+    classifiers = [
+        # KNeighborsClassifier(n_neighbors=3),
+        LogisticRegression(C=100),
+        # RandomForestClassifier(n_estimators=120),
+        # SVC(C=10, gamma=0.1)
+    ]
+    names = [
+        # "KNN",
+        "LR",
+        # "RFC",
+        # "SVM"
+    ]
+    score_names = [
+        "tss",
+        "mac",
+        "ssw",
+        "csw"
+    ]
+    score_functions = [
+        get_tss,
+        get_mac,
+        get_ssw,
+        get_csw
+    ]
 
+    singh_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbmx_data.csv",
+                           index_col="index")
+    classifier_df = pd.DataFrame(columns=["name", "parameter"] + score_names)
+    for parameter in FLARE_PROPERTIES:
+        print(parameter)
+        X = singh_df[[parameter]]
+        y = singh_df["AR_class"].values
+        loo = LeaveOneOut()
+        loo.get_n_splits(X)
+        for name, clf in zip(names, classifiers):
+            y_true, y_pred = [], []
+            i = 0
+            for train_index, test_index in loo.split(X):
+                i += 1
+                # print(f"{name} {clf} {parameter} {i}/{len(X)}")
+                X_train, X_test = X.iloc[train_index], X.iloc[test_index]
+                y_train, y_test = y[train_index], y[test_index]
+                clf.fit(X_train, y_train)
+                y_pred.append(clf.predict(X_test))
+                y_true.append(y_test)
+            tss = get_tss(y_true, y_pred)
+            mac = get_mac(y_true, y_pred)
+            ssw = get_ssw(y_true, y_pred)
+            csw = get_csw(y_true, y_pred)
+            classifier_df.loc[classifier_df.shape[0]] = [
+                name,
+                parameter,
+                tss,
+                mac,
+                ssw,
+                csw
+            ]
+            classifier_df.to_csv(f"{metrics_directory}individual_feature_performances_by_lr.csv")
+
+
+def plot_individual_features():
+    clf_df = pd.read_csv(f"{metrics_directory}individual_feature_performances_by_classifier.csv", index_col=0)
+    for name in ["KNN", "RFC", "LR", "SVM"]:
+        df = clf_df.loc[clf_df["name"] == name]
+        print(df)
+        df = df.sort_values(by="tss")
+        # ax = df.plot(kind="barh", x="parameter", y="tss", width=0.1, color="green", legend=False)
+        # ax.plot()
+        plt.barh(df["parameter"], df["tss"], align='center', alpha=0.4, height=0.1, color="green")
+        plt.plot(df["tss"], df["parameter"], marker=".", linestyle="", alpha=0.8, color="green")
+        # plt.legend(False)
+        plt.text(0.75, 0.5, name)
+        plt.xlim(-0.2, 1)
+        for i, v in enumerate(df["tss"]):
+            plt.text(v + 0.01, i, f"{v:.2f}", va="center")
+        # ax.scatter(df["parameter"], df["tss"])
+        plt.xlabel("TSS")
+        plt.ylabel("Features")
+        plt.title("")
+        plt.tight_layout()
+        plt.show()
+
+
+def figure_11_plot():
+    singh_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbmx_data.csv",
+                           index_col="index")
+    singh_df = singh_df.sample(frac=1, random_state=10)
+    singh_df.reset_index(inplace=True)
+
+    singh_df["norm_index"] = singh_df.index / singh_df.shape[0]
+    singh_df["coin_values"] = singh_df["COINCIDENCE"].replace(
+        {True: 1, False: 0})
+    # parameter = "R_VALUE"
+    for parameter in FLARE_PROPERTIES:
+        positive_coin_class = singh_df.loc[
+            (singh_df["AR_class"] == 1) & (singh_df["COINCIDENCE"] == True)]
+        negative_coin_class = singh_df.loc[
+            (singh_df["AR_class"] != 1) & (singh_df["COINCIDENCE"] == True)]
+        positive_noncoin_class = singh_df.loc[
+            (singh_df["AR_class"] == 1) & (singh_df["COINCIDENCE"] == False)]
+        negative_noncoin_class = singh_df.loc[
+            (singh_df["AR_class"] != 1) & (singh_df["COINCIDENCE"] == False)]
+        positive_coin_mean = np.mean(positive_coin_class[parameter])
+        negative_coin_mean = np.mean(negative_coin_class[parameter])
+        positive_noncoin_mean = np.mean(positive_noncoin_class[parameter])
+        negative_noncoin_mean = np.mean(negative_noncoin_class[parameter])
+        print(singh_df["norm_index"])
+        # colors = ["dodgerblue", "orange"]
+        coin_colors = ["blue", "maroon"]
+        noncoin_colors = [ "skyblue", "salmon",]
+        coin_cmap = ListedColormap(coin_colors)
+        noncoin_cmap = ListedColormap(noncoin_colors)
+        coin_df = singh_df.loc[(singh_df["COINCIDENCE"] == True)]
+        coin_df = coin_df.sort_values("coin_values")
+        noncoin_df = singh_df.loc[(singh_df["COINCIDENCE"] == False)]
+        noncoin_df = noncoin_df.sort_values("coin_values")
+
+        plt.scatter(y=coin_df[parameter], x=coin_df["norm_index"],
+                    c=coin_df["AR_class"], cmap=coin_cmap, marker=".")
+        plt.scatter(y=noncoin_df[parameter], x=noncoin_df["norm_index"],
+                    c=noncoin_df["AR_class"], cmap=noncoin_cmap, marker=".")
+        # plt.plot(singh_df["norm_index"],
+        #          [positive_coin_mean for _ in range(singh_df.shape[0])],
+        #          color="darkred", lw=2)
+        # plt.plot(singh_df["norm_index"],
+        #          [negative_mean for _ in range(singh_df.shape[0])],
+        #          color="darkblue", lw=2)
+        plt.ylabel(parameter)
+        legend_elements = [
+                           Line2D([0], [0], marker='.', color='w',
+                                  label='Positive class, coincident',
+                                  markerfacecolor='maroon', markersize=15),
+
+                        Line2D([0], [0], marker='.', color='w',
+                               label='Negative class, coincident',
+                               markerfacecolor='blue', markersize=15),
+            Line2D([0], [0], marker='.', color='w',
+                   label='Positive class, noncoincident',
+                   markerfacecolor='salmon', markersize=15),
+                        Line2D([0], [0], marker='.', color='w',
+                               label='Negative class, noncoincident',
+                               markerfacecolor='skyblue', markersize=15),
+                           ]
+        plt.legend(handles=legend_elements)
+        plt.savefig(
+            f"{figure_directory}scatter_plots/coincidence/{parameter.lower()}.png")
+        print(f"{figure_directory}scatter_plots/coincidence/{parameter.lower()}.png")
+        plt.show()
+        plt.clf()
+
+    # for parameter in FLARE_PROPERTIES:
+
+
+# def figure_11_plot():
+#     singh_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbmx_data.csv",
+#                            index_col="index")
+#     singh_df = singh_df.sample(frac = 1, random_state=10)
+#     singh_df.reset_index(inplace=True)
+#
+#     singh_df["norm_index"] = singh_df.index / singh_df.shape[0]
+#     # parameter = "R_VALUE"
+#     for parameter in FLARE_PROPERTIES:
+#         positive_class = singh_df[singh_df["AR_class"] == 1]
+#         negative_class = singh_df[singh_df["AR_class"] != 1]
+#         positive_mean = np.mean(positive_class[parameter])
+#         negative_mean = np.mean(negative_class[parameter])
+#         print(singh_df["norm_index"])
+#         colors = ["dodgerblue", "orange"]
+#         cmap = ListedColormap(colors)
+#         plt.scatter(y=singh_df[parameter], x=singh_df["norm_index"], c=singh_df["AR_class"], cmap=cmap, marker=".")
+#         plt.plot(singh_df["norm_index"], [positive_mean for _ in range(singh_df.shape[0])], color="darkred", lw=2)
+#         plt.plot(singh_df["norm_index"], [negative_mean for _ in range(singh_df.shape[0])], color="darkblue", lw=2)
+#         plt.ylabel(parameter)
+#         legend_elements = [Line2D([0], [0], color='darkred', lw=2, label=f'Positive class mean ({positive_mean:.2E})'),
+#                            Line2D([0], [0], color='darkblue', lw=2, label=f'Negative class mean ({negative_mean:.2E})'),
+#                            Line2D([0], [0], marker='.', color='w', label='Positive class',
+#                                   markerfacecolor='orange', markersize=15),
+#                            Line2D([0], [0], marker='.', color='w', label='Negative class',
+#                                   markerfacecolor='dodgerblue', markersize=15)
+#                            ]
+#         plt.legend(handles=legend_elements)
+#         plt.savefig(f"{figure_directory}scatter_plots/all/{parameter.lower()}.png")
+#         plt.show()
+#         plt.clf()
 
 def main() -> None:
-    sinha_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}sinha_dataset.csv")
-    sinha_df.index.names = ["index"]
-    singh_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbmx_data.csv", index_col="index")
+    # sinha_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}sinha_dataset.csv")
+    # sinha_df.index.names = ["index"]
+    # singh_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbmx_data.csv", index_col="index")
     # table_1_anova(sinha_df, singh_df)
     # get_datasets_figure_3(sinha_df, singh_df)
     # figure_5_classification(sinha_df, singh_df)
-    plot_figure_5()
-    print(max_scores_dict)
-    print(random_states_dict)
+    # plot_figure_5()
+    # print(max_scores_dict)
+    # print(random_states_dict)
+    # plot_individual_features()
     # print(parameters)
+    figure_11_plot()
     # figure_6_plot(sinha_df, singh_df)
 
 if __name__ == "__main__":
