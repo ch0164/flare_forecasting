@@ -103,7 +103,7 @@ def plot_histograms2(sinha_df, flare_df):
     sinha_df1 = sinha_df.loc[sinha_df["AR_class"] == 1]
     sinha_df2 = sinha_df.loc[sinha_df["AR_class"] == 0]
     num_bins = 22
-    for column in ["R_VALUE"]: # "TOTUSJH"
+    for column in ["TOTUSJH", "R_VALUE"]:
         mx_min = min(sinha_df1[column].min(), mx_df[column].min())
         mx_max = max(sinha_df1[column].max(), mx_df[column].max())
         nb_min = min(sinha_df2[column].min(), nb_df[column].min())
@@ -316,21 +316,22 @@ def get_flare_info(df):
     recorded_times_df.to_csv(f"{FLARE_LIST_DIRECTORY}sinha_flare_times.csv", index=False)
 
 
-def compute_mean_std(df1, df2):
-    singh_means = [df1[col].mean() for col in SINHA_PARAMETERS]
-    sinha_means = [df2[col].mean() for col in SINHA_PARAMETERS]
-    singh_stds = [df1[col].std() for col in SINHA_PARAMETERS]
-    sinha_stds = [df2[col].std() for col in SINHA_PARAMETERS]
+def compute_mean_std(mx_df, non_mx_df):
+    mx_means = [mx_df[col].mean() for col in SINHA_PARAMETERS]
+    non_mx_means = [non_mx_df[col].mean() for col in SINHA_PARAMETERS]
+    mx_stds = [mx_df[col].std() for col in SINHA_PARAMETERS]
+    non_mx_stds = [non_mx_df[col].std() for col in SINHA_PARAMETERS]
     d = {
-            "singh_means": singh_means,
-            "sinha_means": sinha_means,
-            "singh_stds": singh_stds,
-            "sinha_stds": sinha_stds,
+            "mx_means": mx_means,
+            "mx_stds": mx_stds,
+            "non_mx_means": non_mx_means,
+            "non_mx_stds": non_mx_stds,
     }
     df = pd.DataFrame(d)
     df.index = SINHA_PARAMETERS
-    df.to_csv(OTHER_DIRECTORY + "non_mx_means_stds.csv")
+    # df.to_csv(OTHER_DIRECTORY + "non_mx_means_stds.csv")
     print(df)
+    df.to_csv("dummy2.csv")
     exit(1)
 
 
@@ -432,6 +433,7 @@ def combine_plots_into_figure1():
         #     ax.set_xticks([])
         #     ax.set_yticks([])
         plt.tight_layout()
+        plt.savefig(f"{FIGURE_DIRECTORY}{param.lower()}_distribution.png")
         plt.show()
         # image1 = plt.imread(f'{FIGURE_DIRECTORY}figure_1_histograms/.png')
         # image2 = plt.imread('path/to/image2.png')
@@ -439,10 +441,22 @@ def combine_plots_into_figure1():
         # image4 = plt.imread('path/to/image2.png')
 
 def main():
+    # singh_filename = r"C:\Users\youar\PycharmProjects\flare_forecasting\flare_data\singh_nabmx_24h_default_timepoint_without_filter.csv"
     sinha_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}sinha_dataset.csv")
     sinha_df1 = sinha_df.loc[sinha_df["AR_class"] == 1]
     sinha_df2 = sinha_df.loc[sinha_df["AR_class"] == 0]
-    flare_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbmx_data.csv")
+    # flare_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbmx_data.csv")
+    # flare_df = pd.read_csv(singh_filename, index_col=0, parse_dates=["time_start"])
+    flare_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}apj_singh_dataset.csv", index_col=0, parse_dates=["time_start"])
+    plot_coincidence_histograms2(flare_df)
+    exit(1)
+    print(flare_df)
+    flare_df1 = flare_df.loc[flare_df["AR_class"] == 1]
+    flare_df2 = flare_df.loc[flare_df["AR_class"] == 0]
+    # compute_mean_std(flare_df1, flare_df2)
+    # plot_histograms2(sinha_df, flare_df)
+    combine_plots_into_figure1()
+    exit(1)
 
 
     # flare_df = flare_df.loc[flare_df["xray_class"] != "N"]
@@ -470,7 +484,7 @@ def main():
     # x2_df.to_csv(OTHER_DIRECTORY + "two_sample_ks.csv")
     # compute_mean_std(nb_df, sinha_df2)
     # plot_histograms2(sinha_df, flare_df)
-    combine_plots_into_figure1()
+
     exit(1)
     cols = ["TOTUSJH", "TOTUSJZ", "SAVNCPP", "R_VALUE", "SHRGT45", "ABSNJZH", "TOTPOT", "AREA_ACR", "USFLUX"]
     for col in cols:

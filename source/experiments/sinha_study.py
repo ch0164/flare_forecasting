@@ -1,6 +1,5 @@
 ################################################################################
 # Filename: sinha_study.py
-# Description: Todo
 ################################################################################
 
 # Custom Imports
@@ -34,6 +33,8 @@ SINHA_PARAMETERS = [
     "MEANPOT",
     "SHRGT45",
 ]
+
+singh_filename = r"C:\Users\youar\PycharmProjects\flare_forecasting\flare_data\singh_nabmx_24h_default_timepoint_without_filter.csv"
 
 # SINHA_PARAMETERS = [
 #     "TOTUSJH",
@@ -146,8 +147,16 @@ def get_csw(y_true, y_pred):
     return csw
 
 
+def floor_minute(time, cadence=12):
+    import datetime
+    if not isinstance(time, str):
+        return time - datetime.timedelta(minutes=time.minute % cadence)
+    else:
+        return "not applicable"
+
 def table_1_anova(sinha_df, singh_df):
-        flare_df = singh_df
+        flare_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}apj_singh_dataset.csv", parse_dates=["time_start"])
+        print(flare_df)
         label = "singh"
         for coincidence in ["all", "coincident", "noncoincident"]:
             if coincidence == "coincident":
@@ -155,8 +164,7 @@ def table_1_anova(sinha_df, singh_df):
             elif coincidence == "noncoincident":
                 df = flare_df.loc[flare_df["COINCIDENCE"] == False]
             else:
-                df = flare_df.copy()
-            flare_df = flare_df.loc[flare_df["xray_class"] != "N"]
+                df = flare_df
             params = FLARE_PROPERTIES
             # X = flare_df.drop("AR_class", axis=1)
             X = df[params]
@@ -223,7 +231,7 @@ def get_datasets_figure_3(sinha_df, singh_df, dataset_count=20):
             #     fp.write(json.dumps(occurrences, indent=4))
             print()
 
-def figure_5_classification(sinha_df, singh_df, dataset_count=20, index=0):
+def figure_5_classification(sinha_df, singh_df, dataset_count=20):
     # singh_df = singh_df[SINHA_PARAMETERS + ["AR_class", "COINCIDENCE"]]
 
     # for axis_index, coincidence in enumerate(COINCIDENCES):
@@ -253,7 +261,7 @@ def figure_5_classification(sinha_df, singh_df, dataset_count=20, index=0):
     #             LogisticRegression(C=1),
     #             SVC(C=100, gamma=10),
     #         ]
-    flares_df = sinha_df
+    flares_df = singh_df
     scores = {
         "KNN": {
             "TSS": [],
@@ -282,9 +290,8 @@ def figure_5_classification(sinha_df, singh_df, dataset_count=20, index=0):
     }
     for train_index in range(dataset_count):
         print(f"{train_index}/{dataset_count}")
-        random_state = np.random.choice([2913, 4710, 4200, 2316, 4406, 4910])
-        train_df, test_df = train_test_split(flares_df, test_size=0.2, stratify=flares_df["AR_class"], random_state=random_state)
-        for col in train_df.columns:
+        train_df, test_df = train_test_split(flares_df, test_size=0.2, stratify=flares_df["AR_class"])
+        for col in SINHA_PARAMETERS:
             if col == "AR_class":
                 continue
             mean = train_df[col].mean()
@@ -302,13 +309,10 @@ def figure_5_classification(sinha_df, singh_df, dataset_count=20, index=0):
                 s = scorer(clf, X_test, y_test)
                 scores[name][score_label].append(s)
                 max_scores_dict[name][score_label] = max(max_scores_dict[name][score_label], s)
-                if s == max_scores_dict[name][score_label]:
-                    random_states_dict[name][score_label] = random_state
-
-
 
     import json
-    with open(f"{other_directory}/sinha_score.txt", "w") as fp:
+    print(max_scores_dict)
+    with open(f"{other_directory}/singh_score_new.txt", "w") as fp:
         fp.write(json.dumps(scores, indent=4))
 
 def plot_figure_5():
@@ -459,18 +463,28 @@ def figure_10_plot(sinha_df, singh_df):
                    "TOTPOT", "AREA_ACR", "SAVNCPP",
                    "TOTFZ", "ABSNJZH", "MEANPOT",
                    "SHRGT45", "EPSZ"]
+    print(singh_df)
     coin_df = singh_df.loc[singh_df["COINCIDENCE"] == True]
     noncoin_df = singh_df.loc[singh_df["COINCIDENCE"] == False]
     plt.figure(figsize=(10, 9), dpi=100)
     g = sns.heatmap(coin_df[SINHA_PARAMETERS].corr(), cmap=cmap, vmin=-1.0, vmax=1.0,
                     fmt=".2f", annot=True)
     plt.tight_layout()
+    plt.savefig("singh_correlation_coincident_plot.png")
     plt.show()
 
     plt.figure(figsize=(10, 9), dpi=100)
     g = sns.heatmap(noncoin_df[SINHA_PARAMETERS].corr(), cmap=cmap, vmin=-1.0, vmax=1.0,
                     fmt=".2f", annot=True)
     plt.tight_layout()
+    plt.savefig("singh_correlation_noncoincident_plot.png")
+    plt.show()
+
+    plt.figure(figsize=(10, 9), dpi=100)
+    g = sns.heatmap(singh_df[SINHA_PARAMETERS].corr(), cmap=cmap, vmin=-1.0, vmax=1.0,
+                    fmt=".2f", annot=True)
+    plt.tight_layout()
+    plt.savefig("singh_correlation_plot.png")
     plt.show()
 
     # plt.figure(figsize=(10, 9), dpi=100)
@@ -479,25 +493,23 @@ def figure_10_plot(sinha_df, singh_df):
     # plt.tight_layout()
     # plt.show()
     #
-    # plt.figure(figsize=(10, 9), dpi=100)
-    # g = sns.heatmap(singh_df[SINHA_PARAMETERS].corr(), cmap=cmap, vmin=-1.0, vmax=1.0,
-    #                 fmt=".2f", annot=True)
-    # plt.tight_layout()
-    # plt.show()
+
 
 def hyperparam_plot():
     knn_values = [i for i in range(1, 17)]
-    knn_counts = [3, 0, 6, 0, 4, 0, 2, 0, 2, 0, 3, 0, 1, 0, 0, 0]
+    knn_counts = [4, 0, 7, 0, 3, 0, 2, 0, 1, 0, 2, 0, 1, 0, 0, 0]
 
     plt.bar(knn_values, knn_counts)
     plt.xticks(knn_values)
     plt.xlabel("K")
     plt.ylabel("Occurrences")
     plt.tight_layout()
+    plt.savefig("knn_all_hyperparameters.png")
     plt.show()
 
-    lr_counts = [0, 0, 0, 0, 2, 5, 7, 6, 0]
+    lr_counts = [0, 0, 0, 0, 3, 4, 7, 6, 0]
     lr_values = [i for i in range(len(lr_counts))]
+
 
     plt.bar(lr_values, lr_counts)
     plt.xlabel("C")
@@ -505,9 +517,10 @@ def hyperparam_plot():
     plt.xticks(range(len(lr_counts)), labels=[10**e for e in range(-4, 5)], rotation=45)
     plt.yticks([i for i in range(max(lr_counts) + 1)])
     plt.tight_layout()
+    plt.savefig("lr_all_hyperparameters.png")
     plt.show()
 
-    rfc_counts = [3, 5, 2, 1, 1, 0, 1, 0, 1, 2]
+    rfc_counts = [4, 7, 3, 1, 1, 0, 1, 0, 1, 2]
     rfc_values = [10, 120, 230, 340, 450, 560, 670, 780, 890, 1000]
 
     plt.bar(range(len(rfc_counts)), rfc_counts)
@@ -517,14 +530,17 @@ def hyperparam_plot():
                rotation=45)
     plt.yticks([i for i in range(max(rfc_counts) + 1)])
     plt.tight_layout()
+    plt.savefig("rfc_all_hyperparameters.png")
     plt.show()
+
+
     data = np.zeros((6, 6))
-    data[1, 3] = 7
+    data[1, 3] = 8
     data[0, 4] = 5
     data[1, 4] = 3
-    data[0, 2] = 2
+    data[0, 2] = 1
     data[2, 3] = 2
-    data[2, 4] = 1
+    data[0, 5] = 1
     yticks = [10**e for e in range(-3, 3)]
     yticks.reverse()
     ax = sns.heatmap(data, annot=True,
@@ -534,6 +550,7 @@ def hyperparam_plot():
                      cbar=False)
     ax.set(xlabel="gamma", ylabel="C")
     plt.tight_layout()
+    plt.savefig("svm_all_hyperparameters.png")
     plt.show()
 
 def best_features_for_clf():
@@ -595,13 +612,19 @@ def best_features_for_clf():
             ]
             classifier_df.to_csv(f"{metrics_directory}individual_feature_performances_by_classifier.csv")
 
-
-
 def main() -> None:
-    # sinha_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}sinha_dataset.csv")
+    sinha_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}sinha_dataset.csv")
     # sinha_df.index.names = ["index"]
     # singh_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}singh_nbmx_data.csv", index_col="index")
-    best_features_for_clf()
+    singh_df = pd.read_csv(f"{FLARE_DATA_DIRECTORY}apj_singh_dataset.csv", index_col=0, parse_dates=["time_start"])
+    # table_1_anova(sinha_df, singh_df)
+    # figure_5_classification(sinha_df, singh_df)
+    # table_1_anova(sinha_df, singh_df)
+    # best_features_for_clf()
+
+    figure_10_plot(sinha_df, singh_df)
+    exit(1)
+    hyperparam_plot()
     # print(singh_df)
     # plot_figure_5()
     # hyperparam_plot()
@@ -610,6 +633,7 @@ def main() -> None:
     # get_datasets_figure_3(sinha_df, singh_df)
     # exit(1)
     # get_datasets_figure_3(sinha_df, singh_df)
+    # figure_5_classification(sinha_df, singh_df)
     # figure_5_classification(sinha_df, singh_df)
     # plot_figure_5()
     # print(max_scores_dict)

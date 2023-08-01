@@ -114,28 +114,36 @@ def main() -> None:
         all_flares_df["xray_class"].replace("MX", 1, inplace=True)
         all_flares_df["xray_class"].replace("BC", 0, inplace=True)
         for name, clf, parameters, parameter_name in zip(names, classifiers, parameters_list, parameter_names):
-            occurrences = {p: 0 for p in parameters}
-            cv = GridSearchCV(clf, {parameter_name: parameters}, cv=10, scoring="recall")
-            for shuffle_index in range(20):
-                shuffle_data = shuffle(all_flares_df)
-                X = shuffle_data[FLARE_PROPERTIES].to_numpy()
-                X = MinMaxScaler().fit_transform(X)
-                y = shuffle_data["xray_class"].to_numpy()
-                X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
-                cv.fit(X_train, y_train)
-                occurrences[cv.best_params_[parameter_name]] += 1
-                print(f"{shuffle_index}/20", cv.best_params_[parameter_name])
-                if shuffle_index == 19:
-                    clf.set_params(**{parameter_name: max(occurrences.values())})
-                    clf.fit(X_train, y_train)
-                    y_pred = clf.predict(X_test)
-                    y_true = y_test
-                    filename = f"{metrics_directory}{coincidence}/{'_'.join(flare_classes).lower()}_" \
-                               f"optimized_{name.lower().replace(' ', '_')}_" \
-                               f"{'_'.join(flare_classes).lower()}_{time_window}.txt"
-                    write_classification_metrics(y_true, y_pred, filename, name,
-                                                 flare_classes=[0, 1],
-                                                 print_output=False)
+
+            # cv = GridSearchCV(clf, {parameter_name: parameters}, cv=10, scoring="recall")
+            # for shuffle_index in range(20):
+            #     shuffle_data = shuffle(all_flares_df)
+            #     X = shuffle_data[FLARE_PROPERTIES].to_numpy()
+            #     X = MinMaxScaler().fit_transform(X)
+            #     y = shuffle_data["xray_class"].to_numpy()
+            #     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+            #     cv.fit(X_train, y_train)
+            #     occurrences[cv.best_params_[parameter_name]] += 1
+            #     print(f"{shuffle_index}/20", cv.best_params_[parameter_name])
+            #     if shuffle_index == 19:
+            #         clf.set_params(**{parameter_name: max(occurrences.values())})
+            #         clf.fit(X_train, y_train)
+            #         y_pred = clf.predict(X_test)
+            #         y_true = y_test
+            #         filename = f"{metrics_directory}{coincidence}/{'_'.join(flare_classes).lower()}_" \
+            #                    f"optimized_{name.lower().replace(' ', '_')}_" \
+            #                    f"{'_'.join(flare_classes).lower()}_{time_window}.txt"
+            #         write_classification_metrics(y_true, y_pred, filename, name,
+            #                                      flare_classes=[0, 1],
+            #                                      print_output=False)
+
+            if name == "KNN":
+                occurrences = {p: 0 for p in parameters}
+            elif name == "RFC":
+                occurrences = {p: 0 for p in parameters}
+            elif name == "LR":
+                occurrences = {p: 0 for p in parameters}
+
 
             print(occurrences)
             plt.bar(range(len(occurrences.keys())), occurrences.values())

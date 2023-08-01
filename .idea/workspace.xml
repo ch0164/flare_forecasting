@@ -2,931 +2,278 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b96d273d-abd9-45da-9424-fb1b6c4cc8cf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/flare_data/new_agu_data.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/singh_nbcmx_data_12h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/singh_nbcmx_data_corrected.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/temp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/test_all_dropped.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_0h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_10h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_11h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_12h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_13h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_14h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_15h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_16h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_17h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_18h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_19h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_1h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_20h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_21h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_22h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_23h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_24h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_2h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_3h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_4h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_5h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_6h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_7h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_8h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints/singh_nbcmx_data_9h_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_0h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_0h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_0h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_0h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_10h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_10h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_10h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_10h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_11h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_11h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_11h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_11h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_12h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_12h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_12h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_12h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_13h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_13h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_13h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_13h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_14h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_14h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_14h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_14h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_15h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_15h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_15h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_15h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_16h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_16h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_16h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_16h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_17h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_17h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_17h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_17h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_18h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_18h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_18h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_18h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_19h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_19h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_19h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_19h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_1h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_1h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_1h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_1h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_20h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_20h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_20h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_20h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_21h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_21h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_21h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_21h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_22h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_22h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_22h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_22h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_23h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_23h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_23h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_23h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_24h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_24h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_24h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_24h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_2h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_2h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_2h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_2h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_3h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_3h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_3h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_3h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_4h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_4h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_4h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_4h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_5h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_5h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_5h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_5h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_6h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_6h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_6h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_6h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_7h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_7h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_7h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_7h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_8h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_8h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_8h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_8h_nearest_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_9h_default_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_9h_default_timepoint_without_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_9h_nearest_timepoint_with_filter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flare_data/timepoints_default/singh_nbcmx_data_9h_nearest_timepoint_without_filter.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/dummy3.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/singh_nabmx_24h_default_timepoint_without_filter - Copy.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flare_data/singh_nabmx_24h_default_timepoint_without_filter.csv" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/nbcmx_timepoint_comparison.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/agu_poster/other/default_timepoint_with_filter_results.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/agu_poster/other/default_timepoint_without_filter_results.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/agu_poster/other/nearest_timepoint_with_filter_results.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/agu_poster/other/nearest_timepoint_without_filter_results.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/agu_poster/other/original_agu_data_results.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/Our MX R_VALUE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/Our MX TOTUSJH.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/Our NAB R_VALUE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/Our NAB TOTUSJH.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/Zenodo MX R_VALUE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/Zenodo MX TOTUSJH.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/Zenodo NAB R_VALUE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/Zenodo NAB TOTUSJH.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/r_value_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/totusjh_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/other/0h_24h_mean_time_series_classification.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/absnjzh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/area_acr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/d_l_f.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/g_s.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meangam.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meangbh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meangbt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meangbz.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meanjzd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meanjzh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meanpot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meanshr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/r_value_all_scatter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/savncpp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/shrgt45.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/slf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/totpot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/totusjh_all_scatter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/totusjz_all_scatter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/usflux_all_scatter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/absnjzh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/area_acr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/d_l_f.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/g_s.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meangam.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meangbh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meangbt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meangbz.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meanjzd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meanjzh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meanpot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meanshr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/r_value_coincidence_scatter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/savncpp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/shrgt45.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/slf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/totpot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/totusjh_coincidence_scatter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/totusjz_coincidence_scatter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/usflux_coincidence_scatter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/metrics/individual_feature_performances_by_classifier.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/sinha_study/metrics/individual_feature_performances_by_lr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/11h_timepoint_coincidence_comparison.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/12h_timepoint_coincidence_comparison.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/15h_timepoint_coincidence_comparison.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/4h_timepoint_coincidence_comparison.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/9h_timepoint_coincidence_comparison.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/bcmx_dataset_comparison.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/dropouts/b_dropout_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/dropouts/b_dropout_histogram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/dropouts/bc_dropout_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/dropouts/bc_dropout_histogram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/dropouts/c_dropout_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/dropouts/c_dropout_histogram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/dropouts/m_dropout_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/dropouts/m_dropout_histogram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/dropouts/mx_dropout_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/dropouts/mx_dropout_histogram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/dropouts/n_dropout_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/dropouts/n_dropout_histogram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/dropouts/nbc_dropout_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/dropouts/nbc_dropout_histogram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/dropouts/x_dropout_distribution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/dropouts/x_dropout_histogram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/flare_counts_default_timepoint_with_filter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/flare_counts_default_timepoint_without_filter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/flare_counts_nearest_timepoint_with_filter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/flare_counts_nearest_timepoint_without_filter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_coincidence_comparison.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_default_timepoint_no_filter_comparison_all.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_default_timepoint_no_filter_comparison_coincidental.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_default_timepoint_no_filter_comparison_noncoincidental.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_mean_time_comparison_all.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_mean_time_comparison_coincidental.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_mean_time_comparison_noncoincidental.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_mean_timepoint_comparison_all.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_mean_timepoint_comparison_coincidental.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_mean_timepoint_comparison_noncoincidental.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_nearest_timepoint_filter_comparison_all.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_nearest_timepoint_filter_comparison_coincidental.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_nearest_timepoint_filter_comparison_noncoincidental.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_timepoint_comparison.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_timepoint_comparison_all.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_timepoint_comparison_all2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_timepoint_comparison_coincidental.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_timepoint_comparison_coincidental2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_timepoint_comparison_noncoincidental.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_timepoint_comparison_noncoincidental2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_timepoint_comparison_reversed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_timeseries_comparison_all.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_timeseries_comparison_coincidental.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_timeseries_comparison_noncoincidental.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbmx_timeseries_comparison_all.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbmx_timeseries_comparison_coincidental.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbmx_timeseries_comparison_noncoincidental.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/0h_20h_time_window_comparison.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/0h_24h_time_window_comparison.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/0h_to_24h_mean_timepoint_coincidence_classification.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/0h_to_24h_nbmx_mean_timepoint_coincidence_classification.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/0h_to_24h_time_series_classification.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/0h_to_24h_timepoint_coincidence_classification.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/4h_20h_time_window_comparison.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/b_dropout_stats.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/c_dropout_stats.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/dropout_stats.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/interpolated_time_series_classification.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/m_dropout_stats.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/n_dropout_stats.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/randomized_time_series_comparison.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/x_dropout_stats.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_10h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_10h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_10h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_10h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_10h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_10h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_10h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_10h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_10h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_10h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_10h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_10h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_10h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_10h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_10h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_10h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_10h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_10h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_10h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_10h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_11h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_11h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_11h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_11h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_11h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_11h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_11h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_11h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_11h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_11h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_11h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_11h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_11h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_11h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_11h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_11h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_11h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_11h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_11h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_11h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_12h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_12h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_12h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_12h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_12h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_12h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_12h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_12h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_12h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_12h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_12h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_12h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_12h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_12h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_12h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_12h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_12h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_12h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_12h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_12h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_13h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_13h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_13h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_13h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_13h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_13h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_13h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_13h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_13h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_13h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_13h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_13h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_13h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_13h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_13h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_13h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_13h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_13h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_13h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_13h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_14h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_14h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_14h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_14h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_14h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_14h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_14h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_14h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_14h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_14h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_14h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_14h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_14h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_14h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_14h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_14h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_14h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_14h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_14h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_14h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_15h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_15h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_15h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_15h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_15h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_15h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_15h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_15h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_15h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_15h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_15h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_15h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_15h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_15h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_15h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_15h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_15h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_15h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_15h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_15h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_16h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_16h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_16h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_16h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_16h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_16h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_16h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_16h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_16h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_16h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_16h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_16h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_16h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_16h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_16h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_16h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_16h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_16h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_16h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_16h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_17h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_17h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_17h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_17h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_17h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_17h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_17h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_17h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_17h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_17h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_17h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_17h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_17h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_17h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_17h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_17h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_17h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_17h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_17h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_17h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_18h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_18h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_18h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_18h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_18h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_18h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_18h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_18h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_18h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_18h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_18h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_18h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_18h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_18h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_18h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_18h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_18h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_18h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_18h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_18h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_19h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_19h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_19h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_19h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_19h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_19h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_19h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_19h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_19h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_19h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_19h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_19h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_19h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_19h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_19h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_19h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_19h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_19h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_19h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_19h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_1h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_1h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_1h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_1h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_1h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_1h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_1h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_1h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_1h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_1h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_1h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_1h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_1h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_1h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_1h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_1h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_1h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_1h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_1h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_1h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_20h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_20h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_20h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_20h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_20h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_20h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_20h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_20h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_20h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_20h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_20h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_20h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_20h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_20h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_20h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_20h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_20h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_20h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_20h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_20h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_21h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_21h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_21h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_21h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_21h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_21h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_21h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_21h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_21h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_21h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_21h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_21h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_21h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_21h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_21h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_21h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_21h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_21h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_21h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_21h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_22h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_22h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_22h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_22h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_22h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_22h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_22h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_22h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_22h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_22h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_22h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_22h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_22h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_22h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_22h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_22h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_22h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_22h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_22h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_22h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_23h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_23h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_23h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_23h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_23h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_23h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_23h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_23h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_23h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_23h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_23h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_23h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_23h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_23h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_23h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_23h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_23h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_23h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_23h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_23h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/absnjzh_no_interpolation.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/area_acr_no_interpolation.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/d_l_f_no_interpolation.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/g_s_no_interpolation.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangam_no_interpolation.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangbh_no_interpolation.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangbt_no_interpolation.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangbz_no_interpolation.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanjzd_no_interpolation.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanjzh_no_interpolation.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanpot_no_interpolation.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanshr_no_interpolation.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/r_value_no_interpolation.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/savncpp_no_interpolation.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/shrgt45_no_interpolation.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/slf_no_interpolation.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/totpot_no_interpolation.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/totusjh_no_interpolation.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/totusjz_no_interpolation.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/usflux_no_interpolation.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_2h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_2h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_2h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_2h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_2h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_2h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_2h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_2h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_2h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_2h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_2h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_2h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_2h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_2h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_2h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_2h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_2h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_2h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_2h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_2h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_3h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_3h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_3h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_3h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_3h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_3h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_3h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_3h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_3h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_3h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_3h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_3h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_3h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_3h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_3h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_3h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_3h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_3h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_3h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_3h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_4h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_4h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_4h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_4h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_4h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_4h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_4h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_4h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_4h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_4h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_4h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_4h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_4h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_4h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_4h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_4h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_4h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_4h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_4h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_4h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_5h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_5h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_5h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_5h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_5h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_5h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_5h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_5h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_5h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_5h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_5h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_5h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_5h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_5h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_5h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_5h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_5h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_5h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_5h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_5h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_6h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_6h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_6h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_6h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_6h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_6h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_6h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_6h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_6h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_6h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_6h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_6h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_6h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_6h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_6h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_6h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_6h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_6h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_6h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_6h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_7h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_7h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_7h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_7h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_7h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_7h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_7h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_7h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_7h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_7h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_7h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_7h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_7h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_7h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_7h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_7h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_7h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_7h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_7h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_7h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_8h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_8h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_8h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_8h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_8h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_8h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_8h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_8h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_8h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_8h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_8h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_8h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_8h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_8h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_8h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_8h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_8h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_8h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_8h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_8h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_9h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_9h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_9h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_9h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_9h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_9h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_9h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_9h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_9h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_9h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_9h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_9h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_9h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_9h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_9h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_9h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_9h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_9h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_9h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_9h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_timepoint_coincidence_classification.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_to_24h_nbcmx_default_timepoint_with_filter_coincidence_classification.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_to_24h_nbcmx_nearest_timepoint_with_filter_coincidence_classification.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/12h_timepoint_coincidence_classification.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/24h_timepoint_method_filter_comparison.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/4h_20h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/4h_20h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/4h_20h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/4h_20h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/4h_20h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/4h_20h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/4h_20h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/4h_20h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/4h_20h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/4h_20h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/4h_20h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/4h_20h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/4h_20h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/4h_20h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/4h_20h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/4h_20h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/4h_20h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/4h_20h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/4h_20h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/4h_20h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/bcmx_classification_results_year1_report.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/absnjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/area_acr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/d_l_f.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/g_s.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/meangam.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/meangbh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/meangbt.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/meangbz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/meanjzd.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/meanjzh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/meanpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/meanshr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/r_value.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/savncpp.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/shrgt45.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/slf.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/totpot.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/totusjh.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/totusjz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/usflux.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/area_acr2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_10h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_11h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_12h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_13h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_14h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_15h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_16h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_17h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_18h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_19h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_1h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_20h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_21h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_22h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_23h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_24h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_2h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_3h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_4h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_5h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_6h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_7h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_8h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_datasets/nbcmx_0h_9h_mean_timepoint.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_10h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_10h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_11h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_11h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_12h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_12h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_13h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_13h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_14h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_14h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_15h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_15h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_16h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_16h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_17h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_17h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_18h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_18h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_19h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_19h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_1h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_1h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_20h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_20h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_21h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_21h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_22h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_22h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_23h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_23h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_24h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_24h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_2h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_2h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_3h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_3h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_4h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_4h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_5h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_5h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_6h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_6h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_7h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_7h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_8h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_8h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_9h_mean_time_series.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/mean_time_series/0h_9h_mean_time_series_with_null.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/nbcmx_classification_results_year1_report.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/experiments/agu.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/experiments/blank.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/experiments/test_all_dropped_new.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/experiments/test_none_dropped_new.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/flare_forecasting.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/flare_forecasting.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/all/singh_all_loo_classification_performance_barplot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/coincident/singh_coincident_loo_classification_performance_barplot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/noncoincident/singh_noncoincident_loo_classification_performance_barplot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/r_value.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/totusjh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/totusjz.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/usflux.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_study/other/all/singh_score_loo_new.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_study/other/coincident/singh_score_loo_new.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_study/other/noncoincident/singh_score_loo_new.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/sinha_study/other/singh_score_new.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/all_parallel_coordinates_filter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/bcmx_classification_default_filter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/bcmx_classification_default_unfilter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/bcmx_classification_nearest_filter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/bcmx_classification_nearest_unfilter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/coincident_parallel_coordinates2.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/coincident_parallel_coordinates_filter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/idealized_flares/all_nbcmx_idealized_flares.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/idealized_flares/coincident/coincident_nbcmx_idealized_flares.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/idealized_flares/coincident_nbcmx_idealized_flares.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/idealized_flares/noncoincident/noncoincident_nbcmx_idealized_flares.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/idealized_flares/noncoincident_nbcmx_idealized_flares.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_24h_mean_timepoint_correlation_matrix.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_24h_mean_timepoint_correlation_matrix_unfiltered.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_24h_mean_timepoint_multivariate_lr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_24h_mean_timepoint_univariate_lr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_24h_timepoint_correlation_matrix.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_24h_timepoint_correlation_matrix2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_24h_timepoint_correlation_matrix_filtered.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_24h_timepoint_correlation_matrix_unfiltered.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_24h_timepoint_multivariate_lr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_24h_timepoint_univariate_lr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/noncoincident_parallel_coordinates2.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/noncoincident_parallel_coordinates_filter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/coincident_mean_parameters.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/missing_singles_linear_interpolated_time_series_classification.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/missing_singles_linear_interpolated_time_series_classification_2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/missing_timepoint_classifier_117.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/missing_timepoint_classifier_117_2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/missing_timepoint_classifiers.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/noncoincident_mean_parameters.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/pair_maximal_linear_interpolation.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_pairs_rank_sum_fishers_method.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_pairs_ranksums_ttest_pearsons_method.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_pairs_two_sample_ttest_fishers_method.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_pairs_two_sample_ttest_pearsons_method.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_pairs_wilcoxen.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_pairs_wilcoxen_12h_6h_before.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_pairs_wilcoxen_18h_12h_before.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_pairs_wilcoxen_24h_18h_before.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_pairs_wilcoxen_6h_0h_before.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_singles_rank_sum_fishers_method.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_singles_two_sample_ttest_fishers_method.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_singles_wilcoxen.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_singles_wilcoxen_12h_6h_before.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_singles_wilcoxen_12h_6h_before_averages.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_singles_wilcoxen_12h_6h_before_maximums.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_singles_wilcoxen_12h_6h_before_minimums.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_singles_wilcoxen_18h_12h_before.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_singles_wilcoxen_18h_12h_before_averages.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_singles_wilcoxen_18h_12h_before_maximums.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_singles_wilcoxen_18h_12h_before_minimums.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_singles_wilcoxen_24h_18h_before.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_singles_wilcoxen_24h_18h_before_averages.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_singles_wilcoxen_24h_18h_before_maximums.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_singles_wilcoxen_24h_18h_before_minimums.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_singles_wilcoxen_6h_0h_before.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_singles_wilcoxen_6h_0h_before_averages.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_singles_wilcoxen_6h_0h_before_maximums.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/simple_linear_interpolation_missing_singles_wilcoxen_6h_0h_before_minimums.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/absnjzh_117.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/absnjzh_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/absnjzh_filtered.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/absnjzh_missing_pair.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/area_acr_117.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/area_acr_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/area_acr_filtered.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/area_acr_missing_pair.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/d_l_f_117.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/d_l_f_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/d_l_f_filtered.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/d_l_f_missing_pair.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/g_s_117.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/g_s_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/g_s_filtered.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/g_s_missing_pair.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangam_117.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangam_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangam_filtered.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangam_missing_pair.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangbh_117.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangbh_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangbh_filtered.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangbh_missing_pair.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangbt_117.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangbt_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangbt_filtered.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangbt_missing_pair.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangbz_117.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangbz_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangbz_filtered.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meangbz_missing_pair.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanjzd_117.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanjzd_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanjzd_filtered.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanjzd_missing_pair.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanjzh_117.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanjzh_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanjzh_filtered.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanjzh_missing_pair.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanpot_117.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanpot_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanpot_filtered.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanpot_missing_pair.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanshr_117.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanshr_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanshr_filtered.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/meanshr_missing_pair.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/r_value_117.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/r_value_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/r_value_filtered.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/r_value_missing_pair.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/savncpp_117.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/savncpp_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/savncpp_filtered.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/savncpp_missing_pair.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/shrgt45_117.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/shrgt45_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/shrgt45_filtered.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/shrgt45_missing_pair.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/slf_117.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/slf_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/slf_filtered.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/slf_missing_pair.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/totpot_117.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/totpot_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/totpot_filtered.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/totpot_missing_pair.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/totusjh_117.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/totusjh_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/totusjh_filtered.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/totusjh_missing_pair.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/totusjz_117.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/totusjz_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/totusjz_filtered.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/totusjz_missing_pair.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/usflux_117.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/usflux_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/usflux_filtered.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h/usflux_missing_pair.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/bcmx_classification_results_year1_report_default_filter.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/bcmx_classification_results_year1_report_default_unfilter.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/bcmx_classification_results_year1_report_nearest_filter.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/bcmx_classification_results_year1_report_nearest_unfilter.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/absnjzh_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/area_acr_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/d_l_f_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/g_s_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/meangam_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/meangbh_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/meangbt_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/meangbz_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/meanjzd_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/meanjzh_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/meanpot_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/meanshr_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/r_value_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/savncpp_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/shrgt45_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/slf_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/totpot_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/totusjh_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/totusjz_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/interpolated_time_series/0h_24h/usflux_119.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/noncoincident/bcmx_classification_results_year1_report_copy.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/experiments/dummy.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/experiments/dummy2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/experiments/dummy3.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/experiments/knn_all_hyperparameters.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/experiments/lr_all_hyperparameters.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/experiments/operational_tss_monte_carlo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/experiments/rfc_all_hyperparameters.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/experiments/svm_all_hyperparameters.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/agu_poster/figures/all_parallel_coordinates.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/agu_poster/figures/all_parallel_coordinates.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/agu_poster/figures/coincident_parallel_coordinates.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/agu_poster/figures/coincident_parallel_coordinates.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/agu_poster/figures/noncoincident_parallel_coordinates.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/agu_poster/figures/noncoincident_parallel_coordinates.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/absnjzh_distribution.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/absnjzh_distribution.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/area_acr_distribution.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/area_acr_distribution.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/meanpot_distribution.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/meanpot_distribution.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flare_list/n_list.txt" beforeDir="false" afterPath="$PROJECT_DIR$/flare_list/n_list.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/Our MX R_VALUE.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/Our MX R_VALUE.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/Our MX TOTUSJH.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/Our MX TOTUSJH.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/Our NAB R_VALUE.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/Our NAB R_VALUE.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/Our NAB TOTUSJH.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/Our NAB TOTUSJH.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/Zenodo MX TOTUSJH.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/Zenodo MX TOTUSJH.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/Zenodo NAB R_VALUE.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/Zenodo NAB R_VALUE.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/Zenodo NAB TOTUSJH.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/figure_1_histograms/Zenodo NAB TOTUSJH.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_coincidence_histogram_absnjzh.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_coincidence_histogram_absnjzh.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_coincidence_histogram_area_acr.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_coincidence_histogram_area_acr.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_coincidence_histogram_meanpot.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_coincidence_histogram_meanpot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_coincidence_histogram_r_value.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_coincidence_histogram_r_value.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_coincidence_histogram_savncpp.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_coincidence_histogram_savncpp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_coincidence_histogram_shrgt45.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_coincidence_histogram_shrgt45.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_coincidence_histogram_totpot.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_coincidence_histogram_totpot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_coincidence_histogram_totusjh.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_coincidence_histogram_totusjh.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_coincidence_histogram_totusjz.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_coincidence_histogram_totusjz.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_coincidence_histogram_usflux.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/mx_coincidence_histogram_usflux.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/nb_coincidence_histogram_absnjzh.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/nb_coincidence_histogram_absnjzh.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/nb_coincidence_histogram_area_acr.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/nb_coincidence_histogram_area_acr.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/nb_coincidence_histogram_meanpot.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/nb_coincidence_histogram_meanpot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/nb_coincidence_histogram_r_value.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/nb_coincidence_histogram_r_value.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/nb_coincidence_histogram_savncpp.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/nb_coincidence_histogram_savncpp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/nb_coincidence_histogram_shrgt45.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/nb_coincidence_histogram_shrgt45.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/nb_coincidence_histogram_totpot.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/nb_coincidence_histogram_totpot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/nb_coincidence_histogram_totusjh.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/nb_coincidence_histogram_totusjh.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/nb_coincidence_histogram_totusjz.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/nb_coincidence_histogram_totusjz.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/nb_coincidence_histogram_usflux.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/nb_coincidence_histogram_usflux.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/r_value_distribution.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/r_value_distribution.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/savncpp_distribution.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/savncpp_distribution.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/shrgt45_distribution.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/shrgt45_distribution.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/totpot_distribution.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/totpot_distribution.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/totusjh_distribution.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/totusjh_distribution.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/totusjz_distribution.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/totusjz_distribution.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/usflux_distribution.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_singh_distribution_comparison/figures/usflux_distribution.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/classification/selected_quintuples_totusjh_totusjz_savncpp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/metrics/classification/selected_quintuples_totusjh_totusjz_savncpp.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/absnjzh.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h_old/absnjzh.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/area_acr.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h_old/area_acr.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/d_l_f.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h_old/d_l_f.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/g_s.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h_old/g_s.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/meangam.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h_old/meangam.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/meangbh.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h_old/meangbh.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/meangbt.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h_old/meangbt.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/meangbz.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h_old/meangbz.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/meanjzd.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h_old/meanjzd.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/meanjzh.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h_old/meanjzh.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/meanpot.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h_old/meanpot.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/meanshr.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h_old/meanshr.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/r_value.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h_old/r_value.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/r_value_totusjz_totusjh.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h_old/r_value_totusjz_totusjh.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/savncpp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h_old/savncpp.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/shrgt45.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h_old/shrgt45.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/slf.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h_old/slf.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/totpot.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h_old/totpot.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/totusjh.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h_old/totusjh.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/totusjz.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h_old/totusjz.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/usflux.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/other/0h_24h_old/usflux.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/absnjzh.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/absnjzh.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/area_acr.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/area_acr.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/d_l_f.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/d_l_f.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/g_s.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/g_s.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meangam.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meangam.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meangbh.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meangbh.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meangbt.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meangbt.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meangbz.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meangbz.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meanjzd.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meanjzd.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meanjzh.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meanjzh.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meanpot.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meanpot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meanshr.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/meanshr.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/savncpp.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/savncpp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/shrgt45.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/shrgt45.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/slf.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/slf.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/totpot.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/all/totpot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/absnjzh.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/absnjzh.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/area_acr.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/area_acr.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/d_l_f.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/d_l_f.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/g_s.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/g_s.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meangam.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meangam.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meangbh.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meangbh.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meangbt.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meangbt.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meangbz.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meangbz.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meanjzd.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meanjzd.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meanjzh.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meanjzh.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meanpot.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meanpot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meanshr.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/meanshr.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/r_value_coincidence_scatter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/savncpp.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/savncpp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/shrgt45.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/shrgt45.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/slf.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/slf.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/totpot.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/totpot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/totusjh_coincidence_scatter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/totusjz_coincidence_scatter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/figures/scatter_plots/coincidence/usflux_coincidence_scatter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/metrics/individual_feature_performances_by_classifier.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/metrics/individual_feature_performances_by_classifier.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/other/anova/singh_anova_all.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/other/anova/singh_anova_all.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/other/anova/singh_anova_coincident.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/other/anova/singh_anova_coincident.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/sinha_study/other/anova/singh_anova_noncoincident.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/sinha_study/other/anova/singh_anova_noncoincident.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/all_parallel_coordinates.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/all_parallel_coordinates.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/coincident_parallel_coordinates.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/coincident_parallel_coordinates.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/idealized_flares/coincident/nbcmx_idealized_flares.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/idealized_flares/coincident/nbcmx_idealized_flares.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/idealized_flares/nbcmx_idealized_flares.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/idealized_flares/nbcmx_idealized_flares.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/idealized_flares/noncoincident/nbcmx_idealized_flares.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/idealized_flares/noncoincident/nbcmx_idealized_flares.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_nearest_timepoint_filter_comparison_all.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_nearest_timepoint_filter_comparison_all.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_nearest_timepoint_filter_comparison_coincidental.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_nearest_timepoint_filter_comparison_coincidental.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_nearest_timepoint_filter_comparison_noncoincidental.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/nbcmx_nearest_timepoint_filter_comparison_noncoincidental.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/noncoincident_parallel_coordinates.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/noncoincident_parallel_coordinates.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/x_absnjzh_individual_flares.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/time_series_goodness_of_fit/figures/x_absnjzh_individual_flares.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/experiments/agu_poster.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/agu_poster.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/experiments/neural_network.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/neural_network.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/experiments/neural_network2.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/neural_network2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/experiments/reverse_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/reverse_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/experiments/ribbon_test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/experiments/sinha_singh_distribution_comparison.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/sinha_singh_distribution_comparison.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/experiments/sinha_classification_figures.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/sinha_classification_figures.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/experiments/sinha_study.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/sinha_study.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/experiments/sinha_study2.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/sinha_study2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/experiments/time_series_goodness_of_fit2.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/experiments/time_series_goodness_of_fit2.py" afterDir="false" />
@@ -980,22 +327,22 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\time_series_goodness_of_fit\other\noncoincident" />
       <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\flare_data" />
       <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\source\experiments" />
       <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\peak_years_train_test\metrics" />
       <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\peak_years_train_test" />
-      <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\coincidence_effects\other" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\time_series_goodness_of_fit\other" />
       <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\time_series_goodness_of_fit\other\0h_24h" />
       <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\neural_network\figures" />
       <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\time_series_goodness_of_fit\metrics\classification" />
       <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\flare_data" />
-      <recent name="C:\Users\youar\PycharmProjects\flare_forecasting\results\sinha_study\other" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.agu_poster">
-    <configuration name="agu" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.time_series_goodness_of_fit2">
+    <configuration name="operational_tss_monte_carlo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -1008,7 +355,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/agu.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/operational_tss_monte_carlo.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -1017,7 +364,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="agu_poster" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="reverse_search" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -1030,7 +377,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/agu_poster.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/reverse_search.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -1039,7 +386,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="blank" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="sinha_study" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -1052,7 +399,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/blank.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/sinha_study.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -1061,7 +408,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="sinha_singh_distribution_comparison" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="sinha_study2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flare_forecasting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -1074,7 +421,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/sinha_singh_distribution_comparison.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/experiments/sinha_study2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -1107,11 +454,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.agu_poster" />
-        <item itemvalue="Python.agu" />
-        <item itemvalue="Python.sinha_singh_distribution_comparison" />
         <item itemvalue="Python.time_series_goodness_of_fit2" />
-        <item itemvalue="Python.blank" />
+        <item itemvalue="Python.sinha_study2" />
+        <item itemvalue="Python.sinha_study" />
+        <item itemvalue="Python.reverse_search" />
+        <item itemvalue="Python.operational_tss_monte_carlo" />
       </list>
     </recent_temporary>
   </component>
@@ -1156,7 +503,15 @@
       <workItem from="1681387004728" duration="218000" />
       <workItem from="1681833073577" duration="45505000" />
       <workItem from="1682685891576" duration="2515000" />
-      <workItem from="1682688692696" duration="7668000" />
+      <workItem from="1682688692696" duration="42121000" />
+      <workItem from="1684250367580" duration="48611000" />
+      <workItem from="1687194797826" duration="15588000" />
+      <workItem from="1687854408940" duration="13215000" />
+      <workItem from="1688566657931" duration="2999000" />
+      <workItem from="1688653388032" duration="10818000" />
+      <workItem from="1689269256353" duration="7043000" />
+      <workItem from="1689871856822" duration="7216000" />
+      <workItem from="1690390706128" duration="14503000" />
     </task>
     <task id="LOCAL-00001" summary="LDA B/MX classifier">
       <created>1662575033124</created>
@@ -1368,7 +723,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678395053806</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="SP23 changes">
+      <created>1682952885601</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1682952885601</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1387,7 +749,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="LDA B/MX classifier" />
     <MESSAGE value="Data" />
     <MESSAGE value="Dummy commit" />
     <MESSAGE value="Other iterative LDA" />
@@ -1412,7 +773,8 @@
     <MESSAGE value="New stuff with coincidence histograms and LR/SVM battery of tests" />
     <MESSAGE value="More LOO, coincidence stuff, and goodness of fit idealized flares" />
     <MESSAGE value="Stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Stuff" />
+    <MESSAGE value="SP23 changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="SP23 changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1431,18 +793,18 @@
     <SUITE FILE_PATH="coverage/flare_forecasting$dummy.coverage" NAME="dummy Coverage Results" MODIFIED="1677164635938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$tsne.coverage" NAME="tsne Coverage Results" MODIFIED="1668016318003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$max_subarray.coverage" NAME="max_subarray Coverage Results" MODIFIED="1678341184003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$sinha_study2.coverage" NAME="sinha_study2 Coverage Results" MODIFIED="1679599995991" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$sinha_study2.coverage" NAME="sinha_study2 Coverage Results" MODIFIED="1690462755276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$coincidence.coverage" NAME="coincidence Coverage Results" MODIFIED="1665334952874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$swan_sf_mvts.coverage" NAME="swan_sf_mvts Coverage Results" MODIFIED="1675776991979" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$.coverage" NAME=" Coverage Results" MODIFIED="1681917216970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$time_series_goodness_of_fit2.coverage" NAME="time_series_goodness_of_fit2 Coverage Results" MODIFIED="1682103190604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$.coverage" NAME=" Coverage Results" MODIFIED="1685627762742" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$time_series_goodness_of_fit2.coverage" NAME="time_series_goodness_of_fit2 Coverage Results" MODIFIED="1690486791283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$time_window_classification.coverage" NAME="time_window_classification Coverage Results" MODIFIED="1670341056675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$time_series_goodness_of_fit.coverage" NAME="time_series_goodness_of_fit Coverage Results" MODIFIED="1678383588722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$plot_time_window_tss_recall.coverage" NAME="plot_time_window_tss_recall Coverage Results" MODIFIED="1665587634007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$sinha_study_lr_svm.coverage" NAME="sinha_study_lr_svm Coverage Results" MODIFIED="1673973838727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$swan_sf_mvts2.coverage" NAME="swan_sf_mvts2 Coverage Results" MODIFIED="1675788002488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$sinha_singh_distribution_comparison.coverage" NAME="sinha_singh_distribution_comparison Coverage Results" MODIFIED="1682106746610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$sinha_study.coverage" NAME="sinha_study Coverage Results" MODIFIED="1678973145834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$sinha_study.coverage" NAME="sinha_study Coverage Results" MODIFIED="1690393416872" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$plot_classifier_comparison.coverage" NAME="plot_classifier_comparison Coverage Results" MODIFIED="1664176448542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$idealized_flares.coverage" NAME="idealized_flares Coverage Results" MODIFIED="1663696214789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$pearson_correlation.coverage" NAME="pearson_correlation Coverage Results" MODIFIED="1668011409546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
@@ -1450,13 +812,14 @@
     <SUITE FILE_PATH="coverage/flare_forecasting$lda_classifier.coverage" NAME="lda_classifier Coverage Results" MODIFIED="1668619848216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$ribbon_plot_test.coverage" NAME="ribbon_plot_test Coverage Results" MODIFIED="1675346084624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$classification_comparison.coverage" NAME="classification_comparison Coverage Results" MODIFIED="1675967073392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$agu_poster.coverage" NAME="agu_poster Coverage Results" MODIFIED="1682712389909" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$agu_poster.coverage" NAME="agu_poster Coverage Results" MODIFIED="1683227384351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$operational_tss_monte_carlo.coverage" NAME="operational_tss_monte_carlo Coverage Results" MODIFIED="1689879634650" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$generate_time_series_means.coverage" NAME="generate_time_series_means Coverage Results" MODIFIED="1665586166383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$blank.coverage" NAME="blank Coverage Results" MODIFIED="1681918960147" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$correlation.coverage" NAME="correlation Coverage Results" MODIFIED="1663695704299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$mx_classification.coverage" NAME="mx_classification Coverage Results" MODIFIED="1668011988536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
-    <SUITE FILE_PATH="coverage/flare_forecasting$reverse_search.coverage" NAME="reverse_search Coverage Results" MODIFIED="1673555519066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$neural_network.coverage" NAME="neural_network Coverage Results" MODIFIED="1680005774216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
+    <SUITE FILE_PATH="coverage/flare_forecasting$reverse_search.coverage" NAME="reverse_search Coverage Results" MODIFIED="1690392556689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$coincidence_effects.coverage" NAME="coincidence_effects Coverage Results" MODIFIED="1675182052778" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$plot_timepoint_tss_recall.coverage" NAME="plot_timepoint_tss_recall Coverage Results" MODIFIED="1665594281059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />
     <SUITE FILE_PATH="coverage/flare_forecasting$tabulate_classification_metrics.coverage" NAME="tabulate_classification_metrics Coverage Results" MODIFIED="1665330515344" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/experiments" />

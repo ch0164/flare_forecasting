@@ -1,4 +1,4 @@
-index,nar,time_start,xray_class,time_peak,time_end,COINCIDENCE
+ index,nar,time_start,xray_class,time_peak,time_end,COINCIDENCE
 0,11065,2010-05-03 09:48:00,N,not applicable,not applicable,False
 1,11070,2010-05-06 15:48:00,N,not applicable,not applicable,False
 2,11071,2010-05-08 21:48:00,N,not applicable,not applicable,False

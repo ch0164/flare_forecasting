@@ -322,6 +322,8 @@ def lda_classification(all_flares_df, include_c = False):
 
         y = flares_df["xray_class"].to_numpy()
         X = flares_df[FLARE_PROPERTIES]
+        X = (X - X.min()) / (
+                    X.max() - X.min())
 
 
 
@@ -525,7 +527,7 @@ def main():
     # exit(1)
     # simple_classification(flares_df.copy())
     flares_df["time_start"] = pd.to_datetime(flares_df["time_start"])
-    best_time_window_plot()
+    lda_classification(flares_df)
     # flares_df["time_start"] = pd.to_datetime(flares_df["time_peak"])
     # lda_classification(flares_df.copy())
     # for coincidence in coincidences:
